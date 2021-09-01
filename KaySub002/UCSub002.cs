@@ -57,6 +57,9 @@ namespace KaySub002
             ct_cd_code.Validated += Input_Validation_Check;
             ct_cd_codnm.Validated += Input_Validation_Check;
             //*----Validated Event Handler(END)---------------------------------
+            //*----Enter Number Only(Start)-------------------------------------
+            ct_cd_sdate.KeyPress += Number_Only_Protect;
+            //*----Enter Number Only(END)---------------------------------------
             btn_bas_univ.Click += btn_bas_univ_Click;
         }
 
@@ -64,9 +67,12 @@ namespace KaySub002
         {
             //*--콤보박스 채우기-----------------------------------------
             Utility.SetComboWithCdnm(qt_cd_grpcd, SQLStatement.SelectSQL2);
-            //*--콤보박스에 ""을 추가
+            //*--콤보박스에 ""을 추가------------------------------------
             ct_cd_use.Items.Add("");
             qt_cd_use.Items.Add("");
+            //*--콤보박스 미리 선택--------------------------------------
+            qt_cd_grpcd.SelectedIndex = 1;
+
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "1");
             Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
@@ -92,7 +98,7 @@ namespace KaySub002
                 OracleCommand cmd = con.CreateCommand();
                 cmd.CommandText = SQLStatement.SelectSQL;
                 cmd.BindByName = true;
-                cmd.Parameters.Add("cd_grpcd", OracleDbType.Varchar2).Value = "%" + qt_cd_grpcd.Text + "%";
+                cmd.Parameters.Add("cd_grpcd", OracleDbType.Varchar2).Value = "%" + Utility.GetCode(qt_cd_grpcd.Text) + "%";
                 cmd.Parameters.Add("cd_use", OracleDbType.Varchar2).Value = "%" + qt_cd_use.Text + "%";
                 OracleDataReader dr = cmd.ExecuteReader();
                 query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)

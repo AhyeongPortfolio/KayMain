@@ -22,10 +22,14 @@ namespace KaySub002
         //******************************
 
         public static string
-            SelectSQL = @"SELECT* FROM kay_insa_cd 
-                            WHERE cd_grpcd LIKE :cd_grpcd
+            SelectSQL = @"SELECT A.cd_grpcd||':'||B.cdg_grpnm as cdg_grpcd
+                            A.cd_code,  A.cd_seq, A.cd_codnms, A.cd_codnm, A.addinfo,
+                            A.cd_upper, A.cd_use, A.cd_sdate,  A.cd_edate 
+                            FROM kay_insa_cd A, kay_insa_cdg B
+                            WHERE  A.cd_grpcd = B.cdg_grpcd(+)
+                            cd_grpcd LIKE :cd_grpcd
                             AND cd_use LIKE :cd_use
-                            AND ROWNUM <= 30";
+                            AND ROWNUM <= 30 ";
 
         //******************************
         //--추가

@@ -62,6 +62,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.qt_cd_use = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cd_grpcd = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,10 +75,6 @@
             this.cd_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cd_sdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cd_edate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datasys1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datasys2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datasys3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -98,7 +95,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1052, 677);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(969, 677);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -114,7 +111,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 631F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1046, 631);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(963, 631);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // dataGridView1
@@ -137,10 +134,7 @@
             this.cd_upper,
             this.cd_use,
             this.cd_sdate,
-            this.cd_edate,
-            this.datasys1,
-            this.datasys2,
-            this.datasys3});
+            this.cd_edate});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
@@ -148,7 +142,7 @@
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(770, 625);
+            this.dataGridView1.Size = new System.Drawing.Size(687, 625);
             this.dataGridView1.TabIndex = 0;
             // 
             // panData
@@ -176,7 +170,7 @@
             this.panData.Controls.Add(this.label4);
             this.panData.Controls.Add(this.panel3);
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panData.Location = new System.Drawing.Point(779, 3);
+            this.panData.Location = new System.Drawing.Point(696, 3);
             this.panData.Name = "panData";
             this.panData.Size = new System.Drawing.Size(264, 625);
             this.panData.TabIndex = 10;
@@ -398,7 +392,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1046, 34);
+            this.panel4.Size = new System.Drawing.Size(963, 34);
             this.panel4.TabIndex = 1;
             // 
             // qt_cd_grpcd
@@ -416,7 +410,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 33);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1046, 1);
+            this.panel5.Size = new System.Drawing.Size(963, 1);
             this.panel5.TabIndex = 61;
             // 
             // label1
@@ -451,6 +445,10 @@
             this.qt_cd_use.Name = "qt_cd_use";
             this.qt_cd_use.Size = new System.Drawing.Size(100, 20);
             this.qt_cd_use.TabIndex = 56;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // status
             // 
@@ -548,34 +546,6 @@
             this.cd_edate.Visible = false;
             this.cd_edate.Width = 78;
             // 
-            // datasys1
-            // 
-            this.datasys1.DataPropertyName = "datasys1";
-            this.datasys1.HeaderText = "자료처리일시";
-            this.datasys1.Name = "datasys1";
-            this.datasys1.Visible = false;
-            this.datasys1.Width = 102;
-            // 
-            // datasys2
-            // 
-            this.datasys2.DataPropertyName = "datasys2";
-            this.datasys2.HeaderText = "자료처리구분";
-            this.datasys2.Name = "datasys2";
-            this.datasys2.Visible = false;
-            this.datasys2.Width = 102;
-            // 
-            // datasys3
-            // 
-            this.datasys3.DataPropertyName = "datasys3";
-            this.datasys3.HeaderText = "자료처리자";
-            this.datasys3.Name = "datasys3";
-            this.datasys3.Visible = false;
-            this.datasys3.Width = 90;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -583,7 +553,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(1052, 677);
+            this.Size = new System.Drawing.Size(969, 677);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -631,6 +601,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox qt_cd_use;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn key1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_grpcd;
@@ -643,9 +614,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_use;
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_sdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_edate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datasys1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datasys2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datasys3;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
