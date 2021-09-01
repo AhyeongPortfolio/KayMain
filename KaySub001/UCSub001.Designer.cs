@@ -38,16 +38,16 @@
             this.cdg_length = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cdg_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cdg_kind = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panData = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.grpYN = new System.Windows.Forms.ComboBox();
+            this.cboYN = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.kindBox = new System.Windows.Forms.ComboBox();
+            this.cboKind = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.digitBox = new System.Windows.Forms.TextBox();
-            this.lengthBox = new System.Windows.Forms.TextBox();
-            this.grpnmBox = new System.Windows.Forms.TextBox();
-            this.grpcdBox = new System.Windows.Forms.TextBox();
+            this.txtdigit = new System.Windows.Forms.TextBox();
+            this.txtlength = new System.Windows.Forms.TextBox();
+            this.txtgrpnm = new System.Windows.Forms.TextBox();
+            this.txtgrpcd = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,17 +55,17 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.cdgGrpcd = new System.Windows.Forms.TextBox();
+            this.txtgrpcd1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cdgUse = new System.Windows.Forms.ComboBox();
+            this.cboYN1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cdgKind = new System.Windows.Forms.ComboBox();
+            this.cbokind1 = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.cdgName = new System.Windows.Forms.TextBox();
+            this.txtname1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panData.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +90,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panData, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 43);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -105,6 +105,7 @@
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Rwud,
             this.cdg_grpcd,
@@ -177,26 +178,26 @@
             this.cdg_kind.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.cdg_kind.Width = 54;
             // 
-            // panel1
+            // panData
             // 
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.grpYN);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.kindBox);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.digitBox);
-            this.panel1.Controls.Add(this.lengthBox);
-            this.panel1.Controls.Add(this.grpnmBox);
-            this.panel1.Controls.Add(this.grpcdBox);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(628, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(294, 582);
-            this.panel1.TabIndex = 10;
+            this.panData.Controls.Add(this.label8);
+            this.panData.Controls.Add(this.cboYN);
+            this.panData.Controls.Add(this.panel3);
+            this.panData.Controls.Add(this.cboKind);
+            this.panData.Controls.Add(this.label11);
+            this.panData.Controls.Add(this.txtdigit);
+            this.panData.Controls.Add(this.txtlength);
+            this.panData.Controls.Add(this.txtgrpnm);
+            this.panData.Controls.Add(this.txtgrpcd);
+            this.panData.Controls.Add(this.label7);
+            this.panData.Controls.Add(this.label6);
+            this.panData.Controls.Add(this.label5);
+            this.panData.Controls.Add(this.label4);
+            this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panData.Location = new System.Drawing.Point(628, 3);
+            this.panData.Name = "panData";
+            this.panData.Size = new System.Drawing.Size(294, 582);
+            this.panData.TabIndex = 10;
             // 
             // label8
             // 
@@ -208,17 +209,17 @@
             this.label8.TabIndex = 43;
             this.label8.Text = "사용여부";
             // 
-            // grpYN
+            // cboYN
             // 
-            this.grpYN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.grpYN.FormattingEnabled = true;
-            this.grpYN.Items.AddRange(new object[] {
+            this.cboYN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboYN.FormattingEnabled = true;
+            this.cboYN.Items.AddRange(new object[] {
             "Y",
             "N"});
-            this.grpYN.Location = new System.Drawing.Point(136, 122);
-            this.grpYN.Name = "grpYN";
-            this.grpYN.Size = new System.Drawing.Size(139, 20);
-            this.grpYN.TabIndex = 16;
+            this.cboYN.Location = new System.Drawing.Point(136, 122);
+            this.cboYN.Name = "cboYN";
+            this.cboYN.Size = new System.Drawing.Size(139, 20);
+            this.cboYN.TabIndex = 16;
             // 
             // panel3
             // 
@@ -229,19 +230,19 @@
             this.panel3.Size = new System.Drawing.Size(294, 1);
             this.panel3.TabIndex = 41;
             // 
-            // kindBox
+            // cboKind
             // 
-            this.kindBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kindBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.kindBox.FormattingEnabled = true;
-            this.kindBox.Items.AddRange(new object[] {
+            this.cboKind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboKind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboKind.FormattingEnabled = true;
+            this.cboKind.Items.AddRange(new object[] {
             "학사행정",
             "일반행정"});
-            this.kindBox.Location = new System.Drawing.Point(136, 51);
-            this.kindBox.Name = "kindBox";
-            this.kindBox.Size = new System.Drawing.Size(139, 20);
-            this.kindBox.TabIndex = 13;
-            this.kindBox.Tag = "cdg_kind";
+            this.cboKind.Location = new System.Drawing.Point(136, 51);
+            this.cboKind.Name = "cboKind";
+            this.cboKind.Size = new System.Drawing.Size(139, 20);
+            this.cboKind.TabIndex = 13;
+            this.cboKind.Tag = "cdg_kind";
             // 
             // label11
             // 
@@ -253,46 +254,46 @@
             this.label11.TabIndex = 40;
             this.label11.Text = "분류";
             // 
-            // digitBox
+            // txtdigit
             // 
-            this.digitBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.digitBox.Location = new System.Drawing.Point(136, 74);
-            this.digitBox.MaxLength = 2;
-            this.digitBox.Name = "digitBox";
-            this.digitBox.Size = new System.Drawing.Size(139, 21);
-            this.digitBox.TabIndex = 14;
-            this.digitBox.Tag = "cdg_length";
+            this.txtdigit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtdigit.Location = new System.Drawing.Point(136, 74);
+            this.txtdigit.MaxLength = 2;
+            this.txtdigit.Name = "txtdigit";
+            this.txtdigit.Size = new System.Drawing.Size(139, 21);
+            this.txtdigit.TabIndex = 14;
+            this.txtdigit.Tag = "cdg_length";
             // 
-            // lengthBox
+            // txtlength
             // 
-            this.lengthBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lengthBox.Location = new System.Drawing.Point(136, 98);
-            this.lengthBox.MaxLength = 2;
-            this.lengthBox.Name = "lengthBox";
-            this.lengthBox.Size = new System.Drawing.Size(139, 21);
-            this.lengthBox.TabIndex = 15;
-            this.lengthBox.Tag = "cdg_digit";
+            this.txtlength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtlength.Location = new System.Drawing.Point(136, 98);
+            this.txtlength.MaxLength = 2;
+            this.txtlength.Name = "txtlength";
+            this.txtlength.Size = new System.Drawing.Size(139, 21);
+            this.txtlength.TabIndex = 15;
+            this.txtlength.Tag = "cdg_digit";
             // 
-            // grpnmBox
+            // txtgrpnm
             // 
-            this.grpnmBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpnmBox.Location = new System.Drawing.Point(136, 27);
-            this.grpnmBox.MaxLength = 30;
-            this.grpnmBox.Name = "grpnmBox";
-            this.grpnmBox.Size = new System.Drawing.Size(139, 21);
-            this.grpnmBox.TabIndex = 11;
-            this.grpnmBox.Tag = "cdg_grpnm";
+            this.txtgrpnm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtgrpnm.Location = new System.Drawing.Point(136, 27);
+            this.txtgrpnm.MaxLength = 30;
+            this.txtgrpnm.Name = "txtgrpnm";
+            this.txtgrpnm.Size = new System.Drawing.Size(139, 21);
+            this.txtgrpnm.TabIndex = 11;
+            this.txtgrpnm.Tag = "cdg_grpnm";
             // 
-            // grpcdBox
+            // txtgrpcd
             // 
-            this.grpcdBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpcdBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.grpcdBox.Location = new System.Drawing.Point(136, 3);
-            this.grpcdBox.MaxLength = 3;
-            this.grpcdBox.Name = "grpcdBox";
-            this.grpcdBox.Size = new System.Drawing.Size(139, 21);
-            this.grpcdBox.TabIndex = 1;
-            this.grpcdBox.Tag = "cdg_grpcd";
+            this.txtgrpcd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtgrpcd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtgrpcd.Location = new System.Drawing.Point(136, 3);
+            this.txtgrpcd.MaxLength = 3;
+            this.txtgrpcd.Name = "txtgrpcd";
+            this.txtgrpcd.Size = new System.Drawing.Size(139, 21);
+            this.txtgrpcd.TabIndex = 1;
+            this.txtgrpcd.Tag = "cdg_grpcd";
             // 
             // label7
             // 
@@ -338,13 +339,13 @@
             // 
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.cdgGrpcd);
+            this.panel4.Controls.Add(this.txtgrpcd1);
             this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.cdgUse);
+            this.panel4.Controls.Add(this.cboYN1);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.cdgKind);
+            this.panel4.Controls.Add(this.cbokind1);
             this.panel4.Controls.Add(this.label34);
-            this.panel4.Controls.Add(this.cdgName);
+            this.panel4.Controls.Add(this.txtname1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
@@ -370,13 +371,13 @@
             this.label1.TabIndex = 50;
             this.label1.Text = "그룹코드";
             // 
-            // cdgGrpcd
+            // txtgrpcd1
             // 
-            this.cdgGrpcd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.cdgGrpcd.Location = new System.Drawing.Point(62, 3);
-            this.cdgGrpcd.Name = "cdgGrpcd";
-            this.cdgGrpcd.Size = new System.Drawing.Size(100, 21);
-            this.cdgGrpcd.TabIndex = 51;
+            this.txtgrpcd1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtgrpcd1.Location = new System.Drawing.Point(62, 3);
+            this.txtgrpcd1.Name = "txtgrpcd1";
+            this.txtgrpcd1.Size = new System.Drawing.Size(100, 21);
+            this.txtgrpcd1.TabIndex = 51;
             // 
             // label2
             // 
@@ -388,17 +389,17 @@
             this.label2.TabIndex = 44;
             this.label2.Text = "사용여부";
             // 
-            // cdgUse
+            // cboYN1
             // 
-            this.cdgUse.FormattingEnabled = true;
-            this.cdgUse.Items.AddRange(new object[] {
+            this.cboYN1.FormattingEnabled = true;
+            this.cboYN1.Items.AddRange(new object[] {
             "Y",
             "N"});
-            this.cdgUse.Location = new System.Drawing.Point(227, 3);
-            this.cdgUse.Name = "cdgUse";
-            this.cdgUse.Size = new System.Drawing.Size(100, 20);
-            this.cdgUse.TabIndex = 47;
-            this.cdgUse.Text = "Y";
+            this.cboYN1.Location = new System.Drawing.Point(227, 3);
+            this.cboYN1.Name = "cboYN1";
+            this.cboYN1.Size = new System.Drawing.Size(100, 20);
+            this.cboYN1.TabIndex = 47;
+            this.cboYN1.Text = "Y";
             // 
             // label3
             // 
@@ -410,16 +411,16 @@
             this.label3.TabIndex = 45;
             this.label3.Text = "분류";
             // 
-            // cdgKind
+            // cbokind1
             // 
-            this.cdgKind.FormattingEnabled = true;
-            this.cdgKind.Items.AddRange(new object[] {
+            this.cbokind1.FormattingEnabled = true;
+            this.cbokind1.Items.AddRange(new object[] {
             "학사행정",
             "일반행정"});
-            this.cdgKind.Location = new System.Drawing.Point(368, 3);
-            this.cdgKind.Name = "cdgKind";
-            this.cdgKind.Size = new System.Drawing.Size(100, 20);
-            this.cdgKind.TabIndex = 48;
+            this.cbokind1.Location = new System.Drawing.Point(368, 3);
+            this.cbokind1.Name = "cbokind1";
+            this.cbokind1.Size = new System.Drawing.Size(100, 20);
+            this.cbokind1.TabIndex = 48;
             // 
             // label34
             // 
@@ -431,25 +432,27 @@
             this.label34.TabIndex = 46;
             this.label34.Text = "그룹코드명";
             // 
-            // cdgName
+            // txtname1
             // 
-            this.cdgName.Location = new System.Drawing.Point(545, 3);
-            this.cdgName.Name = "cdgName";
-            this.cdgName.Size = new System.Drawing.Size(100, 21);
-            this.cdgName.TabIndex = 49;
+            this.txtname1.Location = new System.Drawing.Point(545, 3);
+            this.txtname1.Name = "txtname1";
+            this.txtname1.Size = new System.Drawing.Size(100, 21);
+            this.txtname1.TabIndex = 49;
             // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(931, 634);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panData.ResumeLayout(false);
+            this.panData.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -468,16 +471,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cdg_length;
         private System.Windows.Forms.DataGridViewTextBoxColumn cdg_use;
         private System.Windows.Forms.DataGridViewTextBoxColumn cdg_kind;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panData;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox grpYN;
+        private System.Windows.Forms.ComboBox cboYN;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox kindBox;
+        private System.Windows.Forms.ComboBox cboKind;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox digitBox;
-        private System.Windows.Forms.TextBox lengthBox;
-        private System.Windows.Forms.TextBox grpnmBox;
-        private System.Windows.Forms.TextBox grpcdBox;
+        private System.Windows.Forms.TextBox txtdigit;
+        private System.Windows.Forms.TextBox txtlength;
+        private System.Windows.Forms.TextBox txtgrpnm;
+        private System.Windows.Forms.TextBox txtgrpcd;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -485,12 +488,12 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox cdgGrpcd;
+        private System.Windows.Forms.TextBox txtgrpcd1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cdgUse;
+        private System.Windows.Forms.ComboBox cboYN1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cdgKind;
+        private System.Windows.Forms.ComboBox cbokind1;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox cdgName;
+        private System.Windows.Forms.TextBox txtname1;
     }
 }
