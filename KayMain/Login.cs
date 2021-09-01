@@ -147,5 +147,14 @@ namespace KayMain
             }
         }
         #endregion
+
+        private void txtPwd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                e.Handled = true;
+                btn_login_Click(null, null);
+            }
+        }
     }
 }

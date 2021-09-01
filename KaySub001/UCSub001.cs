@@ -38,11 +38,22 @@ namespace KaySub001
         public UserControl1()
         {
             InitializeComponent();
+                        
+            //*----Validated-------------------------------------------------------------------
+            ct_cdg_grpcd.Validated += Input_Validation_Check;
+            ct_cdg_grpnm.Validated += Input_Validation_Check;
+            ct_cdg_kind.Validated += Input_Validation_Check;
+
+            //*----Key Press-------------------------------------------------------------------
+            ct_cdg_digit.KeyPress += Number_Only_Protect;
+            ct_cdg_length.KeyPress += Number_Only_Protect;
         }
 
         private void UserControl1_Load(object sender, EventArgs e)
         {
-            
+            last_button_status = Utility.SetFuncBtn(MainBtn, "1");
+            Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
+            this.AutoValidate = AutoValidate.EnableAllowFocusChange;
         }
         #endregion
 
@@ -64,16 +75,24 @@ namespace KaySub001
                 OracleCommand cmd = con.CreateCommand();
                 cmd.CommandText = SQLStatement.SelectSQL;
                 cmd.BindByName = true;
-                //cmd.Parameters.Add("bas_empno", OracleDbType.Varchar2).Value = q_bas_empno.Text + "%";
-                //cmd.Parameters.Add("bas_name", OracleDbType.Varchar2).Value = "%" + q_bas_name.Text + "%";
+                cmd.Parameters.Add("cdg_grpcd", OracleDbType.Varchar2).Value = "%" + txtgrpcd1.Text + "%";
+                cmd.Parameters.Add("cdg_grpnm", OracleDbType.Varchar2).Value = "%" + txtname1.Text + "%";
+                cmd.Parameters.Add("cdg_use", OracleDbType.Varchar2).Value = "%" + cboYN1.Text + "%";
+                cmd.Parameters.Add("cdg_kind", OracleDbType.Varchar2).Value = "%" + cbokind1.Text + "%";
                 OracleDataReader dr = cmd.ExecuteReader();
                 query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
                 while (dr.Read())
                 {
                     rowIdx = dataGridView1.Rows.Add();
                     row = dataGridView1.Rows[rowIdx];
-                   // row.Cells["bas_empno"].Value = dr["bas_empno"].ToString();
-                    
+                    row.Cells["cdg_grpcd"].Value = dr["cdg_grpcd"].ToString();
+                    row.Cells["cdg_grpnm"].Value = dr["cdg_grpnm"].ToString();
+                    row.Cells["cdg_digit"].Value = dr["cdg_digit"].ToString();
+                    row.Cells["cdg_length"].Value = dr["cdg_length"].ToString();
+                    row.Cells["cdg_use"].Value = dr["cdg_use"].ToString();
+                    row.Cells["cdg_kind"].Value = dr["cdg_kind"].ToString();
+                    row.Cells["key1"].Value = dr["cdg_grpcd"].ToString();
+                    row.Cells["status"].Value = "";
                 }
                 dr.Close();
             }
@@ -126,7 +145,7 @@ namespace KaySub001
             dataGridView1.Rows[rowIdx].Cells["status"].Value = "A";
             //---추가된 Row로 Focus 이동-------------------------------- 
             Utility.SetFocusingDataGridView(dataGridView1, rowIdx);
-            txtgrpcd.Focus();
+            ct_cdg_grpcd.Focus();
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "3");
         }
@@ -158,7 +177,7 @@ namespace KaySub001
                 dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
                 return;
             }
-            DialogResult result = MessageBox.Show(row.Cells["bas_empno"].Value +
+            DialogResult result = MessageBox.Show(row.Cells["cdg_grpnm"].Value +
                                                   " 자료를 삭제하시겠습니까.", "삭제확인", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No) return;
 
@@ -233,8 +252,12 @@ namespace KaySub001
                         cmd.Parameters.Add("key1", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;
                     }
 
-                  //  cmd.Parameters.Add("bas_empno", OracleDbType.Varchar2).Value = row.Cells["bas_empno"].Value;
-                    
+                    cmd.Parameters.Add("cdg_grpcd", OracleDbType.Varchar2).Value = row.Cells["cdg_grpcd"].Value;
+                    cmd.Parameters.Add("cdg_grpnm", OracleDbType.Varchar2).Value = row.Cells["cdg_grpnm"].Value;
+                    cmd.Parameters.Add("cdg_digit", OracleDbType.Varchar2).Value = row.Cells["cdg_digit"].Value;
+                    cmd.Parameters.Add("cdg_length", OracleDbType.Varchar2).Value = row.Cells["cdg_length"].Value;
+                    cmd.Parameters.Add("cdg_use", OracleDbType.Varchar2).Value = row.Cells["cdg_use"].Value;
+                    cmd.Parameters.Add("cdg_kind", OracleDbType.Varchar2).Value = row.Cells["cdg_kind"].Value;
 
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();  //*----반드시 포함
@@ -255,7 +278,7 @@ namespace KaySub001
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (row.Cells["status"].Value.Equals("")) continue;
-                row.Cells["key1"].Value = row.Cells["bas_empno"].Value;
+                row.Cells["key1"].Value = row.Cells["cdg_grpcd"].Value;
                 row.Cells["status"].Value = "";
             }
             Info_Message.Text = "자료가 정상적으로 저장 되었습니다.";
@@ -331,6 +354,69 @@ namespace KaySub001
             Input_Validation_Check(sender, e); //*--Control 에 오류메세지 표시
 
             select_sw = false; //*--Control의 TextChanged 이벤트와의 충돌을 피하기 위해 (Off)
+        }
+        #endregion
+        #region Input Data Validation Check (Validated Event)
+        //************************************************************
+        //** Input Data Validation Check (Validated Event)
+        //************************************************************
+        private void Input_Validation_Check(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count <= 0) return;
+
+            dataGridView1.SelectedRows[0].ErrorText = "";
+            //*---------------------------------------------------------------------------------------------------------
+            if (string.IsNullOrEmpty(ct_cdg_grpcd.Text))
+            {
+                SetError(ct_cdg_grpcd, "그룹코드를 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+            }
+            else
+            {
+                ResetError(ct_cdg_grpcd, errorProvider1);
+            }
+
+            //*---------------------------------------------------------------------------------------------------------
+            if (string.IsNullOrEmpty(ct_cdg_grpnm.Text))
+            {
+                SetError(ct_cdg_grpnm, "그룹코드명을 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+            }
+            else
+            {
+                ResetError(ct_cdg_grpnm, errorProvider1);
+            }
+
+            //*---------------------------------------------------------------------------------------------------------
+            if (string.IsNullOrEmpty(ct_cdg_kind.Text))
+            {
+                SetError(ct_cdg_kind, "분류를 반드시 선택하세요", dataGridView1.SelectedRows[0], errorProvider1);
+            }
+            else
+            {
+                ResetError(ct_cdg_kind, errorProvider1);
+            }
+        }
+        private void SetError(Control ctl, String errMsg, DataGridViewRow row, ErrorProvider errProvider)
+        {
+            errProvider.SetError(ctl, errMsg);
+            row.ErrorText = errMsg;
+        }
+        private void ResetError(Control ctl, ErrorProvider errProvider)
+        {
+            errProvider.SetError(ctl, "");
+        }
+        #endregion
+        #region TextBox에서 숫자만 입력받도록 (KeyPress Event)
+        //************************************************************
+        //** TextBox에서 숫자만 입력받도록 (KeyPress Event)
+        //************************************************************
+        private void Number_Only_Protect(object sender, KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+            //*--8 : BackSpace , 46 : dot  ----------------*/
+            if (!Char.IsDigit(chr) && chr != 8 && chr != 46)
+            {
+                e.Handled = true;
+            }
         }
         #endregion
     }

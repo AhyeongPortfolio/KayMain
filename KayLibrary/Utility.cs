@@ -42,9 +42,6 @@ namespace KayLibrary
 
 
         #endregion
-        #region 단위업무 프로그램(DLL) 자동 업그레이드
-
-        #endregion
         #region IP 주소 파싱
         static public string MyIpAddress
         {
@@ -380,10 +377,11 @@ namespace KayLibrary
         {
             DataGridViewRow row = dgv.CurrentRow;
             if (row == null) return;
-
+            
             string col_name = ctl.Name.Substring(3);
 
-            Type type = ctl.GetType();
+            Type type = ctl.GetType(); 
+            
             PropertyInfo pi = null;
             if (ctl is CheckBox)
             {
@@ -398,7 +396,7 @@ namespace KayLibrary
             if (pi != null)
             {
                 //*--숫자 포맷이면, Control Text를 숫자로 변환하여 Assign 해야 Format이 적용된다.
-                if (dgv.Columns[col_name].DefaultCellStyle.Format != "")
+                if (!string.IsNullOrEmpty(dgv.Columns[col_name].DefaultCellStyle.Format))
                 {
                     string fm = dgv.Columns[col_name].DefaultCellStyle.Format.Substring(0, 1).ToUpper();
                     if (fm == "N")
@@ -437,6 +435,7 @@ namespace KayLibrary
                 if (ctl == null) continue;
 
                 type = ctl.GetType();
+                
                 pi = null;
                 if (ctl is CheckBox)
                 {
@@ -609,23 +608,23 @@ namespace KayLibrary
         //************************************************************
         //**  코드검색 윈도우 보여주기
         //************************************************************
-        //static public bool ShowSearchCDWindow(string sql, string caption, out string result)
-        //{
-        //    var win = new SearchCDWindow(sql);
-        //    win.Text = caption;
-        //    if (win.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-        //    {
-        //        result = win.GetResult;
-        //        win.Dispose();
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        result = "";
-        //        win.Dispose();
-        //        return false;
-        //    }
-        //}
+        static public bool ShowSearchCDWindow(string sql, string caption, out string result)
+        {
+            var win = new SearchCDWindow(sql);
+            win.Text = caption;
+            if (win.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                result = win.GetResult;
+                win.Dispose();
+                return true;
+            }
+            else
+            {
+                result = "";
+                win.Dispose();
+                return false;
+            }
+        }
         #endregion
         #region  주민등록번호 검증
         //************************************************************

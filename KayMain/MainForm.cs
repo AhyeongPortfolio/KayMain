@@ -62,6 +62,7 @@ namespace KayMain
         {
             //로그인
             new Login(this).ShowDialog(); //this로 의존성 생성
+
             //폼 설정
             MainMenu_Creation();
             
