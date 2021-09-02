@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace KayLibrary
 {
@@ -692,7 +693,83 @@ namespace KayLibrary
             return false;
         }
         #endregion
+        #region 암호화
+        //******************************
+        //SHA512 암호화 / 패스워드 암호화
+        //******************************
+        public static string SHA512(string input)
+        {
+            var bytes = System.Text.Encoding.UTF8.GetBytes(input);
+            using (var hash = System.Security.Cryptography.SHA512.Create())
+            {
+                var hashedInputBytes = hash.ComputeHash(bytes);
 
-        
+                // Convert to text
+                // StringBuilder Capacity is 128, because 512 bits / 8 bits in byte * 2 symbols for byte 
+                var hashedInputStringBuilder = new System.Text.StringBuilder(128);
+                foreach (var b in hashedInputBytes)
+                    hashedInputStringBuilder.Append(b.ToString("X2"));
+                return hashedInputStringBuilder.ToString();
+            }
+        }
+
+
+        //******************************
+        //AES128 암호화 / 주민번호
+        //******************************
+        //AES_128 암호화
+        public static String AESEncrypt128(String Input, String key)
+        {
+
+            RijndaelManaged RijndaelCipher = new RijndaelManaged();
+
+            byte[] PlainText = System.Text.Encoding.Unicode.GetBytes(Input);
+            byte[] Salt = Encoding.ASCII.GetBytes(key.Length.ToString());
+
+            PasswordDeriveBytes SecretKey = new PasswordDeriveBytes(key, Salt);
+            ICryptoTransform Encryptor = RijndaelCipher.CreateEncryptor(SecretKey.GetBytes(32), SecretKey.GetBytes(16));
+
+            MemoryStream memoryStream = new MemoryStream();
+            CryptoStream cryptoStream = new CryptoStream(memoryStream, Encryptor, CryptoStreamMode.Write);
+
+            cryptoStream.Write(PlainText, 0, PlainText.Length);
+            cryptoStream.FlushFinalBlock();
+
+            byte[] CipherBytes = memoryStream.ToArray();
+
+            memoryStream.Close();
+            cryptoStream.Close();
+
+            string EncryptedData = Convert.ToBase64String(CipherBytes);
+
+            return EncryptedData;
+        }
+
+        //AES_128 복호화
+        public static String AESDecrypt128(String Input, String key)
+        {
+            RijndaelManaged RijndaelCipher = new RijndaelManaged();
+
+            byte[] EncryptedData = Convert.FromBase64String(Input);
+            byte[] Salt = Encoding.ASCII.GetBytes(key.Length.ToString());
+
+            PasswordDeriveBytes SecretKey = new PasswordDeriveBytes(key, Salt);
+            ICryptoTransform Decryptor = RijndaelCipher.CreateDecryptor(SecretKey.GetBytes(32), SecretKey.GetBytes(16));
+            MemoryStream memoryStream = new MemoryStream(EncryptedData);
+            CryptoStream cryptoStream = new CryptoStream(memoryStream, Decryptor, CryptoStreamMode.Read);
+
+            byte[] PlainText = new byte[EncryptedData.Length];
+
+            int DecryptedCount = cryptoStream.Read(PlainText, 0, PlainText.Length);
+
+            memoryStream.Close();
+            cryptoStream.Close();
+
+            string DecryptedData = Encoding.Unicode.GetString(PlainText, 0, DecryptedCount);
+
+            return DecryptedData;
+        }
+        #endregion
+            
     }
 }

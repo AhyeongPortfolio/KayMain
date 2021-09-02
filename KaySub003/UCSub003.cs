@@ -101,8 +101,8 @@ namespace KaySub003
                     row.Cells["dept_names"].Value =   dr["dept_names"].ToString();
                     row.Cells["dept_upp"].Value =   dr["dept_upp"].ToString();
                     row.Cells["dept_use"].Value =     dr["dept_use"].ToString();
-                    row.Cells["dept_sdate"].Value =   dr["dept_sdate"].ToString();
-                    row.Cells["dept_edate"].Value =   dr["dept_edate"].ToString();
+                    row.Cells["dept_sdate"].Value =   Utility.FormatDate( dr["dept_sdate"].ToString() );
+                    row.Cells["dept_edate"].Value =   Utility.FormatDate( dr["dept_edate"].ToString() );
                     row.Cells["key1"].Value =         dr["dept_code"].ToString();
                     row.Cells["status"].Value = "";
                 }
@@ -165,7 +165,7 @@ namespace KaySub003
             ct_dept_sdate.Text = System.DateTime.Now.ToString("yyyyMMdd");
             //*--사용여부 초기값-----------------------------------------
             ct_dept_use.Text = "Y";
-            //*--그룹코드 초기값-----------------------------------------
+            
         }
         #endregion
         #region 기능버튼(수정) Click
@@ -276,8 +276,8 @@ namespace KaySub003
                     cmd.Parameters.Add("dept_names", OracleDbType.Varchar2).Value =   row.Cells["dept_names"].Value;
                     cmd.Parameters.Add("dept_upp", OracleDbType.Varchar2).Value =   row.Cells["dept_upp"].Value;
                     cmd.Parameters.Add("dept_use", OracleDbType.Varchar2).Value =     row.Cells["dept_use"].Value;
-                    cmd.Parameters.Add("dept_sdate", OracleDbType.Varchar2).Value =   row.Cells["dept_sdate"].Value;
-                    cmd.Parameters.Add("dept_edate", OracleDbType.Varchar2).Value =   row.Cells["dept_edate"].Value;
+                    cmd.Parameters.Add("dept_sdate", OracleDbType.Varchar2).Value =   Utility.FormatDateR((string)row.Cells["dept_sdate"].Value);
+                    cmd.Parameters.Add("dept_edate", OracleDbType.Varchar2).Value =   Utility.FormatDateR((string)row.Cells["dept_edate"].Value);
                     cmd.Parameters.Add("datasys3", OracleDbType.Varchar2).Value = "sys:" + UserId;
 
                     cmd.ExecuteNonQuery();

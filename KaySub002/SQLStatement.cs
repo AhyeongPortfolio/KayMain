@@ -52,7 +52,7 @@ namespace KaySub002
         //--수정
         //******************************
         public static string
-            UpdateSQL = @"UPDATE kay_insa_cdg SET
+            UpdateSQL = @"UPDATE kay_insa_cd SET
                           cd_code = :cd_code,
                           cd_seq = :cd_seq,
                           cd_codnms = :cd_codnms,
@@ -62,7 +62,7 @@ namespace KaySub002
                           cd_use = :cd_use,
                           cd_sdate = :cd_sdate,
                           cd_edate = :cd_edate,
-                          datasys3 = :datasys3,
+                          datasys3 = :datasys3
                           WHERE
                           cd_grpcd = :cd_grpcd
                           AND cd_code = :key1";
@@ -71,7 +71,7 @@ namespace KaySub002
         //--삭제
         //******************************
         public static string
-            DeleteSQL = @"DELETE FROM kay_insa_cdg WHERE cd_grpcd = :cd_grpcd AND cd_code = :key1";
+            DeleteSQL = @"DELETE FROM kay_insa_cd WHERE cd_grpcd = :cd_grpcd AND cd_code = :key1";
 
 
         //******************************

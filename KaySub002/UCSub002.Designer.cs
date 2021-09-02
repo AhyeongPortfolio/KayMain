@@ -33,6 +33,18 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cd_grpcd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cd_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cd_seq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cd_codnms = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cd_codnm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cd_addinfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cd_upper = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cd_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cd_sdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cd_edate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panData = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.ct_cd_use = new System.Windows.Forms.ComboBox();
@@ -63,18 +75,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.qt_cd_use = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cd_grpcd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cd_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cd_seq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cd_codnms = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cd_codnm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cd_addinfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cd_upper = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cd_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cd_sdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cd_edate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -95,7 +95,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(969, 677);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(969, 604);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -111,7 +111,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 631F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(963, 631);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(963, 558);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // dataGridView1
@@ -142,8 +142,104 @@
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(687, 625);
+            this.dataGridView1.Size = new System.Drawing.Size(687, 552);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // cd_grpcd
+            // 
+            this.cd_grpcd.DataPropertyName = "cd_grpcd";
+            this.cd_grpcd.HeaderText = "그룹코드";
+            this.cd_grpcd.Name = "cd_grpcd";
+            this.cd_grpcd.ReadOnly = true;
+            this.cd_grpcd.Width = 78;
+            // 
+            // cd_code
+            // 
+            this.cd_code.DataPropertyName = "cd_code";
+            this.cd_code.HeaderText = "코드";
+            this.cd_code.Name = "cd_code";
+            this.cd_code.ReadOnly = true;
+            this.cd_code.Width = 54;
+            // 
+            // cd_seq
+            // 
+            this.cd_seq.DataPropertyName = "cd_seq";
+            this.cd_seq.HeaderText = "코드seq";
+            this.cd_seq.Name = "cd_seq";
+            this.cd_seq.ReadOnly = true;
+            this.cd_seq.Width = 75;
+            // 
+            // cd_codnms
+            // 
+            this.cd_codnms.DataPropertyName = "cd_codnms";
+            this.cd_codnms.HeaderText = "코드명(축약)";
+            this.cd_codnms.Name = "cd_codnms";
+            this.cd_codnms.ReadOnly = true;
+            // 
+            // cd_codnm
+            // 
+            this.cd_codnm.DataPropertyName = "cd_codnm";
+            this.cd_codnm.HeaderText = "코드명(원형)";
+            this.cd_codnm.Name = "cd_codnm";
+            this.cd_codnm.ReadOnly = true;
+            // 
+            // cd_addinfo
+            // 
+            this.cd_addinfo.DataPropertyName = "cd_addinfo";
+            this.cd_addinfo.HeaderText = "추가정보";
+            this.cd_addinfo.Name = "cd_addinfo";
+            this.cd_addinfo.ReadOnly = true;
+            this.cd_addinfo.Width = 78;
+            // 
+            // cd_upper
+            // 
+            this.cd_upper.DataPropertyName = "cd_upper";
+            this.cd_upper.HeaderText = "상위분류";
+            this.cd_upper.Name = "cd_upper";
+            this.cd_upper.ReadOnly = true;
+            this.cd_upper.Width = 78;
+            // 
+            // cd_use
+            // 
+            this.cd_use.DataPropertyName = "cd_use";
+            this.cd_use.HeaderText = "사용여부";
+            this.cd_use.Name = "cd_use";
+            this.cd_use.ReadOnly = true;
+            this.cd_use.Width = 78;
+            // 
+            // cd_sdate
+            // 
+            this.cd_sdate.DataPropertyName = "cd_sdate";
+            this.cd_sdate.HeaderText = "생성일자";
+            this.cd_sdate.Name = "cd_sdate";
+            this.cd_sdate.ReadOnly = true;
+            this.cd_sdate.Visible = false;
+            this.cd_sdate.Width = 78;
+            // 
+            // cd_edate
+            // 
+            this.cd_edate.DataPropertyName = "cd_edate";
+            this.cd_edate.HeaderText = "폐기일자";
+            this.cd_edate.Name = "cd_edate";
+            this.cd_edate.ReadOnly = true;
+            this.cd_edate.Visible = false;
+            this.cd_edate.Width = 78;
+            // 
+            // key1
+            // 
+            this.key1.DataPropertyName = "key1";
+            this.key1.HeaderText = "key1";
+            this.key1.Name = "key1";
+            this.key1.Visible = false;
+            this.key1.Width = 56;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "상태";
+            this.status.Name = "status";
+            this.status.Visible = false;
+            this.status.Width = 54;
             // 
             // panData
             // 
@@ -172,7 +268,7 @@
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panData.Location = new System.Drawing.Point(696, 3);
             this.panData.Name = "panData";
-            this.panData.Size = new System.Drawing.Size(264, 625);
+            this.panData.Size = new System.Drawing.Size(264, 552);
             this.panData.TabIndex = 10;
             // 
             // label3
@@ -377,7 +473,7 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 624);
+            this.panel3.Location = new System.Drawing.Point(0, 551);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(264, 1);
             this.panel3.TabIndex = 41;
@@ -450,102 +546,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // cd_grpcd
-            // 
-            this.cd_grpcd.DataPropertyName = "cd_grpcd";
-            this.cd_grpcd.HeaderText = "그룹코드";
-            this.cd_grpcd.Name = "cd_grpcd";
-            this.cd_grpcd.ReadOnly = true;
-            this.cd_grpcd.Width = 78;
-            // 
-            // cd_code
-            // 
-            this.cd_code.DataPropertyName = "cd_code";
-            this.cd_code.HeaderText = "코드";
-            this.cd_code.Name = "cd_code";
-            this.cd_code.ReadOnly = true;
-            this.cd_code.Width = 54;
-            // 
-            // cd_seq
-            // 
-            this.cd_seq.DataPropertyName = "cd_seq";
-            this.cd_seq.HeaderText = "코드seq";
-            this.cd_seq.Name = "cd_seq";
-            this.cd_seq.ReadOnly = true;
-            this.cd_seq.Width = 75;
-            // 
-            // cd_codnms
-            // 
-            this.cd_codnms.DataPropertyName = "cd_codnms";
-            this.cd_codnms.HeaderText = "코드명(축약)";
-            this.cd_codnms.Name = "cd_codnms";
-            this.cd_codnms.ReadOnly = true;
-            // 
-            // cd_codnm
-            // 
-            this.cd_codnm.DataPropertyName = "cd_codnm";
-            this.cd_codnm.HeaderText = "코드명(원형)";
-            this.cd_codnm.Name = "cd_codnm";
-            this.cd_codnm.ReadOnly = true;
-            // 
-            // cd_addinfo
-            // 
-            this.cd_addinfo.DataPropertyName = "cd_addinfo";
-            this.cd_addinfo.HeaderText = "추가정보";
-            this.cd_addinfo.Name = "cd_addinfo";
-            this.cd_addinfo.ReadOnly = true;
-            this.cd_addinfo.Width = 78;
-            // 
-            // cd_upper
-            // 
-            this.cd_upper.DataPropertyName = "cd_upper";
-            this.cd_upper.HeaderText = "상위분류";
-            this.cd_upper.Name = "cd_upper";
-            this.cd_upper.ReadOnly = true;
-            this.cd_upper.Width = 78;
-            // 
-            // cd_use
-            // 
-            this.cd_use.DataPropertyName = "cd_use";
-            this.cd_use.HeaderText = "사용여부";
-            this.cd_use.Name = "cd_use";
-            this.cd_use.ReadOnly = true;
-            this.cd_use.Width = 78;
-            // 
-            // cd_sdate
-            // 
-            this.cd_sdate.DataPropertyName = "cd_sdate";
-            this.cd_sdate.HeaderText = "생성일자";
-            this.cd_sdate.Name = "cd_sdate";
-            this.cd_sdate.ReadOnly = true;
-            this.cd_sdate.Visible = false;
-            this.cd_sdate.Width = 78;
-            // 
-            // cd_edate
-            // 
-            this.cd_edate.DataPropertyName = "cd_edate";
-            this.cd_edate.HeaderText = "폐기일자";
-            this.cd_edate.Name = "cd_edate";
-            this.cd_edate.ReadOnly = true;
-            this.cd_edate.Visible = false;
-            this.cd_edate.Width = 78;
-            // 
-            // key1
-            // 
-            this.key1.DataPropertyName = "key1";
-            this.key1.HeaderText = "key1";
-            this.key1.Name = "key1";
-            this.key1.Visible = false;
-            this.key1.Width = 56;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "상태";
-            this.status.Name = "status";
-            this.status.Visible = false;
-            this.status.Width = 54;
-            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -553,7 +553,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(969, 677);
+            this.Size = new System.Drawing.Size(969, 604);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

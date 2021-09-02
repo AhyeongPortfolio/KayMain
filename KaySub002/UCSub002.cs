@@ -69,9 +69,7 @@ namespace KaySub002
         {
             //*--콤보박스 채우기-----------------------------------------
             Utility.SetComboWithCdnm(qt_cd_grpcd, SQLStatement.SelectSQL2);
-            //*--콤보박스에 ""을 추가------------------------------------
-            ct_cd_use.Items.Add("");
-            qt_cd_use.Items.Add("");
+            
             //*--콤보박스 미리 선택--------------------------------------
             qt_cd_grpcd.SelectedIndex = 1;
             
@@ -115,8 +113,8 @@ namespace KaySub002
                     row.Cells["cd_addinfo"].Value = dr["cd_addinfo"].ToString();
                     row.Cells["cd_upper"].Value = dr["cd_upper"].ToString();
                     row.Cells["cd_use"].Value = dr["cd_use"].ToString();
-                    row.Cells["cd_sdate"].Value = dr["cd_sdate"].ToString();
-                    row.Cells["cd_edate"].Value = dr["cd_edate"].ToString();
+                    row.Cells["cd_sdate"].Value = Utility.FormatDate(dr["cd_sdate"].ToString());
+                    row.Cells["cd_edate"].Value = Utility.FormatDate(dr["cd_edate"].ToString());
                     row.Cells["key1"].Value = dr["cd_code"].ToString();
                     row.Cells["status"].Value = "";
                 }
@@ -220,7 +218,7 @@ namespace KaySub002
                 OracleCommand cmd = con.CreateCommand();
                 cmd.BindByName = true;
                 cmd.CommandText = SQLStatement.DeleteSQL;
-                cmd.Parameters.Add("cd_grpcd", OracleDbType.Varchar2).Value = row.Cells["cd_grpcd"].Value;
+                cmd.Parameters.Add("cd_grpcd", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["cd_grpcd"].Value);
                 cmd.Parameters.Add("key1", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;
                 if (cmd.ExecuteNonQuery() > 0)
                 {
@@ -282,10 +280,9 @@ namespace KaySub002
                     if (row.Cells["status"].Value.Equals("U"))
                     {
                         cmd.CommandText = SQLStatement.UpdateSQL;
-                        cmd.Parameters.Add("key1", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;
+                        cmd.Parameters.Add("key1", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;                                              
                     }
-
-                    cmd.Parameters.Add("cd_grpcd", OracleDbType.Varchar2).Value =   row.Cells["cd_grpcd"].Value;
+                    cmd.Parameters.Add("cd_grpcd", OracleDbType.Varchar2).Value =   Utility.GetCode((String)row.Cells["cd_grpcd"].Value);
                     cmd.Parameters.Add("cd_code", OracleDbType.Varchar2).Value =   row.Cells["cd_code"].Value;
                     cmd.Parameters.Add("cd_seq", OracleDbType.Varchar2).Value =   row.Cells["cd_seq"].Value;
                     cmd.Parameters.Add("cd_codnms", OracleDbType.Varchar2).Value =  row.Cells["cd_codnms"].Value;
@@ -293,10 +290,9 @@ namespace KaySub002
                     cmd.Parameters.Add("cd_addinfo", OracleDbType.Varchar2).Value =    row.Cells["cd_addinfo"].Value;
                     cmd.Parameters.Add("cd_upper", OracleDbType.Varchar2).Value =   row.Cells["cd_upper"].Value;
                     cmd.Parameters.Add("cd_use", OracleDbType.Varchar2).Value =   row.Cells["cd_use"].Value;
-                    cmd.Parameters.Add("cd_sdate", OracleDbType.Varchar2).Value =   row.Cells["cd_sdate"].Value;
-                    cmd.Parameters.Add("cd_edate", OracleDbType.Varchar2).Value =  row.Cells["cd_edate"].Value;
+                    cmd.Parameters.Add("cd_sdate", OracleDbType.Varchar2).Value =   Utility.FormatDateR((String)row.Cells["cd_sdate"].Value);                    
+                    cmd.Parameters.Add("cd_edate", OracleDbType.Varchar2).Value = Utility.FormatDateR((String)row.Cells["cd_edate"].Value);
                     cmd.Parameters.Add("datasys3", OracleDbType.Varchar2).Value = "sys:" + UserId;
-
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();  //*----반드시 포함
                 }
@@ -316,7 +312,7 @@ namespace KaySub002
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (row.Cells["status"].Value.Equals("")) continue;
-                row.Cells["key1"].Value = row.Cells["cdg_grpcd"].Value;
+                row.Cells["key1"].Value = row.Cells["cd_code"].Value;
                 row.Cells["status"].Value = "";
             }
             Info_Message.Text = "자료가 정상적으로 저장 되었습니다.";
@@ -364,12 +360,18 @@ namespace KaySub002
             if (dataGridView1.SelectedRows.Count <= 0) return;
 
             Utility.SetValueToGridView(dataGridView1, sender as Control);
+            ct_cd_edate.ReadOnly = true;
 
             //*--Data Status = "수정"  설정-------------------
             DataGridViewRow row = dataGridView1.CurrentRow;
             if ((String)row.Cells["status"].Value == "")
             {
                 row.Cells["status"].Value = "U";
+                if (row.Cells["cd_use"].Value.ToString().Equals("N")) //만약 폐기를 하게 될 시
+                {
+                    ct_cd_edate.ReadOnly = false;
+                    ct_cd_edate.Text = System.DateTime.Now.ToString("yyyyMMdd");
+                }
             }
             //*--Data Status = "수정"  설정-------------------
 

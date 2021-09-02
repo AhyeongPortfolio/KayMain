@@ -33,7 +33,7 @@ namespace KaySub003
         //******************************
         public static string
             InsertSQL = @"INSERT INTO kay_insa_dept  
-                           ( dept_code, dept_name, dept_names, dept_seq, dept_upp, dept_sdate, dept_edate, dept_use, datasys2, datasys3) 
+                           ( dept_code, dept_name, dept_names, dept_seq, dept_upp, dept_sdate, dept_edate, dept_use, datasys2, datasys3 ) 
                             VALUES  
                            ( :dept_code, :dept_name, :dept_names, :dept_seq, :dept_upp, :dept_sdate, :dept_edate, :dept_use, 'A', :datasys3 ) ";
 
@@ -54,7 +54,7 @@ namespace KaySub003
                           datasys2 = 'U',
                           datasys3 = :datasys3
                           WHERE
-                          AND dept_code = :key1";
+                          dept_code = :key1";
 
         //******************************
         //--삭제
