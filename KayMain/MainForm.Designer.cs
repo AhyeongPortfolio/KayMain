@@ -97,7 +97,7 @@ namespace KayMain
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
             this.tableLayoutPanel5.Controls.Add(this.info_pgmid, 5, 0);
             this.tableLayoutPanel5.Controls.Add(this.label5, 4, 0);
             this.tableLayoutPanel5.Controls.Add(this.info_message, 3, 0);
@@ -118,7 +118,7 @@ namespace KayMain
             this.info_pgmid.AutoSize = true;
             this.info_pgmid.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.info_pgmid.ForeColor = System.Drawing.Color.White;
-            this.info_pgmid.Location = new System.Drawing.Point(932, 6);
+            this.info_pgmid.Location = new System.Drawing.Point(931, 6);
             this.info_pgmid.Name = "info_pgmid";
             this.info_pgmid.Size = new System.Drawing.Size(29, 12);
             this.info_pgmid.TabIndex = 5;
@@ -130,7 +130,7 @@ namespace KayMain
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(825, 6);
+            this.label5.Location = new System.Drawing.Point(824, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 12);
             this.label5.TabIndex = 4;
@@ -208,6 +208,7 @@ namespace KayMain
             // 
             // home_tabPage
             // 
+            this.home_tabPage.BackColor = System.Drawing.Color.White;
             this.home_tabPage.Controls.Add(this.tableLayoutPanel2);
             this.home_tabPage.Location = new System.Drawing.Point(4, 22);
             this.home_tabPage.Name = "home_tabPage";
@@ -215,7 +216,6 @@ namespace KayMain
             this.home_tabPage.Size = new System.Drawing.Size(993, 551);
             this.home_tabPage.TabIndex = 0;
             this.home_tabPage.Text = "Home";
-            this.home_tabPage.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -370,6 +370,7 @@ namespace KayMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainForm";

@@ -396,6 +396,7 @@ namespace KayMain
         #region TapPage가 선택될 때, 각 페이지에 따라 버튼 제어를 달리한다
         //**************************************************************************
         //-- TapPage가 선택될 때, 각 페이지에 따라 버튼 제어를 달리한다 
+        //-- TapPage가 선택될 때, 아래의 폼ID를 설정해줌
         //**************************************************************************
         private void tabControl_Selected(object sender, TabControlEventArgs e)
         {
@@ -413,6 +414,9 @@ namespace KayMain
             {
                 Utility.SetFuncBtn2(button, pi.GetValue(uc) as String);
             }
+
+            //먼가 ID 값을 가져올 수 있는 방법 없을까
+            
         }
         #endregion
         
