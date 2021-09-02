@@ -63,8 +63,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.qt_cd_use = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cd_grpcd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cd_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cd_seq = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +73,8 @@
             this.cd_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cd_sdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cd_edate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -123,8 +123,6 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.status,
-            this.key1,
             this.cd_grpcd,
             this.cd_code,
             this.cd_seq,
@@ -134,7 +132,9 @@
             this.cd_upper,
             this.cd_use,
             this.cd_sdate,
-            this.cd_edate});
+            this.cd_edate,
+            this.key1,
+            this.status});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
@@ -196,7 +196,7 @@
             this.ct_cd_use.Name = "ct_cd_use";
             this.ct_cd_use.Size = new System.Drawing.Size(152, 20);
             this.ct_cd_use.TabIndex = 77;
-            this.ct_cd_use.Tag = "Codeuse";
+            this.ct_cd_use.Tag = "cd_use";
             // 
             // btn_bas_univ
             // 
@@ -215,7 +215,7 @@
             this.ct_cd_edate.ReadOnly = true;
             this.ct_cd_edate.Size = new System.Drawing.Size(152, 21);
             this.ct_cd_edate.TabIndex = 79;
-            this.ct_cd_edate.Tag = "CodeDate";
+            this.ct_cd_edate.Tag = "cd_edate";
             this.ct_cd_edate.ValidatingType = typeof(System.DateTime);
             // 
             // ct_cd_sdate
@@ -225,7 +225,7 @@
             this.ct_cd_sdate.Name = "ct_cd_sdate";
             this.ct_cd_sdate.Size = new System.Drawing.Size(152, 21);
             this.ct_cd_sdate.TabIndex = 78;
-            this.ct_cd_sdate.Tag = "Codesdate";
+            this.ct_cd_sdate.Tag = "cd_sdate";
             this.ct_cd_sdate.ValidatingType = typeof(System.DateTime);
             // 
             // label11
@@ -244,7 +244,7 @@
             this.ct_cd_seq.Name = "ct_cd_seq";
             this.ct_cd_seq.Size = new System.Drawing.Size(152, 21);
             this.ct_cd_seq.TabIndex = 72;
-            this.ct_cd_seq.Tag = "Codeseq";
+            this.ct_cd_seq.Tag = "cd_seq";
             // 
             // ct_cd_code
             // 
@@ -253,7 +253,7 @@
             this.ct_cd_code.Name = "ct_cd_code";
             this.ct_cd_code.Size = new System.Drawing.Size(152, 21);
             this.ct_cd_code.TabIndex = 71;
-            this.ct_cd_code.Tag = "Codecode";
+            this.ct_cd_code.Tag = "cd_code";
             // 
             // ct_cd_upper
             // 
@@ -262,7 +262,7 @@
             this.ct_cd_upper.Name = "ct_cd_upper";
             this.ct_cd_upper.Size = new System.Drawing.Size(152, 21);
             this.ct_cd_upper.TabIndex = 76;
-            this.ct_cd_upper.Tag = "Codeupper";
+            this.ct_cd_upper.Tag = "cd_upper";
             // 
             // ct_cd_addinfo
             // 
@@ -271,7 +271,7 @@
             this.ct_cd_addinfo.Name = "ct_cd_addinfo";
             this.ct_cd_addinfo.Size = new System.Drawing.Size(152, 21);
             this.ct_cd_addinfo.TabIndex = 75;
-            this.ct_cd_addinfo.Tag = "Codeaddinfo";
+            this.ct_cd_addinfo.Tag = "cd_addinfo";
             // 
             // ct_cd_codnm
             // 
@@ -280,7 +280,7 @@
             this.ct_cd_codnm.Name = "ct_cd_codnm";
             this.ct_cd_codnm.Size = new System.Drawing.Size(152, 21);
             this.ct_cd_codnm.TabIndex = 74;
-            this.ct_cd_codnm.Tag = "Codenm";
+            this.ct_cd_codnm.Tag = "cd_codnm";
             // 
             // ct_cd_codnms
             // 
@@ -289,7 +289,7 @@
             this.ct_cd_codnms.Name = "ct_cd_codnms";
             this.ct_cd_codnms.Size = new System.Drawing.Size(152, 21);
             this.ct_cd_codnms.TabIndex = 73;
-            this.ct_cd_codnms.Tag = "Codecodnms";
+            this.ct_cd_codnms.Tag = "cd_codnms";
             // 
             // label12
             // 
@@ -308,7 +308,7 @@
             this.ct_cd_grpcd.ReadOnly = true;
             this.ct_cd_grpcd.Size = new System.Drawing.Size(124, 21);
             this.ct_cd_grpcd.TabIndex = 68;
-            this.ct_cd_grpcd.Tag = "Codegcode";
+            this.ct_cd_grpcd.Tag = "cd_grpcd";
             // 
             // label10
             // 
@@ -450,22 +450,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "상태";
-            this.status.Name = "status";
-            this.status.Visible = false;
-            this.status.Width = 54;
-            // 
-            // key1
-            // 
-            this.key1.DataPropertyName = "key1";
-            this.key1.HeaderText = "key1";
-            this.key1.Name = "key1";
-            this.key1.Visible = false;
-            this.key1.Width = 56;
-            // 
             // cd_grpcd
             // 
             this.cd_grpcd.DataPropertyName = "cd_grpcd";
@@ -546,6 +530,22 @@
             this.cd_edate.Visible = false;
             this.cd_edate.Width = 78;
             // 
+            // key1
+            // 
+            this.key1.DataPropertyName = "key1";
+            this.key1.HeaderText = "key1";
+            this.key1.Name = "key1";
+            this.key1.Visible = false;
+            this.key1.Width = 56;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "상태";
+            this.status.Name = "status";
+            this.status.Visible = false;
+            this.status.Width = 54;
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -602,8 +602,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox qt_cd_use;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn key1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_grpcd;
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_seq;
@@ -614,5 +612,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_use;
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_sdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_edate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn key1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
     }
 }

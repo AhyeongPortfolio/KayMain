@@ -590,7 +590,7 @@ namespace KayLibrary
             if (cd.Length == 0) return "";
             return cd[1];
         }
-        #endregion
+        #endregion        
         #region TextBox에서 숫자 천단위 Comma 설정 
         //************************************************************
         //** TextBox에서 숫자 천단위 Comma 설정 
@@ -604,7 +604,7 @@ namespace KayLibrary
                 textBox.Text = String.Empty;
         }
         #endregion
-        #region  코드검색 윈도우 보여주기(주석처리해둠/나중에 만들고 해제하기)
+        #region  코드검색 윈도우 보여주기
         //************************************************************
         //**  코드검색 윈도우 보여주기
         //************************************************************
@@ -693,8 +693,6 @@ namespace KayLibrary
         }
         #endregion
 
-
-
-
+        
     }
 }

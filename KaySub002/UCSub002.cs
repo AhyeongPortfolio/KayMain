@@ -18,6 +18,7 @@ namespace KaySub002
     /// --Form Name           : 세부코드 관리
     /// --최근작성 정보
     /// 1. 2021-09-01             권아영             신규생성
+    /// 2. 2021-09-02             권아영             쿼리 수정
     /// **********************************************************************
     /// </summary>
     /// 
@@ -61,6 +62,7 @@ namespace KaySub002
             ct_cd_sdate.KeyPress += Number_Only_Protect;
             //*----Enter Number Only(END)---------------------------------------
             btn_bas_univ.Click += btn_bas_univ_Click;
+            dataGridView1.SelectionChanged += DataList_SelectionChanged;
         }
 
         private void UserControl1_Load(object sender, EventArgs e)
@@ -72,8 +74,7 @@ namespace KaySub002
             qt_cd_use.Items.Add("");
             //*--콤보박스 미리 선택--------------------------------------
             qt_cd_grpcd.SelectedIndex = 1;
-
-
+            
             last_button_status = Utility.SetFuncBtn(MainBtn, "1");
             Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
             this.AutoValidate = AutoValidate.EnableAllowFocusChange;
@@ -112,10 +113,10 @@ namespace KaySub002
                     row.Cells["cd_codnms"].Value = dr["cd_codnms"].ToString();
                     row.Cells["cd_codnm"].Value = dr["cd_codnm"].ToString();
                     row.Cells["cd_addinfo"].Value = dr["cd_addinfo"].ToString();
-                    row.Cells["cd_upper"].Value = dr["cd_grpcd"].ToString();
-                    row.Cells["cd_use"].Value = dr["cd_code"].ToString();
-                    row.Cells["cd_sdate"].Value = dr["cd_seq"].ToString();
-                    row.Cells["cd_edate"].Value = dr["cd_codnms"].ToString();
+                    row.Cells["cd_upper"].Value = dr["cd_upper"].ToString();
+                    row.Cells["cd_use"].Value = dr["cd_use"].ToString();
+                    row.Cells["cd_sdate"].Value = dr["cd_sdate"].ToString();
+                    row.Cells["cd_edate"].Value = dr["cd_edate"].ToString();
                     row.Cells["key1"].Value = dr["cd_code"].ToString();
                     row.Cells["status"].Value = "";
                 }
@@ -173,6 +174,12 @@ namespace KaySub002
             ct_cd_grpcd.Focus();
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "3");
+
+            //*--날짜 리셋----------------------------------------------
+            ct_cd_sdate.Text = System.DateTime.Now.ToString("yyyyMMdd");
+            //*--사용여부 초기값-----------------------------------------
+            ct_cd_use.Text = "Y";
+            //*--그룹코드 초기값-----------------------------------------
         }
         #endregion
         #region 기능버튼(수정) Click
@@ -281,7 +288,7 @@ namespace KaySub002
                     cmd.Parameters.Add("cd_grpcd", OracleDbType.Varchar2).Value =   row.Cells["cd_grpcd"].Value;
                     cmd.Parameters.Add("cd_code", OracleDbType.Varchar2).Value =   row.Cells["cd_code"].Value;
                     cmd.Parameters.Add("cd_seq", OracleDbType.Varchar2).Value =   row.Cells["cd_seq"].Value;
-                    cmd.Parameters.Add("cd_codnms", OracleDbType.Varchar2).Value =  row.Cells["cd_codenms"].Value;
+                    cmd.Parameters.Add("cd_codnms", OracleDbType.Varchar2).Value =  row.Cells["cd_codnms"].Value;
                     cmd.Parameters.Add("cd_codnm", OracleDbType.Varchar2).Value =     row.Cells["cd_codnm"].Value;
                     cmd.Parameters.Add("cd_addinfo", OracleDbType.Varchar2).Value =    row.Cells["cd_addinfo"].Value;
                     cmd.Parameters.Add("cd_upper", OracleDbType.Varchar2).Value =   row.Cells["cd_upper"].Value;

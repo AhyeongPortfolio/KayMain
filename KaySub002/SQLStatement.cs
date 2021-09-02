@@ -22,23 +22,30 @@ namespace KaySub002
         //******************************
 
         public static string
-            SelectSQL = @"SELECT A.cd_grpcd||':'||B.cdg_grpnm as cdg_grpcd
-                            A.cd_code,  A.cd_seq, A.cd_codnms, A.cd_codnm, A.addinfo,
-                            A.cd_upper, A.cd_use, A.cd_sdate,  A.cd_edate 
-                            FROM kay_insa_cd A, kay_insa_cdg B
+            SelectSQL = @"SELECT A.cd_grpcd||':'||B.cdg_grpnm as cd_grpcd,
+                            A.cd_code as cd_code,  
+                            A.cd_seq as cd_seq, 
+                            A.cd_codnms as cd_codnms, 
+                            A.cd_codnm as cd_codnm, 
+                            A.cd_addinfo as cd_addinfo,
+                            A.cd_upper as cd_upper, 
+                            A.cd_use as cd_use, 
+                            A.cd_sdate as cd_sdate,  
+                            A.cd_edate as cd_edate 
+                            FROM kay_insa_cd  A, kay_insa_cdg  B
                             WHERE  A.cd_grpcd = B.cdg_grpcd(+)
-                            cd_grpcd LIKE :cd_grpcd
-                            AND cd_use LIKE :cd_use
-                            AND ROWNUM <= 30 ";
+                            AND A.cd_grpcd LIKE :cd_grpcd
+                            AND A.cd_use LIKE :cd_use
+                            AND ROWNUM <= 30";
 
         //******************************
         //--추가
         //******************************
         public static string
             InsertSQL = @"INSERT INTO kay_insa_cd VALUES (
-                           ( cd_grpcd, cd_code, cd_seq, cd_codnms, cd_addinfo, cd_upper, cd_use, cd_sdate, cd_edate, datasys2, datasys3) 
+                           ( cd_grpcd, cd_code, cd_seq, cd_codnms,cd_codnm, cd_addinfo, cd_upper, cd_use, cd_sdate, cd_edate, datasys2, datasys3) 
                             VALUES  
-                           ( :cd_grpcd, :cd_code, :cd_seq, :cd_codnms, :cd_addinfo, :cd_upper, :cd_use, ;cd_sdate, :cd_edate, 'A', :datasys3 ) ";
+                           ( :cd_grpcd, :cd_code, :cd_seq, :cd_codnms,:cd_codnm, :cd_addinfo, :cd_upper, :cd_use, ;cd_sdate, :cd_edate, 'A', :datasys3 ) ";
 
 
         //******************************
@@ -49,6 +56,7 @@ namespace KaySub002
                           cd_code = :cd_code,
                           cd_seq = :cd_seq,
                           cd_codnms = :cd_codnms,
+                          cd_codnm = :cd_codnm,
                           cd_addinfo = :cd_addinfo,
                           cd_upper = :cd_upper,
                           cd_use = :cd_use,
