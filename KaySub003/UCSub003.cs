@@ -35,6 +35,7 @@ namespace KaySub003
         public Label Info_Count { get; set; }           // 검색건수
         public Label Info_Message { get; set; }         // 하단 메세지
         public string last_button_status { get; set; }  // 버튼 최종상태
+        public string UserNm { get; set; }              // 사용자 이름
 
         public UserControl1()
         {
@@ -278,7 +279,7 @@ namespace KaySub003
                     cmd.Parameters.Add("dept_use", OracleDbType.Varchar2).Value =     row.Cells["dept_use"].Value;
                     cmd.Parameters.Add("dept_sdate", OracleDbType.Varchar2).Value =   Utility.FormatDateR((string)row.Cells["dept_sdate"].Value);
                     cmd.Parameters.Add("dept_edate", OracleDbType.Varchar2).Value =   Utility.FormatDateR((string)row.Cells["dept_edate"].Value);
-                    cmd.Parameters.Add("datasys3", OracleDbType.Varchar2).Value = "sys:" + UserId;
+                    cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
 
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();  //*----반드시 포함

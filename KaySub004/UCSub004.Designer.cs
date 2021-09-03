@@ -28,53 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl1));
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bas_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_resno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_cname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_ename = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_fix = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_addr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_anaddr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_zip = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_hdpno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_telno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_mil_sta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_mil_mil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_mil_rnk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_mar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_acc_bank = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_acc_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_acc_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_cont = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_emp_sdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_emp_edate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_entdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_resdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_levdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_reidate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_dptdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_jkdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_posdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_wsta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_sts = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_dut = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_rmk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panData = new System.Windows.Forms.Panel();
+            this.ct_bas_dptdate = new System.Windows.Forms.TextBox();
             this.ct_bas_dept = new System.Windows.Forms.TextBox();
+            this.ct_bas_jkdate = new System.Windows.Forms.TextBox();
             this.ct_bas_acc_no = new System.Windows.Forms.TextBox();
             this.ct_bas_dut = new System.Windows.Forms.TextBox();
             this.ct_bas_acc_name = new System.Windows.Forms.TextBox();
             this.ct_bas_sts = new System.Windows.Forms.TextBox();
+            this.ct_bas_posdate = new System.Windows.Forms.TextBox();
             this.ct_bas_mil_rnk = new System.Windows.Forms.ComboBox();
             this.ct_bas_pos = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -94,10 +61,13 @@
             this.label36 = new System.Windows.Forms.Label();
             this.ct_bas_mil_mil = new System.Windows.Forms.ComboBox();
             this.ct_bas_emp_sdate = new System.Windows.Forms.MaskedTextBox();
+            this.label38 = new System.Windows.Forms.Label();
             this.ct_bas_telno = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.ct_bas_email = new System.Windows.Forms.MaskedTextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.ct_bas_mil_sta = new System.Windows.Forms.ComboBox();
@@ -142,24 +112,54 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.search_empno = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.search_dept = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.search_pos = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.search_name = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.ct_bas_posdate = new System.Windows.Forms.TextBox();
-            this.ct_bas_jkdate = new System.Windows.Forms.TextBox();
-            this.ct_bas_dptdate = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.bas_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_resno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_cname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_ename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_fix = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_addr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_anaddr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_zip = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_hdpno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_telno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_mil_sta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_mil_mil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_mil_rnk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_mar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_acc_bank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_acc_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_acc_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_cont = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_emp_sdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_emp_edate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_entdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_resdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_levdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_reidate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_dptdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_jkdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_posdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_wsta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_rmk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -195,6 +195,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 586F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1045, 586);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.tableLayoutPanel1, "사진을 확인하시려면 더블클릭을 해주세요.");
             // 
             // dataGridView1
             // 
@@ -233,343 +234,21 @@
             this.bas_jkdate,
             this.bas_posdate,
             this.bas_wsta,
-            this.bas_sts,
-            this.bas_pos,
-            this.bas_dut,
-            this.bas_dept,
+            this.sts,
+            this.pos,
+            this.dut,
+            this.dept,
             this.bas_rmk,
             this.status,
             this.Key1});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(489, 580);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // bas_empno
-            // 
-            this.bas_empno.DataPropertyName = "bas_empno";
-            this.bas_empno.HeaderText = "사원번호";
-            this.bas_empno.Name = "bas_empno";
-            this.bas_empno.Width = 78;
-            // 
-            // bas_resno
-            // 
-            this.bas_resno.DataPropertyName = "bas_resno";
-            this.bas_resno.HeaderText = "주민번호";
-            this.bas_resno.Name = "bas_resno";
-            this.bas_resno.Visible = false;
-            this.bas_resno.Width = 78;
-            // 
-            // bas_name
-            // 
-            this.bas_name.DataPropertyName = "bas_name";
-            this.bas_name.HeaderText = "성명";
-            this.bas_name.Name = "bas_name";
-            this.bas_name.Width = 54;
-            // 
-            // bas_cname
-            // 
-            this.bas_cname.DataPropertyName = "bas_cname";
-            this.bas_cname.HeaderText = "성명(한자)";
-            this.bas_cname.Name = "bas_cname";
-            this.bas_cname.ReadOnly = true;
-            this.bas_cname.Visible = false;
-            this.bas_cname.Width = 88;
-            // 
-            // bas_ename
-            // 
-            this.bas_ename.DataPropertyName = "bas_ename";
-            this.bas_ename.HeaderText = "성명(영문)";
-            this.bas_ename.Name = "bas_ename";
-            this.bas_ename.ReadOnly = true;
-            this.bas_ename.Visible = false;
-            this.bas_ename.Width = 88;
-            // 
-            // bas_fix
-            // 
-            this.bas_fix.DataPropertyName = "bas_fix";
-            this.bas_fix.HeaderText = "성별";
-            this.bas_fix.Name = "bas_fix";
-            this.bas_fix.ReadOnly = true;
-            this.bas_fix.Visible = false;
-            this.bas_fix.Width = 54;
-            // 
-            // bas_addr
-            // 
-            this.bas_addr.DataPropertyName = "bas_addr";
-            this.bas_addr.HeaderText = "주소";
-            this.bas_addr.Name = "bas_addr";
-            this.bas_addr.ReadOnly = true;
-            this.bas_addr.Visible = false;
-            this.bas_addr.Width = 54;
-            // 
-            // bas_anaddr
-            // 
-            this.bas_anaddr.DataPropertyName = "bas_anaddr";
-            this.bas_anaddr.HeaderText = "나머지주소";
-            this.bas_anaddr.Name = "bas_anaddr";
-            this.bas_anaddr.ReadOnly = true;
-            this.bas_anaddr.Visible = false;
-            this.bas_anaddr.Width = 90;
-            // 
-            // bas_zip
-            // 
-            this.bas_zip.DataPropertyName = "bas_zip";
-            this.bas_zip.HeaderText = "우편번호";
-            this.bas_zip.Name = "bas_zip";
-            this.bas_zip.ReadOnly = true;
-            this.bas_zip.Visible = false;
-            this.bas_zip.Width = 78;
-            // 
-            // bas_hdpno
-            // 
-            this.bas_hdpno.DataPropertyName = "bas_hdpno";
-            this.bas_hdpno.HeaderText = "휴대폰번호";
-            this.bas_hdpno.Name = "bas_hdpno";
-            this.bas_hdpno.ReadOnly = true;
-            this.bas_hdpno.Visible = false;
-            this.bas_hdpno.Width = 90;
-            // 
-            // bas_telno
-            // 
-            this.bas_telno.DataPropertyName = "bas_telno";
-            this.bas_telno.HeaderText = "집전화번호";
-            this.bas_telno.Name = "bas_telno";
-            this.bas_telno.ReadOnly = true;
-            this.bas_telno.Visible = false;
-            this.bas_telno.Width = 90;
-            // 
-            // bas_email
-            // 
-            this.bas_email.DataPropertyName = "bas_email";
-            this.bas_email.HeaderText = "이메일";
-            this.bas_email.Name = "bas_email";
-            this.bas_email.ReadOnly = true;
-            this.bas_email.Visible = false;
-            this.bas_email.Width = 66;
-            // 
-            // bas_mil_sta
-            // 
-            this.bas_mil_sta.DataPropertyName = "bas_mil_sta";
-            this.bas_mil_sta.HeaderText = "병역(복무구분)";
-            this.bas_mil_sta.Name = "bas_mil_sta";
-            this.bas_mil_sta.ReadOnly = true;
-            this.bas_mil_sta.Visible = false;
-            this.bas_mil_sta.Width = 112;
-            // 
-            // bas_mil_mil
-            // 
-            this.bas_mil_mil.DataPropertyName = "bas_mil_mil";
-            this.bas_mil_mil.HeaderText = "병역(군별)";
-            this.bas_mil_mil.Name = "bas_mil_mil";
-            this.bas_mil_mil.ReadOnly = true;
-            this.bas_mil_mil.Visible = false;
-            this.bas_mil_mil.Width = 88;
-            // 
-            // bas_mil_rnk
-            // 
-            this.bas_mil_rnk.DataPropertyName = "bas_mil_rnk";
-            this.bas_mil_rnk.HeaderText = "병역(계급)";
-            this.bas_mil_rnk.Name = "bas_mil_rnk";
-            this.bas_mil_rnk.ReadOnly = true;
-            this.bas_mil_rnk.Visible = false;
-            this.bas_mil_rnk.Width = 88;
-            // 
-            // bas_mar
-            // 
-            this.bas_mar.DataPropertyName = "bas_mar";
-            this.bas_mar.HeaderText = "결혼여부";
-            this.bas_mar.Name = "bas_mar";
-            this.bas_mar.ReadOnly = true;
-            this.bas_mar.Visible = false;
-            this.bas_mar.Width = 78;
-            // 
-            // bas_acc_bank
-            // 
-            this.bas_acc_bank.DataPropertyName = "bas_acc_bank";
-            this.bas_acc_bank.HeaderText = "계좌사항(은행명)";
-            this.bas_acc_bank.Name = "bas_acc_bank";
-            this.bas_acc_bank.ReadOnly = true;
-            this.bas_acc_bank.Visible = false;
-            this.bas_acc_bank.Width = 124;
-            // 
-            // bas_acc_name
-            // 
-            this.bas_acc_name.DataPropertyName = "bas_acc_name";
-            this.bas_acc_name.HeaderText = "계좌사항(예금주)";
-            this.bas_acc_name.Name = "bas_acc_name";
-            this.bas_acc_name.ReadOnly = true;
-            this.bas_acc_name.Visible = false;
-            this.bas_acc_name.Width = 124;
-            // 
-            // bas_acc_no
-            // 
-            this.bas_acc_no.DataPropertyName = "bas_acc_no";
-            this.bas_acc_no.HeaderText = "계좌사항(계좌번호)";
-            this.bas_acc_no.Name = "bas_acc_no";
-            this.bas_acc_no.ReadOnly = true;
-            this.bas_acc_no.Visible = false;
-            this.bas_acc_no.Width = 136;
-            // 
-            // bas_cont
-            // 
-            this.bas_cont.DataPropertyName = "bas_cont";
-            this.bas_cont.HeaderText = "계약구분";
-            this.bas_cont.Name = "bas_cont";
-            this.bas_cont.ReadOnly = true;
-            this.bas_cont.Visible = false;
-            this.bas_cont.Width = 78;
-            // 
-            // bas_emp_sdate
-            // 
-            this.bas_emp_sdate.DataPropertyName = "bas_emp_sdate";
-            this.bas_emp_sdate.HeaderText = "계약시작일";
-            this.bas_emp_sdate.Name = "bas_emp_sdate";
-            this.bas_emp_sdate.ReadOnly = true;
-            this.bas_emp_sdate.Visible = false;
-            this.bas_emp_sdate.Width = 90;
-            // 
-            // bas_emp_edate
-            // 
-            this.bas_emp_edate.DataPropertyName = "bas_emp_edate";
-            this.bas_emp_edate.HeaderText = "계약종료일";
-            this.bas_emp_edate.Name = "bas_emp_edate";
-            this.bas_emp_edate.ReadOnly = true;
-            this.bas_emp_edate.Visible = false;
-            this.bas_emp_edate.Width = 90;
-            // 
-            // bas_entdate
-            // 
-            this.bas_entdate.DataPropertyName = "bas_entdate";
-            this.bas_entdate.HeaderText = "입사일자";
-            this.bas_entdate.Name = "bas_entdate";
-            this.bas_entdate.ReadOnly = true;
-            this.bas_entdate.Visible = false;
-            this.bas_entdate.Width = 78;
-            // 
-            // bas_resdate
-            // 
-            this.bas_resdate.DataPropertyName = "bas_resdate";
-            this.bas_resdate.HeaderText = "퇴사일자";
-            this.bas_resdate.Name = "bas_resdate";
-            this.bas_resdate.ReadOnly = true;
-            this.bas_resdate.Visible = false;
-            this.bas_resdate.Width = 78;
-            // 
-            // bas_levdate
-            // 
-            this.bas_levdate.DataPropertyName = "bas_levdate";
-            this.bas_levdate.HeaderText = "휴직일자";
-            this.bas_levdate.Name = "bas_levdate";
-            this.bas_levdate.ReadOnly = true;
-            this.bas_levdate.Visible = false;
-            this.bas_levdate.Width = 78;
-            // 
-            // bas_reidate
-            // 
-            this.bas_reidate.DataPropertyName = "bas_reidate";
-            this.bas_reidate.HeaderText = "복직일자";
-            this.bas_reidate.Name = "bas_reidate";
-            this.bas_reidate.ReadOnly = true;
-            this.bas_reidate.Visible = false;
-            this.bas_reidate.Width = 78;
-            // 
-            // bas_dptdate
-            // 
-            this.bas_dptdate.DataPropertyName = "bas_dptdate";
-            this.bas_dptdate.HeaderText = "현부서일자";
-            this.bas_dptdate.Name = "bas_dptdate";
-            this.bas_dptdate.ReadOnly = true;
-            this.bas_dptdate.Visible = false;
-            this.bas_dptdate.Width = 90;
-            // 
-            // bas_jkdate
-            // 
-            this.bas_jkdate.DataPropertyName = "bas_jkdate";
-            this.bas_jkdate.HeaderText = "현직급일자";
-            this.bas_jkdate.Name = "bas_jkdate";
-            this.bas_jkdate.ReadOnly = true;
-            this.bas_jkdate.Visible = false;
-            this.bas_jkdate.Width = 90;
-            // 
-            // bas_posdate
-            // 
-            this.bas_posdate.DataPropertyName = "bas_posdate";
-            this.bas_posdate.HeaderText = "현직책일자";
-            this.bas_posdate.Name = "bas_posdate";
-            this.bas_posdate.ReadOnly = true;
-            this.bas_posdate.Visible = false;
-            this.bas_posdate.Width = 90;
-            // 
-            // bas_wsta
-            // 
-            this.bas_wsta.DataPropertyName = "bas_wsta";
-            this.bas_wsta.HeaderText = "재직상태";
-            this.bas_wsta.Name = "bas_wsta";
-            this.bas_wsta.ReadOnly = true;
-            this.bas_wsta.Width = 78;
-            // 
-            // bas_sts
-            // 
-            this.bas_sts.DataPropertyName = "bas_sts";
-            this.bas_sts.HeaderText = "신분구분";
-            this.bas_sts.Name = "bas_sts";
-            this.bas_sts.ReadOnly = true;
-            this.bas_sts.Width = 78;
-            // 
-            // bas_pos
-            // 
-            this.bas_pos.DataPropertyName = "bas_pos";
-            this.bas_pos.HeaderText = "현직급";
-            this.bas_pos.Name = "bas_pos";
-            this.bas_pos.ReadOnly = true;
-            this.bas_pos.Width = 66;
-            // 
-            // bas_dut
-            // 
-            this.bas_dut.DataPropertyName = "bas_dut";
-            this.bas_dut.HeaderText = "현직책";
-            this.bas_dut.Name = "bas_dut";
-            this.bas_dut.ReadOnly = true;
-            this.bas_dut.Width = 66;
-            // 
-            // bas_dept
-            // 
-            this.bas_dept.DataPropertyName = "bas_dept";
-            this.bas_dept.HeaderText = "현부서";
-            this.bas_dept.Name = "bas_dept";
-            this.bas_dept.ReadOnly = true;
-            this.bas_dept.Width = 66;
-            // 
-            // bas_rmk
-            // 
-            this.bas_rmk.DataPropertyName = "bas_rmk";
-            this.bas_rmk.HeaderText = "참고사항";
-            this.bas_rmk.Name = "bas_rmk";
-            this.bas_rmk.ReadOnly = true;
-            this.bas_rmk.Visible = false;
-            this.bas_rmk.Width = 78;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "상태";
-            this.status.Name = "status";
-            this.status.Visible = false;
-            this.status.Width = 54;
-            // 
-            // Key1
-            // 
-            this.Key1.DataPropertyName = "Key1";
-            this.Key1.HeaderText = "Key1";
-            this.Key1.Name = "Key1";
-            this.Key1.Visible = false;
-            this.Key1.Width = 58;
             // 
             // panData
             // 
@@ -653,6 +332,15 @@
             this.panData.Size = new System.Drawing.Size(544, 580);
             this.panData.TabIndex = 2;
             // 
+            // ct_bas_dptdate
+            // 
+            this.ct_bas_dptdate.Location = new System.Drawing.Point(429, 397);
+            this.ct_bas_dptdate.Name = "ct_bas_dptdate";
+            this.ct_bas_dptdate.ReadOnly = true;
+            this.ct_bas_dptdate.Size = new System.Drawing.Size(100, 21);
+            this.ct_bas_dptdate.TabIndex = 45;
+            this.ct_bas_dptdate.Tag = "bas_dptdate";
+            // 
             // ct_bas_dept
             // 
             this.ct_bas_dept.Location = new System.Drawing.Point(429, 373);
@@ -661,6 +349,15 @@
             this.ct_bas_dept.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_dept.TabIndex = 45;
             this.ct_bas_dept.Tag = "bas_dept";
+            // 
+            // ct_bas_jkdate
+            // 
+            this.ct_bas_jkdate.Location = new System.Drawing.Point(252, 397);
+            this.ct_bas_jkdate.Name = "ct_bas_jkdate";
+            this.ct_bas_jkdate.ReadOnly = true;
+            this.ct_bas_jkdate.Size = new System.Drawing.Size(100, 21);
+            this.ct_bas_jkdate.TabIndex = 45;
+            this.ct_bas_jkdate.Tag = "bas_jkdate";
             // 
             // ct_bas_acc_no
             // 
@@ -697,6 +394,15 @@
             this.ct_bas_sts.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_sts.TabIndex = 45;
             this.ct_bas_sts.Tag = "bas_sts";
+            // 
+            // ct_bas_posdate
+            // 
+            this.ct_bas_posdate.Location = new System.Drawing.Point(75, 397);
+            this.ct_bas_posdate.Name = "ct_bas_posdate";
+            this.ct_bas_posdate.ReadOnly = true;
+            this.ct_bas_posdate.Size = new System.Drawing.Size(100, 21);
+            this.ct_bas_posdate.TabIndex = 45;
+            this.ct_bas_posdate.Tag = "bas_posdate";
             // 
             // ct_bas_mil_rnk
             // 
@@ -884,6 +590,15 @@
             this.ct_bas_emp_sdate.Tag = "bas_emp_sdate";
             this.ct_bas_emp_sdate.ValidatingType = typeof(System.DateTime);
             // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(28, 401);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(41, 12);
+            this.label38.TabIndex = 42;
+            this.label38.Text = "현직급";
+            // 
             // ct_bas_telno
             // 
             this.ct_bas_telno.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -903,6 +618,15 @@
             this.label31.TabIndex = 42;
             this.label31.Text = "현직급";
             // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(382, 401);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(41, 12);
+            this.label37.TabIndex = 40;
+            this.label37.Text = "현부서";
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -920,6 +644,15 @@
             this.label30.Size = new System.Drawing.Size(41, 12);
             this.label30.TabIndex = 40;
             this.label30.Text = "현부서";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(205, 401);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(41, 12);
+            this.label33.TabIndex = 38;
+            this.label33.Text = "현직책";
             // 
             // ct_bas_email
             // 
@@ -1258,6 +991,7 @@
             this.ct_bas_empno.Location = new System.Drawing.Point(196, 7);
             this.ct_bas_empno.MaxLength = 9;
             this.ct_bas_empno.Name = "ct_bas_empno";
+            this.ct_bas_empno.ReadOnly = true;
             this.ct_bas_empno.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_empno.TabIndex = 1;
             this.ct_bas_empno.Tag = "bas_empno";
@@ -1317,10 +1051,6 @@
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.search_empno);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.search_dept);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.search_pos);
             this.panel4.Controls.Add(this.label34);
             this.panel4.Controls.Add(this.search_name);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1355,46 +1085,6 @@
             this.search_empno.Size = new System.Drawing.Size(100, 21);
             this.search_empno.TabIndex = 43;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(309, 7);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "부서";
-            this.label2.Visible = false;
-            // 
-            // search_dept
-            // 
-            this.search_dept.FormattingEnabled = true;
-            this.search_dept.Location = new System.Drawing.Point(344, 3);
-            this.search_dept.Name = "search_dept";
-            this.search_dept.Size = new System.Drawing.Size(100, 20);
-            this.search_dept.TabIndex = 39;
-            this.search_dept.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(450, 7);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "직위";
-            this.label3.Visible = false;
-            // 
-            // search_pos
-            // 
-            this.search_pos.FormattingEnabled = true;
-            this.search_pos.Location = new System.Drawing.Point(485, 3);
-            this.search_pos.Name = "search_pos";
-            this.search_pos.Size = new System.Drawing.Size(100, 20);
-            this.search_pos.TabIndex = 40;
-            this.search_pos.Visible = false;
-            // 
             // label34
             // 
             this.label34.AutoSize = true;
@@ -1412,59 +1102,330 @@
             this.search_name.Size = new System.Drawing.Size(100, 21);
             this.search_name.TabIndex = 41;
             // 
-            // label33
+            // errorProvider1
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(205, 401);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(41, 12);
-            this.label33.TabIndex = 38;
-            this.label33.Text = "현직책";
+            this.errorProvider1.ContainerControl = this;
             // 
-            // label37
+            // bas_empno
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(382, 401);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(41, 12);
-            this.label37.TabIndex = 40;
-            this.label37.Text = "현부서";
+            this.bas_empno.DataPropertyName = "bas_empno";
+            this.bas_empno.HeaderText = "사원번호";
+            this.bas_empno.Name = "bas_empno";
+            this.bas_empno.Width = 78;
             // 
-            // label38
+            // bas_resno
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(28, 401);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(41, 12);
-            this.label38.TabIndex = 42;
-            this.label38.Text = "현직급";
+            this.bas_resno.DataPropertyName = "bas_resno";
+            this.bas_resno.HeaderText = "주민번호";
+            this.bas_resno.Name = "bas_resno";
+            this.bas_resno.Visible = false;
+            this.bas_resno.Width = 78;
             // 
-            // ct_bas_posdate
+            // bas_name
             // 
-            this.ct_bas_posdate.Location = new System.Drawing.Point(75, 397);
-            this.ct_bas_posdate.Name = "ct_bas_posdate";
-            this.ct_bas_posdate.ReadOnly = true;
-            this.ct_bas_posdate.Size = new System.Drawing.Size(100, 21);
-            this.ct_bas_posdate.TabIndex = 45;
-            this.ct_bas_posdate.Tag = "bas_posdate";
+            this.bas_name.DataPropertyName = "bas_name";
+            this.bas_name.HeaderText = "성명";
+            this.bas_name.Name = "bas_name";
+            this.bas_name.Width = 54;
             // 
-            // ct_bas_jkdate
+            // bas_cname
             // 
-            this.ct_bas_jkdate.Location = new System.Drawing.Point(252, 397);
-            this.ct_bas_jkdate.Name = "ct_bas_jkdate";
-            this.ct_bas_jkdate.ReadOnly = true;
-            this.ct_bas_jkdate.Size = new System.Drawing.Size(100, 21);
-            this.ct_bas_jkdate.TabIndex = 45;
-            this.ct_bas_jkdate.Tag = "bas_jkdate";
+            this.bas_cname.DataPropertyName = "bas_cname";
+            this.bas_cname.HeaderText = "성명(한자)";
+            this.bas_cname.Name = "bas_cname";
+            this.bas_cname.ReadOnly = true;
+            this.bas_cname.Visible = false;
+            this.bas_cname.Width = 88;
             // 
-            // ct_bas_dptdate
+            // bas_ename
             // 
-            this.ct_bas_dptdate.Location = new System.Drawing.Point(429, 397);
-            this.ct_bas_dptdate.Name = "ct_bas_dptdate";
-            this.ct_bas_dptdate.ReadOnly = true;
-            this.ct_bas_dptdate.Size = new System.Drawing.Size(100, 21);
-            this.ct_bas_dptdate.TabIndex = 45;
-            this.ct_bas_dptdate.Tag = "bas_dptdate";
+            this.bas_ename.DataPropertyName = "bas_ename";
+            this.bas_ename.HeaderText = "성명(영문)";
+            this.bas_ename.Name = "bas_ename";
+            this.bas_ename.ReadOnly = true;
+            this.bas_ename.Visible = false;
+            this.bas_ename.Width = 88;
+            // 
+            // bas_fix
+            // 
+            this.bas_fix.DataPropertyName = "bas_fix";
+            this.bas_fix.HeaderText = "성별";
+            this.bas_fix.Name = "bas_fix";
+            this.bas_fix.ReadOnly = true;
+            this.bas_fix.Visible = false;
+            this.bas_fix.Width = 54;
+            // 
+            // bas_addr
+            // 
+            this.bas_addr.DataPropertyName = "bas_addr";
+            this.bas_addr.HeaderText = "주소";
+            this.bas_addr.Name = "bas_addr";
+            this.bas_addr.ReadOnly = true;
+            this.bas_addr.Visible = false;
+            this.bas_addr.Width = 54;
+            // 
+            // bas_anaddr
+            // 
+            this.bas_anaddr.DataPropertyName = "bas_anaddr";
+            this.bas_anaddr.HeaderText = "나머지주소";
+            this.bas_anaddr.Name = "bas_anaddr";
+            this.bas_anaddr.ReadOnly = true;
+            this.bas_anaddr.Visible = false;
+            this.bas_anaddr.Width = 90;
+            // 
+            // bas_zip
+            // 
+            this.bas_zip.DataPropertyName = "bas_zip";
+            this.bas_zip.HeaderText = "우편번호";
+            this.bas_zip.Name = "bas_zip";
+            this.bas_zip.ReadOnly = true;
+            this.bas_zip.Visible = false;
+            this.bas_zip.Width = 78;
+            // 
+            // bas_hdpno
+            // 
+            this.bas_hdpno.DataPropertyName = "bas_hdpno";
+            this.bas_hdpno.HeaderText = "휴대폰번호";
+            this.bas_hdpno.Name = "bas_hdpno";
+            this.bas_hdpno.ReadOnly = true;
+            this.bas_hdpno.Visible = false;
+            this.bas_hdpno.Width = 90;
+            // 
+            // bas_telno
+            // 
+            this.bas_telno.DataPropertyName = "bas_telno";
+            this.bas_telno.HeaderText = "집전화번호";
+            this.bas_telno.Name = "bas_telno";
+            this.bas_telno.ReadOnly = true;
+            this.bas_telno.Visible = false;
+            this.bas_telno.Width = 90;
+            // 
+            // bas_email
+            // 
+            this.bas_email.DataPropertyName = "bas_email";
+            this.bas_email.HeaderText = "이메일";
+            this.bas_email.Name = "bas_email";
+            this.bas_email.ReadOnly = true;
+            this.bas_email.Visible = false;
+            this.bas_email.Width = 66;
+            // 
+            // bas_mil_sta
+            // 
+            this.bas_mil_sta.DataPropertyName = "bas_mil_sta";
+            this.bas_mil_sta.HeaderText = "병역(복무구분)";
+            this.bas_mil_sta.Name = "bas_mil_sta";
+            this.bas_mil_sta.ReadOnly = true;
+            this.bas_mil_sta.Visible = false;
+            this.bas_mil_sta.Width = 112;
+            // 
+            // bas_mil_mil
+            // 
+            this.bas_mil_mil.DataPropertyName = "bas_mil_mil";
+            this.bas_mil_mil.HeaderText = "병역(군별)";
+            this.bas_mil_mil.Name = "bas_mil_mil";
+            this.bas_mil_mil.ReadOnly = true;
+            this.bas_mil_mil.Visible = false;
+            this.bas_mil_mil.Width = 88;
+            // 
+            // bas_mil_rnk
+            // 
+            this.bas_mil_rnk.DataPropertyName = "bas_mil_rnk";
+            this.bas_mil_rnk.HeaderText = "병역(계급)";
+            this.bas_mil_rnk.Name = "bas_mil_rnk";
+            this.bas_mil_rnk.ReadOnly = true;
+            this.bas_mil_rnk.Visible = false;
+            this.bas_mil_rnk.Width = 88;
+            // 
+            // bas_mar
+            // 
+            this.bas_mar.DataPropertyName = "bas_mar";
+            this.bas_mar.HeaderText = "결혼여부";
+            this.bas_mar.Name = "bas_mar";
+            this.bas_mar.ReadOnly = true;
+            this.bas_mar.Visible = false;
+            this.bas_mar.Width = 78;
+            // 
+            // bas_acc_bank
+            // 
+            this.bas_acc_bank.DataPropertyName = "bas_acc_bank";
+            this.bas_acc_bank.HeaderText = "계좌사항(은행명)";
+            this.bas_acc_bank.Name = "bas_acc_bank";
+            this.bas_acc_bank.ReadOnly = true;
+            this.bas_acc_bank.Visible = false;
+            this.bas_acc_bank.Width = 124;
+            // 
+            // bas_acc_name
+            // 
+            this.bas_acc_name.DataPropertyName = "bas_acc_name";
+            this.bas_acc_name.HeaderText = "계좌사항(예금주)";
+            this.bas_acc_name.Name = "bas_acc_name";
+            this.bas_acc_name.ReadOnly = true;
+            this.bas_acc_name.Visible = false;
+            this.bas_acc_name.Width = 124;
+            // 
+            // bas_acc_no
+            // 
+            this.bas_acc_no.DataPropertyName = "bas_acc_no";
+            this.bas_acc_no.HeaderText = "계좌사항(계좌번호)";
+            this.bas_acc_no.Name = "bas_acc_no";
+            this.bas_acc_no.ReadOnly = true;
+            this.bas_acc_no.Visible = false;
+            this.bas_acc_no.Width = 136;
+            // 
+            // bas_cont
+            // 
+            this.bas_cont.DataPropertyName = "bas_cont";
+            this.bas_cont.HeaderText = "계약구분";
+            this.bas_cont.Name = "bas_cont";
+            this.bas_cont.ReadOnly = true;
+            this.bas_cont.Visible = false;
+            this.bas_cont.Width = 78;
+            // 
+            // bas_emp_sdate
+            // 
+            this.bas_emp_sdate.DataPropertyName = "bas_emp_sdate";
+            this.bas_emp_sdate.HeaderText = "계약시작일";
+            this.bas_emp_sdate.Name = "bas_emp_sdate";
+            this.bas_emp_sdate.ReadOnly = true;
+            this.bas_emp_sdate.Visible = false;
+            this.bas_emp_sdate.Width = 90;
+            // 
+            // bas_emp_edate
+            // 
+            this.bas_emp_edate.DataPropertyName = "bas_emp_edate";
+            this.bas_emp_edate.HeaderText = "계약종료일";
+            this.bas_emp_edate.Name = "bas_emp_edate";
+            this.bas_emp_edate.ReadOnly = true;
+            this.bas_emp_edate.Visible = false;
+            this.bas_emp_edate.Width = 90;
+            // 
+            // bas_entdate
+            // 
+            this.bas_entdate.DataPropertyName = "bas_entdate";
+            this.bas_entdate.HeaderText = "입사일자";
+            this.bas_entdate.Name = "bas_entdate";
+            this.bas_entdate.ReadOnly = true;
+            this.bas_entdate.Visible = false;
+            this.bas_entdate.Width = 78;
+            // 
+            // bas_resdate
+            // 
+            this.bas_resdate.DataPropertyName = "bas_resdate";
+            this.bas_resdate.HeaderText = "퇴사일자";
+            this.bas_resdate.Name = "bas_resdate";
+            this.bas_resdate.ReadOnly = true;
+            this.bas_resdate.Visible = false;
+            this.bas_resdate.Width = 78;
+            // 
+            // bas_levdate
+            // 
+            this.bas_levdate.DataPropertyName = "bas_levdate";
+            this.bas_levdate.HeaderText = "휴직일자";
+            this.bas_levdate.Name = "bas_levdate";
+            this.bas_levdate.ReadOnly = true;
+            this.bas_levdate.Visible = false;
+            this.bas_levdate.Width = 78;
+            // 
+            // bas_reidate
+            // 
+            this.bas_reidate.DataPropertyName = "bas_reidate";
+            this.bas_reidate.HeaderText = "복직일자";
+            this.bas_reidate.Name = "bas_reidate";
+            this.bas_reidate.ReadOnly = true;
+            this.bas_reidate.Visible = false;
+            this.bas_reidate.Width = 78;
+            // 
+            // bas_dptdate
+            // 
+            this.bas_dptdate.DataPropertyName = "bas_dptdate";
+            this.bas_dptdate.HeaderText = "현부서일자";
+            this.bas_dptdate.Name = "bas_dptdate";
+            this.bas_dptdate.ReadOnly = true;
+            this.bas_dptdate.Visible = false;
+            this.bas_dptdate.Width = 90;
+            // 
+            // bas_jkdate
+            // 
+            this.bas_jkdate.DataPropertyName = "bas_jkdate";
+            this.bas_jkdate.HeaderText = "현직급일자";
+            this.bas_jkdate.Name = "bas_jkdate";
+            this.bas_jkdate.ReadOnly = true;
+            this.bas_jkdate.Visible = false;
+            this.bas_jkdate.Width = 90;
+            // 
+            // bas_posdate
+            // 
+            this.bas_posdate.DataPropertyName = "bas_posdate";
+            this.bas_posdate.HeaderText = "현직책일자";
+            this.bas_posdate.Name = "bas_posdate";
+            this.bas_posdate.ReadOnly = true;
+            this.bas_posdate.Visible = false;
+            this.bas_posdate.Width = 90;
+            // 
+            // bas_wsta
+            // 
+            this.bas_wsta.DataPropertyName = "bas_wsta";
+            this.bas_wsta.HeaderText = "재직상태";
+            this.bas_wsta.Name = "bas_wsta";
+            this.bas_wsta.ReadOnly = true;
+            this.bas_wsta.Width = 78;
+            // 
+            // sts
+            // 
+            this.sts.DataPropertyName = "sts";
+            this.sts.HeaderText = "신분구분";
+            this.sts.Name = "sts";
+            this.sts.ReadOnly = true;
+            this.sts.Width = 78;
+            // 
+            // pos
+            // 
+            this.pos.DataPropertyName = "pos";
+            this.pos.HeaderText = "현직급";
+            this.pos.Name = "pos";
+            this.pos.ReadOnly = true;
+            this.pos.Width = 66;
+            // 
+            // dut
+            // 
+            this.dut.DataPropertyName = "dut";
+            this.dut.HeaderText = "현직책";
+            this.dut.Name = "dut";
+            this.dut.ReadOnly = true;
+            this.dut.Width = 66;
+            // 
+            // dept
+            // 
+            this.dept.DataPropertyName = "bas_dept";
+            this.dept.HeaderText = "현부서";
+            this.dept.Name = "dept";
+            this.dept.ReadOnly = true;
+            this.dept.Width = 66;
+            // 
+            // bas_rmk
+            // 
+            this.bas_rmk.DataPropertyName = "bas_rmk";
+            this.bas_rmk.HeaderText = "참고사항";
+            this.bas_rmk.Name = "bas_rmk";
+            this.bas_rmk.ReadOnly = true;
+            this.bas_rmk.Visible = false;
+            this.bas_rmk.Width = 78;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "상태";
+            this.status.Name = "status";
+            this.status.Visible = false;
+            this.status.Width = 54;
+            // 
+            // Key1
+            // 
+            this.Key1.DataPropertyName = "Key1";
+            this.Key1.HeaderText = "Key1";
+            this.Key1.Name = "Key1";
+            this.Key1.Visible = false;
+            this.Key1.Width = 58;
             // 
             // UserControl1
             // 
@@ -1483,6 +1444,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1559,12 +1521,21 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox search_empno;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox search_dept;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox search_pos;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.TextBox search_name;
+        private System.Windows.Forms.TextBox ct_bas_acc_no;
+        private System.Windows.Forms.TextBox ct_bas_acc_name;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox ct_bas_acc_bank;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox ct_bas_dptdate;
+        private System.Windows.Forms.TextBox ct_bas_jkdate;
+        private System.Windows.Forms.TextBox ct_bas_posdate;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn bas_empno;
         private System.Windows.Forms.DataGridViewTextBoxColumn bas_resno;
         private System.Windows.Forms.DataGridViewTextBoxColumn bas_name;
@@ -1595,24 +1566,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bas_jkdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn bas_posdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn bas_wsta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bas_sts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bas_pos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bas_dut;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bas_dept;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sts;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dept;
         private System.Windows.Forms.DataGridViewTextBoxColumn bas_rmk;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Key1;
-        private System.Windows.Forms.TextBox ct_bas_acc_no;
-        private System.Windows.Forms.TextBox ct_bas_acc_name;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox ct_bas_acc_bank;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox ct_bas_dptdate;
-        private System.Windows.Forms.TextBox ct_bas_jkdate;
-        private System.Windows.Forms.TextBox ct_bas_posdate;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

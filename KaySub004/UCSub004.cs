@@ -18,6 +18,7 @@ namespace KaySub004
     /// --Form Name           : 인사정보관리
     /// --최근작성 정보
     /// 1. 2021-09-02              권아영             신규생성
+    /// 2. 2021-09-03              권아영             bas테이블 입력,수정
     /// **********************************************************************
     /// </summary>
     public partial class UserControl1: UserControl
@@ -27,6 +28,7 @@ namespace KaySub004
         OracleConnection con = null;
         private bool select_sw = false;
         private bool query_sw = false;
+        private string Today = System.DateTime.Now.ToString("yyyyMMdd");
         //************************************************************
         // 메인메뉴로부터 초기 설정값 넘겨 받기
         //************************************************************
@@ -35,6 +37,7 @@ namespace KaySub004
         public Label Info_Count { get; set; }           // 검색건수
         public Label Info_Message { get; set; }         // 하단 메세지
         public string last_button_status { get; set; }  // 버튼 최종상태
+        public string UserNm { get; set; }              // 사용자 이름
 
         public UserControl1()
         {
@@ -79,10 +82,8 @@ namespace KaySub004
             ct_bas_dut.TextChanged += InputData_TextChanged;
             ct_bas_dept.TextChanged += InputData_TextChanged;
             ct_bas_rmk.TextChanged += InputData_TextChanged;
-
             //*----Value Changed Event Handler(END)-----------------------------
             //*----Validated Event Handler(Start)-------------------------------
-            ct_bas_empno.Validated += Input_Validation_Check;
             ct_bas_name.Validated += Input_Validation_Check;
             ct_bas_resno.Validated += Input_Validation_Check;
             //*----Validated Event Handler(END)---------------------------------
@@ -98,6 +99,11 @@ namespace KaySub004
         }
         private void UserControl1_Load(object sender, EventArgs e)
         {
+            //*--콤보박스 채우기-----------------------------------------
+            Utility.SetComboWithCdnm(ct_bas_mil_mil, SQLStatement.SelectSQL3);
+            Utility.SetComboWithCdnm(ct_bas_mil_rnk, SQLStatement.SelectSQL4);
+            Utility.SetComboWithCdnm(ct_bas_acc_bank, SQLStatement.SelectSQL5);
+
             last_button_status = Utility.SetFuncBtn(MainBtn, "1");
             Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
             this.AutoValidate = AutoValidate.EnableAllowFocusChange;
@@ -121,24 +127,55 @@ namespace KaySub004
                 OracleCommand cmd = con.CreateCommand();
                 cmd.CommandText = SQLStatement.SelectSQL;
                 cmd.BindByName = true;
-                cmd.Parameters.Add("dept_code", OracleDbType.Varchar2).Value = "%" + qt_dept_code.Text + "%";
-                cmd.Parameters.Add("dept_name", OracleDbType.Varchar2).Value = "%" + qt_dept_name.Text + "%";
-                cmd.Parameters.Add("dept_use", OracleDbType.Varchar2).Value = "%" + qt_dept_use.Text + "%";
+                cmd.Parameters.Add("bas_empno", OracleDbType.Varchar2).Value = "%" + search_empno.Text + "%";
+                cmd.Parameters.Add("bas_name", OracleDbType.Varchar2).Value = "%" + search_name.Text + "%";
                 OracleDataReader dr = cmd.ExecuteReader();
+
+                var byteArray = Encoding.UTF8.GetBytes(ct_bas_resno.Text); // 복호화 키
+
                 query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
                 while (dr.Read())
                 {
                     rowIdx = dataGridView1.Rows.Add();
                     row = dataGridView1.Rows[rowIdx];
-                    row.Cells["dept_code"].Value = dr["dept_code"].ToString();
-                    row.Cells["dept_seq"].Value = dr["dept_seq"].ToString();
-                    row.Cells["dept_name"].Value = dr["dept_name"].ToString();
-                    row.Cells["dept_names"].Value = dr["dept_names"].ToString();
-                    row.Cells["dept_upp"].Value = dr["dept_upp"].ToString();
-                    row.Cells["dept_use"].Value = dr["dept_use"].ToString();
-                    row.Cells["dept_sdate"].Value = Utility.FormatDate(dr["dept_sdate"].ToString());
-                    row.Cells["dept_edate"].Value = Utility.FormatDate(dr["dept_edate"].ToString());
-                    row.Cells["key1"].Value = dr["dept_code"].ToString();
+                    row.Cells["BAS_EMPNO"].Value = dr["bas_empno"].ToString();
+                    row.Cells["BAS_RESNO"].Value = Utility.AESDecrypt128(dr["bas_resno"].ToString(), byteArray.ToString());
+                    row.Cells["BAS_NAME"].Value = dr["bas_name"].ToString();
+                    row.Cells["BAS_CNAME"].Value = dr["bas_cname"].ToString();
+                    row.Cells["BAS_ENAME"].Value = dr["bas_ename"].ToString();
+                    row.Cells["BAS_FIX"].Value = dr["bas_fix"].ToString();
+                    row.Cells["BAS_ZIP"].Value = dr["bas_zip"].ToString();
+                    row.Cells["BAS_ADDR"].Value = dr["bas_addr"].ToString();
+                    row.Cells["BAS_HDPNO"].Value = dr["bas_hdpno"].ToString();
+                    row.Cells["BAS_TELNO"].Value = dr["bas_telno"].ToString();
+                    row.Cells["BAS_EMAIL"].Value = dr["bas_email"].ToString();
+                    row.Cells["BAS_MIL_STA"].Value = dr["bas_mil_sta"].ToString();
+                    row.Cells["BAS_MIL_MIL"].Value = dr["bas_mil_mil"].ToString();
+                    row.Cells["BAS_MIL_RNK"].Value = dr["bas_mil_rnk"].ToString();
+                    row.Cells["BAS_MAR"].Value = dr["bas_mar"].ToString();
+                    row.Cells["BAS_ACC_BANK"].Value = dr["bas_acc_bank"].ToString();
+                    row.Cells["BAS_ACC_NAME"].Value = dr["bas_acc_name"].ToString();
+                    row.Cells["BAS_ACC_NO"].Value = dr["bas_acc_no"].ToString();
+                    //*-----인사변동사항에서 입력 및 수정 할 데이터-----------------------------------------------
+                    row.Cells["BAS_CONT"].Value = dr["bas_cont"].ToString();
+                    row.Cells["BAS_EMP_SDATE"].Value = Utility.FormatDate(dr["bas_emp_sdate"].ToString());
+                    row.Cells["BAS_EMP_EDATE"].Value = Utility.FormatDate(dr["bas_emp_edate"].ToString());
+                    row.Cells["BAS_ENTDATE"].Value = Utility.FormatDate(dr["bas_entdate"].ToString());
+                    row.Cells["BAS_RESDATE"].Value = Utility.FormatDate(dr["bas_resdate"].ToString());
+                    row.Cells["BAS_LEVDATE"].Value = Utility.FormatDate(dr["bas_levdate"].ToString());
+                    row.Cells["BAS_REIDATE"].Value = Utility.FormatDate(dr["bas_reidate"].ToString());
+                    row.Cells["BAS_DPTDATE"].Value = Utility.FormatDate(dr["bas_dptdate"].ToString());
+                    row.Cells["BAS_JKDATE"].Value = Utility.FormatDate(dr["bas_jkdate"].ToString());
+                    row.Cells["BAS_POSDATE"].Value = Utility.FormatDate(dr["bas_posdate"].ToString());
+                    row.Cells["BAS_WSTA"].Value = dr["bas_wsta"].ToString();
+                    row.Cells["STS"].Value = dr["sts"].ToString();
+                    row.Cells["POS"].Value = dr["pos"].ToString();
+                    row.Cells["DUT"].Value = dr["dut"].ToString();
+                    row.Cells["DEPT"].Value = dr["dept"].ToString();
+                    //*----------------------------------------------------------------------------------------
+                    row.Cells["BAS_RMK"].Value = dr["bas_rmk"].ToString();
+                    row.Cells["BAS_ANADDR"].Value = dr["bas_anaddr"].ToString();
+                    row.Cells["Key1"].Value = dr["bas_empno"].ToString();
                     row.Cells["status"].Value = "";
                 }
                 dr.Close();
@@ -167,7 +204,7 @@ namespace KaySub004
                 Utility.SetFocusingDataGridView(dataGridView1, 0); //Focus를 맨 첫줄로 보내기
                 this.DataList_SelectionChanged(null, null);   //선택된 첫줄을 Control에 표시하기
 
-                last_button_status = Utility.SetFuncBtn(MainBtn, "2");
+                last_button_status = Utility.SetFuncBtn(MainBtn, "1");
                 Info_Message.Text = "자료가 정상적으로 조회 되었습니다.";
             }
         }
@@ -192,16 +229,10 @@ namespace KaySub004
             dataGridView1.Rows[rowIdx].Cells["status"].Value = "A";
             //---추가된 Row로 Focus 이동-------------------------------- 
             Utility.SetFocusingDataGridView(dataGridView1, rowIdx);
-            ct_dept_code.Focus();
+            ct_bas_name.Focus();
 
-            last_button_status = Utility.SetFuncBtn(MainBtn, "3");
-
-            //*--날짜 리셋----------------------------------------------
-            ct_dept_sdate.Text = System.DateTime.Now.ToString("yyyyMMdd");
-            //*----Check Resno(Start)-------------------------------------
+            last_button_status = Utility.SetFuncBtn(MainBtn, "3");           
             
-            //*----Check Resno(END)---------------------------------------  
-
         }
         #endregion
         #region 기능버튼(수정) Click
@@ -219,58 +250,7 @@ namespace KaySub004
         //************************************************************
         public void BtnDelete_Click()
         {
-            if (dataGridView1.SelectedRows.Count < 1)
-            {
-                MessageBox.Show("삭제할 자료를 먼저 선택하세요.", "삭제확인", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            DataGridViewRow row = dataGridView1.CurrentRow;
-            //신규 입력중인 자료는 단순하게 Grid에서 제거만 한다.
-            if ((String)row.Cells["status"].Value == "A")
-            {
-                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
-                return;
-            }
-            DialogResult result = MessageBox.Show(row.Cells["dept_name"].Value +
-                                                  " 자료를 삭제하시겠습니까.", "삭제확인", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No) return;
-
-            //--DB Handling(Start)-------------------------------------
-            try
-            {
-                con = Utility.SetOracleConnection();
-                OracleCommand cmd = con.CreateCommand();
-                cmd.BindByName = true;
-                cmd.CommandText = SQLStatement.DeleteSQL;
-                cmd.Parameters.Add("dept_code", OracleDbType.Varchar2).Value = row.Cells["dept_code"].Value;
-                if (cmd.ExecuteNonQuery() > 0)
-                {
-                    dataGridView1.Rows.RemoveAt(row.Index);
-                    Info_Count.Text = dataGridView1.RowCount.ToString();
-                    Info_Message.Text = "자료가 정상적으로 삭제 되었습니다.";
-                }
-                else
-                {
-                    Info_Message.Text = "자료삭제에 문제가 있습니다. 시스템 담당자에게 문의하세요.";
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-            finally
-            {
-                if (con != null) con.Close();
-            }
-            //--DB Handling(End)-------------------------------------
-            if (dataGridView1.RowCount == 0)
-            {
-                select_sw = true;
-                Utility.SetTextNull(panData);
-                select_sw = false;
-            }
+            return;
         }
         #endregion
         #region 기능버튼(저장) Click
@@ -293,28 +273,59 @@ namespace KaySub004
                 OracleCommand cmd = con.CreateCommand();
                 cmd.BindByName = true;
                 cmd.Transaction = tran;
+                var byteArray = Encoding.UTF8.GetBytes(ct_bas_resno.Text); // 복호화 키
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     if (row.Cells["status"].Value.Equals("")) continue;
                     if (row.Cells["status"].Value.Equals("A"))
                     {
                         cmd.CommandText = SQLStatement.InsertSQL;
+                        cmd.Parameters.Add("DATASYS2", OracleDbType.Varchar2).Value = "A";
+                        cmd.Parameters.Add("BAS_EMPNO", OracleDbType.Varchar2).Value = System.DateTime.Now.ToString("yyyy") + "-"; //올해년도+_+시퀀스
                     }
                     if (row.Cells["status"].Value.Equals("U"))
                     {
                         cmd.CommandText = SQLStatement.UpdateSQL;
-                        cmd.Parameters.Add("key1", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;
-                    }
-
-                    cmd.Parameters.Add("dept_code", OracleDbType.Varchar2).Value = row.Cells["dept_code"].Value;
-                    cmd.Parameters.Add("dept_seq", OracleDbType.Varchar2).Value = row.Cells["dept_seq"].Value;
-                    cmd.Parameters.Add("dept_name", OracleDbType.Varchar2).Value = row.Cells["dept_name"].Value;
-                    cmd.Parameters.Add("dept_names", OracleDbType.Varchar2).Value = row.Cells["dept_names"].Value;
-                    cmd.Parameters.Add("dept_upp", OracleDbType.Varchar2).Value = row.Cells["dept_upp"].Value;
-                    cmd.Parameters.Add("dept_use", OracleDbType.Varchar2).Value = row.Cells["dept_use"].Value;
-                    cmd.Parameters.Add("dept_sdate", OracleDbType.Varchar2).Value = Utility.FormatDateR((string)row.Cells["dept_sdate"].Value);
-                    cmd.Parameters.Add("dept_edate", OracleDbType.Varchar2).Value = Utility.FormatDateR((string)row.Cells["dept_edate"].Value);
-                    cmd.Parameters.Add("datasys3", OracleDbType.Varchar2).Value = "sys:" + UserId;
+                        cmd.Parameters.Add("key1", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;                        
+                        cmd.Parameters.Add("DATASYS2", OracleDbType.Varchar2).Value = "U";
+                        cmd.Parameters.Add("BAS_EMPNO", OracleDbType.Varchar2).Value = row.Cells["bas_empno"].Value;
+                    }                    
+                    cmd.Parameters.Add("BAS_RESNO", OracleDbType.Varchar2).Value = Utility.AESEncrypt128(row.Cells["bas_resno"].Value.ToString(), byteArray.ToString());
+                    cmd.Parameters.Add("BAS_NAME", OracleDbType.Varchar2).Value = row.Cells["bas_name"].Value;
+                    cmd.Parameters.Add("BAS_CNAME", OracleDbType.Varchar2).Value = row.Cells["bas_cname"].Value;
+                    cmd.Parameters.Add("BAS_ENAME", OracleDbType.Varchar2).Value = row.Cells["bas_ename"].Value;
+                    cmd.Parameters.Add("BAS_FIX", OracleDbType.Varchar2).Value = row.Cells["bas_fix"].Value;
+                    cmd.Parameters.Add("BAS_ZIP", OracleDbType.Varchar2).Value = row.Cells["bas_zip"].Value;
+                    cmd.Parameters.Add("BAS_ADDR", OracleDbType.Varchar2).Value = row.Cells["bas_addr"].Value;
+                    cmd.Parameters.Add("BAS_ANADDR", OracleDbType.Varchar2).Value = row.Cells["bas_anaddr"].Value;
+                    cmd.Parameters.Add("BAS_HDPNO", OracleDbType.Varchar2).Value = row.Cells["bas_hdpno"].Value;
+                    cmd.Parameters.Add("BAS_TELNO", OracleDbType.Varchar2).Value = row.Cells["bas_telno"].Value;
+                    cmd.Parameters.Add("BAS_EMAIL", OracleDbType.Varchar2).Value = row.Cells["bas_email"].Value;
+                    cmd.Parameters.Add("BAS_MIL_STA", OracleDbType.Varchar2).Value = row.Cells["bas_mil_sta"].Value;
+                    cmd.Parameters.Add("BAS_MIL_MIL", OracleDbType.Varchar2).Value = row.Cells["bas_mil_mil"].Value;
+                    cmd.Parameters.Add("BAS_MIL_RNK", OracleDbType.Varchar2).Value = row.Cells["bas_mil_rnk"].Value;
+                    cmd.Parameters.Add("BAS_MAR", OracleDbType.Varchar2).Value = row.Cells["bas_mar"].Value;
+                    cmd.Parameters.Add("BAS_ACC_BANK", OracleDbType.Varchar2).Value = row.Cells["bas_acc_bank"].Value;
+                    cmd.Parameters.Add("BAS_ACC_NAME", OracleDbType.Varchar2).Value = row.Cells["bas_acc_name"].Value;
+                    cmd.Parameters.Add("BAS_ACC_NO", OracleDbType.Varchar2).Value = row.Cells["bas_acc_no"].Value;
+                    cmd.Parameters.Add("BAS_CONT", OracleDbType.Varchar2).Value = row.Cells["bas_cont"].Value;
+                    cmd.Parameters.Add("BAS_EMP_SDATE", OracleDbType.Varchar2).Value = row.Cells["bas_emp_sdate"].Value;
+                    cmd.Parameters.Add("BAS_EMP_EDATE", OracleDbType.Varchar2).Value = row.Cells["bas_emp_edate"].Value;
+                    cmd.Parameters.Add("BAS_ENTDATE", OracleDbType.Varchar2).Value = row.Cells["bas_entdate"].Value;
+                    cmd.Parameters.Add("BAS_RESDATE", OracleDbType.Varchar2).Value = row.Cells["bas_resdate"].Value;
+                    cmd.Parameters.Add("BAS_LEVDATE", OracleDbType.Varchar2).Value = row.Cells["bas_levdate"].Value;
+                    cmd.Parameters.Add("BAS_REIDATE", OracleDbType.Varchar2).Value = row.Cells["bas_reidate"].Value;
+                    cmd.Parameters.Add("BAS_DPTDATE", OracleDbType.Varchar2).Value = row.Cells["bas_dptdate"].Value;
+                    cmd.Parameters.Add("BAS_JKDATE", OracleDbType.Varchar2).Value = row.Cells["bas_jkdate"].Value;
+                    cmd.Parameters.Add("BAS_POSDATE", OracleDbType.Varchar2).Value = row.Cells["bas_posdate"].Value;
+                    cmd.Parameters.Add("BAS_WSTA", OracleDbType.Varchar2).Value = row.Cells["bas_wsta"].Value;
+                    cmd.Parameters.Add("BAS_STS", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["sts"].Value);
+                    cmd.Parameters.Add("BAS_POS", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["pos"].Value);
+                    cmd.Parameters.Add("BAS_DUT", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["dut"].Value);
+                    cmd.Parameters.Add("BAS_DEPT", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["dept"].Value);
+                    cmd.Parameters.Add("BAS_RMK", OracleDbType.Varchar2).Value = row.Cells["bas_rmk"].Value;
+                    cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
+                    cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
 
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();  //*----반드시 포함
@@ -335,7 +346,7 @@ namespace KaySub004
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (row.Cells["status"].Value.Equals("")) continue;
-                row.Cells["key1"].Value = row.Cells["dept_code"].Value;
+                row.Cells["key1"].Value = row.Cells["bas_empno"].Value;
                 row.Cells["status"].Value = "";
             }
             Info_Message.Text = "자료가 정상적으로 저장 되었습니다.";
@@ -423,25 +434,23 @@ namespace KaySub004
 
             dataGridView1.SelectedRows[0].ErrorText = "";
             //*---------------------------------------------------------------------------------------------------------
-            if (string.IsNullOrEmpty(ct_dept_code.Text))
+            if (!Utility.IsValid_ResNo(ct_bas_resno.Text))
             {
-                SetError(ct_dept_code, "코드를 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+                SetError(ct_bas_resno, "주민번호를 잘 못 입력하셨습니다", dataGridView1.SelectedRows[0], errorProvider1);
             }
             else
-            {
-                ResetError(ct_dept_code, errorProvider1);
+            {                
+                ResetError(ct_bas_resno, errorProvider1);
             }
-
             //*---------------------------------------------------------------------------------------------------------
-            if (string.IsNullOrEmpty(ct_dept_name.Text))
+            if (string.IsNullOrEmpty(ct_bas_name.Text))
             {
-                SetError(ct_dept_name, "코드명칭를 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+                SetError(ct_bas_name, "이름을 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
             }
             else
             {
-                ResetError(ct_dept_name, errorProvider1);
+                ResetError(ct_bas_name, errorProvider1);
             }
-
 
         }
         private void SetError(Control ctl, String errMsg, DataGridViewRow row, ErrorProvider errProvider)

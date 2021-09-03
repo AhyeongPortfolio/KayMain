@@ -652,26 +652,26 @@ namespace KayLibrary
             {
                 return false;
             }
-            int sum = 0;
-            for (int i = 0; i < RRN.Length - 1; i++)
-            {
-                char c = RRN[i];
-                if (!char.IsNumber(c))
-                {
-                    return false;
-                }
-                else
-                {
-                    if (i < RRN.Length)
-                    {
-                        sum += int.Parse(c.ToString()) * ((i % 8) + 2);
-                    }
-                }
-            }
-            if (!((((11 - (sum % 11)) % 10).ToString()) == ((RRN[RRN.Length - 1]).ToString())))
-            {
-                return false;
-            }
+           // int sum = 0;
+            //for (int i = 0; i < RRN.Length - 1; i++)
+            //{
+            //    char c = RRN[i];
+            //    if (!char.IsNumber(c))
+            //    {
+            //        return false;
+            //    }
+            //    else
+            //    {
+            //        if (i < RRN.Length)
+            //        {
+            //            sum += int.Parse(c.ToString()) * ((i % 8) + 2);
+            //        }
+            //    }
+            //}
+            //if (!((((11 - (sum % 11)) % 10).ToString()) == ((RRN[RRN.Length - 1]).ToString())))
+            //{
+            //    return false;
+            //}
             return true;
         }
         //*--외국인 등록번호 Check----------------
@@ -720,6 +720,7 @@ namespace KayLibrary
         //AES_128 암호화
         public static String AESEncrypt128(String Input, String key)
         {
+            Input.Replace("-", "");
 
             RijndaelManaged RijndaelCipher = new RijndaelManaged();
 

@@ -29,6 +29,7 @@ namespace KayMain
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -39,9 +40,11 @@ namespace KayMain
             this.saveID = new System.Windows.Forms.CheckBox();
             this.LoginBtn = new System.Windows.Forms.Button();
             this.EndBtn = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -162,6 +165,10 @@ namespace KayMain
             this.EndBtn.Text = "종료";
             this.EndBtn.UseVisualStyleBackColor = true;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -175,6 +182,7 @@ namespace KayMain
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -191,5 +199,6 @@ namespace KayMain
         private System.Windows.Forms.CheckBox saveID;
         private System.Windows.Forms.Button LoginBtn;
         private System.Windows.Forms.Button EndBtn;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
