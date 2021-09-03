@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using KayLibrary;
+using System.Text.RegularExpressions;
 
 namespace KaySub004
 {
@@ -18,7 +19,8 @@ namespace KaySub004
     /// --Form Name           : 인사정보관리
     /// --최근작성 정보
     /// 1. 2021-09-02              권아영             신규생성
-    /// 2. 2021-09-03              권아영             bas테이블 입력,수정
+    /// 2. 2021-09-03                                 CRUD 생성
+    /// 3. 2021-09-03                                 이미지 저장, 로그인정보
     /// **********************************************************************
     /// </summary>
     public partial class UserControl1: UserControl
@@ -281,7 +283,6 @@ namespace KaySub004
                     {
                         cmd.CommandText = SQLStatement.InsertSQL;
                         cmd.Parameters.Add("DATASYS2", OracleDbType.Varchar2).Value = "A";
-                        cmd.Parameters.Add("BAS_EMPNO", OracleDbType.Varchar2).Value = System.DateTime.Now.ToString("yyyy") + "-"; //올해년도+_+시퀀스
                     }
                     if (row.Cells["status"].Value.Equals("U"))
                     {
@@ -329,6 +330,19 @@ namespace KaySub004
 
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();  //*----반드시 포함
+                    if (row.Cells["status"].Value.Equals("A")) 
+                    {
+                        cmd.CommandText = SQLStatement.LoginSQL;
+                        cmd.Parameters.Add("USER_NAME_KAY", OracleDbType.Varchar2).Value = row.Cells["bas_name"].Value;
+                        cmd.Parameters.Add("USER_PSWD", OracleDbType.Varchar2).Value = Utility.SHA512("1111"); //초기비밀번호 : 1111
+                        cmd.Parameters.Add("USER_TYPE", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["sts"].Value);
+                        cmd.Parameters.Add("USER_EMAIL", OracleDbType.Varchar2).Value = row.Cells["bas_email"].Value;
+                        cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
+                        cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
+
+                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.Clear();  //*----반드시 포함
+                    }
                 }
                 tran.Commit();
             }
@@ -477,5 +491,111 @@ namespace KaySub004
             }
         }
         #endregion
+
+        #region 우편번호 검색
+        //***********************************************************
+        //*-----우편번호 검색
+        //***********************************************************
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UCSub004_addr_popup addr_Popup = new UCSub004_addr_popup(this);
+            addr_Popup.Show(this);
+        }
+
+        #endregion
+
+        #region 이미지 Event Handler
+        //*********************************************************
+        //*--이미지 파일 선택 Directory Open
+        //*********************************************************
+        Image img2;
+        byte[] b1;
+        int image_check = 0;
+        private void loadPic_Click(object sender, EventArgs e)
+        {
+            String image_file2 = "";
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.InitialDirectory = @"c:\";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                if (!Regex.IsMatch(dialog.FileName, @".jpg|.png|.bmp|.JPG|.PNG|.BMP|.JPEG|.jpeg$"))
+                {
+                    MessageBox.Show("이미지 파일로 선택 해 주세요");
+                    return;
+                }
+
+                image_file2 = dialog.FileName;
+                img2 = Bitmap.FromFile(image_file2);
+
+                ImageConverter converter = new ImageConverter();
+
+                b1 = (byte[])converter.ConvertTo(img2, typeof(byte[])); //실제 사용 할 이미지
+                if (b1.Length >= Math.Pow(2, 10) * 20)
+                {
+                    MessageBox.Show("사진크기가 큽니다. 25kb이하의 이미지로 선택해주세요.");
+                    return;
+                }
+                pictureBox1.Image = Bitmap.FromFile(image_file2);
+            }
+        }
+        //***************************************************************
+        //*---이미지 저장
+        //***************************************************************
+        private void savePic_Click(object sender, EventArgs e)
+        {
+            //uimg_empno : 사원번호
+            //uimg_img : 이미지 blob
+
+            // 만약 사진이 없는 경우
+            if (pictureBox1.Image == null)
+            {
+                MessageBox.Show("이미지가 없습니다");
+                return;
+            }
+            
+            // 원래 이미지가 있었을 때 = Update
+            // 원래 이미지가 없었을 때 = Insert
+            OracleTransaction tran = null;
+            try
+            {
+                con = Utility.SetOracleConnection();
+                tran = con.BeginTransaction(IsolationLevel.ReadCommitted);
+                OracleCommand cmd = con.CreateCommand();
+                cmd.BindByName = true;
+                cmd.Transaction = tran;
+                if (image_check == 0)
+                {
+                    if (!string.IsNullOrEmpty(ct_bas_empno.Text))
+                    {
+                        cmd.CommandText = SQLStatement.ImageSQL;
+                        cmd.Parameters.Add("BAS_EMPNO", OracleDbType.Varchar2).Value = ct_bas_empno.Text;
+                    }
+                    cmd.Parameters.Add("BAS_EMPNO", OracleDbType.Varchar2).Value = System.DateTime.Now.ToString("yyyy") + "-"; //올해년도+_+시퀀스
+                }
+                else if (image_check == 1)
+                {
+                    cmd.CommandText = SQLStatement.ImageSQL2;
+                    cmd.Parameters.Add("BAS_EMPNO", OracleDbType.Varchar2).Value = ct_bas_empno.Text;
+                }
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();  //*----반드시 포함
+
+            }
+            catch (Exception ex)
+            {
+                tran.Rollback();
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            finally
+            {
+                if (con != null) con.Close();
+            }
+
+
+        }
+
+        #endregion
+
     }
 }

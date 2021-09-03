@@ -794,6 +794,7 @@
             this.savePic.TabIndex = 37;
             this.savePic.Text = "사진 저장";
             this.savePic.UseVisualStyleBackColor = true;
+            this.savePic.Click += new System.EventHandler(this.savePic_Click);
             // 
             // label21
             // 
@@ -813,6 +814,7 @@
             this.loadPic.TabIndex = 36;
             this.loadPic.Text = "사진 불러오기";
             this.loadPic.UseVisualStyleBackColor = true;
+            this.loadPic.Click += new System.EventHandler(this.loadPic_Click);
             // 
             // label20
             // 
@@ -900,6 +902,7 @@
             this.button1.Size = new System.Drawing.Size(22, 22);
             this.button1.TabIndex = 21;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ct_bas_addr
             // 

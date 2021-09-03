@@ -37,30 +37,33 @@ namespace KaySub004
         //******************************
         //--추가
         //******************************
+
+        //                cmd.Parameters.Add("BAS_EMPNO", OracleDbType.Varchar2).Value = System.DateTime.Now.ToString("yyyy") + "-"; //올해년도+_+시퀀스
+        
         public static string
-            InsertSQL = @"INSERT INTO kay_insa_bas(
-                            BAS_EMPNO ,BAS_RESNO ,BAS_NAME ,BAS_CNAME ,BAS_ENAME ,BAS_FIX
-                            ,BAS_ZIP ,BAS_ADDR ,BAS_ANADDR ,BAS_HDPNO ,BAS_TELNO 
-                            ,BAS_EMAIL ,BAS_MIL_STA ,BAS_MIL_MIL ,BAS_MIL_RNK ,BAS_MAR 
-                            ,BAS_ACC_BANK ,BAS_ACC_NAME ,BAS_ACC_NO ,BAS_CONT 
-                            ,BAS_RMK ,DATASYS2 ,DATASYS3 ,DATASYS4
+            InsertSQL = $@"INSERT INTO kay_insa_bas( 
+                             BAS_EMPNO                              ,BAS_RESNO      ,BAS_NAME     ,BAS_CNAME       ,BAS_ENAME    ,BAS_FIX
+                            ,BAS_ZIP        ,BAS_ADDR        ,BAS_ANADDR    ,BAS_HDPNO      ,BAS_TELNO 
+                            ,BAS_EMAIL      ,BAS_MIL_STA     ,BAS_MIL_MIL   ,BAS_MIL_RNK    ,BAS_MAR 
+                            ,BAS_ACC_BANK   ,BAS_ACC_NAME    ,BAS_ACC_NO    ,BAS_CONT 
+                            ,BAS_RMK        ,DATASYS2        ,DATASYS3      ,DATASYS4
                             ) VALUES
-                            ( :BAS_EMPNO + IPSA_SEQ_KAY.NEXTVAL    ,:BAS_RESNO      ,:BAS_NAME    ,:BAS_CNAME     ,:BAS_ENAME  ,:BAS_FIX
+                            ( '{System.DateTime.Now.ToString("yyyy")}' + IPSA_SEQ_KAY.NEXTVAL    ,:BAS_RESNO      ,:BAS_NAME    ,:BAS_CNAME     ,:BAS_ENAME  ,:BAS_FIX
                             ,:BAS_ZIP       ,:BAS_ADDR       ,:BAS_ANADDR  ,:BAS_HDPNO     ,:BAS_TELNO  
                             ,:BAS_EMAIL     ,:BAS_MIL_STA    ,:BAS_MIL_MIL ,:BAS_MIL_RNK   ,:BAS_MAR 
-                            ,:BAS_ACC_BANK  ,:BAS_ACC_NAME   ,:BAS_ACC_NO  ,:BAS_CONT ,:BAS_RMK
+                            ,:BAS_ACC_BANK  ,:BAS_ACC_NAME   ,:BAS_ACC_NO  ,:BAS_CONT      ,:BAS_RMK
                             ,:DATASYS2      ,:DATASYS3      ,:DATASYS4 )";
 
         //*---로그인 관리-------------------------------------
         public static string
-              LoginSQL = @" INSERT INTO KAY_USER
+              LoginSQL = $@" INSERT INTO KAY_USER
                               ( USER_ID_KAY                             ,USER_NAME_KAY                               ,USER_PSWD
                                ,USER_TYPE                               ,USER_PSWD_DAT                               ,USER_EMAIL                               
                                ,DATASYS2                               ,DATASYS3                                     ,DATASYS4
                                ) VALUES
                              ( 
-                                 :USER_ID_KAY  + IPSA_SEQ_KAY.CURRVAL  ,:USER_NAME_KAY                                ,:USER_PSWD
-                                ,:USER_TYPE                            ,:USER_PSWD_DAT                                ,:USER_EMAIL                                
+                                 '{System.DateTime.Now.ToString("yyyy")}'  + IPSA_SEQ_KAY.CURRVAL  ,:USER_NAME_KAY    ,:USER_PSWD
+                                ,:USER_TYPE                            ,sysdate                                       ,:USER_EMAIL                                
                                 ,'A'                                   ,:DATASYS3                                     ,:DATASYS4
                              )"; 
                 
@@ -131,7 +134,7 @@ namespace KaySub004
         //** 군별박스 채우기
         //************************************************************************
         public static string
-            SelectSQL3 = @"SELECT cd_code||':'||cd_codnm as code 
+            SelectSQL3 = @"SELECT cd_codnm as code 
                             FROM kay_insa_cd 
                             WHERE cd_grpcd = 'MIL'
                             AND cd_use = 'Y'";
@@ -140,7 +143,7 @@ namespace KaySub004
         //** 계급박스 채우기
         //************************************************************************
         public static string
-            SelectSQL4 = @"SELECT cd_code||':'||cd_codnm as code 
+            SelectSQL4 = @"SELECT cd_codnm as code 
                             FROM kay_insa_cd 
                             WHERE cd_grpcd = 'RNK'
                             AND cd_use = 'Y'";
@@ -150,7 +153,7 @@ namespace KaySub004
         //** 은행이름박스 채우기
         //************************************************************************
         public static string
-            SelectSQL5 = @"SELECT cd_code||':'||cd_codnm as code 
+            SelectSQL5 = @"SELECT cd_codnm as code 
                             FROM kay_insa_cd 
                             WHERE cd_grpcd = 'BNK'
                             AND cd_use = 'Y'";
