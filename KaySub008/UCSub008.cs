@@ -164,7 +164,10 @@ namespace KaySub008
 
             //---추가된 Row로 Focus 이동-------------------------------- 
             Utility.SetFocusingDataGridView(dataGridView2, rowIdx);
-            ct_award_schnm.Focus();
+            ct_award_date.Focus();
+
+            //---날짜 리셋----------------------------------------------
+            ct_award_date.Text = System.DateTime.Now.ToString("yyyyMMdd");
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "3");
         }
@@ -196,7 +199,7 @@ namespace KaySub008
                 dataGridView2.Rows.RemoveAt(dataGridView2.CurrentRow.Index);
                 return;
             }
-            DialogResult result = MessageBox.Show(row.Cells["award_name"].Value +
+            DialogResult result = MessageBox.Show(row.Cells["award_no"].Value +
                                                   " 자료를 삭제하시겠습니까.", "삭제확인", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No) return;
 
@@ -313,8 +316,8 @@ namespace KaySub008
             {
                 if (row.Cells["status"].Value.Equals("")) continue;
                 row.Cells["key1"].Value = row.Cells["award_empno"].Value;
-                row.Cells["key2"].Value = row.Cells["award_loe"].Value;
-                row.Cells["key3"].Value = Utility.FormatDateR(row.Cells["award_entdate"].Value.ToString());
+                row.Cells["key2"].Value = Utility.FormatDateR(row.Cells["award_date"].Value.ToString());
+                row.Cells["key3"].Value = row.Cells["award_no"].Value;
                 row.Cells["status"].Value = "";
             }
             Info_Message.Text = "자료가 정상적으로 저장 되었습니다.";
@@ -419,20 +422,18 @@ namespace KaySub008
                     rowIdx = dataGridView2.Rows.Add();
                     row = dataGridView2.Rows[rowIdx];
                     row.Cells["award_empno"].Value = dr["award_empno"].ToString();
-                    row.Cells["award_loe"].Value = dr["award_LOE"].ToString();
-                    row.Cells["award_entdate"].Value = Utility.FormatDate(dr["award_entdate"].ToString());
-                    row.Cells["award_gradate"].Value = Utility.FormatDate(dr["award_gradate"].ToString());
-                    row.Cells["award_schnm"].Value = dr["award_schnm"].ToString();
-                    row.Cells["award_dept"].Value = dr["award_dept"].ToString();
-                    row.Cells["award_degree"].Value = dr["award_degree"].ToString();
-                    row.Cells["award_grade"].Value = dr["award_grade"].ToString();
-                    row.Cells["award_degree"].Value = dr["award_degree"].ToString();
-                    row.Cells["award_gra"].Value = dr["award_gra"].ToString();
-                    row.Cells["award_last"].Value = dr["award_last"].ToString();
+                    row.Cells["award_date"].Value = Utility.FormatDate(dr["award_date"].ToString());
+                    row.Cells["award_no"].Value = dr["award_no"].ToString();
+                    row.Cells["award_kind"].Value = dr["award_kind"].ToString();
+                    row.Cells["award_organ"].Value = dr["award_organ"].ToString();
+                    row.Cells["award_content"].Value = dr["award_content"].ToString();
+                    row.Cells["award_inout"].Value = dr["award_inout"].ToString();
+                    row.Cells["award_pos"].Value = dr["pos1"].ToString();
+                    row.Cells["award_dept"].Value = dr["dept1"].ToString();
 
                     row.Cells["Key1"].Value = dr["award_empno"].ToString();
-                    row.Cells["Key2"].Value = dr["award_loe"].ToString();
-                    row.Cells["Key3"].Value = dr["award_entdate"].ToString();
+                    row.Cells["Key2"].Value = dr["award_date"].ToString();
+                    row.Cells["Key3"].Value = dr["award_no"].ToString();
                     row.Cells["status"].Value = "";
                 }
                 dr.Close();

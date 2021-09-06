@@ -42,7 +42,7 @@
             this.nameSearch = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panData = new System.Windows.Forms.Panel();
             this.ct_award_date = new System.Windows.Forms.MaskedTextBox();
             this.ct_award_organ = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -69,6 +69,7 @@
             this.bas_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.award_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.award_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.award_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,17 +77,17 @@
             this.award_organ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.award_content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.award_inout = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.award_pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.award_dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pos1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Key2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Key3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -231,7 +232,7 @@
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.panel4, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.panData, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.dataGridView2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(493, 3);
@@ -247,32 +248,32 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(544, 590);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // panel4
+            // panData
             // 
-            this.panel4.Controls.Add(this.ct_award_date);
-            this.panel4.Controls.Add(this.ct_award_organ);
-            this.panel4.Controls.Add(this.label13);
-            this.panel4.Controls.Add(this.panel3);
-            this.panel4.Controls.Add(this.ct_award_dept);
-            this.panel4.Controls.Add(this.label12);
-            this.panel4.Controls.Add(this.ct_award_pos);
-            this.panel4.Controls.Add(this.ct_award_content);
-            this.panel4.Controls.Add(this.ct_award_kind);
-            this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.ct_award_no);
-            this.panel4.Controls.Add(this.label10);
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.ct_award_inout);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.ct_award_empno);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 273);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(538, 314);
-            this.panel4.TabIndex = 3;
+            this.panData.Controls.Add(this.ct_award_date);
+            this.panData.Controls.Add(this.ct_award_organ);
+            this.panData.Controls.Add(this.label13);
+            this.panData.Controls.Add(this.panel3);
+            this.panData.Controls.Add(this.ct_award_dept);
+            this.panData.Controls.Add(this.label12);
+            this.panData.Controls.Add(this.ct_award_pos);
+            this.panData.Controls.Add(this.ct_award_content);
+            this.panData.Controls.Add(this.ct_award_kind);
+            this.panData.Controls.Add(this.label11);
+            this.panData.Controls.Add(this.ct_award_no);
+            this.panData.Controls.Add(this.label10);
+            this.panData.Controls.Add(this.label9);
+            this.panData.Controls.Add(this.label8);
+            this.panData.Controls.Add(this.label7);
+            this.panData.Controls.Add(this.ct_award_inout);
+            this.panData.Controls.Add(this.label6);
+            this.panData.Controls.Add(this.ct_award_empno);
+            this.panData.Controls.Add(this.label4);
+            this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panData.Location = new System.Drawing.Point(3, 273);
+            this.panData.Name = "panData";
+            this.panData.Size = new System.Drawing.Size(538, 314);
+            this.panData.TabIndex = 3;
             // 
             // ct_award_date
             // 
@@ -458,11 +459,12 @@
             this.award_organ,
             this.award_content,
             this.award_inout,
-            this.award_pos,
-            this.award_dept,
+            this.pos1,
+            this.dept1,
             this.status,
             this.Key1,
-            this.Key2});
+            this.Key2,
+            this.Key3});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 3);
             this.dataGridView2.Name = "dataGridView2";
@@ -534,6 +536,10 @@
             this.pos.ReadOnly = true;
             this.pos.Width = 54;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // award_empno
             // 
             this.award_empno.DataPropertyName = "award_empno";
@@ -591,21 +597,21 @@
             this.award_inout.ReadOnly = true;
             this.award_inout.Width = 78;
             // 
-            // award_pos
+            // pos1
             // 
-            this.award_pos.DataPropertyName = "award_pos";
-            this.award_pos.HeaderText = "당시직급";
-            this.award_pos.Name = "award_pos";
-            this.award_pos.ReadOnly = true;
-            this.award_pos.Width = 78;
+            this.pos1.DataPropertyName = "pos1";
+            this.pos1.HeaderText = "당시직급";
+            this.pos1.Name = "pos1";
+            this.pos1.ReadOnly = true;
+            this.pos1.Width = 78;
             // 
-            // award_dept
+            // dept1
             // 
-            this.award_dept.DataPropertyName = "award_dept";
-            this.award_dept.HeaderText = "당시소속";
-            this.award_dept.Name = "award_dept";
-            this.award_dept.ReadOnly = true;
-            this.award_dept.Width = 78;
+            this.dept1.DataPropertyName = "dept1";
+            this.dept1.HeaderText = "당시소속";
+            this.dept1.Name = "dept1";
+            this.dept1.ReadOnly = true;
+            this.dept1.Width = 78;
             // 
             // status
             // 
@@ -634,9 +640,14 @@
             this.Key2.Visible = false;
             this.Key2.Width = 58;
             // 
-            // errorProvider1
+            // Key3
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.Key3.DataPropertyName = "Key3";
+            this.Key3.HeaderText = "Key3";
+            this.Key3.Name = "Key3";
+            this.Key3.ReadOnly = true;
+            this.Key3.Visible = false;
+            this.Key3.Width = 58;
             // 
             // UserControl1
             // 
@@ -651,8 +662,8 @@
             this.panel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.panData.ResumeLayout(false);
+            this.panData.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -676,7 +687,7 @@
         private System.Windows.Forms.TextBox nameSearch;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panData;
         private System.Windows.Forms.MaskedTextBox ct_award_date;
         private System.Windows.Forms.TextBox ct_award_organ;
         private System.Windows.Forms.Label label13;
@@ -699,6 +710,11 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bas_empno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bas_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dept;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pos;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn award_empno;
         private System.Windows.Forms.DataGridViewTextBoxColumn award_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn award_no;
@@ -706,15 +722,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn award_organ;
         private System.Windows.Forms.DataGridViewTextBoxColumn award_content;
         private System.Windows.Forms.DataGridViewTextBoxColumn award_inout;
-        private System.Windows.Forms.DataGridViewTextBoxColumn award_pos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn award_dept;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pos1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dept1;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Key1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Key2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bas_empno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bas_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dept;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pos;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Key3;
     }
 }

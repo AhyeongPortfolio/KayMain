@@ -9,7 +9,7 @@ namespace KaySub008
     /// <summary>
     /// **********************************************************************
     /// --Project             : 인사관리시스템(ver2)
-    /// --Form Name           : 수상사항 관리 SQL 
+    /// --Form Name           : 수상내역 관리 SQL 
     /// --최근작성 정보
     /// 1. 2021-09-06              권아영             신규생성
     /// **********************************************************************
@@ -36,7 +36,9 @@ namespace KaySub008
         //--수상경력사항 조회
         //******************************
         public static string
-            SelectSQL1 = @"SELECT *
+            SelectSQL1 = @"SELECT *,
+                            ,FN_GETCODE_KAY('POS', award_pos) as pos1
+                            ,FN_GETDEPT_KAY(award_dept) as dept1                           
                             FROM kay_insa_award 
                             WHERE award_empno = :bas_empno";
 
