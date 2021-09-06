@@ -36,7 +36,7 @@
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\KTY (1)\KTY\KtySystem-edu-20210720\KtySystem-ver2\KtyLib\Oracle.ManagedDataAccess.dll</HintPath>
+      <HintPath>..\KayLib\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

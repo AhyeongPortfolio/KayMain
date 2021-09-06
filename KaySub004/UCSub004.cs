@@ -335,7 +335,6 @@ namespace KaySub004
                         cmd.CommandText = SQLStatement.LoginSQL;
                         cmd.Parameters.Add("USER_NAME_KAY", OracleDbType.Varchar2).Value = row.Cells["bas_name"].Value;
                         cmd.Parameters.Add("USER_PSWD", OracleDbType.Varchar2).Value = Utility.SHA512("1111"); //초기비밀번호 : 1111
-                        cmd.Parameters.Add("USER_TYPE", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["sts"].Value);
                         cmd.Parameters.Add("USER_EMAIL", OracleDbType.Varchar2).Value = row.Cells["bas_email"].Value;
                         cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
                         cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;

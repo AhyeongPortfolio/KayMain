@@ -37,15 +37,12 @@ namespace KaySub004
         //******************************
         //--추가
         //******************************
-
-        //                cmd.Parameters.Add("BAS_EMPNO", OracleDbType.Varchar2).Value = System.DateTime.Now.ToString("yyyy") + "-"; //올해년도+_+시퀀스
-        
         public static string
             InsertSQL = $@"INSERT INTO kay_insa_bas( 
                              BAS_EMPNO                              ,BAS_RESNO      ,BAS_NAME     ,BAS_CNAME       ,BAS_ENAME    ,BAS_FIX
                             ,BAS_ZIP        ,BAS_ADDR        ,BAS_ANADDR    ,BAS_HDPNO      ,BAS_TELNO 
                             ,BAS_EMAIL      ,BAS_MIL_STA     ,BAS_MIL_MIL   ,BAS_MIL_RNK    ,BAS_MAR 
-                            ,BAS_ACC_BANK   ,BAS_ACC_NAME    ,BAS_ACC_NO    ,BAS_CONT 
+                            ,BAS_ACC_BANK   ,BAS_ACC_NAME    ,BAS_ACC_NO    ,BAS_CONT       
                             ,BAS_RMK        ,DATASYS2        ,DATASYS3      ,DATASYS4
                             ) VALUES
                             ( '{System.DateTime.Now.ToString("yyyy")}' + IPSA_SEQ_KAY.NEXTVAL    ,:BAS_RESNO      ,:BAS_NAME    ,:BAS_CNAME     ,:BAS_ENAME  ,:BAS_FIX
@@ -57,13 +54,13 @@ namespace KaySub004
         //*---로그인 관리-------------------------------------
         public static string
               LoginSQL = $@" INSERT INTO KAY_USER
-                              ( USER_ID_KAY                             ,USER_NAME_KAY                               ,USER_PSWD
+                              ( USER_ID                             ,USER_NAME                              ,USER_PSWD
                                ,USER_TYPE                               ,USER_PSWD_DAT                               ,USER_EMAIL                               
                                ,DATASYS2                               ,DATASYS3                                     ,DATASYS4
                                ) VALUES
                              ( 
                                  '{System.DateTime.Now.ToString("yyyy")}'  + IPSA_SEQ_KAY.CURRVAL  ,:USER_NAME_KAY    ,:USER_PSWD
-                                ,:USER_TYPE                            ,sysdate                                       ,:USER_EMAIL                                
+                                ,'4'                          ,sysdate                                       ,:USER_EMAIL                                
                                 ,'A'                                   ,:DATASYS3                                     ,:DATASYS4
                              )"; 
                 

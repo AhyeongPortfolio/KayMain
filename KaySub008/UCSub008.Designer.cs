@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -42,27 +43,32 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.award_dateText = new System.Windows.Forms.MaskedTextBox();
-            this.award_organText = new System.Windows.Forms.TextBox();
+            this.ct_award_date = new System.Windows.Forms.MaskedTextBox();
+            this.ct_award_organ = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.award_deptText = new System.Windows.Forms.ComboBox();
+            this.ct_award_dept = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.award_posText = new System.Windows.Forms.ComboBox();
-            this.award_contentText = new System.Windows.Forms.TextBox();
-            this.award_kindText = new System.Windows.Forms.TextBox();
+            this.ct_award_pos = new System.Windows.Forms.ComboBox();
+            this.ct_award_content = new System.Windows.Forms.TextBox();
+            this.ct_award_kind = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.award_noText = new System.Windows.Forms.TextBox();
+            this.ct_award_no = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.award_inoutText = new System.Windows.Forms.ComboBox();
+            this.ct_award_inout = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.award_empnoText = new System.Windows.Forms.TextBox();
+            this.ct_award_empno = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.RWUD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bas_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.award_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.award_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.award_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,12 +78,10 @@
             this.award_inout = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.award_pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.award_dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bas_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Key2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -86,6 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -244,24 +249,24 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.award_dateText);
-            this.panel4.Controls.Add(this.award_organText);
+            this.panel4.Controls.Add(this.ct_award_date);
+            this.panel4.Controls.Add(this.ct_award_organ);
             this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.panel3);
-            this.panel4.Controls.Add(this.award_deptText);
+            this.panel4.Controls.Add(this.ct_award_dept);
             this.panel4.Controls.Add(this.label12);
-            this.panel4.Controls.Add(this.award_posText);
-            this.panel4.Controls.Add(this.award_contentText);
-            this.panel4.Controls.Add(this.award_kindText);
+            this.panel4.Controls.Add(this.ct_award_pos);
+            this.panel4.Controls.Add(this.ct_award_content);
+            this.panel4.Controls.Add(this.ct_award_kind);
             this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.award_noText);
+            this.panel4.Controls.Add(this.ct_award_no);
             this.panel4.Controls.Add(this.label10);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.award_inoutText);
+            this.panel4.Controls.Add(this.ct_award_inout);
             this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.award_empnoText);
+            this.panel4.Controls.Add(this.ct_award_empno);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 273);
@@ -269,22 +274,22 @@
             this.panel4.Size = new System.Drawing.Size(538, 314);
             this.panel4.TabIndex = 3;
             // 
-            // award_dateText
+            // ct_award_date
             // 
-            this.award_dateText.Location = new System.Drawing.Point(96, 27);
-            this.award_dateText.Mask = "0000-00-00";
-            this.award_dateText.Name = "award_dateText";
-            this.award_dateText.Size = new System.Drawing.Size(100, 21);
-            this.award_dateText.TabIndex = 2;
-            this.award_dateText.ValidatingType = typeof(System.DateTime);
+            this.ct_award_date.Location = new System.Drawing.Point(96, 27);
+            this.ct_award_date.Mask = "0000-00-00";
+            this.ct_award_date.Name = "ct_award_date";
+            this.ct_award_date.Size = new System.Drawing.Size(100, 21);
+            this.ct_award_date.TabIndex = 2;
+            this.ct_award_date.ValidatingType = typeof(System.DateTime);
             // 
-            // award_organText
+            // ct_award_organ
             // 
-            this.award_organText.Location = new System.Drawing.Point(96, 99);
-            this.award_organText.MaxLength = 50;
-            this.award_organText.Name = "award_organText";
-            this.award_organText.Size = new System.Drawing.Size(204, 21);
-            this.award_organText.TabIndex = 5;
+            this.ct_award_organ.Location = new System.Drawing.Point(96, 99);
+            this.ct_award_organ.MaxLength = 50;
+            this.ct_award_organ.Name = "ct_award_organ";
+            this.ct_award_organ.Size = new System.Drawing.Size(204, 21);
+            this.ct_award_organ.TabIndex = 5;
             // 
             // label13
             // 
@@ -304,13 +309,13 @@
             this.panel3.Size = new System.Drawing.Size(538, 1);
             this.panel3.TabIndex = 0;
             // 
-            // award_deptText
+            // ct_award_dept
             // 
-            this.award_deptText.FormattingEnabled = true;
-            this.award_deptText.Location = new System.Drawing.Point(399, 98);
-            this.award_deptText.Name = "award_deptText";
-            this.award_deptText.Size = new System.Drawing.Size(100, 20);
-            this.award_deptText.TabIndex = 8;
+            this.ct_award_dept.FormattingEnabled = true;
+            this.ct_award_dept.Location = new System.Drawing.Point(399, 98);
+            this.ct_award_dept.Name = "ct_award_dept";
+            this.ct_award_dept.Size = new System.Drawing.Size(100, 20);
+            this.ct_award_dept.TabIndex = 8;
             // 
             // label12
             // 
@@ -321,30 +326,30 @@
             this.label12.TabIndex = 46;
             this.label12.Text = "당시직급";
             // 
-            // award_posText
+            // ct_award_pos
             // 
-            this.award_posText.FormattingEnabled = true;
-            this.award_posText.Location = new System.Drawing.Point(399, 75);
-            this.award_posText.Name = "award_posText";
-            this.award_posText.Size = new System.Drawing.Size(100, 20);
-            this.award_posText.TabIndex = 7;
+            this.ct_award_pos.FormattingEnabled = true;
+            this.ct_award_pos.Location = new System.Drawing.Point(399, 75);
+            this.ct_award_pos.Name = "ct_award_pos";
+            this.ct_award_pos.Size = new System.Drawing.Size(100, 20);
+            this.ct_award_pos.TabIndex = 7;
             // 
-            // award_contentText
+            // ct_award_content
             // 
-            this.award_contentText.Location = new System.Drawing.Point(96, 123);
-            this.award_contentText.MaxLength = 100;
-            this.award_contentText.Multiline = true;
-            this.award_contentText.Name = "award_contentText";
-            this.award_contentText.Size = new System.Drawing.Size(403, 42);
-            this.award_contentText.TabIndex = 9;
+            this.ct_award_content.Location = new System.Drawing.Point(96, 123);
+            this.ct_award_content.MaxLength = 100;
+            this.ct_award_content.Multiline = true;
+            this.ct_award_content.Name = "ct_award_content";
+            this.ct_award_content.Size = new System.Drawing.Size(403, 42);
+            this.ct_award_content.TabIndex = 9;
             // 
-            // award_kindText
+            // ct_award_kind
             // 
-            this.award_kindText.Location = new System.Drawing.Point(96, 51);
-            this.award_kindText.MaxLength = 50;
-            this.award_kindText.Name = "award_kindText";
-            this.award_kindText.Size = new System.Drawing.Size(204, 21);
-            this.award_kindText.TabIndex = 3;
+            this.ct_award_kind.Location = new System.Drawing.Point(96, 51);
+            this.ct_award_kind.MaxLength = 50;
+            this.ct_award_kind.Name = "ct_award_kind";
+            this.ct_award_kind.Size = new System.Drawing.Size(204, 21);
+            this.ct_award_kind.TabIndex = 3;
             // 
             // label11
             // 
@@ -355,13 +360,13 @@
             this.label11.TabIndex = 42;
             this.label11.Text = "수상종별";
             // 
-            // award_noText
+            // ct_award_no
             // 
-            this.award_noText.Location = new System.Drawing.Point(96, 75);
-            this.award_noText.MaxLength = 30;
-            this.award_noText.Name = "award_noText";
-            this.award_noText.Size = new System.Drawing.Size(204, 21);
-            this.award_noText.TabIndex = 4;
+            this.ct_award_no.Location = new System.Drawing.Point(96, 75);
+            this.ct_award_no.MaxLength = 30;
+            this.ct_award_no.Name = "ct_award_no";
+            this.ct_award_no.Size = new System.Drawing.Size(204, 21);
+            this.ct_award_no.TabIndex = 4;
             // 
             // label10
             // 
@@ -399,16 +404,16 @@
             this.label7.TabIndex = 36;
             this.label7.Text = "내외구분";
             // 
-            // award_inoutText
+            // ct_award_inout
             // 
-            this.award_inoutText.FormattingEnabled = true;
-            this.award_inoutText.Items.AddRange(new object[] {
+            this.ct_award_inout.FormattingEnabled = true;
+            this.ct_award_inout.Items.AddRange(new object[] {
             "내부",
             "외부"});
-            this.award_inoutText.Location = new System.Drawing.Point(399, 51);
-            this.award_inoutText.Name = "award_inoutText";
-            this.award_inoutText.Size = new System.Drawing.Size(100, 20);
-            this.award_inoutText.TabIndex = 6;
+            this.ct_award_inout.Location = new System.Drawing.Point(399, 51);
+            this.ct_award_inout.Name = "ct_award_inout";
+            this.ct_award_inout.Size = new System.Drawing.Size(100, 20);
+            this.ct_award_inout.TabIndex = 6;
             // 
             // label6
             // 
@@ -419,13 +424,14 @@
             this.label6.TabIndex = 34;
             this.label6.Text = "수여일자";
             // 
-            // award_empnoText
+            // ct_award_empno
             // 
-            this.award_empnoText.Location = new System.Drawing.Point(96, 3);
-            this.award_empnoText.MaxLength = 5;
-            this.award_empnoText.Name = "award_empnoText";
-            this.award_empnoText.Size = new System.Drawing.Size(100, 21);
-            this.award_empnoText.TabIndex = 1;
+            this.ct_award_empno.Location = new System.Drawing.Point(96, 3);
+            this.ct_award_empno.MaxLength = 5;
+            this.ct_award_empno.Name = "ct_award_empno";
+            this.ct_award_empno.ReadOnly = true;
+            this.ct_award_empno.Size = new System.Drawing.Size(100, 21);
+            this.ct_award_empno.TabIndex = 1;
             // 
             // label4
             // 
@@ -445,7 +451,6 @@
             this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RWUD,
             this.award_empno,
             this.award_date,
             this.award_no,
@@ -454,24 +459,80 @@
             this.award_content,
             this.award_inout,
             this.award_pos,
-            this.award_dept});
+            this.award_dept,
+            this.status,
+            this.Key1,
+            this.Key2});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.GridColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView2.Location = new System.Drawing.Point(3, 3);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(538, 264);
             this.dataGridView2.TabIndex = 0;
             // 
-            // RWUD
+            // panel6
             // 
-            this.RWUD.HeaderText = "상태";
-            this.RWUD.Name = "RWUD";
-            this.RWUD.ReadOnly = true;
-            this.RWUD.Width = 54;
+            this.panel6.Controls.Add(this.dataGridView1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(484, 590);
+            this.panel6.TabIndex = 3;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.bas_empno,
+            this.bas_name,
+            this.dept,
+            this.pos});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(484, 590);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // bas_empno
+            // 
+            this.bas_empno.DataPropertyName = "bas_empno";
+            this.bas_empno.HeaderText = "사원번호";
+            this.bas_empno.Name = "bas_empno";
+            this.bas_empno.ReadOnly = true;
+            this.bas_empno.Width = 78;
+            // 
+            // bas_name
+            // 
+            this.bas_name.DataPropertyName = "bas_name";
+            this.bas_name.HeaderText = "성명";
+            this.bas_name.Name = "bas_name";
+            this.bas_name.ReadOnly = true;
+            this.bas_name.Width = 54;
+            // 
+            // dept
+            // 
+            this.dept.DataPropertyName = "dept";
+            this.dept.HeaderText = "부서";
+            this.dept.Name = "dept";
+            this.dept.ReadOnly = true;
+            this.dept.Width = 54;
+            // 
+            // pos
+            // 
+            this.pos.DataPropertyName = "pos";
+            this.pos.HeaderText = "직급";
+            this.pos.Name = "pos";
+            this.pos.ReadOnly = true;
+            this.pos.Width = 54;
             // 
             // award_empno
             // 
@@ -546,69 +607,36 @@
             this.award_dept.ReadOnly = true;
             this.award_dept.Width = 78;
             // 
-            // panel6
+            // status
             // 
-            this.panel6.Controls.Add(this.dataGridView1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(484, 590);
-            this.panel6.TabIndex = 3;
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "상태";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Visible = false;
+            this.status.Width = 54;
             // 
-            // dataGridView1
+            // Key1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.bas_empno,
-            this.bas_name,
-            this.bas_dept,
-            this.bas_pos});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(484, 590);
-            this.dataGridView1.TabIndex = 2;
+            this.Key1.DataPropertyName = "Key1";
+            this.Key1.HeaderText = "Key1";
+            this.Key1.Name = "Key1";
+            this.Key1.ReadOnly = true;
+            this.Key1.Visible = false;
+            this.Key1.Width = 58;
             // 
-            // bas_empno
+            // Key2
             // 
-            this.bas_empno.DataPropertyName = "bas_empno";
-            this.bas_empno.HeaderText = "사원번호";
-            this.bas_empno.Name = "bas_empno";
-            this.bas_empno.ReadOnly = true;
-            this.bas_empno.Width = 78;
+            this.Key2.DataPropertyName = "Key2";
+            this.Key2.HeaderText = "Key2";
+            this.Key2.Name = "Key2";
+            this.Key2.ReadOnly = true;
+            this.Key2.Visible = false;
+            this.Key2.Width = 58;
             // 
-            // bas_name
+            // errorProvider1
             // 
-            this.bas_name.DataPropertyName = "bas_name";
-            this.bas_name.HeaderText = "성명";
-            this.bas_name.Name = "bas_name";
-            this.bas_name.ReadOnly = true;
-            this.bas_name.Width = 54;
-            // 
-            // bas_dept
-            // 
-            this.bas_dept.DataPropertyName = "bas_dept";
-            this.bas_dept.HeaderText = "부서";
-            this.bas_dept.Name = "bas_dept";
-            this.bas_dept.ReadOnly = true;
-            this.bas_dept.Width = 54;
-            // 
-            // bas_pos
-            // 
-            this.bas_pos.DataPropertyName = "bas_pos";
-            this.bas_pos.HeaderText = "직급";
-            this.bas_pos.Name = "bas_pos";
-            this.bas_pos.ReadOnly = true;
-            this.bas_pos.Width = 54;
+            this.errorProvider1.ContainerControl = this;
             // 
             // UserControl1
             // 
@@ -617,6 +645,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(1046, 642);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -627,6 +656,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -647,27 +677,28 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.MaskedTextBox award_dateText;
-        private System.Windows.Forms.TextBox award_organText;
+        private System.Windows.Forms.MaskedTextBox ct_award_date;
+        private System.Windows.Forms.TextBox ct_award_organ;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox award_deptText;
+        private System.Windows.Forms.ComboBox ct_award_dept;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox award_posText;
-        private System.Windows.Forms.TextBox award_contentText;
-        private System.Windows.Forms.TextBox award_kindText;
+        private System.Windows.Forms.ComboBox ct_award_pos;
+        private System.Windows.Forms.TextBox ct_award_content;
+        private System.Windows.Forms.TextBox ct_award_kind;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox award_noText;
+        private System.Windows.Forms.TextBox ct_award_no;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox award_inoutText;
+        private System.Windows.Forms.ComboBox ct_award_inout;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox award_empnoText;
+        private System.Windows.Forms.TextBox ct_award_empno;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RWUD;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn award_empno;
         private System.Windows.Forms.DataGridViewTextBoxColumn award_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn award_no;
@@ -677,11 +708,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn award_inout;
         private System.Windows.Forms.DataGridViewTextBoxColumn award_pos;
         private System.Windows.Forms.DataGridViewTextBoxColumn award_dept;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Key1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Key2;
         private System.Windows.Forms.DataGridViewTextBoxColumn bas_empno;
         private System.Windows.Forms.DataGridViewTextBoxColumn bas_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bas_dept;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bas_pos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dept;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pos;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

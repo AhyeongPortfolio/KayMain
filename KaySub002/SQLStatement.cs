@@ -42,10 +42,10 @@ namespace KaySub002
         //--추가
         //******************************
         public static string
-            InsertSQL = @"INSERT INTO kay_insa_cd VALUES (
+            InsertSQL = @"INSERT INTO kay_insa_cd 
                            ( cd_grpcd, cd_code, cd_seq, cd_codnms,cd_codnm, cd_addinfo, cd_upper, cd_use, cd_sdate, cd_edate, datasys2, datasys3) 
                             VALUES  
-                           ( :cd_grpcd, :cd_code, :cd_seq, :cd_codnms,:cd_codnm, :cd_addinfo, :cd_upper, :cd_use, ;cd_sdate, :cd_edate, 'A', :datasys3 ) ";
+                           ( :cd_grpcd, :cd_code, :cd_seq, :cd_codnms,:cd_codnm, :cd_addinfo, :cd_upper, :cd_use, :cd_sdate, :cd_edate, 'A', :datasys3 ) ";
 
 
         //******************************
