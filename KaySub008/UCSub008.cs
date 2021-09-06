@@ -19,6 +19,7 @@ namespace KaySub008
     /// --최근작성 정보
     /// 1. 2021-08-31              권아영             신규생성
     /// 2. 2021-09-06              권아영             컨트롤Name 수정, 초기설정 코드 수정, 쿼리문 수정
+    /// -----메모 : 조회부분 수정해야함(어디서 안잡히는 현상발생)
     /// **********************************************************************
     /// </summary>
     public partial class UserControl1: UserControl
@@ -273,25 +274,19 @@ namespace KaySub008
                     if (row.Cells["status"].Value.Equals("U"))
                     {
                         cmd.CommandText = SQLStatement.UpdateSQL;
-                        cmd.Parameters.Add("key1", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;
-                        cmd.Parameters.Add("key2", OracleDbType.Varchar2).Value = row.Cells["key2"].Value;
-                        cmd.Parameters.Add("key3", OracleDbType.Varchar2).Value = row.Cells["key3"].Value;
+                        cmd.Parameters.Add("Key1", OracleDbType.Varchar2).Value = row.Cells["Key1"].Value;
+                        cmd.Parameters.Add("Key2", OracleDbType.Varchar2).Value = row.Cells["Key2"].Value;
+                        cmd.Parameters.Add("Key3", OracleDbType.Varchar2).Value = row.Cells["Key3"].Value;
                     }
-
-                    cmd.Parameters.Add("award_EMPNO", OracleDbType.Varchar2).Value = row.Cells["award_empno"].Value;
-                    cmd.Parameters.Add("award_LOE", OracleDbType.Varchar2).Value = row.Cells["award_loe"].Value;
-                    cmd.Parameters.Add("award_ENTDATE", OracleDbType.Varchar2).Value = Utility.FormatDateR(row.Cells["award_entdate"].Value.ToString());
-                    cmd.Parameters.Add("award_GRADATE", OracleDbType.Varchar2).Value = Utility.FormatDateR(row.Cells["award_gradate"].Value.ToString());
-                    cmd.Parameters.Add("award_SCHNM", OracleDbType.Varchar2).Value = row.Cells["award_schnm"].Value;
-                    cmd.Parameters.Add("award_DEPT", OracleDbType.Varchar2).Value = row.Cells["award_dept"].Value;
-                    cmd.Parameters.Add("award_DEGREE", OracleDbType.Varchar2).Value = row.Cells["award_degree"].Value;
-                    cmd.Parameters.Add("award_GRADE", OracleDbType.Varchar2).Value = row.Cells["award_grade"].Value;
-                    cmd.Parameters.Add("award_GRA", OracleDbType.Varchar2).Value = row.Cells["award_gra"].Value;
-
-                    if (row.Cells["award_gra"].Value.Equals("졸업"))
-                        cmd.Parameters.Add("award_LAST", OracleDbType.Varchar2).Value = "Y";
-                    else
-                        cmd.Parameters.Add("award_LAST", OracleDbType.Varchar2).Value = "N";
+                    cmd.Parameters.Add("AWARD_EMPNO", OracleDbType.Varchar2).Value = row.Cells["award_empno"].Value;
+                    cmd.Parameters.Add("AWARD_DATE", OracleDbType.Varchar2).Value = Utility.FormatDateR(row.Cells["award_loe"].Value.ToString());
+                    cmd.Parameters.Add("AWARD_NO", OracleDbType.Varchar2).Value = row.Cells["award_no"].Value; 
+                    cmd.Parameters.Add("AWARD_KIND", OracleDbType.Varchar2).Value = row.Cells["award_kind"].Value;
+                    cmd.Parameters.Add("AWARD_ORGAN", OracleDbType.Varchar2).Value = row.Cells["award_organ"].Value;
+                    cmd.Parameters.Add("AWARD_CONTENT", OracleDbType.Varchar2).Value = row.Cells["award_content"].Value;
+                    cmd.Parameters.Add("AWARD_INOUT", OracleDbType.Varchar2).Value = row.Cells["award_inout"].Value;
+                    cmd.Parameters.Add("AWARD_POS", OracleDbType.Varchar2).Value = Utility.GetCode(row.Cells["award_pos"].Value.ToString());
+                    cmd.Parameters.Add("AWARD_DEPT", OracleDbType.Varchar2).Value = Utility.GetCode(row.Cells["award_gra"].Value.ToString());
 
                     cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
                     cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
@@ -315,9 +310,9 @@ namespace KaySub008
             foreach (DataGridViewRow row in dataGridView2.Rows)
             {
                 if (row.Cells["status"].Value.Equals("")) continue;
-                row.Cells["key1"].Value = row.Cells["award_empno"].Value;
-                row.Cells["key2"].Value = Utility.FormatDateR(row.Cells["award_date"].Value.ToString());
-                row.Cells["key3"].Value = row.Cells["award_no"].Value;
+                row.Cells["Key1"].Value = row.Cells["award_empno"].Value;
+                row.Cells["Key2"].Value = Utility.FormatDateR(row.Cells["award_date"].Value.ToString());
+                row.Cells["Key3"].Value = row.Cells["award_no"].Value;
                 row.Cells["status"].Value = "";
             }
             Info_Message.Text = "자료가 정상적으로 저장 되었습니다.";

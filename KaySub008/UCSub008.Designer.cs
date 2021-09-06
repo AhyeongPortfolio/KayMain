@@ -77,8 +77,8 @@
             this.award_organ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.award_content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.award_inout = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pos1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dept1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.award_pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.award_dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Key2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -459,8 +459,8 @@
             this.award_organ,
             this.award_content,
             this.award_inout,
-            this.pos1,
-            this.dept1,
+            this.award_pos,
+            this.award_dept,
             this.status,
             this.Key1,
             this.Key2,
@@ -597,21 +597,21 @@
             this.award_inout.ReadOnly = true;
             this.award_inout.Width = 78;
             // 
-            // pos1
+            // award_pos
             // 
-            this.pos1.DataPropertyName = "pos1";
-            this.pos1.HeaderText = "당시직급";
-            this.pos1.Name = "pos1";
-            this.pos1.ReadOnly = true;
-            this.pos1.Width = 78;
+            this.award_pos.DataPropertyName = "award_pos";
+            this.award_pos.HeaderText = "당시직급";
+            this.award_pos.Name = "award_pos";
+            this.award_pos.ReadOnly = true;
+            this.award_pos.Width = 78;
             // 
-            // dept1
+            // award_dept
             // 
-            this.dept1.DataPropertyName = "dept1";
-            this.dept1.HeaderText = "당시소속";
-            this.dept1.Name = "dept1";
-            this.dept1.ReadOnly = true;
-            this.dept1.Width = 78;
+            this.award_dept.DataPropertyName = "award_dept";
+            this.award_dept.HeaderText = "당시소속";
+            this.award_dept.Name = "award_dept";
+            this.award_dept.ReadOnly = true;
+            this.award_dept.Width = 78;
             // 
             // status
             // 
@@ -722,8 +722,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn award_organ;
         private System.Windows.Forms.DataGridViewTextBoxColumn award_content;
         private System.Windows.Forms.DataGridViewTextBoxColumn award_inout;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pos1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dept1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn award_pos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn award_dept;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Key1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Key2;

@@ -36,7 +36,7 @@ namespace KaySub008
         //--수상경력사항 조회
         //******************************
         public static string
-            SelectSQL1 = @"SELECT *,
+            SelectSQL1 = @"SELECT kay_insa_award.*
                             ,FN_GETCODE_KAY('POS', award_pos) as pos1
                             ,FN_GETDEPT_KAY(award_dept) as dept1                           
                             FROM kay_insa_award 
@@ -96,7 +96,10 @@ namespace KaySub008
                             ,AWARD_DEPT    =:AWARD_DEPT
                             ,DATASYS2      =:DATASYS2
                             ,DATASYS3      =:DATASYS3
-                            ,DATASYS4      =:DATASYS4";
+                            ,DATASYS4      =:DATASYS4
+                            WHERE AWARD_EMPNO = :Key1
+                            AND AWARD_DATE = :Key2
+                            AND AWARD_NO = :Key3";
         #endregion
         #region 삭제
         //******************************
