@@ -84,7 +84,7 @@ namespace KayMain
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1284, 861);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1284, 783);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -97,7 +97,7 @@ namespace KayMain
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
             this.tableLayoutPanel5.Controls.Add(this.info_pgmid, 5, 0);
             this.tableLayoutPanel5.Controls.Add(this.label5, 4, 0);
             this.tableLayoutPanel5.Controls.Add(this.info_message, 3, 0);
@@ -105,7 +105,7 @@ namespace KayMain
             this.tableLayoutPanel5.Controls.Add(this.info_count, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(262, 832);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(262, 754);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -130,7 +130,7 @@ namespace KayMain
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(838, 6);
+            this.label5.Location = new System.Drawing.Point(837, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 12);
             this.label5.TabIndex = 4;
@@ -192,7 +192,7 @@ namespace KayMain
             this.tv_MainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv_MainMenu.Location = new System.Drawing.Point(5, 67);
             this.tv_MainMenu.Name = "tv_MainMenu";
-            this.tv_MainMenu.Size = new System.Drawing.Size(249, 757);
+            this.tv_MainMenu.Size = new System.Drawing.Size(249, 679);
             this.tv_MainMenu.TabIndex = 0;
             // 
             // tabControl
@@ -203,7 +203,7 @@ namespace KayMain
             this.tabControl.Location = new System.Drawing.Point(262, 67);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1017, 757);
+            this.tabControl.Size = new System.Drawing.Size(1017, 679);
             this.tabControl.TabIndex = 1;
             // 
             // home_tabPage
@@ -213,7 +213,7 @@ namespace KayMain
             this.home_tabPage.Location = new System.Drawing.Point(4, 22);
             this.home_tabPage.Name = "home_tabPage";
             this.home_tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.home_tabPage.Size = new System.Drawing.Size(1009, 731);
+            this.home_tabPage.Size = new System.Drawing.Size(1009, 653);
             this.home_tabPage.TabIndex = 0;
             this.home_tabPage.Text = "Home";
             // 
@@ -232,14 +232,14 @@ namespace KayMain
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.01832F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.24542F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.24542F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1003, 725);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1003, 647);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::KayMain.Properties.Resources.profile;
-            this.pictureBox1.Location = new System.Drawing.Point(331, 247);
+            this.pictureBox1.Location = new System.Drawing.Point(331, 209);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(340, 228);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -251,7 +251,7 @@ namespace KayMain
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(345, 713);
+            this.label2.Location = new System.Drawing.Point(345, 635);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(312, 12);
             this.label2.TabIndex = 1;
@@ -347,7 +347,7 @@ namespace KayMain
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.Controls.Add(this.info_user, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(5, 832);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(5, 754);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -371,7 +371,7 @@ namespace KayMain
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1284, 861);
+            this.ClientSize = new System.Drawing.Size(1284, 783);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainForm";
             this.Text = "인사관리프로그램";

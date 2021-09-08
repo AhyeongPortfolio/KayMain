@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.papr_dateSearch2 = new System.Windows.Forms.MaskedTextBox();
-            this.papr_dateSearch1 = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.papr_appnoSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.check1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papr_appno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papr_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papr_content = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papr_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datasys1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datasys2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datasys3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panData = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.papr_dateText = new System.Windows.Forms.MaskedTextBox();
-            this.papr_contentText = new System.Windows.Forms.TextBox();
-            this.papr_numText = new System.Windows.Forms.TextBox();
-            this.papr_appnoText = new System.Windows.Forms.TextBox();
+            this.ct_papr_date = new System.Windows.Forms.MaskedTextBox();
+            this.ct_papr_content = new System.Windows.Forms.TextBox();
+            this.ct_papr_num = new System.Windows.Forms.TextBox();
+            this.ct_papr_appno = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
+            this.dateSearch2 = new System.Windows.Forms.DateTimePicker();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.papr_appno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papr_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papr_content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papr_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.panData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -81,9 +81,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dateSearch2);
+            this.panel1.Controls.Add(this.dateSearch1);
             this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.papr_dateSearch2);
-            this.panel1.Controls.Add(this.papr_dateSearch1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.papr_appnoSearch);
@@ -103,28 +103,10 @@
             this.panel5.Size = new System.Drawing.Size(986, 1);
             this.panel5.TabIndex = 45;
             // 
-            // papr_dateSearch2
-            // 
-            this.papr_dateSearch2.Location = new System.Drawing.Point(374, 0);
-            this.papr_dateSearch2.Mask = "0000-90-90";
-            this.papr_dateSearch2.Name = "papr_dateSearch2";
-            this.papr_dateSearch2.Size = new System.Drawing.Size(100, 21);
-            this.papr_dateSearch2.TabIndex = 6;
-            this.papr_dateSearch2.ValidatingType = typeof(System.DateTime);
-            // 
-            // papr_dateSearch1
-            // 
-            this.papr_dateSearch1.Location = new System.Drawing.Point(251, 0);
-            this.papr_dateSearch1.Mask = "0000-90-90";
-            this.papr_dateSearch1.Name = "papr_dateSearch1";
-            this.papr_dateSearch1.Size = new System.Drawing.Size(100, 21);
-            this.papr_dateSearch1.TabIndex = 6;
-            this.papr_dateSearch1.ValidatingType = typeof(System.DateTime);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(357, 3);
+            this.label7.Location = new System.Drawing.Point(345, 3);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(11, 12);
             this.label7.TabIndex = 4;
@@ -162,7 +144,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panData, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 43);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -177,14 +159,11 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.check1,
             this.papr_appno,
             this.papr_date,
             this.papr_content,
             this.papr_num,
-            this.datasys1,
-            this.datasys2,
-            this.datasys3});
+            this.status});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
@@ -194,90 +173,22 @@
             this.dataGridView1.Size = new System.Drawing.Size(680, 552);
             this.dataGridView1.TabIndex = 3;
             // 
-            // check1
+            // panData
             // 
-            this.check1.FillWeight = 60F;
-            this.check1.HeaderText = "상태";
-            this.check1.MinimumWidth = 56;
-            this.check1.Name = "check1";
-            this.check1.Width = 56;
-            // 
-            // papr_appno
-            // 
-            this.papr_appno.DataPropertyName = "papr_appno";
-            this.papr_appno.FillWeight = 120F;
-            this.papr_appno.HeaderText = "인사발령번호";
-            this.papr_appno.MinimumWidth = 111;
-            this.papr_appno.Name = "papr_appno";
-            this.papr_appno.Width = 111;
-            // 
-            // papr_date
-            // 
-            this.papr_date.DataPropertyName = "papr_date";
-            this.papr_date.FillWeight = 106.2606F;
-            this.papr_date.HeaderText = "시행일자";
-            this.papr_date.MinimumWidth = 125;
-            this.papr_date.Name = "papr_date";
-            this.papr_date.Width = 125;
-            // 
-            // papr_content
-            // 
-            this.papr_content.DataPropertyName = "papr_content";
-            this.papr_content.FillWeight = 106.2606F;
-            this.papr_content.HeaderText = "발령내용";
-            this.papr_content.MinimumWidth = 145;
-            this.papr_content.Name = "papr_content";
-            this.papr_content.Width = 145;
-            // 
-            // papr_num
-            // 
-            this.papr_num.DataPropertyName = "papr_num";
-            this.papr_num.FillWeight = 106.2606F;
-            this.papr_num.HeaderText = "발령인원수";
-            this.papr_num.MinimumWidth = 75;
-            this.papr_num.Name = "papr_num";
-            this.papr_num.Width = 75;
-            // 
-            // datasys1
-            // 
-            this.datasys1.DataPropertyName = "datasys1";
-            this.datasys1.HeaderText = "자료처리일시";
-            this.datasys1.Name = "datasys1";
-            this.datasys1.Visible = false;
-            this.datasys1.Width = 72;
-            // 
-            // datasys2
-            // 
-            this.datasys2.DataPropertyName = "datasys2";
-            this.datasys2.HeaderText = "자료처리구분";
-            this.datasys2.Name = "datasys2";
-            this.datasys2.Visible = false;
-            this.datasys2.Width = 72;
-            // 
-            // datasys3
-            // 
-            this.datasys3.DataPropertyName = "datasys3";
-            this.datasys3.HeaderText = "자료처리자";
-            this.datasys3.Name = "datasys3";
-            this.datasys3.Visible = false;
-            this.datasys3.Width = 72;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.papr_dateText);
-            this.panel3.Controls.Add(this.papr_contentText);
-            this.panel3.Controls.Add(this.papr_numText);
-            this.panel3.Controls.Add(this.papr_appnoText);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(689, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(294, 552);
-            this.panel3.TabIndex = 4;
+            this.panData.Controls.Add(this.panel4);
+            this.panData.Controls.Add(this.ct_papr_date);
+            this.panData.Controls.Add(this.ct_papr_content);
+            this.panData.Controls.Add(this.ct_papr_num);
+            this.panData.Controls.Add(this.ct_papr_appno);
+            this.panData.Controls.Add(this.label4);
+            this.panData.Controls.Add(this.label3);
+            this.panData.Controls.Add(this.label2);
+            this.panData.Controls.Add(this.label1);
+            this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panData.Location = new System.Drawing.Point(689, 3);
+            this.panData.Name = "panData";
+            this.panData.Size = new System.Drawing.Size(294, 552);
+            this.panData.TabIndex = 4;
             // 
             // panel4
             // 
@@ -288,38 +199,39 @@
             this.panel4.Size = new System.Drawing.Size(294, 1);
             this.panel4.TabIndex = 42;
             // 
-            // papr_dateText
+            // ct_papr_date
             // 
-            this.papr_dateText.Location = new System.Drawing.Point(126, 27);
-            this.papr_dateText.Mask = "0000-90-90";
-            this.papr_dateText.Name = "papr_dateText";
-            this.papr_dateText.Size = new System.Drawing.Size(152, 21);
-            this.papr_dateText.TabIndex = 2;
+            this.ct_papr_date.Location = new System.Drawing.Point(126, 27);
+            this.ct_papr_date.Mask = "0000-90-90";
+            this.ct_papr_date.Name = "ct_papr_date";
+            this.ct_papr_date.Size = new System.Drawing.Size(152, 21);
+            this.ct_papr_date.TabIndex = 2;
             // 
-            // papr_contentText
+            // ct_papr_content
             // 
-            this.papr_contentText.Location = new System.Drawing.Point(126, 75);
-            this.papr_contentText.MaxLength = 50;
-            this.papr_contentText.Multiline = true;
-            this.papr_contentText.Name = "papr_contentText";
-            this.papr_contentText.Size = new System.Drawing.Size(152, 63);
-            this.papr_contentText.TabIndex = 4;
+            this.ct_papr_content.Location = new System.Drawing.Point(126, 75);
+            this.ct_papr_content.MaxLength = 50;
+            this.ct_papr_content.Multiline = true;
+            this.ct_papr_content.Name = "ct_papr_content";
+            this.ct_papr_content.Size = new System.Drawing.Size(152, 63);
+            this.ct_papr_content.TabIndex = 4;
             // 
-            // papr_numText
+            // ct_papr_num
             // 
-            this.papr_numText.Location = new System.Drawing.Point(126, 51);
-            this.papr_numText.MaxLength = 3;
-            this.papr_numText.Name = "papr_numText";
-            this.papr_numText.Size = new System.Drawing.Size(152, 21);
-            this.papr_numText.TabIndex = 3;
+            this.ct_papr_num.Location = new System.Drawing.Point(126, 51);
+            this.ct_papr_num.MaxLength = 3;
+            this.ct_papr_num.Name = "ct_papr_num";
+            this.ct_papr_num.Size = new System.Drawing.Size(152, 21);
+            this.ct_papr_num.TabIndex = 3;
             // 
-            // papr_appnoText
+            // ct_papr_appno
             // 
-            this.papr_appnoText.Location = new System.Drawing.Point(126, 3);
-            this.papr_appnoText.MaxLength = 20;
-            this.papr_appnoText.Name = "papr_appnoText";
-            this.papr_appnoText.Size = new System.Drawing.Size(152, 21);
-            this.papr_appnoText.TabIndex = 1;
+            this.ct_papr_appno.Location = new System.Drawing.Point(126, 3);
+            this.ct_papr_appno.MaxLength = 20;
+            this.ct_papr_appno.Name = "ct_papr_appno";
+            this.ct_papr_appno.ReadOnly = true;
+            this.ct_papr_appno.Size = new System.Drawing.Size(152, 21);
+            this.ct_papr_appno.TabIndex = 1;
             // 
             // label4
             // 
@@ -357,20 +269,90 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "인사발령번호";
             // 
+            // dateSearch1
+            // 
+            this.dateSearch1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateSearch1.Location = new System.Drawing.Point(251, 0);
+            this.dateSearch1.Name = "dateSearch1";
+            this.dateSearch1.Size = new System.Drawing.Size(88, 21);
+            this.dateSearch1.TabIndex = 46;
+            // 
+            // dateSearch2
+            // 
+            this.dateSearch2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateSearch2.Location = new System.Drawing.Point(362, 0);
+            this.dateSearch2.Name = "dateSearch2";
+            this.dateSearch2.Size = new System.Drawing.Size(88, 21);
+            this.dateSearch2.TabIndex = 46;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // papr_appno
+            // 
+            this.papr_appno.DataPropertyName = "papr_appno";
+            this.papr_appno.FillWeight = 120F;
+            this.papr_appno.HeaderText = "인사발령번호";
+            this.papr_appno.MinimumWidth = 111;
+            this.papr_appno.Name = "papr_appno";
+            this.papr_appno.ReadOnly = true;
+            this.papr_appno.Width = 111;
+            // 
+            // papr_date
+            // 
+            this.papr_date.DataPropertyName = "papr_date";
+            this.papr_date.FillWeight = 106.2606F;
+            this.papr_date.HeaderText = "시행일자";
+            this.papr_date.MinimumWidth = 125;
+            this.papr_date.Name = "papr_date";
+            this.papr_date.Width = 125;
+            // 
+            // papr_content
+            // 
+            this.papr_content.DataPropertyName = "papr_content";
+            this.papr_content.FillWeight = 106.2606F;
+            this.papr_content.HeaderText = "발령내용";
+            this.papr_content.MinimumWidth = 145;
+            this.papr_content.Name = "papr_content";
+            this.papr_content.Width = 145;
+            // 
+            // papr_num
+            // 
+            this.papr_num.DataPropertyName = "papr_num";
+            this.papr_num.FillWeight = 106.2606F;
+            this.papr_num.HeaderText = "발령인원수";
+            this.papr_num.MinimumWidth = 75;
+            this.papr_num.Name = "papr_num";
+            this.papr_num.Width = 90;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.FillWeight = 60F;
+            this.status.HeaderText = "상태";
+            this.status.MinimumWidth = 56;
+            this.status.Name = "status";
+            this.status.Visible = false;
+            this.status.Width = 56;
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(992, 604);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panData.ResumeLayout(false);
+            this.panData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -380,31 +362,29 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.MaskedTextBox papr_dateSearch2;
-        private System.Windows.Forms.MaskedTextBox papr_dateSearch1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox papr_appnoSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn check1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn papr_appno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn papr_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn papr_content;
-        private System.Windows.Forms.DataGridViewTextBoxColumn papr_num;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datasys1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datasys2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datasys3;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panData;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.MaskedTextBox papr_dateText;
-        private System.Windows.Forms.TextBox papr_contentText;
-        private System.Windows.Forms.TextBox papr_numText;
-        private System.Windows.Forms.TextBox papr_appnoText;
+        private System.Windows.Forms.MaskedTextBox ct_papr_date;
+        private System.Windows.Forms.TextBox ct_papr_content;
+        private System.Windows.Forms.TextBox ct_papr_num;
+        private System.Windows.Forms.TextBox ct_papr_appno;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateSearch2;
+        private System.Windows.Forms.DateTimePicker dateSearch1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn papr_appno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn papr_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn papr_content;
+        private System.Windows.Forms.DataGridViewTextBoxColumn papr_num;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
     }
 }

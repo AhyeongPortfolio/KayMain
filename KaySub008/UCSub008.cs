@@ -19,7 +19,7 @@ namespace KaySub008
     /// --최근작성 정보
     /// 1. 2021-08-31              권아영             신규생성
     /// 2. 2021-09-06              권아영             컨트롤Name 수정, 초기설정 코드 수정, 쿼리문 수정
-    /// -----메모 : 조회부분 수정해야함(어디서 안잡히는 현상발생)
+    /// 3. 2021-09-07              권아영             에러 수정완료
     /// **********************************************************************
     /// </summary>
     public partial class UserControl1: UserControl
@@ -286,7 +286,7 @@ namespace KaySub008
                     cmd.Parameters.Add("AWARD_CONTENT", OracleDbType.Varchar2).Value = row.Cells["award_content"].Value;
                     cmd.Parameters.Add("AWARD_INOUT", OracleDbType.Varchar2).Value = row.Cells["award_inout"].Value;
                     cmd.Parameters.Add("AWARD_POS", OracleDbType.Varchar2).Value = Utility.GetCode(row.Cells["award_pos"].Value.ToString());
-                    cmd.Parameters.Add("AWARD_DEPT", OracleDbType.Varchar2).Value = Utility.GetCode(row.Cells["award_gra"].Value.ToString());
+                    cmd.Parameters.Add("AWARD_DEPT", OracleDbType.Varchar2).Value = Utility.GetCode(row.Cells["award_dept"].Value.ToString());
 
                     cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
                     cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
@@ -409,7 +409,7 @@ namespace KaySub008
                 OracleCommand cmd = con.CreateCommand();
                 cmd.CommandText = SQLStatement.SelectSQL1;
                 cmd.BindByName = true;
-                cmd.Parameters.Add("bas_empno", OracleDbType.Varchar2).Value = selectRow.Cells["bas_empno"].Value; //수정                 
+                cmd.Parameters.Add("bas_empno", OracleDbType.Varchar2).Value = selectRow.Cells["bas_empno"].Value;                
                 OracleDataReader dr = cmd.ExecuteReader();
                 query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
                 while (dr.Read())
@@ -423,8 +423,8 @@ namespace KaySub008
                     row.Cells["award_organ"].Value = dr["award_organ"].ToString();
                     row.Cells["award_content"].Value = dr["award_content"].ToString();
                     row.Cells["award_inout"].Value = dr["award_inout"].ToString();
-                    row.Cells["award_pos"].Value = dr["pos1"].ToString();
-                    row.Cells["award_dept"].Value = dr["dept1"].ToString();
+                    row.Cells["award_pos"].Value = dr["award_pos"].ToString();
+                    row.Cells["award_dept"].Value = dr["award_dept"].ToString();
 
                     row.Cells["Key1"].Value = dr["award_empno"].ToString();
                     row.Cells["Key2"].Value = dr["award_date"].ToString();

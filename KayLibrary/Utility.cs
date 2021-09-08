@@ -215,6 +215,7 @@ namespace KayLibrary
         #region  작업진행 중(Mouse Cursor = "WAIT")
         //************************************************************
         //**  작업진행 중(Mouse Cursor = "WAIT")
+        //--  작업진행을 할 때 늦어질 경우 진행되고 있다는 것을 보여줌
         //************************************************************
         static public void BusyIndicator(bool onoff)
         {
@@ -494,6 +495,37 @@ namespace KayLibrary
             if (ymd.Length != 10) return "";
             return ymd.Replace(format, "").Replace(" ", "");
         }
+
+        //************************************************************
+        //** 날짜 텍스트 형식 변경 (yyyymm <-> yyyy-mm)
+        //************************************************************
+        static public string FormatMonth(string ymd)
+        {
+            if (string.IsNullOrEmpty(ymd)) return "";
+            if (ymd.Length != 6) return "";
+            return string.Concat(ymd.Substring(0, 4), "-",
+                                 ymd.Substring(4, 2));
+        }
+        static public string FormatMonth(string ymd, string format)
+        {
+            if (string.IsNullOrEmpty(ymd)) return "";
+            if (ymd.Length != 6) return "";
+            return string.Concat(ymd.Substring(0, 4), format,
+                                 ymd.Substring(4, 2));
+        }
+        static public string FormatMonthR(string ymd)
+        {
+            if (string.IsNullOrEmpty(ymd)) return "";
+            if (ymd.Length != 7) return "";
+            return ymd.Replace("-", "").Replace(" ", "");
+        }
+        static public string FormatMonthR(string ymd, string format)
+        {
+            if (string.IsNullOrEmpty(ymd)) return "";
+            if (ymd.Length != 7) return "";
+            return ymd.Replace(format, "").Replace(" ", "");
+        }
+
         #endregion
         #region Bool <-> Text ('1','0'/'Y','N')
         //************************************************************
