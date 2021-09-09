@@ -32,14 +32,35 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dateSearch2 = new System.Windows.Forms.DateTimePicker();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.empnoSearch = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.noSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.papp_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_appno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_pap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_auth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_basis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_rmk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_cont = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_dut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_sts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Key2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Key3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Key4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panData = new System.Windows.Forms.Panel();
             this.btn_bas_univ = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -70,27 +91,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dateSearch2 = new System.Windows.Forms.DateTimePicker();
-            this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.papp_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_appno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_pap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_content = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_auth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_basis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_rmk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_cont = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_dut = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_sts = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Key2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Key3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Key4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -131,6 +131,14 @@
             this.panel1.Size = new System.Drawing.Size(935, 34);
             this.panel1.TabIndex = 0;
             // 
+            // dateSearch2
+            // 
+            this.dateSearch2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateSearch2.Location = new System.Drawing.Point(523, 2);
+            this.dateSearch2.Name = "dateSearch2";
+            this.dateSearch2.Size = new System.Drawing.Size(88, 21);
+            this.dateSearch2.TabIndex = 49;
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -140,6 +148,14 @@
             this.panel5.Size = new System.Drawing.Size(935, 1);
             this.panel5.TabIndex = 45;
             // 
+            // dateSearch1
+            // 
+            this.dateSearch1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateSearch1.Location = new System.Drawing.Point(412, 2);
+            this.dateSearch1.Name = "dateSearch1";
+            this.dateSearch1.Size = new System.Drawing.Size(88, 21);
+            this.dateSearch1.TabIndex = 48;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -148,6 +164,15 @@
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 0;
             this.label6.Text = "시행일자";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(506, 6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(11, 12);
+            this.label7.TabIndex = 47;
+            this.label7.Text = "-";
             // 
             // empnoSearch
             // 
@@ -228,6 +253,138 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(629, 575);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // papp_empno
+            // 
+            this.papp_empno.DataPropertyName = "papp_empno";
+            this.papp_empno.HeaderText = "사원번호";
+            this.papp_empno.Name = "papp_empno";
+            this.papp_empno.Width = 78;
+            // 
+            // papp_appno
+            // 
+            this.papp_appno.DataPropertyName = "papp_appno";
+            this.papp_appno.HeaderText = "인사발령번호";
+            this.papp_appno.Name = "papp_appno";
+            this.papp_appno.Width = 102;
+            // 
+            // papp_date
+            // 
+            this.papp_date.DataPropertyName = "papp_date";
+            this.papp_date.HeaderText = "시행일자";
+            this.papp_date.Name = "papp_date";
+            this.papp_date.Width = 78;
+            // 
+            // papp_pap
+            // 
+            this.papp_pap.DataPropertyName = "papp_pap";
+            this.papp_pap.HeaderText = "발령종류";
+            this.papp_pap.Name = "papp_pap";
+            this.papp_pap.Width = 78;
+            // 
+            // papp_content
+            // 
+            this.papp_content.DataPropertyName = "papp_content";
+            this.papp_content.HeaderText = "발령내용";
+            this.papp_content.Name = "papp_content";
+            this.papp_content.Width = 78;
+            // 
+            // papp_auth
+            // 
+            this.papp_auth.DataPropertyName = "papp_auth";
+            this.papp_auth.HeaderText = "발령권자";
+            this.papp_auth.Name = "papp_auth";
+            this.papp_auth.Width = 78;
+            // 
+            // papp_basis
+            // 
+            this.papp_basis.DataPropertyName = "papp_basis";
+            this.papp_basis.HeaderText = "발령근거";
+            this.papp_basis.Name = "papp_basis";
+            this.papp_basis.Width = 78;
+            // 
+            // papp_rmk
+            // 
+            this.papp_rmk.DataPropertyName = "papp_rmk";
+            this.papp_rmk.HeaderText = "비고";
+            this.papp_rmk.Name = "papp_rmk";
+            this.papp_rmk.Width = 54;
+            // 
+            // papp_cont
+            // 
+            this.papp_cont.DataPropertyName = "papp_cont";
+            this.papp_cont.HeaderText = "계약구분";
+            this.papp_cont.Name = "papp_cont";
+            this.papp_cont.ReadOnly = true;
+            this.papp_cont.Visible = false;
+            this.papp_cont.Width = 78;
+            // 
+            // papp_pos
+            // 
+            this.papp_pos.DataPropertyName = "papp_pos";
+            this.papp_pos.HeaderText = "당시직급명";
+            this.papp_pos.Name = "papp_pos";
+            this.papp_pos.Width = 90;
+            // 
+            // papp_dut
+            // 
+            this.papp_dut.DataPropertyName = "papp_dut";
+            this.papp_dut.HeaderText = "당시직책명";
+            this.papp_dut.Name = "papp_dut";
+            this.papp_dut.Width = 90;
+            // 
+            // papp_dept
+            // 
+            this.papp_dept.DataPropertyName = "papp_dept";
+            this.papp_dept.HeaderText = "당시부서명";
+            this.papp_dept.Name = "papp_dept";
+            this.papp_dept.Width = 90;
+            // 
+            // papp_sts
+            // 
+            this.papp_sts.DataPropertyName = "papp_sts";
+            this.papp_sts.HeaderText = "신분구분";
+            this.papp_sts.Name = "papp_sts";
+            this.papp_sts.Width = 78;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "상태";
+            this.status.Name = "status";
+            this.status.Visible = false;
+            this.status.Width = 54;
+            // 
+            // Key1
+            // 
+            this.Key1.HeaderText = "Key1";
+            this.Key1.Name = "Key1";
+            this.Key1.Visible = false;
+            this.Key1.Width = 58;
+            // 
+            // Key2
+            // 
+            this.Key2.DataPropertyName = "Key2";
+            this.Key2.HeaderText = "Key2";
+            this.Key2.Name = "Key2";
+            this.Key2.Visible = false;
+            this.Key2.Width = 58;
+            // 
+            // Key3
+            // 
+            this.Key3.DataPropertyName = "Key3";
+            this.Key3.HeaderText = "Key3";
+            this.Key3.Name = "Key3";
+            this.Key3.Visible = false;
+            this.Key3.Width = 58;
+            // 
+            // Key4
+            // 
+            this.Key4.DataPropertyName = "Key4";
+            this.Key4.HeaderText = "Key4";
+            this.Key4.Name = "Key4";
+            this.Key4.Visible = false;
+            this.Key4.Width = 58;
             // 
             // panData
             // 
@@ -518,163 +675,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // dateSearch2
-            // 
-            this.dateSearch2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateSearch2.Location = new System.Drawing.Point(523, 2);
-            this.dateSearch2.Name = "dateSearch2";
-            this.dateSearch2.Size = new System.Drawing.Size(88, 21);
-            this.dateSearch2.TabIndex = 49;
-            // 
-            // dateSearch1
-            // 
-            this.dateSearch1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateSearch1.Location = new System.Drawing.Point(412, 2);
-            this.dateSearch1.Name = "dateSearch1";
-            this.dateSearch1.Size = new System.Drawing.Size(88, 21);
-            this.dateSearch1.TabIndex = 48;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(506, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(11, 12);
-            this.label7.TabIndex = 47;
-            this.label7.Text = "-";
-            // 
-            // papp_empno
-            // 
-            this.papp_empno.DataPropertyName = "papp_empno";
-            this.papp_empno.HeaderText = "사원번호";
-            this.papp_empno.Name = "papp_empno";
-            this.papp_empno.Width = 78;
-            // 
-            // papp_appno
-            // 
-            this.papp_appno.DataPropertyName = "papp_appno";
-            this.papp_appno.HeaderText = "인사발령번호";
-            this.papp_appno.Name = "papp_appno";
-            this.papp_appno.Width = 102;
-            // 
-            // papp_date
-            // 
-            this.papp_date.DataPropertyName = "papp_date";
-            this.papp_date.HeaderText = "시행일자";
-            this.papp_date.Name = "papp_date";
-            this.papp_date.Width = 78;
-            // 
-            // papp_pap
-            // 
-            this.papp_pap.DataPropertyName = "papp_pap";
-            this.papp_pap.HeaderText = "발령종류";
-            this.papp_pap.Name = "papp_pap";
-            this.papp_pap.Width = 78;
-            // 
-            // papp_content
-            // 
-            this.papp_content.DataPropertyName = "papp_content";
-            this.papp_content.HeaderText = "발령내용";
-            this.papp_content.Name = "papp_content";
-            this.papp_content.Width = 78;
-            // 
-            // papp_auth
-            // 
-            this.papp_auth.DataPropertyName = "papp_auth";
-            this.papp_auth.HeaderText = "발령권자";
-            this.papp_auth.Name = "papp_auth";
-            this.papp_auth.Width = 78;
-            // 
-            // papp_basis
-            // 
-            this.papp_basis.DataPropertyName = "papp_basis";
-            this.papp_basis.HeaderText = "발령근거";
-            this.papp_basis.Name = "papp_basis";
-            this.papp_basis.Width = 78;
-            // 
-            // papp_rmk
-            // 
-            this.papp_rmk.DataPropertyName = "papp_rmk";
-            this.papp_rmk.HeaderText = "비고";
-            this.papp_rmk.Name = "papp_rmk";
-            this.papp_rmk.Width = 54;
-            // 
-            // papp_cont
-            // 
-            this.papp_cont.DataPropertyName = "papp_cont";
-            this.papp_cont.HeaderText = "계약구분";
-            this.papp_cont.Name = "papp_cont";
-            this.papp_cont.ReadOnly = true;
-            this.papp_cont.Visible = false;
-            this.papp_cont.Width = 78;
-            // 
-            // papp_pos
-            // 
-            this.papp_pos.DataPropertyName = "papp_pos";
-            this.papp_pos.HeaderText = "당시직급명";
-            this.papp_pos.Name = "papp_pos";
-            this.papp_pos.Width = 90;
-            // 
-            // papp_dut
-            // 
-            this.papp_dut.DataPropertyName = "papp_dut";
-            this.papp_dut.HeaderText = "당시직책명";
-            this.papp_dut.Name = "papp_dut";
-            this.papp_dut.Width = 90;
-            // 
-            // papp_dept
-            // 
-            this.papp_dept.DataPropertyName = "papp_dept";
-            this.papp_dept.HeaderText = "당시부서명";
-            this.papp_dept.Name = "papp_dept";
-            this.papp_dept.Width = 90;
-            // 
-            // papp_sts
-            // 
-            this.papp_sts.DataPropertyName = "papp_sts";
-            this.papp_sts.HeaderText = "신분구분";
-            this.papp_sts.Name = "papp_sts";
-            this.papp_sts.Width = 78;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "상태";
-            this.status.Name = "status";
-            this.status.Visible = false;
-            this.status.Width = 54;
-            // 
-            // Key1
-            // 
-            this.Key1.HeaderText = "Key1";
-            this.Key1.Name = "Key1";
-            this.Key1.Visible = false;
-            this.Key1.Width = 58;
-            // 
-            // Key2
-            // 
-            this.Key2.DataPropertyName = "Key2";
-            this.Key2.HeaderText = "Key2";
-            this.Key2.Name = "Key2";
-            this.Key2.Visible = false;
-            this.Key2.Width = 58;
-            // 
-            // Key3
-            // 
-            this.Key3.DataPropertyName = "Key3";
-            this.Key3.HeaderText = "Key3";
-            this.Key3.Name = "Key3";
-            this.Key3.Visible = false;
-            this.Key3.Width = 58;
-            // 
-            // Key4
-            // 
-            this.Key4.DataPropertyName = "Key4";
-            this.Key4.HeaderText = "Key4";
-            this.Key4.Name = "Key4";
-            this.Key4.Visible = false;
-            this.Key4.Width = 58;
-            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -682,6 +682,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(941, 627);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

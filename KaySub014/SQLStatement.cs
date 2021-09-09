@@ -46,8 +46,8 @@ namespace KaySub014
         //--발령번호 검색 쿼리
         //******************************
         public static string
-            SelectSQL1 = @"SELECT papr_appno, papr_date, papr_content, papr_num FROM kay_insa_papr 
-                            WHERE papr_content LIKE :papr_content ";
+            SelectSQL1 = @"SELECT papr_appno, papr_date, papr_content FROM kay_insa_papr 
+                            WHERE papr_content LIKE :condition ";
 
         #endregion
         #region 추가(입력)
@@ -153,12 +153,6 @@ namespace KaySub014
                             WHERE cd_grpcd = 'STS'
                             AND cd_use = 'Y'";
         #endregion
-
-
-
-
-
-
 
 
     }

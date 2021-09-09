@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SearchArrWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchArrWindow.Designer.cs">
+      <DependentUpon>SearchArrWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="SearchCDWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="SearchArrWindow.resx">
+      <DependentUpon>SearchArrWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SearchCDWindow.resx">
       <DependentUpon>SearchCDWindow.cs</DependentUpon>
     </EmbeddedResource>

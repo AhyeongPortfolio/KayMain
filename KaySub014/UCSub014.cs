@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using KayLibrary;
-
+using System.Collections;
 
 namespace KaySub014
 {
@@ -53,11 +53,11 @@ namespace KaySub014
             ct_papp_auth.TextChanged += InputData_TextChanged;
             ct_papp_basis.TextChanged += InputData_TextChanged;
             ct_papp_rmk.TextChanged += InputData_TextChanged;
-            ct_papp_cont.SelectedValueChanged += InputData_TextChanged;
-            ct_papp_pos.SelectedValueChanged += InputData_TextChanged;
+            ct_papp_cont.TextChanged += InputData_TextChanged;
+            ct_papp_pos.TextChanged += InputData_TextChanged;
             
-            ct_papp_dut.SelectedValueChanged += InputData_TextChanged;
-            ct_papp_dept.SelectedValueChanged += InputData_TextChanged;
+            ct_papp_dut.TextChanged += InputData_TextChanged;
+            ct_papp_dept.TextChanged += InputData_TextChanged;
             ct_papp_sts.SelectedValueChanged += InputData_TextChanged;
             //*----Value Changed Event Handler(END)-----------------------------
             //*----Validated Event Handler(Start)-------------------------------
@@ -69,8 +69,7 @@ namespace KaySub014
             //*----Enter Number Only(Start)-------------------------------------
             //ct_papp_sdate.KeyPress += Number_Only_Protect;
             //*----Enter Number Only(END)---------------------------------------
-            btn_bas_univ.Click += btn_bas_univ_Click;
-            dataGridView1.SelectionChanged += DataList_SelectionChanged;
+            
         }
 
         private void UserControl1_Load(object sender, EventArgs e)
@@ -87,7 +86,9 @@ namespace KaySub014
             Utility.SetComboWithCdnm(ct_papp_dut, SQLStatement.SelectSQL5);
             Utility.SetComboWithCdnm(ct_papp_pap, SQLStatement.SelectSQL6);
             Utility.SetComboWithCdnm(ct_papp_sts, SQLStatement.SelectSQL7);
-                       
+
+            btn_bas_univ.Click += btn_bas_univ_Click;
+            dataGridView1.SelectionChanged += DataList_SelectionChanged;
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "1");
             Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
@@ -126,6 +127,8 @@ namespace KaySub014
                     row.Cells["papp_empno"].Value = dr["papp_empno"].ToString();
                     row.Cells["papp_appno"].Value = dr["papp_appno"].ToString();
                     row.Cells["papp_date"].Value = Utility.FormatDate(dr["papp_date"].ToString());
+                    row.Cells["papp_pap"].Value = dr["papp_pap"].ToString();
+
                     row.Cells["papp_content"].Value = dr["papp_content"].ToString();
                     row.Cells["papp_auth"].Value = dr["papp_auth"].ToString();
 
@@ -195,6 +198,7 @@ namespace KaySub014
             dataGridView1.Rows[rowIdx].Cells["status"].Value = "A";
             //---추가된 Row로 Focus 이동-------------------------------- 
             Utility.SetFocusingDataGridView(dataGridView1, rowIdx);
+            ct_papp_empno.ReadOnly = false;
             ct_papp_empno.Focus();
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "3");
@@ -311,17 +315,28 @@ namespace KaySub014
                         cmd.CommandText = SQLStatement.UpdateSQL;
                         cmd.Parameters.Add("key1", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;
                     }
-                    cmd.Parameters.Add("papp_grpcd", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["papp_grpcd"].Value);
-                    cmd.Parameters.Add("papp_code", OracleDbType.Varchar2).Value = row.Cells["papp_code"].Value;
-                    cmd.Parameters.Add("papp_seq", OracleDbType.Varchar2).Value = row.Cells["papp_seq"].Value;
-                    cmd.Parameters.Add("papp_codnms", OracleDbType.Varchar2).Value = row.Cells["papp_codnms"].Value;
-                    cmd.Parameters.Add("papp_codnm", OracleDbType.Varchar2).Value = row.Cells["papp_codnm"].Value;
-                    cmd.Parameters.Add("papp_addinfo", OracleDbType.Varchar2).Value = row.Cells["papp_addinfo"].Value;
-                    cmd.Parameters.Add("papp_upper", OracleDbType.Varchar2).Value = row.Cells["papp_upper"].Value;
-                    cmd.Parameters.Add("papp_use", OracleDbType.Varchar2).Value = row.Cells["papp_use"].Value;
-                    cmd.Parameters.Add("papp_sdate", OracleDbType.Varchar2).Value = Utility.FormatDateR((String)row.Cells["papp_sdate"].Value);
-                    cmd.Parameters.Add("papp_edate", OracleDbType.Varchar2).Value = Utility.FormatDateR((String)row.Cells["papp_edate"].Value);
+                    cmd.Parameters.Add("papp_empno", OracleDbType.Varchar2).Value = row.Cells["papp_empno"].Value;
+                    cmd.Parameters.Add("papp_appno", OracleDbType.Varchar2).Value = row.Cells["papp_appno"].Value;
+                    cmd.Parameters.Add("papp_date", OracleDbType.Varchar2).Value = Utility.FormatDateR((String)row.Cells["papp_date"].Value);
+                    cmd.Parameters.Add("papp_pap", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["papp_pap"].Value);
+
+                    cmd.Parameters.Add("papp_content", OracleDbType.Varchar2).Value = row.Cells["papp_content"].Value;
+                    cmd.Parameters.Add("papp_auth", OracleDbType.Varchar2).Value = row.Cells["papp_auth"].Value;
+                    cmd.Parameters.Add("papp_basis", OracleDbType.Varchar2).Value = row.Cells["papp_basis"].Value;
+                    cmd.Parameters.Add("papp_rmk", OracleDbType.Varchar2).Value = row.Cells["papp_rmk"].Value;
+                    cmd.Parameters.Add("papp_cont", OracleDbType.Varchar2).Value = row.Cells["papp_cont"].Value;
+
+                    cmd.Parameters.Add("papp_pos_cd", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["papp_pos_cd"].Value);
+                    cmd.Parameters.Add("papp_dut_cd", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["papp_dut_cd"].Value);
+                    cmd.Parameters.Add("papp_dept_cd", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["papp_dept_cd"].Value);
+
+                    cmd.Parameters.Add("papp_pos_nm", OracleDbType.Varchar2).Value = Utility.GetCodeNM((String)row.Cells["papp_pos_nm"].Value);
+                    cmd.Parameters.Add("papp_dut_nm", OracleDbType.Varchar2).Value = Utility.GetCodeNM((String)row.Cells["papp_dut_nm"].Value);
+                    cmd.Parameters.Add("papp_dept_nm", OracleDbType.Varchar2).Value = Utility.GetCodeNM((String)row.Cells["papp_dept_nm"].Value);
+                    cmd.Parameters.Add("papp_sts", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["papp_sts"].Value);
+
                     cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
+                    cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();  //*----반드시 포함
                 }
@@ -341,7 +356,10 @@ namespace KaySub014
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (row.Cells["status"].Value.Equals("")) continue;
-                row.Cells["key1"].Value = row.Cells["papp_code"].Value;
+                row.Cells["key1"].Value = row.Cells["papp_empno"].Value;
+                row.Cells["key2"].Value = row.Cells["papp_appno"].Value;
+                row.Cells["key3"].Value = Utility.FormatDateR((String)row.Cells["papp_date"].Value);
+                row.Cells["key4"].Value = Utility.GetCode((String)row.Cells["papp_pap"].Value);
                 row.Cells["status"].Value = "";
             }
             Info_Message.Text = "자료가 정상적으로 저장 되었습니다.";
@@ -389,18 +407,14 @@ namespace KaySub014
             if (dataGridView1.SelectedRows.Count <= 0) return;
 
             Utility.SetValueToGridView(dataGridView1, sender as Control);
-            ct_papp_edate.ReadOnly = true;
+            
 
             //*--Data Status = "수정"  설정-------------------
             DataGridViewRow row = dataGridView1.CurrentRow;
             if ((String)row.Cells["status"].Value == "")
             {
+                ct_papp_empno.ReadOnly = true;
                 row.Cells["status"].Value = "U";
-                if (row.Cells["papp_use"].Value.ToString().Equals("N")) //만약 폐기를 하게 될 시
-                {
-                    ct_papp_edate.ReadOnly = false;
-                    ct_papp_edate.Text = System.DateTime.Now.ToString("yyyyMMdd");
-                }
             }
             //*--Data Status = "수정"  설정-------------------
 
@@ -435,33 +449,43 @@ namespace KaySub014
 
             dataGridView1.SelectedRows[0].ErrorText = "";
             //*---------------------------------------------------------------------------------------------------------
-            if (string.IsNullOrEmpty(ct_papp_grpcd.Text))
+            if (string.IsNullOrEmpty(ct_papp_empno.Text))
             {
-                SetError(ct_papp_grpcd, "그룹코드를 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+                SetError(ct_papp_empno, "사원번호를 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
             }
             else
             {
-                ResetError(ct_papp_grpcd, errorProvider1);
+                ResetError(ct_papp_empno, errorProvider1);
             }
 
             //*---------------------------------------------------------------------------------------------------------
-            if (string.IsNullOrEmpty(ct_papp_code.Text))
+            if (string.IsNullOrEmpty(ct_papp_appno.Text))
             {
-                SetError(ct_papp_code, "코드를 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+                SetError(ct_papp_appno, "발령번호를 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
             }
             else
             {
-                ResetError(ct_papp_code, errorProvider1);
+                ResetError(ct_papp_appno, errorProvider1);
             }
 
             //*---------------------------------------------------------------------------------------------------------
-            if (string.IsNullOrEmpty(ct_papp_codnm.Text))
+            if (string.IsNullOrEmpty(ct_papp_date.Text))
             {
-                SetError(ct_papp_codnm, "코드명을 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+                SetError(ct_papp_date, "시행날짜를 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
             }
             else
             {
-                ResetError(ct_papp_codnm, errorProvider1);
+                ResetError(ct_papp_date, errorProvider1);
+            }
+
+            //*---------------------------------------------------------------------------------------------------------
+            if (string.IsNullOrEmpty(ct_papp_pap.Text))
+            {
+                SetError(ct_papp_pap, "발령종류를 반드시 선택하세요", dataGridView1.SelectedRows[0], errorProvider1);
+            }
+            else
+            {
+                ResetError(ct_papp_pap, errorProvider1);
             }
 
 
@@ -496,10 +520,12 @@ namespace KaySub014
         //************************************************************
         private void btn_bas_univ_Click(object sender, EventArgs e)
         {
-            if (Utility.ShowSearchCDWindow(SQLStatement.SelectSQL1, "프로그램코드", out string result) == true)
+            if (Utility.ShowSearchArrayWindow(SQLStatement.SelectSQL1, "프로그램코드", out ArrayList result) == true)
             {
-                if (dataGridView1.SelectedRows.Count < 1) return;
-                ct_papp_appno.Text = result;
+                //if (dataGridView1.SelectedRows.Count < 1) return;
+                ct_papp_appno.Text = (String) result[0];
+                ct_papp_date.Text = (String) result[1];
+                ct_papp_content.Text = (String) result[2];
             }
         }
         #endregion

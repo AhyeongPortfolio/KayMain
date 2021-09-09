@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
 using System.Security.Cryptography;
+using System.Collections;
 
 namespace KayLibrary
 {
@@ -17,6 +18,7 @@ namespace KayLibrary
     /// --Project             : 인사관리시스템(ver2)
     /// --최근작성 정보
     /// 1. 2021-08-31              권아영             신규생성
+    /// 2. 2021-09-09              권아영             리스트로 받는 팝업창 생성
     /// **********************************************************************
     /// </summary>
     public class Utility
@@ -654,6 +656,24 @@ namespace KayLibrary
             else
             {
                 result = "";
+                win.Dispose();
+                return false;
+            }
+        }
+
+        static public bool ShowSearchArrayWindow(string sql, string caption, out ArrayList result)
+        {
+            var win = new SearchArrWindow(sql);
+            win.Text = caption;
+            if (win.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                result = win.GetResult;
+                win.Dispose();
+                return true;
+            }
+            else
+            {
+                result = null;
                 win.Dispose();
                 return false;
             }
