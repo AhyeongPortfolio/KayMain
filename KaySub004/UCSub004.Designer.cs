@@ -72,15 +72,15 @@
             this.Key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panData = new System.Windows.Forms.Panel();
             this.ct_bas_dptdate = new System.Windows.Forms.TextBox();
-            this.ct_bas_dept = new System.Windows.Forms.TextBox();
+            this.ct_dept = new System.Windows.Forms.TextBox();
             this.ct_bas_jkdate = new System.Windows.Forms.TextBox();
             this.ct_bas_acc_no = new System.Windows.Forms.TextBox();
-            this.ct_bas_dut = new System.Windows.Forms.TextBox();
+            this.ct_dut = new System.Windows.Forms.TextBox();
             this.ct_bas_acc_name = new System.Windows.Forms.TextBox();
             this.ct_bas_sts = new System.Windows.Forms.TextBox();
             this.ct_bas_posdate = new System.Windows.Forms.TextBox();
             this.ct_bas_mil_rnk = new System.Windows.Forms.ComboBox();
-            this.ct_bas_pos = new System.Windows.Forms.TextBox();
+            this.ct_pos = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.ct_bas_wsta = new System.Windows.Forms.TextBox();
             this.ct_bas_name = new System.Windows.Forms.TextBox();
@@ -574,15 +574,15 @@
             // panData
             // 
             this.panData.Controls.Add(this.ct_bas_dptdate);
-            this.panData.Controls.Add(this.ct_bas_dept);
+            this.panData.Controls.Add(this.ct_dept);
             this.panData.Controls.Add(this.ct_bas_jkdate);
             this.panData.Controls.Add(this.ct_bas_acc_no);
-            this.panData.Controls.Add(this.ct_bas_dut);
+            this.panData.Controls.Add(this.ct_dut);
             this.panData.Controls.Add(this.ct_bas_acc_name);
             this.panData.Controls.Add(this.ct_bas_sts);
             this.panData.Controls.Add(this.ct_bas_posdate);
             this.panData.Controls.Add(this.ct_bas_mil_rnk);
-            this.panData.Controls.Add(this.ct_bas_pos);
+            this.panData.Controls.Add(this.ct_pos);
             this.panData.Controls.Add(this.label17);
             this.panData.Controls.Add(this.ct_bas_wsta);
             this.panData.Controls.Add(this.ct_bas_name);
@@ -662,14 +662,14 @@
             this.ct_bas_dptdate.TabIndex = 45;
             this.ct_bas_dptdate.Tag = "bas_dptdate";
             // 
-            // ct_bas_dept
+            // ct_dept
             // 
-            this.ct_bas_dept.Location = new System.Drawing.Point(424, 367);
-            this.ct_bas_dept.Name = "ct_bas_dept";
-            this.ct_bas_dept.ReadOnly = true;
-            this.ct_bas_dept.Size = new System.Drawing.Size(100, 21);
-            this.ct_bas_dept.TabIndex = 45;
-            this.ct_bas_dept.Tag = "bas_dept";
+            this.ct_dept.Location = new System.Drawing.Point(424, 367);
+            this.ct_dept.Name = "ct_dept";
+            this.ct_dept.ReadOnly = true;
+            this.ct_dept.Size = new System.Drawing.Size(100, 21);
+            this.ct_dept.TabIndex = 45;
+            this.ct_dept.Tag = "bas_dept";
             // 
             // ct_bas_jkdate
             // 
@@ -689,14 +689,14 @@
             this.ct_bas_acc_no.TabIndex = 19;
             this.ct_bas_acc_no.Tag = "bas_acc_no";
             // 
-            // ct_bas_dut
+            // ct_dut
             // 
-            this.ct_bas_dut.Location = new System.Drawing.Point(247, 367);
-            this.ct_bas_dut.Name = "ct_bas_dut";
-            this.ct_bas_dut.ReadOnly = true;
-            this.ct_bas_dut.Size = new System.Drawing.Size(100, 21);
-            this.ct_bas_dut.TabIndex = 45;
-            this.ct_bas_dut.Tag = "bas_dut";
+            this.ct_dut.Location = new System.Drawing.Point(247, 367);
+            this.ct_dut.Name = "ct_dut";
+            this.ct_dut.ReadOnly = true;
+            this.ct_dut.Size = new System.Drawing.Size(100, 21);
+            this.ct_dut.TabIndex = 45;
+            this.ct_dut.Tag = "bas_dut";
             // 
             // ct_bas_acc_name
             // 
@@ -734,14 +734,14 @@
             this.ct_bas_mil_rnk.TabIndex = 16;
             this.ct_bas_mil_rnk.Tag = "bas_mil_rnk";
             // 
-            // ct_bas_pos
+            // ct_pos
             // 
-            this.ct_bas_pos.Location = new System.Drawing.Point(70, 367);
-            this.ct_bas_pos.Name = "ct_bas_pos";
-            this.ct_bas_pos.ReadOnly = true;
-            this.ct_bas_pos.Size = new System.Drawing.Size(100, 21);
-            this.ct_bas_pos.TabIndex = 45;
-            this.ct_bas_pos.Tag = "bas_pos";
+            this.ct_pos.Location = new System.Drawing.Point(70, 367);
+            this.ct_pos.Name = "ct_pos";
+            this.ct_pos.ReadOnly = true;
+            this.ct_pos.Size = new System.Drawing.Size(100, 21);
+            this.ct_pos.TabIndex = 45;
+            this.ct_pos.Tag = "bas_pos";
             // 
             // label17
             // 
@@ -1478,10 +1478,10 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox ct_bas_mil_sta;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox ct_bas_dept;
-        private System.Windows.Forms.TextBox ct_bas_dut;
+        private System.Windows.Forms.TextBox ct_dept;
+        private System.Windows.Forms.TextBox ct_dut;
         private System.Windows.Forms.TextBox ct_bas_sts;
-        private System.Windows.Forms.TextBox ct_bas_pos;
+        private System.Windows.Forms.TextBox ct_pos;
         private System.Windows.Forms.TextBox ct_bas_wsta;
         private System.Windows.Forms.TextBox ct_bas_cont;
         private System.Windows.Forms.MaskedTextBox ct_bas_levdate;

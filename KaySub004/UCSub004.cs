@@ -80,9 +80,9 @@ namespace KaySub004
             ct_bas_posdate.TextChanged += InputData_TextChanged;
             ct_bas_wsta.TextChanged += InputData_TextChanged;
             ct_bas_sts.TextChanged += InputData_TextChanged;
-            ct_bas_pos.TextChanged += InputData_TextChanged;
-            ct_bas_dut.TextChanged += InputData_TextChanged;
-            ct_bas_dept.TextChanged += InputData_TextChanged;
+            ct_pos.TextChanged += InputData_TextChanged;
+            ct_dut.TextChanged += InputData_TextChanged;
+            ct_dept.TextChanged += InputData_TextChanged;
             ct_bas_rmk.TextChanged += InputData_TextChanged;
             //*----Value Changed Event Handler(END)-----------------------------
             //*----Validated Event Handler(Start)-------------------------------

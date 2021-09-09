@@ -326,13 +326,13 @@ namespace KaySub014
                     cmd.Parameters.Add("papp_rmk", OracleDbType.Varchar2).Value = row.Cells["papp_rmk"].Value;
                     cmd.Parameters.Add("papp_cont", OracleDbType.Varchar2).Value = row.Cells["papp_cont"].Value;
 
-                    cmd.Parameters.Add("papp_pos_cd", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["papp_pos_cd"].Value);
-                    cmd.Parameters.Add("papp_dut_cd", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["papp_dut_cd"].Value);
-                    cmd.Parameters.Add("papp_dept_cd", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["papp_dept_cd"].Value);
+                    cmd.Parameters.Add("papp_pos_cd", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["papp_pos"].Value);
+                    cmd.Parameters.Add("papp_dut_cd", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["papp_dut"].Value);
+                    cmd.Parameters.Add("papp_dept_cd", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["papp_dept"].Value);
 
-                    cmd.Parameters.Add("papp_pos_nm", OracleDbType.Varchar2).Value = Utility.GetCodeNM((String)row.Cells["papp_pos_nm"].Value);
-                    cmd.Parameters.Add("papp_dut_nm", OracleDbType.Varchar2).Value = Utility.GetCodeNM((String)row.Cells["papp_dut_nm"].Value);
-                    cmd.Parameters.Add("papp_dept_nm", OracleDbType.Varchar2).Value = Utility.GetCodeNM((String)row.Cells["papp_dept_nm"].Value);
+                    cmd.Parameters.Add("papp_pos_nm", OracleDbType.Varchar2).Value = Utility.GetCodeNM((String)row.Cells["papp_pos"].Value);
+                    cmd.Parameters.Add("papp_dut_nm", OracleDbType.Varchar2).Value = Utility.GetCodeNM((String)row.Cells["papp_dut"].Value);
+                    cmd.Parameters.Add("papp_dept_nm", OracleDbType.Varchar2).Value = Utility.GetCodeNM((String)row.Cells["papp_dept"].Value);
                     cmd.Parameters.Add("papp_sts", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["papp_sts"].Value);
 
                     cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
@@ -457,7 +457,6 @@ namespace KaySub014
             {
                 ResetError(ct_papp_empno, errorProvider1);
             }
-
             //*---------------------------------------------------------------------------------------------------------
             if (string.IsNullOrEmpty(ct_papp_appno.Text))
             {
@@ -467,7 +466,6 @@ namespace KaySub014
             {
                 ResetError(ct_papp_appno, errorProvider1);
             }
-
             //*---------------------------------------------------------------------------------------------------------
             if (string.IsNullOrEmpty(ct_papp_date.Text))
             {
@@ -477,7 +475,6 @@ namespace KaySub014
             {
                 ResetError(ct_papp_date, errorProvider1);
             }
-
             //*---------------------------------------------------------------------------------------------------------
             if (string.IsNullOrEmpty(ct_papp_pap.Text))
             {
@@ -487,8 +484,6 @@ namespace KaySub014
             {
                 ResetError(ct_papp_pap, errorProvider1);
             }
-
-
         }
         private void SetError(Control ctl, String errMsg, DataGridViewRow row, ErrorProvider errProvider)
         {

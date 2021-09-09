@@ -30,12 +30,10 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.date2Search = new System.Windows.Forms.MaskedTextBox();
-            this.date1Search = new System.Windows.Forms.MaskedTextBox();
+            this.dateSearch2 = new System.Windows.Forms.DateTimePicker();
+            this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.empnoSearch = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.nameSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -59,6 +57,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.papr_appno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.papr_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +66,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datasys4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -92,12 +92,10 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.date2Search);
-            this.panel1.Controls.Add(this.date1Search);
+            this.panel1.Controls.Add(this.dateSearch2);
+            this.panel1.Controls.Add(this.dateSearch1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.empnoSearch);
-            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.nameSearch);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -106,61 +104,43 @@
             this.panel1.Size = new System.Drawing.Size(1067, 34);
             this.panel1.TabIndex = 1;
             // 
-            // date2Search
+            // dateSearch2
             // 
-            this.date2Search.Location = new System.Drawing.Point(540, 3);
-            this.date2Search.Mask = "0000-00-00";
-            this.date2Search.Name = "date2Search";
-            this.date2Search.Size = new System.Drawing.Size(100, 21);
-            this.date2Search.TabIndex = 7;
-            this.date2Search.ValidatingType = typeof(System.DateTime);
+            this.dateSearch2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateSearch2.Location = new System.Drawing.Point(362, 3);
+            this.dateSearch2.Name = "dateSearch2";
+            this.dateSearch2.Size = new System.Drawing.Size(88, 21);
+            this.dateSearch2.TabIndex = 52;
             // 
-            // date1Search
+            // dateSearch1
             // 
-            this.date1Search.Location = new System.Drawing.Point(417, 3);
-            this.date1Search.Mask = "0000-00-00";
-            this.date1Search.Name = "date1Search";
-            this.date1Search.Size = new System.Drawing.Size(100, 21);
-            this.date1Search.TabIndex = 6;
-            this.date1Search.ValidatingType = typeof(System.DateTime);
+            this.dateSearch1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateSearch1.Location = new System.Drawing.Point(251, 3);
+            this.dateSearch1.Name = "dateSearch1";
+            this.dateSearch1.Size = new System.Drawing.Size(88, 21);
+            this.dateSearch1.TabIndex = 51;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(523, 7);
+            this.label7.Location = new System.Drawing.Point(345, 7);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(11, 12);
-            this.label7.TabIndex = 4;
+            this.label7.TabIndex = 50;
             this.label7.Text = "-";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(358, 7);
+            this.label6.Location = new System.Drawing.Point(192, 7);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 0;
             this.label6.Text = "시행일자";
             // 
-            // empnoSearch
-            // 
-            this.empnoSearch.Location = new System.Drawing.Point(63, 3);
-            this.empnoSearch.Name = "empnoSearch";
-            this.empnoSearch.Size = new System.Drawing.Size(100, 21);
-            this.empnoSearch.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(4, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 12);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "사원번호";
-            // 
             // nameSearch
             // 
-            this.nameSearch.Location = new System.Drawing.Point(252, 3);
+            this.nameSearch.Location = new System.Drawing.Point(86, 3);
             this.nameSearch.Name = "nameSearch";
             this.nameSearch.Size = new System.Drawing.Size(100, 21);
             this.nameSearch.TabIndex = 1;
@@ -168,7 +148,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(169, 7);
+            this.label5.Location = new System.Drawing.Point(3, 7);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 0;
@@ -194,6 +174,7 @@
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.papp_empno,
             this.papp_appno,
@@ -213,11 +194,11 @@
             this.papp_sts,
             this.Column4,
             this.Column5,
-            this.Column6});
+            this.Column6,
+            this.Column7});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(429, 3);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(635, 631);
@@ -364,11 +345,20 @@
             this.Column6.Visible = false;
             this.Column6.Width = 80;
             // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "datasys4";
+            this.Column7.HeaderText = "Column7";
+            this.Column7.Name = "Column7";
+            this.Column7.Visible = false;
+            this.Column7.Width = 80;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.papr_appno,
@@ -377,11 +367,11 @@
             this.papr_num,
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.datasys4});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(420, 631);
@@ -432,6 +422,13 @@
             this.Column3.Name = "Column3";
             this.Column3.Visible = false;
             // 
+            // datasys4
+            // 
+            this.datasys4.DataPropertyName = "datasys4";
+            this.datasys4.HeaderText = "Column7";
+            this.datasys4.Name = "datasys4";
+            this.datasys4.Visible = false;
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -439,6 +436,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(1073, 683);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -453,16 +451,15 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MaskedTextBox date2Search;
-        private System.Windows.Forms.MaskedTextBox date1Search;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox empnoSearch;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox nameSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DateTimePicker dateSearch2;
+        private System.Windows.Forms.DateTimePicker dateSearch1;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn papp_empno;
         private System.Windows.Forms.DataGridViewTextBoxColumn papp_appno;
         private System.Windows.Forms.DataGridViewTextBoxColumn papp_date;
@@ -482,7 +479,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn papr_appno;
         private System.Windows.Forms.DataGridViewTextBoxColumn papr_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn papr_content;
@@ -490,5 +487,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datasys4;
     }
 }

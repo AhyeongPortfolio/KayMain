@@ -55,7 +55,7 @@ namespace KaySub014
         //--추가
         //******************************
         public static string
-            InsertSQL = @"INSERT INTO kay_insa_cd 
+            InsertSQL = @"INSERT INTO kay_insa_papp 
                           ( PAPP_EMPNO                            ,PAPP_APPNO                            ,PAPP_DATE                            ,PAPP_PAP
                             ,PAPP_CONTENT                            ,PAPP_AUTH                            ,PAPP_BASIS                            ,PAPP_RMK
                             ,PAPP_CONT                            ,PAPP_POS_CD                            ,PAPP_DUT_CD                            ,PAPP_DEPT_CD
@@ -75,7 +75,7 @@ namespace KaySub014
         //--수정
         //******************************
         public static string
-            UpdateSQL = @"UPDATE kay_insa_cd SET
+            UpdateSQL = @"UPDATE kay_insa_papp SET
                           PAPP_CONTENT = :PAPP_CONTENT
                           ,PAPP_AUTH = :PAPP_AUTH
                           ,PAPP_BASIS = :PAPP_BASIS

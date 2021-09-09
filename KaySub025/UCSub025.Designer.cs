@@ -32,21 +32,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.reportKind = new System.Windows.Forms.TextBox();
+            this.ct_ceri_sau = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.ceri_langText = new System.Windows.Forms.ComboBox();
-            this.ceri_kindText = new System.Windows.Forms.ComboBox();
+            this.ct_ceri_lang = new System.Windows.Forms.ComboBox();
+            this.ct_ceri_kind = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.ceri_cntText = new System.Windows.Forms.TextBox();
+            this.ct_ceri_cnt = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.ceri_dateText = new System.Windows.Forms.MaskedTextBox();
-            this.ceri_num = new System.Windows.Forms.TextBox();
-            this.ceri_empnoText = new System.Windows.Forms.TextBox();
+            this.ct_ceri_date = new System.Windows.Forms.MaskedTextBox();
+            this.ct_ceri_num = new System.Windows.Forms.TextBox();
+            this.ct_ceri_empno = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -68,9 +68,6 @@
             this.ceri_sau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ceri_lang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ceri_cnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -88,7 +85,7 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(997, 701);
@@ -96,21 +93,21 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.reportKind);
+            this.panel3.Controls.Add(this.ct_ceri_sau);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.panel7);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.ceri_langText);
-            this.panel3.Controls.Add(this.ceri_kindText);
+            this.panel3.Controls.Add(this.ct_ceri_lang);
+            this.panel3.Controls.Add(this.ct_ceri_kind);
             this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.ceri_cntText);
+            this.panel3.Controls.Add(this.ct_ceri_cnt);
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.ceri_dateText);
-            this.panel3.Controls.Add(this.ceri_num);
-            this.panel3.Controls.Add(this.ceri_empnoText);
+            this.panel3.Controls.Add(this.ct_ceri_date);
+            this.panel3.Controls.Add(this.ct_ceri_num);
+            this.panel3.Controls.Add(this.ct_ceri_empno);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label10);
@@ -119,17 +116,17 @@
             this.panel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel3.Location = new System.Drawing.Point(750, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(244, 695);
+            this.panel3.Size = new System.Drawing.Size(244, 675);
             this.panel3.TabIndex = 6;
             // 
-            // reportKind
+            // ct_ceri_sau
             // 
-            this.reportKind.Location = new System.Drawing.Point(73, 114);
-            this.reportKind.MaxLength = 50;
-            this.reportKind.Multiline = true;
-            this.reportKind.Name = "reportKind";
-            this.reportKind.Size = new System.Drawing.Size(146, 33);
-            this.reportKind.TabIndex = 4;
+            this.ct_ceri_sau.Location = new System.Drawing.Point(73, 114);
+            this.ct_ceri_sau.MaxLength = 50;
+            this.ct_ceri_sau.Multiline = true;
+            this.ct_ceri_sau.Name = "ct_ceri_sau";
+            this.ct_ceri_sau.Size = new System.Drawing.Size(146, 33);
+            this.ct_ceri_sau.TabIndex = 4;
             // 
             // label6
             // 
@@ -157,7 +154,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel7.Location = new System.Drawing.Point(243, 1);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1, 693);
+            this.panel7.Size = new System.Drawing.Size(1, 673);
             this.panel7.TabIndex = 46;
             // 
             // panel6
@@ -175,39 +172,39 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1, 694);
+            this.panel2.Size = new System.Drawing.Size(1, 674);
             this.panel2.TabIndex = 44;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 694);
+            this.panel4.Location = new System.Drawing.Point(0, 674);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(244, 1);
             this.panel4.TabIndex = 42;
             // 
-            // ceri_langText
+            // ct_ceri_lang
             // 
-            this.ceri_langText.FormattingEnabled = true;
-            this.ceri_langText.Items.AddRange(new object[] {
+            this.ct_ceri_lang.FormattingEnabled = true;
+            this.ct_ceri_lang.Items.AddRange(new object[] {
             "국문",
             "영문"});
-            this.ceri_langText.Location = new System.Drawing.Point(73, 174);
-            this.ceri_langText.Name = "ceri_langText";
-            this.ceri_langText.Size = new System.Drawing.Size(146, 20);
-            this.ceri_langText.TabIndex = 6;
+            this.ct_ceri_lang.Location = new System.Drawing.Point(73, 174);
+            this.ct_ceri_lang.Name = "ct_ceri_lang";
+            this.ct_ceri_lang.Size = new System.Drawing.Size(146, 20);
+            this.ct_ceri_lang.TabIndex = 6;
             // 
-            // ceri_kindText
+            // ct_ceri_kind
             // 
-            this.ceri_kindText.FormattingEnabled = true;
-            this.ceri_kindText.Items.AddRange(new object[] {
+            this.ct_ceri_kind.FormattingEnabled = true;
+            this.ct_ceri_kind.Items.AddRange(new object[] {
             "재직",
             "경력"});
-            this.ceri_kindText.Location = new System.Drawing.Point(73, 91);
-            this.ceri_kindText.Name = "ceri_kindText";
-            this.ceri_kindText.Size = new System.Drawing.Size(146, 20);
-            this.ceri_kindText.TabIndex = 3;
+            this.ct_ceri_kind.Location = new System.Drawing.Point(73, 91);
+            this.ct_ceri_kind.Name = "ct_ceri_kind";
+            this.ct_ceri_kind.Size = new System.Drawing.Size(146, 20);
+            this.ct_ceri_kind.TabIndex = 3;
             // 
             // label13
             // 
@@ -219,14 +216,14 @@
             this.label13.TabIndex = 3;
             this.label13.Text = "발급언어";
             // 
-            // ceri_cntText
+            // ct_ceri_cnt
             // 
-            this.ceri_cntText.Location = new System.Drawing.Point(73, 198);
-            this.ceri_cntText.MaxLength = 1;
-            this.ceri_cntText.Multiline = true;
-            this.ceri_cntText.Name = "ceri_cntText";
-            this.ceri_cntText.Size = new System.Drawing.Size(146, 21);
-            this.ceri_cntText.TabIndex = 7;
+            this.ct_ceri_cnt.Location = new System.Drawing.Point(73, 198);
+            this.ct_ceri_cnt.MaxLength = 1;
+            this.ct_ceri_cnt.Multiline = true;
+            this.ct_ceri_cnt.Name = "ct_ceri_cnt";
+            this.ct_ceri_cnt.Size = new System.Drawing.Size(146, 21);
+            this.ct_ceri_cnt.TabIndex = 7;
             // 
             // label8
             // 
@@ -238,30 +235,30 @@
             this.label8.TabIndex = 3;
             this.label8.Text = "발급부수";
             // 
-            // ceri_dateText
+            // ct_ceri_date
             // 
-            this.ceri_dateText.Location = new System.Drawing.Point(73, 150);
-            this.ceri_dateText.Mask = "0000-00-00";
-            this.ceri_dateText.Name = "ceri_dateText";
-            this.ceri_dateText.Size = new System.Drawing.Size(146, 21);
-            this.ceri_dateText.TabIndex = 5;
-            this.ceri_dateText.ValidatingType = typeof(System.DateTime);
+            this.ct_ceri_date.Location = new System.Drawing.Point(73, 150);
+            this.ct_ceri_date.Mask = "0000-00-00";
+            this.ct_ceri_date.Name = "ct_ceri_date";
+            this.ct_ceri_date.Size = new System.Drawing.Size(146, 21);
+            this.ct_ceri_date.TabIndex = 5;
+            this.ct_ceri_date.ValidatingType = typeof(System.DateTime);
             // 
-            // ceri_num
+            // ct_ceri_num
             // 
-            this.ceri_num.Location = new System.Drawing.Point(73, 67);
-            this.ceri_num.MaxLength = 9;
-            this.ceri_num.Name = "ceri_num";
-            this.ceri_num.Size = new System.Drawing.Size(146, 21);
-            this.ceri_num.TabIndex = 2;
+            this.ct_ceri_num.Location = new System.Drawing.Point(73, 67);
+            this.ct_ceri_num.MaxLength = 9;
+            this.ct_ceri_num.Name = "ct_ceri_num";
+            this.ct_ceri_num.Size = new System.Drawing.Size(146, 21);
+            this.ct_ceri_num.TabIndex = 2;
             // 
-            // ceri_empnoText
+            // ct_ceri_empno
             // 
-            this.ceri_empnoText.Location = new System.Drawing.Point(73, 43);
-            this.ceri_empnoText.MaxLength = 9;
-            this.ceri_empnoText.Name = "ceri_empnoText";
-            this.ceri_empnoText.Size = new System.Drawing.Size(146, 21);
-            this.ceri_empnoText.TabIndex = 1;
+            this.ct_ceri_empno.Location = new System.Drawing.Point(73, 43);
+            this.ct_ceri_empno.MaxLength = 9;
+            this.ct_ceri_empno.Name = "ct_ceri_empno";
+            this.ct_ceri_empno.Size = new System.Drawing.Size(146, 21);
+            this.ct_ceri_empno.TabIndex = 1;
             // 
             // label5
             // 
@@ -313,10 +310,11 @@
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(741, 695);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(741, 675);
             this.tableLayoutPanel2.TabIndex = 7;
             // 
             // panel1
@@ -336,9 +334,9 @@
             // button1
             // 
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(823, 4);
+            this.button1.Location = new System.Drawing.Point(657, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 24);
             this.button1.TabIndex = 44;
             this.button1.Text = "재발급";
             this.button1.UseVisualStyleBackColor = true;
@@ -392,6 +390,7 @@
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ceri_number,
@@ -401,10 +400,7 @@
             this.ceri_kind,
             this.ceri_sau,
             this.ceri_lang,
-            this.ceri_cnt,
-            this.Column1,
-            this.Column2,
-            this.Column3});
+            this.ceri_cnt});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -416,12 +412,11 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 43);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(735, 649);
+            this.dataGridView1.Size = new System.Drawing.Size(735, 609);
             this.dataGridView1.TabIndex = 7;
             // 
             // ceri_number
@@ -480,30 +475,6 @@
             this.ceri_cnt.Name = "ceri_cnt";
             this.ceri_cnt.Width = 78;
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "datasys1";
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            this.Column1.Width = 80;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "datasys2";
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
-            this.Column2.Visible = false;
-            this.Column2.Width = 80;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "datasys3";
-            this.Column3.HeaderText = "Column3";
-            this.Column3.Name = "Column3";
-            this.Column3.Visible = false;
-            this.Column3.Width = 80;
-            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -511,6 +482,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(997, 701);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -526,21 +498,21 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox reportKind;
+        private System.Windows.Forms.TextBox ct_ceri_sau;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox ceri_langText;
-        public System.Windows.Forms.ComboBox ceri_kindText;
+        private System.Windows.Forms.ComboBox ct_ceri_lang;
+        public System.Windows.Forms.ComboBox ct_ceri_kind;
         private System.Windows.Forms.Label label13;
-        public System.Windows.Forms.TextBox ceri_cntText;
+        public System.Windows.Forms.TextBox ct_ceri_cnt;
         private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.MaskedTextBox ceri_dateText;
-        private System.Windows.Forms.TextBox ceri_num;
-        private System.Windows.Forms.TextBox ceri_empnoText;
+        public System.Windows.Forms.MaskedTextBox ct_ceri_date;
+        private System.Windows.Forms.TextBox ct_ceri_num;
+        private System.Windows.Forms.TextBox ct_ceri_empno;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label10;
@@ -562,8 +534,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ceri_sau;
         private System.Windows.Forms.DataGridViewTextBoxColumn ceri_lang;
         private System.Windows.Forms.DataGridViewTextBoxColumn ceri_cnt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

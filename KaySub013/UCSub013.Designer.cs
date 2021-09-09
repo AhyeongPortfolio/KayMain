@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dateSearch2 = new System.Windows.Forms.DateTimePicker();
+            this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -38,6 +40,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.papr_appno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papr_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papr_content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papr_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panData = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ct_papr_date = new System.Windows.Forms.MaskedTextBox();
@@ -48,14 +55,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
-            this.dateSearch2 = new System.Windows.Forms.DateTimePicker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.papr_appno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papr_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papr_content = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papr_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -93,6 +93,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(986, 34);
             this.panel1.TabIndex = 0;
+            // 
+            // dateSearch2
+            // 
+            this.dateSearch2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateSearch2.Location = new System.Drawing.Point(362, 0);
+            this.dateSearch2.Name = "dateSearch2";
+            this.dateSearch2.Size = new System.Drawing.Size(88, 21);
+            this.dateSearch2.TabIndex = 46;
+            // 
+            // dateSearch1
+            // 
+            this.dateSearch1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateSearch1.Location = new System.Drawing.Point(251, 0);
+            this.dateSearch1.Name = "dateSearch1";
+            this.dateSearch1.Size = new System.Drawing.Size(88, 21);
+            this.dateSearch1.TabIndex = 46;
             // 
             // panel5
             // 
@@ -157,6 +173,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.papr_appno,
@@ -167,11 +184,57 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(680, 552);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // papr_appno
+            // 
+            this.papr_appno.DataPropertyName = "papr_appno";
+            this.papr_appno.FillWeight = 120F;
+            this.papr_appno.HeaderText = "인사발령번호";
+            this.papr_appno.MinimumWidth = 111;
+            this.papr_appno.Name = "papr_appno";
+            this.papr_appno.ReadOnly = true;
+            this.papr_appno.Width = 111;
+            // 
+            // papr_date
+            // 
+            this.papr_date.DataPropertyName = "papr_date";
+            this.papr_date.FillWeight = 106.2606F;
+            this.papr_date.HeaderText = "시행일자";
+            this.papr_date.MinimumWidth = 125;
+            this.papr_date.Name = "papr_date";
+            this.papr_date.Width = 125;
+            // 
+            // papr_content
+            // 
+            this.papr_content.DataPropertyName = "papr_content";
+            this.papr_content.FillWeight = 106.2606F;
+            this.papr_content.HeaderText = "발령내용";
+            this.papr_content.MinimumWidth = 145;
+            this.papr_content.Name = "papr_content";
+            this.papr_content.Width = 145;
+            // 
+            // papr_num
+            // 
+            this.papr_num.DataPropertyName = "papr_num";
+            this.papr_num.FillWeight = 106.2606F;
+            this.papr_num.HeaderText = "발령인원수";
+            this.papr_num.MinimumWidth = 75;
+            this.papr_num.Name = "papr_num";
+            this.papr_num.Width = 90;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.FillWeight = 60F;
+            this.status.HeaderText = "상태";
+            this.status.MinimumWidth = 56;
+            this.status.Name = "status";
+            this.status.Visible = false;
+            this.status.Width = 56;
             // 
             // panData
             // 
@@ -269,72 +332,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "인사발령번호";
             // 
-            // dateSearch1
-            // 
-            this.dateSearch1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateSearch1.Location = new System.Drawing.Point(251, 0);
-            this.dateSearch1.Name = "dateSearch1";
-            this.dateSearch1.Size = new System.Drawing.Size(88, 21);
-            this.dateSearch1.TabIndex = 46;
-            // 
-            // dateSearch2
-            // 
-            this.dateSearch2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateSearch2.Location = new System.Drawing.Point(362, 0);
-            this.dateSearch2.Name = "dateSearch2";
-            this.dateSearch2.Size = new System.Drawing.Size(88, 21);
-            this.dateSearch2.TabIndex = 46;
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // papr_appno
-            // 
-            this.papr_appno.DataPropertyName = "papr_appno";
-            this.papr_appno.FillWeight = 120F;
-            this.papr_appno.HeaderText = "인사발령번호";
-            this.papr_appno.MinimumWidth = 111;
-            this.papr_appno.Name = "papr_appno";
-            this.papr_appno.ReadOnly = true;
-            this.papr_appno.Width = 111;
-            // 
-            // papr_date
-            // 
-            this.papr_date.DataPropertyName = "papr_date";
-            this.papr_date.FillWeight = 106.2606F;
-            this.papr_date.HeaderText = "시행일자";
-            this.papr_date.MinimumWidth = 125;
-            this.papr_date.Name = "papr_date";
-            this.papr_date.Width = 125;
-            // 
-            // papr_content
-            // 
-            this.papr_content.DataPropertyName = "papr_content";
-            this.papr_content.FillWeight = 106.2606F;
-            this.papr_content.HeaderText = "발령내용";
-            this.papr_content.MinimumWidth = 145;
-            this.papr_content.Name = "papr_content";
-            this.papr_content.Width = 145;
-            // 
-            // papr_num
-            // 
-            this.papr_num.DataPropertyName = "papr_num";
-            this.papr_num.FillWeight = 106.2606F;
-            this.papr_num.HeaderText = "발령인원수";
-            this.papr_num.MinimumWidth = 75;
-            this.papr_num.Name = "papr_num";
-            this.papr_num.Width = 90;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            this.status.FillWeight = 60F;
-            this.status.HeaderText = "상태";
-            this.status.MinimumWidth = 56;
-            this.status.Name = "status";
-            this.status.Visible = false;
-            this.status.Width = 56;
             // 
             // UserControl1
             // 
