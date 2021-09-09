@@ -17,6 +17,7 @@ namespace KaySub025
     /// 
     class SQLStatement
     {
+        #region 조회
         //******************************
         //--기본정보 조회
         //******************************
@@ -36,7 +37,9 @@ namespace KaySub025
                             AND A.CERI_EMPNO LIKE :CERI_EMPNO
                             AND B.BAS_NAME LIKE :bas_name";
 
+        #endregion
 
+        #region 
 
     }
 }

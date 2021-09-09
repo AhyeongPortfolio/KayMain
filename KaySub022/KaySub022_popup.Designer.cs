@@ -29,10 +29,12 @@ namespace KaySub022
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KaySub022_popup));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btn_print = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,10 +55,14 @@ namespace KaySub022
             // 
             // reportViewer1
             // 
+            this.reportViewer1.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "KaySub022.KaySub022_Report.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(3, 45);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.ShowExportButton = false;
+            this.reportViewer1.ShowPrintButton = false;
             this.reportViewer1.Size = new System.Drawing.Size(710, 590);
             this.reportViewer1.TabIndex = 0;
             // 
@@ -68,6 +74,7 @@ namespace KaySub022
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(44, 36);
             this.btn_print.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.btn_print, "인쇄");
             this.btn_print.UseVisualStyleBackColor = true;
             // 
             // KaySub022_popup
@@ -77,7 +84,7 @@ namespace KaySub022
             this.ClientSize = new System.Drawing.Size(716, 638);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "KaySub022_popup";
-            this.Text = "재직증명서";
+            this.Text = "증명서발급";
             this.Load += new System.EventHandler(this.KaySub022_popup_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -89,5 +96,6 @@ namespace KaySub022
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.Button btn_print;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

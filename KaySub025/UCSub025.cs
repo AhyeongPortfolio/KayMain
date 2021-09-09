@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using KayLibrary;
+using KaySub022;
+using KaySub023;
 
 namespace KaySub025
 {
@@ -22,6 +24,7 @@ namespace KaySub025
     /// **********************************************************************
     /// </summary>
     /// 
+    public delegate void DataPushEventHandler(string _value, string _kind, string _date, string _cnt, string _rkind);
     public partial class UserControl1: UserControl
     {
         #region 초기설정
@@ -29,6 +32,13 @@ namespace KaySub025
         OracleConnection con = null;
         private bool select_sw = false;
         private bool query_sw = false;
+        private string empno { get; set; } // 사번
+        private string kind { get; set; } // 증명서 종류
+        private string date { get; set; } // 발급일자
+        private string lang { get; set; } // 영문증명서는 차후
+        private string cnt { get; set; } // 발급부수
+        private string dname { get; set; } // 발급번호
+        private string rkind { get; set; } // 제출용도
         //************************************************************
         // 메인메뉴로부터 초기 설정값 넘겨 받기
         //************************************************************
@@ -39,19 +49,28 @@ namespace KaySub025
         public string last_button_status { get; set; }  // 버튼 최종상태
         public string UserNm { get; set; }              // 사용자 이름
 
+        public DataPushEventHandler DataSendEvent;
+
         public UserControl1()
         {
             InitializeComponent();
+            //*----Validated Event Handler(Start)-------------------------------
+            ct_ceri_empno.Validated += Input_Validation_Check;
+            ct_ceri_kind.Validated += Input_Validation_Check;
+            ct_ceri_date.Validated += Input_Validation_Check;
+            ct_ceri_lang.Validated += Input_Validation_Check;
+            //*----Validated Event Handler(END)---------------------------------
+            ct_ceri_date.KeyPress += Number_Only_Protect;
+            ct_ceri_cnt.KeyPress += Number_Only_Protect;
 
-            dataGridView1.SelectionChanged += DataList_SelectionChanged;
             dataGridView1.ReadOnly = true;
-
         }
 
         private void UserControl1_Load(object sender, EventArgs e)
         {
             last_button_status = Utility.SetFuncBtn(MainBtn, "P");
             Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
+            this.AutoValidate = AutoValidate.EnableAllowFocusChange;
         }
         #endregion
         #region 기능버튼(조회) Click
@@ -65,7 +84,9 @@ namespace KaySub025
             //--DB Handling(Start)-------------------------------------
             try
             {
-                DataSet ds = new DataSet();
+                dataGridView1.Rows.Clear();
+                DataGridViewRow row;
+                int rowIdx = 0;
                 using (con = Utility.SetOracleConnection())
                 {
                     OracleCommand cmd = con.CreateCommand();
@@ -73,11 +94,21 @@ namespace KaySub025
                     cmd.BindByName = true;
                     cmd.Parameters.Add("bas_name", OracleDbType.Varchar2).Value = "%" + nameSearch.Text + "%";
                     cmd.Parameters.Add("CERI_EMPNO", OracleDbType.Varchar2).Value = "%" + empnoSearch.Text + "%";
-                    OracleDataAdapter da = new OracleDataAdapter(cmd);
-                    da.Fill(ds);
-                }
-                dataGridView1.DataSource = ds?.Tables[0] ?? null;
-
+                    OracleDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        rowIdx = dataGridView1.Rows.Add();
+                        row = dataGridView1.Rows[rowIdx];
+                        row.Cells["ceri_empno"].Value = dr["ceri_empno"].ToString();
+                        row.Cells["ceri_kind"].Value = dr["ceri_kind"].ToString();
+                        row.Cells["ceri_date"].Value = dr["ceri_date"].ToString();
+                        row.Cells["ceri_lang"].Value = dr["ceri_lang"].ToString();
+                        row.Cells["ceri_num"].Value = dr["ceri_num"].ToString();
+                        row.Cells["ceri_cnt"].Value = dr["ceri_cnt"].ToString();
+                        row.Cells["ceri_sau"].Value = dr["ceri_sau"].ToString();
+                        row.Cells["bas_name"].Value = dr["bas_name"].ToString();
+                    }
+                }               
                 query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
 
             }
@@ -161,7 +192,23 @@ namespace KaySub025
         //************************************************************
         public void BtnPrint_Click()
         {
-            MessageBox.Show(this.Name + " 인쇄버튼 클릭");
+            if (!this.ValidateChildren()) return;
+
+            empno = ct_ceri_empno.Text;
+            kind = ct_ceri_empno.Text;
+            date = ct_ceri_date.Text;
+            lang = ct_ceri_lang.Text;
+            cnt = ct_ceri_cnt.Text;            
+            rkind = ct_ceri_sau.Text;
+
+            if (lang.Equals("국문"))
+            {
+                var employee = new KaySub022_popup();
+                this.DataSendEvent += new DataPushEventHandler(employee.SetActiveValue);
+                DataSendEvent(empno, kind, date, cnt, rkind);
+                employee.ShowDialog(); //여기이부분 수정해야함 
+            }
+           
         }
         #endregion
         #region 기능버튼(종료) Click
@@ -179,7 +226,6 @@ namespace KaySub025
         //************************************************************
         private void InputData_TextChanged(object sender, EventArgs e)
         {
-
         }
         #endregion
         #region DataGridView의 선택이 변경되었을 때 각 콘트롤에 Data Setting
@@ -188,9 +234,86 @@ namespace KaySub025
         //************************************************************
         private void DataList_SelectionChanged(object sender, EventArgs e)
         {
+        }
+
+
+        #endregion
+        #region Input Data Validation Check (Validated Event)
+        //************************************************************
+        //** Input Data Validation Check (Validated Event)
+        //************************************************************
+        private void Input_Validation_Check(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count <= 0) return;
+
+            dataGridView1.SelectedRows[0].ErrorText = "";
+            //*---------------------------------------------------------------------------------------------------------
+            if (string.IsNullOrEmpty(ct_ceri_empno.Text))
+            {
+                SetError(ct_ceri_empno, "사원번호를 반드시 입력하세요",  errorProvider1);
+            }
+            else
+            {
+                ResetError(ct_ceri_empno, errorProvider1);
+            }
+            //*---------------------------------------------------------------------------------------------------------
+            if (string.IsNullOrEmpty(ct_ceri_lang.Text))
+            {
+                SetError(ct_ceri_lang, "발급언어를 반드시 입력하세요",  errorProvider1);
+            }
+            else
+            {
+                ResetError(ct_ceri_lang, errorProvider1);
+            }
+            //*---------------------------------------------------------------------------------------------------------
+            if (string.IsNullOrEmpty(ct_ceri_date.Text))
+            {
+                SetError(ct_ceri_date, "발급날짜를 반드시 입력하세요", errorProvider1);
+            }
+            else
+            {
+                ResetError(ct_ceri_date, errorProvider1);
+            }
+            //*---------------------------------------------------------------------------------------------------------
+            if (string.IsNullOrEmpty(ct_ceri_kind.Text))
+            {
+                SetError(ct_ceri_kind, "증명서종류를 반드시 선택하세요", errorProvider1);
+            }
+            else
+            {
+                ResetError(ct_ceri_kind, errorProvider1);
+            }
+        }
+        private void SetError(Control ctl, String errMsg, ErrorProvider errProvider)
+        {
+            errProvider.SetError(ctl, errMsg);
+        }
+        private void ResetError(Control ctl, ErrorProvider errProvider)
+        {
+            errProvider.SetError(ctl, "");
+        }
+        #endregion
+        #region TextBox에서 숫자만 입력받도록 (KeyPress Event)
+        //************************************************************
+        //** TextBox에서 숫자만 입력받도록 (KeyPress Event)
+        //************************************************************
+        private void Number_Only_Protect(object sender, KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+            //*--8 : BackSpace , 46 : dot  ----------------*/
+            if (!Char.IsDigit(chr) && chr != 8 && chr != 46)
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
+        #region 재발급 버튼 Click
+        private void button1_Click(object sender, EventArgs e)
+        {
 
         }
 
         #endregion
+
     }
 }
