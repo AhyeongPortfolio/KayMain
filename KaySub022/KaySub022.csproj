@@ -93,8 +93,8 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CareerReport.rdlc" />
-    <EmbeddedResource Include="EmpolyeeReport.rdlc" />
+    <EmbeddedResource Include="CareerRei.rdlc" />
+    <EmbeddedResource Include="CeriRei.rdlc" />
     <EmbeddedResource Include="KaySub022_popup.resx">
       <DependentUpon>KaySub022_popup.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,12 +102,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reissue.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\KaySub022.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\KaySub022.Properties.Resources1.datasource" />
+    <None Include="Properties\DataSources\KaySub022Career.datasource" />
     <None Include="Properties\DataSources\KaySub022DataSet.datasource" />
+    <None Include="Properties\DataSources\KaySub022Empolyee.datasource" />
     <None Include="Properties\DataSources\KaySub022_popup.datasource" />
     <None Include="Properties\DataSources\SqlServerTypes.Utilities.datasource" />
     <None Include="Properties\DataSources\SQLStatement.datasource" />

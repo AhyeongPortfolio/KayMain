@@ -32,14 +32,14 @@ namespace KaySub025
                             ,A.CERI_CNT
                             ,A.CERI_SAU
                             ,B.BAS_NAME
-                            FROM kay_insa_ceri A ,kay_insa_bas B
+                            FROM kay_insa_cerl A ,kay_insa_bas B
                             WHERE A.ceri_empno = B.bas_empno
                             AND A.CERI_EMPNO LIKE :CERI_EMPNO
                             AND B.BAS_NAME LIKE :bas_name";
 
         #endregion
 
-        #region 
+        
 
     }
 }

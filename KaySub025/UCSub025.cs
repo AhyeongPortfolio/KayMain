@@ -71,6 +71,9 @@ namespace KaySub025
             last_button_status = Utility.SetFuncBtn(MainBtn, "P");
             Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
             this.AutoValidate = AutoValidate.EnableAllowFocusChange;
+
+            //*------날짜 기본 셋팅------------------------------
+            ct_ceri_date.Text = DateTime.Now.ToString();
         }
         #endregion
         #region 기능버튼(조회) Click
@@ -195,7 +198,7 @@ namespace KaySub025
             if (!this.ValidateChildren()) return;
 
             empno = ct_ceri_empno.Text;
-            kind = ct_ceri_empno.Text;
+            kind = ct_ceri_kind.Text;
             date = ct_ceri_date.Text;
             lang = ct_ceri_lang.Text;
             cnt = ct_ceri_cnt.Text;            
@@ -310,7 +313,7 @@ namespace KaySub025
         #region 재발급 버튼 Click
         private void button1_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("재발급버튼 클릭");
         }
 
         #endregion

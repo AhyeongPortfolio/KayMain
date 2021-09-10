@@ -97,6 +97,75 @@ namespace KaySub022
 
     class KaySub022Career
     {
+        public KaySub022Career() { }
 
+        public KaySub022Career(string name, string empno, string resno, string addr, string sts, string pos, string dept,
+            string entdate, string resdate, string dut)
+        {
+            Name = name;
+            Empno = empno;
+            Resno = resno;
+            Addr = addr;
+            Pos = pos;
+            Dept = dept;
+            Entdate = entdate;
+            ResDate = resdate;
+            Dut = dut;
+        }
+
+        private string Name;
+        public string BAS_NAME
+        {
+            get { return Name; }
+            set { Name = value; }
+        }
+        private string Empno;
+        public string BAS_EMPNO
+        {
+            get { return Empno; }
+            set { Empno = value; }
+        }
+        private string Resno;
+        public string BAS_RESNO
+        {
+            get { return Resno; }
+            set { Resno = value; }
+        }
+        private string Addr;
+        public string BAS_ADDR
+        {
+            get { return Addr; }
+            set { Addr = value; }
+        }
+        private string Pos;
+        public string PAPP_POS
+        {
+            get { return Pos; }
+            set { Pos = value; }
+        }
+        private string Dept;
+        public string PAPP_DEPT
+        {
+            get { return Dept; }
+            set { Dept = value; }
+        }
+        private string Entdate;
+        public string PAPP_ENTDATE
+        {
+            get { return Entdate; }
+            set { Entdate = value; }
+        }
+        private string ResDate;
+        public string PAPP_RESDATE
+        {
+            get { return ResDate; }
+            set { ResDate = value; }
+        }
+        private string Dut;
+        public string PAPP_DUT
+        {
+            get { return Dut; }
+            set { Dut = value; }
+        }
     }
 }

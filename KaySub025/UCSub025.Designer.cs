@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panData = new System.Windows.Forms.Panel();
             this.ct_ceri_sau = new System.Windows.Forms.TextBox();
@@ -61,7 +61,8 @@
             this.empnoSearch = new System.Windows.Forms.TextBox();
             this.nameSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ceri_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ceri_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ceri_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bas_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ceri_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,7 +70,6 @@
             this.ceri_sau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ceri_lang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ceri_cnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panData.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -88,10 +88,10 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(997, 701);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(990, 591);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panData
@@ -117,9 +117,9 @@
             this.panData.Controls.Add(this.label1);
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panData.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panData.Location = new System.Drawing.Point(750, 3);
+            this.panData.Location = new System.Drawing.Point(743, 3);
             this.panData.Name = "panData";
-            this.panData.Size = new System.Drawing.Size(244, 675);
+            this.panData.Size = new System.Drawing.Size(244, 585);
             this.panData.TabIndex = 6;
             // 
             // ct_ceri_sau
@@ -157,7 +157,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel7.Location = new System.Drawing.Point(243, 1);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1, 673);
+            this.panel7.Size = new System.Drawing.Size(1, 583);
             this.panel7.TabIndex = 46;
             // 
             // panel6
@@ -175,14 +175,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1, 674);
+            this.panel2.Size = new System.Drawing.Size(1, 584);
             this.panel2.TabIndex = 44;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 674);
+            this.panel4.Location = new System.Drawing.Point(0, 584);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(244, 1);
             this.panel4.TabIndex = 42;
@@ -249,7 +249,7 @@
             // 
             // ct_ceri_num
             // 
-            this.ct_ceri_num.Location = new System.Drawing.Point(73, 67);
+            this.ct_ceri_num.Location = new System.Drawing.Point(73, 43);
             this.ct_ceri_num.MaxLength = 9;
             this.ct_ceri_num.Name = "ct_ceri_num";
             this.ct_ceri_num.ReadOnly = true;
@@ -258,7 +258,7 @@
             // 
             // ct_ceri_empno
             // 
-            this.ct_ceri_empno.Location = new System.Drawing.Point(73, 43);
+            this.ct_ceri_empno.Location = new System.Drawing.Point(73, 67);
             this.ct_ceri_empno.MaxLength = 9;
             this.ct_ceri_empno.Name = "ct_ceri_empno";
             this.ct_ceri_empno.Size = new System.Drawing.Size(146, 21);
@@ -268,7 +268,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(14, 70);
+            this.label5.Location = new System.Drawing.Point(14, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 0;
@@ -288,7 +288,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(14, 46);
+            this.label10.Location = new System.Drawing.Point(14, 70);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 0;
@@ -308,17 +308,16 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(741, 675);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(734, 585);
             this.tableLayoutPanel2.TabIndex = 7;
             // 
             // panel1
@@ -332,13 +331,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(735, 34);
+            this.panel1.Size = new System.Drawing.Size(728, 34);
             this.panel1.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(657, 5);
+            this.button1.Location = new System.Drawing.Point(650, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 24);
             this.button1.TabIndex = 44;
@@ -352,7 +351,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 33);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(735, 1);
+            this.panel5.Size = new System.Drawing.Size(728, 1);
             this.panel5.TabIndex = 43;
             // 
             // label9
@@ -398,7 +397,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ceri_number,
+            this.ceri_num,
             this.ceri_empno,
             this.bas_name,
             this.ceri_date,
@@ -406,31 +405,35 @@
             this.ceri_sau,
             this.ceri_lang,
             this.ceri_cnt});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 43);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(735, 609);
+            this.dataGridView1.Size = new System.Drawing.Size(728, 539);
             this.dataGridView1.TabIndex = 7;
             // 
-            // ceri_number
+            // errorProvider1
             // 
-            this.ceri_number.DataPropertyName = "ceri_num";
-            this.ceri_number.HeaderText = "발급번호";
-            this.ceri_number.Name = "ceri_number";
-            this.ceri_number.ReadOnly = true;
-            this.ceri_number.Width = 78;
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // ceri_num
+            // 
+            this.ceri_num.DataPropertyName = "ceri_num";
+            this.ceri_num.HeaderText = "발급번호";
+            this.ceri_num.Name = "ceri_num";
+            this.ceri_num.ReadOnly = true;
+            this.ceri_num.Width = 78;
             // 
             // ceri_empno
             // 
@@ -487,17 +490,13 @@
             this.ceri_cnt.Name = "ceri_cnt";
             this.ceri_cnt.Width = 78;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(997, 701);
+            this.Size = new System.Drawing.Size(990, 591);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panData.ResumeLayout(false);
@@ -543,7 +542,8 @@
         private System.Windows.Forms.TextBox empnoSearch;
         private System.Windows.Forms.TextBox nameSearch;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ceri_number;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ceri_num;
         private System.Windows.Forms.DataGridViewTextBoxColumn ceri_empno;
         private System.Windows.Forms.DataGridViewTextBoxColumn bas_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn ceri_date;
@@ -551,6 +551,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ceri_sau;
         private System.Windows.Forms.DataGridViewTextBoxColumn ceri_lang;
         private System.Windows.Forms.DataGridViewTextBoxColumn ceri_cnt;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
