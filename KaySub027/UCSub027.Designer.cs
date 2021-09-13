@@ -28,15 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.papp_pos_nm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Notic = new System.Windows.Forms.Label();
@@ -46,14 +41,16 @@
             this.search_dept = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
+            this.papp_pos_nm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MILEAGE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -78,7 +75,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.chart1, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.cartesianChart1, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 43);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -108,33 +105,20 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.papp_pos_nm,
-            this.papp_empno});
+            this.papp_empno,
+            this.MILEAGE});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 43);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(316, 450);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // papp_pos_nm
-            // 
-            this.papp_pos_nm.DataPropertyName = "papp_pos_nm";
-            this.papp_pos_nm.HeaderText = "직급명";
-            this.papp_pos_nm.Name = "papp_pos_nm";
-            this.papp_pos_nm.Width = 66;
-            // 
-            // papp_empno
-            // 
-            this.papp_empno.DataPropertyName = "count(papp_empno)";
-            this.papp_empno.HeaderText = "인원수";
-            this.papp_empno.Name = "papp_empno";
-            this.papp_empno.Width = 66;
             // 
             // panel3
             // 
@@ -223,27 +207,38 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "조회날짜";
             // 
-            // chart1
+            // cartesianChart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(331, 3);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(487, 496);
-            this.chart1.TabIndex = 3;
-            this.chart1.Text = "chart1";
+            this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cartesianChart1.Location = new System.Drawing.Point(331, 3);
+            this.cartesianChart1.Name = "cartesianChart1";
+            this.cartesianChart1.Size = new System.Drawing.Size(487, 496);
+            this.cartesianChart1.TabIndex = 3;
+            this.cartesianChart1.Text = "cartesianChart1";
+            // 
+            // papp_pos_nm
+            // 
+            this.papp_pos_nm.DataPropertyName = "papp_pos_nm";
+            this.papp_pos_nm.HeaderText = "직급명";
+            this.papp_pos_nm.Name = "papp_pos_nm";
+            // 
+            // papp_empno
+            // 
+            this.papp_empno.DataPropertyName = "count(papp_empno)";
+            this.papp_empno.HeaderText = "인원수";
+            this.papp_empno.Name = "papp_empno";
+            // 
+            // MILEAGE
+            // 
+            this.MILEAGE.DataPropertyName = "MILEAGE";
+            this.MILEAGE.HeaderText = "백분율";
+            this.MILEAGE.Name = "MILEAGE";
             // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(827, 548);
@@ -255,7 +250,6 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,8 +260,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn papp_pos_nm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn papp_empno;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label Notic;
@@ -277,6 +269,9 @@
         private System.Windows.Forms.ComboBox search_dept;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private LiveCharts.WinForms.CartesianChart cartesianChart1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn papp_pos_nm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn papp_empno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MILEAGE;
     }
 }

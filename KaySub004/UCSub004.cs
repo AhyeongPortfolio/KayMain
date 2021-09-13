@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using KayLibrary;
 using Oracle.ManagedDataAccess.Client;
-using KayLibrary;
+using System;
+using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace KaySub004
 {
@@ -23,7 +19,7 @@ namespace KaySub004
     /// 3. 2021-09-03                                 이미지 저장, 로그인정보
     /// **********************************************************************
     /// </summary>
-    public partial class UserControl1: UserControl
+    public partial class UserControl1 : UserControl
     {
         #region 초기설정
 
@@ -52,7 +48,7 @@ namespace KaySub004
             ct_bas_ename.TextChanged += InputData_TextChanged;
             ct_bas_resno.TextChanged += InputData_TextChanged;
             ct_bas_fix.SelectedValueChanged += InputData_TextChanged;
-            ct_bas_zip.TextChanged +=  InputData_TextChanged;
+            ct_bas_zip.TextChanged += InputData_TextChanged;
             ct_bas_mar.SelectedValueChanged += InputData_TextChanged;
 
             ct_bas_addr.TextChanged += InputData_TextChanged;
@@ -95,7 +91,7 @@ namespace KaySub004
             ct_bas_telno.KeyPress += Number_Only_Protect;
             ct_bas_acc_no.KeyPress += Number_Only_Protect;
             //*----Enter Number Only(END)---------------------------------------
-              
+
             dataGridView1.SelectionChanged += DataList_SelectionChanged;
 
         }
@@ -233,8 +229,8 @@ namespace KaySub004
             Utility.SetFocusingDataGridView(dataGridView1, rowIdx);
             ct_bas_name.Focus();
 
-            last_button_status = Utility.SetFuncBtn(MainBtn, "3");           
-            
+            last_button_status = Utility.SetFuncBtn(MainBtn, "3");
+
         }
         #endregion
         #region 기능버튼(수정) Click
@@ -287,10 +283,10 @@ namespace KaySub004
                     if (row.Cells["status"].Value.Equals("U"))
                     {
                         cmd.CommandText = SQLStatement.UpdateSQL;
-                        cmd.Parameters.Add("key1", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;                        
+                        cmd.Parameters.Add("key1", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;
                         cmd.Parameters.Add("DATASYS2", OracleDbType.Varchar2).Value = "U";
                         cmd.Parameters.Add("BAS_EMPNO", OracleDbType.Varchar2).Value = row.Cells["bas_empno"].Value;
-                    }                    
+                    }
                     cmd.Parameters.Add("BAS_RESNO", OracleDbType.Varchar2).Value = Utility.AESEncrypt128(row.Cells["bas_resno"].Value.ToString(), byteArray.ToString());
                     cmd.Parameters.Add("BAS_NAME", OracleDbType.Varchar2).Value = row.Cells["bas_name"].Value;
                     cmd.Parameters.Add("BAS_CNAME", OracleDbType.Varchar2).Value = row.Cells["bas_cname"].Value;
@@ -330,7 +326,7 @@ namespace KaySub004
 
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();  //*----반드시 포함
-                    if (row.Cells["status"].Value.Equals("A")) 
+                    if (row.Cells["status"].Value.Equals("A"))
                     {
                         cmd.CommandText = SQLStatement.LoginSQL;
                         cmd.Parameters.Add("USER_NAME_KAY", OracleDbType.Varchar2).Value = row.Cells["bas_name"].Value;
@@ -452,7 +448,7 @@ namespace KaySub004
                 SetError(ct_bas_resno, "주민번호를 잘 못 입력하셨습니다", dataGridView1.SelectedRows[0], errorProvider1);
             }
             else
-            {                
+            {
                 ResetError(ct_bas_resno, errorProvider1);
             }
             //*---------------------------------------------------------------------------------------------------------
@@ -551,7 +547,7 @@ namespace KaySub004
                 MessageBox.Show("이미지가 없습니다");
                 return;
             }
-            
+
             // 원래 이미지가 있었을 때 = Update
             // 원래 이미지가 없었을 때 = Insert
             OracleTransaction tran = null;

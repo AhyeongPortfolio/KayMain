@@ -206,7 +206,7 @@ namespace KaySub025
 
             if (lang.Equals("국문"))
             {
-                var employee = new KaySub022_popup();
+                var employee = new KaySub022.KaySub022();
                 this.DataSendEvent += new DataPushEventHandler(employee.SetActiveValue);
                 DataSendEvent(empno, kind, date, cnt, rkind);
                 employee.ShowDialog(); //여기이부분 수정해야함 
