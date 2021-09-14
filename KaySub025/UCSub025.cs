@@ -102,7 +102,7 @@ namespace KaySub025
                         row = dataGridView1.Rows[rowIdx];
                         row.Cells["ceri_empno"].Value = dr["ceri_empno"].ToString();
                         row.Cells["ceri_kind"].Value = dr["ceri_kind"].ToString();
-                        row.Cells["ceri_date"].Value = dr["ceri_date"].ToString();
+                        row.Cells["ceri_date"].Value = Utility.FormatDate(dr["ceri_date"].ToString());
                         row.Cells["ceri_lang"].Value = dr["ceri_lang"].ToString();
                         row.Cells["ceri_num"].Value = dr["ceri_num"].ToString();
                         row.Cells["ceri_cnt"].Value = dr["ceri_cnt"].ToString();
@@ -174,6 +174,9 @@ namespace KaySub025
             if (lang.Equals("영문"))
             {
                 //var employee = new KaySub023.KaySub023_popup();
+                if (MessageBox.Show("증명서 발급을 하시겠습니까? 입력하신 정보는 저장됩니다.", "증명서 발급 여부확인",
+                      MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No) return;
+
 
             }
            
@@ -279,6 +282,7 @@ namespace KaySub025
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("재발급버튼 클릭");
+
         }
 
         #endregion
@@ -289,23 +293,29 @@ namespace KaySub025
             using (con = Utility.SetOracleConnection()) 
             {
                 OracleCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SP_KAY_UCSUB025_S";
-                cmd.Parameters.Add("P_CERI_EMPNO", OracleDbType.Varchar2).Value = ct_ceri_empno.Text ;
-                cmd.Parameters.Add("P_CERI_KIND", OracleDbType.Varchar2).Value = ct_ceri_kind.Text;
-                cmd.Parameters.Add("P_CERI_DATE", OracleDbType.Varchar2).Value = Utility.FormatDateR(ct_ceri_date.Text);
-                cmd.Parameters.Add("P_CERI_LANG", OracleDbType.Varchar2).Value = ct_ceri_lang.Text;
-                cmd.Parameters.Add("P_CERI_CNT", OracleDbType.Varchar2).Value = ct_ceri_cnt.Text;
-                cmd.Parameters.Add("P_CERI_SAU", OracleDbType.Varchar2).Value = ct_ceri_sau.Text;
-                cmd.Parameters.Add("P_DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
-                cmd.Parameters.Add("P_DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
+                try
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.BindByName = true;
+                    cmd.CommandText = "SP_KAY_UCSUB025_S";
 
-                OracleParameter parm = new OracleParameter("O_CERI_NUM", OracleDbType.Varchar2, 1);
-                cmd.Parameters.Add(parm).Direction = ParameterDirection.Output;
-
-                cmd.ExecuteNonQuery();
-                dname = parm.Value.ToString();
-
+                    cmd.Parameters.Add("P_CERI_EMPNO", OracleDbType.Varchar2).Value = ct_ceri_empno.Text;
+                    cmd.Parameters.Add("P_CERI_KIND", OracleDbType.Varchar2).Value = ct_ceri_kind.Text;
+                    cmd.Parameters.Add("P_CERI_DATE", OracleDbType.Varchar2).Value = Utility.FormatDateR(ct_ceri_date.Text);
+                    cmd.Parameters.Add("P_CERI_LANG", OracleDbType.Varchar2).Value = ct_ceri_lang.Text;
+                    cmd.Parameters.Add("P_CERI_CNT", OracleDbType.Varchar2).Value = ct_ceri_cnt.Text;
+                    cmd.Parameters.Add("P_CERI_SAU", OracleDbType.Varchar2).Value = ct_ceri_sau.Text;
+                    cmd.Parameters.Add("P_DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
+                    cmd.Parameters.Add("P_DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
+                    cmd.Parameters.Add("O_CERI_NUM", OracleDbType.Varchar2, 20).Direction = ParameterDirection.Output;
+                    cmd.ExecuteNonQuery();
+                    dname = cmd.Parameters["O_CERI_NUM"].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    return;
+                }                
                 MessageBox.Show(dname);
             }
             
