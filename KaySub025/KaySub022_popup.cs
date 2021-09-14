@@ -47,20 +47,7 @@ namespace KaySub025
 
         private void KaySub022_popup_Load(object sender, EventArgs e)
         {
-            reportViewer1.ProcessingMode = ProcessingMode.Local;
-           // reportViewer1.LocalReport.ReportEmbeddedResource = "KaySub025.Report.MainPrint.rdlc";
-           
-           // CreateReport();
-
-            reportViewer1.LocalReport.SetParameters(new ReportParameter("reportNum", DocName + "aa"));
-            reportViewer1.LocalReport.SetParameters(new ReportParameter("reportMaker", "관리자"));
-            reportViewer1.LocalReport.SetParameters(new ReportParameter("reportDate", Date));
-            reportViewer1.LocalReport.SetParameters(new ReportParameter("reportKind", Rkind));
-            reportViewer1.LocalReport.SetParameters(new ReportParameter("reportName", Kind + "증명서"));
-
-            reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
-            reportViewer1.LocalReport.Refresh();
-            reportViewer1.RefreshReport(); // refresh report
+            CreateReport();
         }
         #endregion
 
@@ -124,7 +111,14 @@ namespace KaySub025
                         VM.BAS_STS = dt.Rows[i]["sts"].ToString();
                         qt_date.Text = dt.Rows[i]["bas_entdate"].ToString();
                         VM.BAS_ENTDATE = qt_date.Text;
-                        qt_date1.Text = dt.Rows[i]["bas_levdate"]?.ToString() ?? endDate;
+                        if (string.IsNullOrEmpty(dt.Rows[i]["bas_levdate"].ToString()))
+                        {
+                            qt_date1.Text = endDate;
+                        }
+                        else
+                        {
+                            qt_date1.Text = dt.Rows[i]["bas_levdate"].ToString();
+                        }
                         VM.BAS_RESDATE = qt_date1.Text;
                         VM.BAS_CONT = dt.Rows[i]["bas_cont"].ToString();
 
@@ -134,14 +128,23 @@ namespace KaySub025
                     ReportDataSource rds = new ReportDataSource("DataSet2", employeeList);
                     this.reportViewer1.LocalReport.DataSources.Add(rds);
 
-                    
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportNum", DocName));
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportMaker", UserNm));
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportDate", Date));
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportKind", Rkind));
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportName", Kind + "증명서"));
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                     return;
-                }
+                }                
             }
+            reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
+            reportViewer1.LocalReport.Refresh();
+            reportViewer1.RefreshReport(); // refresh report
+
         }
 
         private void Career_Data_GetSet()
@@ -188,14 +191,23 @@ namespace KaySub025
 
                     ReportDataSource rds = new ReportDataSource("DataSet1", careerList);
                     this.reportViewer1.LocalReport.DataSources.Add(rds);
+
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportNum", DocName));
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportMaker", UserNm));
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportDate", Date));
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportKind", Rkind));
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportName", Kind + "증명서"));
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                     return;
                 }
+                
             }
-
+            reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
+            reportViewer1.LocalReport.Refresh();
+            reportViewer1.RefreshReport(); // refresh report
         }
 
         #endregion

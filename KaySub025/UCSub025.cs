@@ -138,55 +138,7 @@ namespace KaySub025
                 Info_Message.Text = "자료가 정상적으로 조회 되었습니다.";
             }
         }
-        #endregion
-        #region 기능버튼(입력) Click
-        //************************************************************
-        //** 입력 버튼 Click 
-        //************************************************************
-        public void BtnInsert_Click()
-        {
-            return;
-        }
-        #endregion
-        #region 기능버튼(수정) Click
-        //************************************************************
-        //** 수정 버튼 Click 
-        //************************************************************
-        public void BtnUpdate_Click()
-        {
-            MessageBox.Show(this.Name + " 수정버튼 사용하지 않음");
-        }
-        #endregion
-        #region 기능버튼(삭제) Click
-        //************************************************************
-        //** 삭제 버튼 Click 
-        //************************************************************
-        public void BtnDelete_Click()
-        {
-            return;
-        }
-        #endregion
-        #region 기능버튼(저장) Click
-        //************************************************************
-        //** 저장 버튼 Click (여러 건의 DATA 추가입력/수정 후 저장)
-        //************************************************************
-        public void BtnSave_Click()
-        {
-            return;
-        }
-        #endregion
-        #region 기능버튼(취소) Click
-        //************************************************************
-        //** 취소 버튼 Click
-        //************************************************************
-        public void BtnCancel_Click()
-        {
-            DialogResult result = MessageBox.Show(" 입력 및 수정중인 자료를 취소합니다.", "취소메세지", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No) return;
-
-            BtnSearch_Click();
-        }
-        #endregion
+        #endregion       
         #region 기능버튼(인쇄) Click
         //************************************************************
         //**  인쇄 버튼 Click
@@ -205,10 +157,19 @@ namespace KaySub025
 
             if (lang.Equals("국문"))
             {
+                //--DB에 기록
+                if(MessageBox.Show("증명서 발급을 하시겠습니까? 입력하신 정보는 저장됩니다.", "증명서 발급 여부확인", 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)== DialogResult.No)
+                {
+                    return;
+                }
+
+                CeriSave();
+
                 var employee = new KaySub022_popup();
                 this.DataSendEvent += new DataPushEventHandler(employee.SetActiveValue);
                 DataSendEvent(empno, kind, date, dname, rkind);
-                employee.ShowDialog(); //여기이부분 수정해야함 
+                employee.ShowDialog();
             }
             if (lang.Equals("영문"))
             {
@@ -321,6 +282,34 @@ namespace KaySub025
         }
 
         #endregion
+        #region 증명서 발급 내역 저장
+        private void CeriSave()
+        {
+            //--저장프로시저 호출
+            using (con = Utility.SetOracleConnection()) 
+            {
+                OracleCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_KAY_UCSUB025_S";
+                cmd.Parameters.Add("P_CERI_EMPNO", OracleDbType.Varchar2).Value = ct_ceri_empno.Text ;
+                cmd.Parameters.Add("P_CERI_KIND", OracleDbType.Varchar2).Value = ct_ceri_kind.Text;
+                cmd.Parameters.Add("P_CERI_DATE", OracleDbType.Varchar2).Value = Utility.FormatDateR(ct_ceri_date.Text);
+                cmd.Parameters.Add("P_CERI_LANG", OracleDbType.Varchar2).Value = ct_ceri_lang.Text;
+                cmd.Parameters.Add("P_CERI_CNT", OracleDbType.Varchar2).Value = ct_ceri_cnt.Text;
+                cmd.Parameters.Add("P_CERI_SAU", OracleDbType.Varchar2).Value = ct_ceri_sau.Text;
+                cmd.Parameters.Add("P_DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
+                cmd.Parameters.Add("P_DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
 
+                OracleParameter parm = new OracleParameter("O_CERI_NUM", OracleDbType.Varchar2, 1);
+                cmd.Parameters.Add(parm).Direction = ParameterDirection.Output;
+
+                cmd.ExecuteNonQuery();
+                dname = parm.Value.ToString();
+
+                MessageBox.Show(dname);
+            }
+            
+        }
+        #endregion
     }
 }

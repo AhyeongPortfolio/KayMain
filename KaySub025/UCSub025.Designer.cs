@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panData = new System.Windows.Forms.Panel();
             this.ct_ceri_sau = new System.Windows.Forms.TextBox();
@@ -130,7 +130,6 @@
             this.ct_ceri_sau.Name = "ct_ceri_sau";
             this.ct_ceri_sau.Size = new System.Drawing.Size(146, 33);
             this.ct_ceri_sau.TabIndex = 4;
-            this.ct_ceri_sau.Text = "12";
             // 
             // label6
             // 
@@ -198,7 +197,6 @@
             this.ct_ceri_lang.Name = "ct_ceri_lang";
             this.ct_ceri_lang.Size = new System.Drawing.Size(146, 20);
             this.ct_ceri_lang.TabIndex = 6;
-            this.ct_ceri_lang.Text = "국문";
             // 
             // ct_ceri_kind
             // 
@@ -210,7 +208,6 @@
             this.ct_ceri_kind.Name = "ct_ceri_kind";
             this.ct_ceri_kind.Size = new System.Drawing.Size(146, 20);
             this.ct_ceri_kind.TabIndex = 3;
-            this.ct_ceri_kind.Text = "재직";
             // 
             // label13
             // 
@@ -230,7 +227,6 @@
             this.ct_ceri_cnt.Name = "ct_ceri_cnt";
             this.ct_ceri_cnt.Size = new System.Drawing.Size(146, 21);
             this.ct_ceri_cnt.TabIndex = 7;
-            this.ct_ceri_cnt.Text = "1";
             // 
             // label8
             // 
@@ -267,7 +263,6 @@
             this.ct_ceri_empno.Name = "ct_ceri_empno";
             this.ct_ceri_empno.Size = new System.Drawing.Size(146, 21);
             this.ct_ceri_empno.TabIndex = 1;
-            this.ct_ceri_empno.Text = "201887024";
             // 
             // label5
             // 
@@ -410,19 +405,19 @@
             this.ceri_sau,
             this.ceri_lang,
             this.ceri_cnt});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 43);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(728, 539);
