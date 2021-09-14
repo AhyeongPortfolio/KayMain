@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using KayLibrary;
-using KaySub022;
-using KaySub023;
 
 namespace KaySub025
 {
@@ -24,7 +22,7 @@ namespace KaySub025
     /// **********************************************************************
     /// </summary>
     /// 
-    public delegate void DataPushEventHandler(string _value, string _kind, string _date, string _cnt, string _rkind);
+    public delegate void DataPushEventHandler(string _value, string _kind, string _date, string _dname, string _rkind);
     public partial class UserControl1: UserControl
     {
         #region 초기설정
@@ -201,15 +199,21 @@ namespace KaySub025
             kind = ct_ceri_kind.Text;
             date = ct_ceri_date.Text;
             lang = ct_ceri_lang.Text;
-            cnt = ct_ceri_cnt.Text;            
+            cnt = ct_ceri_cnt.Text;    // 발급부수        
             rkind = ct_ceri_sau.Text;
+            dname = "011"; // 발급번호
 
             if (lang.Equals("국문"))
             {
-                var employee = new KaySub022.KaySub022();
+                var employee = new KaySub022_popup();
                 this.DataSendEvent += new DataPushEventHandler(employee.SetActiveValue);
-                DataSendEvent(empno, kind, date, cnt, rkind);
+                DataSendEvent(empno, kind, date, dname, rkind);
                 employee.ShowDialog(); //여기이부분 수정해야함 
+            }
+            if (lang.Equals("영문"))
+            {
+                //var employee = new KaySub023.KaySub023_popup();
+
             }
            
         }

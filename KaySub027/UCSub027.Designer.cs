@@ -35,16 +35,15 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Notic = new System.Windows.Forms.Label();
+            this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.search_dept = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.searchDept = new System.Windows.Forms.ComboBox();
+            this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
             this.papp_pos_nm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.papp_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MILEAGE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -75,7 +74,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.cartesianChart1, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pieChart1, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 43);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -110,8 +109,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.papp_pos_nm,
-            this.papp_empno,
-            this.MILEAGE});
+            this.papp_empno});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 43);
             this.dataGridView1.Name = "dataGridView1";
@@ -149,12 +147,21 @@
             this.Notic.Text = "직급별 인원 현황";
             this.Notic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pieChart1
+            // 
+            this.pieChart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pieChart1.Location = new System.Drawing.Point(331, 3);
+            this.pieChart1.Name = "pieChart1";
+            this.pieChart1.Size = new System.Drawing.Size(487, 496);
+            this.pieChart1.TabIndex = 3;
+            this.pieChart1.Text = "pieChart1";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.search_dept);
-            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.searchDept);
+            this.panel2.Controls.Add(this.dateSearch1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
@@ -181,22 +188,22 @@
             this.label3.TabIndex = 40;
             this.label3.Text = "직급";
             // 
-            // search_dept
+            // searchDept
             // 
-            this.search_dept.FormattingEnabled = true;
-            this.search_dept.Location = new System.Drawing.Point(202, 2);
-            this.search_dept.Name = "search_dept";
-            this.search_dept.Size = new System.Drawing.Size(100, 20);
-            this.search_dept.TabIndex = 41;
+            this.searchDept.FormattingEnabled = true;
+            this.searchDept.Location = new System.Drawing.Point(202, 2);
+            this.searchDept.Name = "searchDept";
+            this.searchDept.Size = new System.Drawing.Size(100, 20);
+            this.searchDept.TabIndex = 41;
             // 
-            // dateTimePicker1
+            // dateSearch1
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(61, 2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 21);
-            this.dateTimePicker1.TabIndex = 1;
-            this.dateTimePicker1.Value = new System.DateTime(2021, 8, 31, 0, 0, 0, 0);
+            this.dateSearch1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateSearch1.Location = new System.Drawing.Point(61, 2);
+            this.dateSearch1.Name = "dateSearch1";
+            this.dateSearch1.Size = new System.Drawing.Size(100, 21);
+            this.dateSearch1.TabIndex = 1;
+            this.dateSearch1.Value = new System.DateTime(2021, 8, 31, 0, 0, 0, 0);
             // 
             // label1
             // 
@@ -206,15 +213,6 @@
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "조회날짜";
-            // 
-            // cartesianChart1
-            // 
-            this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cartesianChart1.Location = new System.Drawing.Point(331, 3);
-            this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(487, 496);
-            this.cartesianChart1.TabIndex = 3;
-            this.cartesianChart1.Text = "cartesianChart1";
             // 
             // papp_pos_nm
             // 
@@ -228,12 +226,6 @@
             this.papp_empno.HeaderText = "인원수";
             this.papp_empno.Name = "papp_empno";
             // 
-            // MILEAGE
-            // 
-            this.MILEAGE.DataPropertyName = "MILEAGE";
-            this.MILEAGE.HeaderText = "백분율";
-            this.MILEAGE.Name = "MILEAGE";
-            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -242,6 +234,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(827, 548);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -266,12 +259,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox search_dept;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox searchDept;
+        private System.Windows.Forms.DateTimePicker dateSearch1;
         private System.Windows.Forms.Label label1;
-        private LiveCharts.WinForms.CartesianChart cartesianChart1;
+        private LiveCharts.WinForms.PieChart pieChart1;
         private System.Windows.Forms.DataGridViewTextBoxColumn papp_pos_nm;
         private System.Windows.Forms.DataGridViewTextBoxColumn papp_empno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MILEAGE;
     }
 }

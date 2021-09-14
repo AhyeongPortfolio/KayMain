@@ -117,7 +117,7 @@ namespace KayMain
                 if (con != null) con.Close();
             }
             //--DB Handling(End)-------------------------------------
-
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
         #endregion

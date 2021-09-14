@@ -34,13 +34,21 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\KayLib\KayLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="KaySub022, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Run\KaySub022.dll</HintPath>
+      <HintPath>..\Run\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
-    <Reference Include="KaySub023, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Run\KaySub023.dll</HintPath>
+      <HintPath>..\Run\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.2.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Run\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Run\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -48,6 +56,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +67,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KaySub022_popup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KaySub022_popup.Designer.cs">
+      <DependentUpon>KaySub022_popup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataSet.cs" />
     <Compile Include="SQLStatement.cs" />
     <Compile Include="UCSub025.cs">
       <SubType>UserControl</SubType>
@@ -69,9 +85,19 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="KaySub022_popup.resx">
+      <DependentUpon>KaySub022_popup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CareerReport.rdlc" />
+    <EmbeddedResource Include="Report\EmpolyeeReport.rdlc" />
+    <EmbeddedResource Include="Report\MainPrint.rdlc" />
     <EmbeddedResource Include="UCSub025.resx">
       <DependentUpon>UCSub025.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\ReportDataSet.datasource" />
+    <None Include="Properties\DataSources\ReportDataSet2.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

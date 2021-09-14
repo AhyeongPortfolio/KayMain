@@ -62,8 +62,11 @@ namespace KayMain
         private void Form1_Load(object sender, EventArgs e)
         {
             //로그인
-            new Login(this).ShowDialog(); //this로 의존성 생성
-
+            DialogResult result =  new Login(this).ShowDialog(); //this로 의존성 생성
+            if(result != DialogResult.OK)
+            {
+                this.Close();
+            }
             //폼 설정
             MainMenu_Creation();
             

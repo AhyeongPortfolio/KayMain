@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panData = new System.Windows.Forms.Panel();
             this.ct_ceri_sau = new System.Windows.Forms.TextBox();
@@ -61,7 +61,6 @@
             this.empnoSearch = new System.Windows.Forms.TextBox();
             this.nameSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ceri_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ceri_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bas_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +69,7 @@
             this.ceri_sau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ceri_lang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ceri_cnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panData.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -130,6 +130,7 @@
             this.ct_ceri_sau.Name = "ct_ceri_sau";
             this.ct_ceri_sau.Size = new System.Drawing.Size(146, 33);
             this.ct_ceri_sau.TabIndex = 4;
+            this.ct_ceri_sau.Text = "12";
             // 
             // label6
             // 
@@ -197,6 +198,7 @@
             this.ct_ceri_lang.Name = "ct_ceri_lang";
             this.ct_ceri_lang.Size = new System.Drawing.Size(146, 20);
             this.ct_ceri_lang.TabIndex = 6;
+            this.ct_ceri_lang.Text = "국문";
             // 
             // ct_ceri_kind
             // 
@@ -208,6 +210,7 @@
             this.ct_ceri_kind.Name = "ct_ceri_kind";
             this.ct_ceri_kind.Size = new System.Drawing.Size(146, 20);
             this.ct_ceri_kind.TabIndex = 3;
+            this.ct_ceri_kind.Text = "재직";
             // 
             // label13
             // 
@@ -227,6 +230,7 @@
             this.ct_ceri_cnt.Name = "ct_ceri_cnt";
             this.ct_ceri_cnt.Size = new System.Drawing.Size(146, 21);
             this.ct_ceri_cnt.TabIndex = 7;
+            this.ct_ceri_cnt.Text = "1";
             // 
             // label8
             // 
@@ -263,6 +267,7 @@
             this.ct_ceri_empno.Name = "ct_ceri_empno";
             this.ct_ceri_empno.Size = new System.Drawing.Size(146, 21);
             this.ct_ceri_empno.TabIndex = 1;
+            this.ct_ceri_empno.Text = "201887024";
             // 
             // label5
             // 
@@ -405,27 +410,23 @@
             this.ceri_sau,
             this.ceri_lang,
             this.ceri_cnt});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 43);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(728, 539);
             this.dataGridView1.TabIndex = 7;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // ceri_num
             // 
@@ -489,6 +490,10 @@
             this.ceri_cnt.HeaderText = "발급부수";
             this.ceri_cnt.Name = "ceri_cnt";
             this.ceri_cnt.Width = 78;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // UserControl1
             // 

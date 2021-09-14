@@ -5,7 +5,6 @@ using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace KaySub026
@@ -75,9 +74,9 @@ namespace KaySub026
                 DataTable dt = ds.Tables[0];
                 dataGridView1.DataSource = dt;
 
-                if(dt.Rows.Count > 0)
-                {                    
-                    foreach(DataGridViewRow row in dataGridView1.Rows)
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         slice.Add(row.Cells["papp_dept_nm"].Value.ToString(), double.Parse(row.Cells["papp_empno"].Value.ToString()));
                     }
@@ -110,8 +109,8 @@ namespace KaySub026
                 // Chart
                 pieChart1.Series.Clear();
                 PieSeries series = new PieSeries();
-    
-                foreach(var n in slice)
+
+                foreach (var n in slice)
                 {
                     pieChart1.Series.Add(new PieSeries
                     {
@@ -119,24 +118,7 @@ namespace KaySub026
                         Values = new ChartValues<double> { n.Value }
                     });
                 }
-                ////papp_labels 라벨이름
-                ////papp_count 값
 
-                ////Init data
-                //series = new PieSeries
-                //{
-                //    Title = "인원수",
-                //    Values = new ChartValues<int>(papp_count)
-                //};
-                //pieChart1.Series.Add(series);
-
-                //pieChart1.AxisX.Add(new Axis
-                //{
-                //    Separator = new Separator { Step = 1 },
-                //    IsEnabled = false,
-                //    Labels = papp_labels
-                //});
-               
 
                 Info_Message.Text = "자료가 정상적으로 조회 되었습니다.";
             }
