@@ -27,7 +27,7 @@ namespace KaySub027
         //** 부서검색박스 채우기
         //************************************************************************
         public static string
-            SelectSQL1 = @"SELECT cd_code, cd_codnm FROM kay_insa_cd WHERE cd_grpcd = 'POS' AND cd_use = 'Y'";
+            SelectSQL1 = @"SELECT cd_code||':'||cd_codnm FROM kay_insa_cd WHERE cd_grpcd = 'POS' AND cd_use = 'Y'";
 
     }
 }

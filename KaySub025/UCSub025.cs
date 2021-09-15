@@ -22,7 +22,7 @@ namespace KaySub025
     /// **********************************************************************
     /// </summary>
     /// 
-    public delegate void DataPushEventHandler(string _value, string _kind, string _date, string _dname, string _rkind);
+    public delegate void DataPushEventHandler(string _value, string _kind, string _date, string _dname, string _rkind, string _lang);
     public partial class UserControl1: UserControl
     {
         #region 초기설정
@@ -153,7 +153,6 @@ namespace KaySub025
             lang = ct_ceri_lang.Text;
             cnt = ct_ceri_cnt.Text;    // 발급부수        
             rkind = ct_ceri_sau.Text;
-            dname = "011"; // 발급번호
 
             if (lang.Equals("국문"))
             {
@@ -168,7 +167,7 @@ namespace KaySub025
 
                 var employee = new KaySub022_popup();
                 this.DataSendEvent += new DataPushEventHandler(employee.SetActiveValue);
-                DataSendEvent(empno, kind, date, dname, rkind);
+                DataSendEvent(empno, kind, date, dname, rkind, lang);
                 employee.ShowDialog();
             }
             if (lang.Equals("영문"))
@@ -176,8 +175,13 @@ namespace KaySub025
                 //var employee = new KaySub023.KaySub023_popup();
                 if (MessageBox.Show("증명서 발급을 하시겠습니까? 입력하신 정보는 저장됩니다.", "증명서 발급 여부확인",
                       MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No) return;
+                
+                CeriSave();
 
-
+                var employee = new KaySub022_popup();
+                this.DataSendEvent += new DataPushEventHandler(employee.SetActiveValue);
+                DataSendEvent(empno, kind, date, dname, rkind, lang);
+                employee.ShowDialog();
             }
            
         }
@@ -281,8 +285,39 @@ namespace KaySub025
         #region 재발급 버튼 Click
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("재발급버튼 클릭");
+            if (dataGridView1.SelectedRows.Count <= 0) return;
 
+            DataGridViewRow row = dataGridView1.CurrentRow;
+            empno = row.Cells["ceri_empno"].Value.ToString();
+            kind = row.Cells["ceri_kind"].Value.ToString();
+            date = row.Cells["ceri_date"].Value.ToString();
+            lang = row.Cells["ceri_lang"].Value.ToString();
+            cnt = row.Cells["ceri_cnt"].Value.ToString();    // 발급부수        
+            rkind = row.Cells["ceri_sau"].Value.ToString();
+            dname = row.Cells["ceri_num"].Value.ToString(); // 발급번호
+
+            if(date != DateTime.Now.ToString("yyyy-MM-dd"))
+            {
+                MessageBox.Show("지난날에 발급한 증명서는 재발급을 하실 수 없습니다. 신규발급을 해주십시오.", "증명서 발급 실패", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            if (MessageBox.Show( "이름["+ row.Cells["bas_name"].Value.ToString() + "]의 증명서를 재발급 하시겠습니까?", "증명서 발급 여부확인",
+                      MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No) return;
+
+            var employee = new KaySub022_popup();
+            if (lang.Equals("국문"))
+            {              
+                this.DataSendEvent += new DataPushEventHandler(employee.SetActiveValue);
+                DataSendEvent(empno, kind, date, dname, rkind, lang);
+            }
+            if (lang.Equals("영문"))
+            {
+                this.DataSendEvent += new DataPushEventHandler(employee.SetActiveValue);
+                DataSendEvent(empno, kind, date, dname, rkind, lang);
+            }
+            employee.ShowDialog();
         }
 
         #endregion
@@ -316,7 +351,7 @@ namespace KaySub025
                     MessageBox.Show(ex.ToString());
                     return;
                 }                
-                MessageBox.Show(dname);
+                //MessageBox.Show(dname);
             }
             
         }

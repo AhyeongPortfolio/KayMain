@@ -89,7 +89,9 @@
       <DependentUpon>KaySub022_popup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CareerReport.rdlc" />
+    <EmbeddedResource Include="Report\CareerReport_ENG.rdlc" />
     <EmbeddedResource Include="Report\EmpolyeeReport.rdlc" />
+    <EmbeddedResource Include="Report\EmpolyeeReport_ENG.rdlc" />
     <EmbeddedResource Include="Report\MainPrint.rdlc" />
     <EmbeddedResource Include="UCSub025.resx">
       <DependentUpon>UCSub025.cs</DependentUpon>

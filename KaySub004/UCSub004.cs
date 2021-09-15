@@ -80,6 +80,8 @@ namespace KaySub004
             ct_dut.TextChanged += InputData_TextChanged;
             ct_dept.TextChanged += InputData_TextChanged;
             ct_bas_rmk.TextChanged += InputData_TextChanged;
+
+            ct_bas_eaddr.TextChanged += InputData_TextChanged;
             //*----Value Changed Event Handler(END)-----------------------------
             //*----Validated Event Handler(Start)-------------------------------
             ct_bas_name.Validated += Input_Validation_Check;
@@ -323,6 +325,7 @@ namespace KaySub004
                     cmd.Parameters.Add("BAS_RMK", OracleDbType.Varchar2).Value = row.Cells["bas_rmk"].Value;
                     cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
                     cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
+                    cmd.Parameters.Add("BAS_EADDR", OracleDbType.Varchar2).Value = row.Cells["bas_eaddr"].Value;
 
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();  //*----반드시 포함

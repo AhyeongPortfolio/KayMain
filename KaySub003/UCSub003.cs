@@ -50,6 +50,7 @@ namespace KaySub003
             ct_dept_sdate.TextChanged += InputData_TextChanged;
             ct_dept_upp.TextChanged += InputData_TextChanged;          
             ct_dept_use.SelectedValueChanged += InputData_TextChanged;
+            ct_dept_name_eng.TextChanged += InputData_TextChanged;
             //*----Value Changed Event Handler(END)-----------------------------
             //*----Validated Event Handler(Start)-------------------------------
             ct_dept_name.Validated += Input_Validation_Check;
@@ -100,6 +101,7 @@ namespace KaySub003
                     row.Cells["dept_seq"].Value =     dr["dept_seq"].ToString();
                     row.Cells["dept_name"].Value =  dr["dept_name"].ToString();
                     row.Cells["dept_names"].Value =   dr["dept_names"].ToString();
+                    row.Cells["dept_name_eng"].Value = dr["dept_name_eng"].ToString();
                     row.Cells["dept_upp"].Value =   dr["dept_upp"].ToString();
                     row.Cells["dept_use"].Value =     dr["dept_use"].ToString();
                     row.Cells["dept_sdate"].Value =   Utility.FormatDate( dr["dept_sdate"].ToString() );
@@ -280,7 +282,8 @@ namespace KaySub003
                     cmd.Parameters.Add("dept_sdate", OracleDbType.Varchar2).Value =   Utility.FormatDateR((string)row.Cells["dept_sdate"].Value);
                     cmd.Parameters.Add("dept_edate", OracleDbType.Varchar2).Value =   Utility.FormatDateR((string)row.Cells["dept_edate"].Value);
                     cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
-
+                    cmd.Parameters.Add("dept_name_eng", OracleDbType.Varchar2).Value = row.Cells["dept_name_eng"].Value;
+                    
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();  //*----반드시 포함
                 }

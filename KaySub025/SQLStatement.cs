@@ -54,8 +54,8 @@ namespace KaySub025
                                 ,a.bas_entdate
                                 ,a.bas_levdate
                                 ,FN_GETCODENM_KAY('POS', a.bas_pos) as pos 
-                                ,FN_GETDEPT_KAY(a.bas_dept) as dept
-                                ,FN_GETCODE_KAY('STS', a.bas_sts) as sts 
+                                ,FN_GETDEPTNM_KAY(a.bas_dept) as dept
+                                ,FN_GETCODENM_KAY('STS', a.bas_sts) as sts 
                                 FROM kay_insa_bas a
                                 WHERE a.bas_empno = :bas_empno";
 
@@ -76,7 +76,38 @@ namespace KaySub025
                                     WHERE a.bas_empno = b.papp_empno(+) 
                                     AND a.bas_empno = :bas_empno ";
 
+        //*****************************************
+        // --영문 재직 증명서
+        //*****************************************
+        public static string
+            SelectSQL3 = @"SELECT a.bas_empno
+                                ,a.bas_ename
+                                ,a.bas_resno
+                                ,a.bas_eaddr
+                                ,a.bas_cont
+                                ,a.bas_entdate
+                                ,a.bas_levdate
+                                ,FN_GETCODENM_KAY2('POS', a.bas_pos) as pos 
+                                ,FN_GETDEPTNM_KAY2(a.bas_dept) as dept
+                                ,FN_GETCODENM_KAY2('STS', a.bas_sts) as sts 
+                                FROM kay_insa_bas a
+                                WHERE a.bas_empno = :bas_empno";
 
+        //*****************************************
+        // --영문 경력 증명서
+        //*****************************************
+        public static string
+            SelectSQL4 = @"SELECT a.bas_ename
+                                    ,a.bas_empno
+                                    ,a.bas_resno
+                                    ,a.bas_eaddr
+                                    ,b.papp_date
+                                    ,b.papp_pos_enm
+                                    ,b.papp_dut_enm
+                                    ,b.papp_dept_enm 
+                                    FROM KAY_INSA_BAS a, KAY_INSA_PAPP b 
+                                    WHERE a.bas_empno = b.papp_empno(+) 
+                                    AND a.bas_empno = :bas_empno ";
         #endregion
 
     }

@@ -32,6 +32,7 @@ namespace KaySub002
                             A.cd_use as cd_use, 
                             A.cd_sdate as cd_sdate,  
                             A.cd_edate as cd_edate 
+                           ,A.cd_code_eng as cd_code_eng
                             FROM kay_insa_cd  A, kay_insa_cdg  B
                             WHERE  A.cd_grpcd = B.cdg_grpcd(+)
                             AND A.cd_grpcd LIKE :cd_grpcd
@@ -43,9 +44,11 @@ namespace KaySub002
         //******************************
         public static string
             InsertSQL = @"INSERT INTO kay_insa_cd 
-                           ( cd_grpcd, cd_code, cd_seq, cd_codnms,cd_codnm, cd_addinfo, cd_upper, cd_use, cd_sdate, cd_edate, datasys2, datasys3) 
+                           ( cd_grpcd, cd_code, cd_seq, cd_codnms,cd_codnm, cd_code_eng
+                            , cd_addinfo, cd_upper, cd_use, cd_sdate, cd_edate, datasys2, datasys3) 
                             VALUES  
-                           ( :cd_grpcd, :cd_code, :cd_seq, :cd_codnms,:cd_codnm, :cd_addinfo, :cd_upper, :cd_use, :cd_sdate, :cd_edate, 'A', :datasys3 ) ";
+                           ( :cd_grpcd, :cd_code, :cd_seq, :cd_codnms,:cd_codnm ,:cd_code_eng
+                            , :cd_addinfo, :cd_upper, :cd_use, :cd_sdate, :cd_edate, 'A', :datasys3 ) ";
 
 
         //******************************
@@ -57,6 +60,7 @@ namespace KaySub002
                           cd_seq = :cd_seq,
                           cd_codnms = :cd_codnms,
                           cd_codnm = :cd_codnm,
+                          cd_code_eng = :cd_code_eng,
                           cd_addinfo = :cd_addinfo,
                           cd_upper = :cd_upper,
                           cd_use = :cd_use,

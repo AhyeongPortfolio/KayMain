@@ -108,18 +108,20 @@ namespace KaySub026
 
                 // Chart
                 pieChart1.Series.Clear();
-                PieSeries series = new PieSeries();
+                Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
 
                 foreach (var n in slice)
                 {
                     pieChart1.Series.Add(new PieSeries
                     {
                         Title = n.Key,
-                        Values = new ChartValues<double> { n.Value }
+                        Values = new ChartValues<double> { n.Value },
+                        DataLabels = true,
+                        LabelPoint = labelPoint
                     });
                 }
 
-
+                pieChart1.LegendLocation = LegendLocation.Bottom;
                 Info_Message.Text = "자료가 정상적으로 조회 되었습니다.";
             }
         }

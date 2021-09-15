@@ -43,13 +43,13 @@ namespace KaySub004
                             ,BAS_ZIP        ,BAS_ADDR        ,BAS_ANADDR    ,BAS_HDPNO      ,BAS_TELNO 
                             ,BAS_EMAIL      ,BAS_MIL_STA     ,BAS_MIL_MIL   ,BAS_MIL_RNK    ,BAS_MAR 
                             ,BAS_ACC_BANK   ,BAS_ACC_NAME    ,BAS_ACC_NO    ,BAS_CONT       
-                            ,BAS_RMK        ,DATASYS2        ,DATASYS3      ,DATASYS4
+                            ,BAS_RMK        ,DATASYS2        ,DATASYS3      ,DATASYS4       ,BAS_EADDR
                             ) VALUES
                             ( '{System.DateTime.Now.ToString("yyyy")}' + IPSA_SEQ_KAY.NEXTVAL    ,:BAS_RESNO      ,:BAS_NAME    ,:BAS_CNAME     ,:BAS_ENAME  ,:BAS_FIX
                             ,:BAS_ZIP       ,:BAS_ADDR       ,:BAS_ANADDR  ,:BAS_HDPNO     ,:BAS_TELNO  
                             ,:BAS_EMAIL     ,:BAS_MIL_STA    ,:BAS_MIL_MIL ,:BAS_MIL_RNK   ,:BAS_MAR 
                             ,:BAS_ACC_BANK  ,:BAS_ACC_NAME   ,:BAS_ACC_NO  ,:BAS_CONT      ,:BAS_RMK
-                            ,:DATASYS2      ,:DATASYS3      ,:DATASYS4 )";
+                            ,:DATASYS2      ,:DATASYS3      ,:DATASYS4     ,:BAS_EADDR)";
 
         //*---로그인 관리-------------------------------------
         public static string
@@ -100,6 +100,7 @@ namespace KaySub004
                             ,DATASYS2     = 'U'   
                             ,DATASYS3     = :DATASYS3 
                             ,DATASYS4     = :DATASYS4
+                            ,BAS_EADDR    = :BAS_EADDR
                         WHERE BAS_EMPNO = :key1";
 
         //*---이미지 수정

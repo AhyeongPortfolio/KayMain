@@ -38,6 +38,7 @@
             this.cd_seq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cd_codnms = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cd_codnm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cd_code_eng = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cd_addinfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cd_upper = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cd_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +47,8 @@
             this.key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panData = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ct_cd_code_eng = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ct_cd_use = new System.Windows.Forms.ComboBox();
             this.btn_bas_univ = new System.Windows.Forms.Button();
@@ -110,7 +113,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 558F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 668F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(994, 668);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -128,6 +131,7 @@
             this.cd_seq,
             this.cd_codnms,
             this.cd_codnm,
+            this.cd_code_eng,
             this.cd_addinfo,
             this.cd_upper,
             this.cd_use,
@@ -182,6 +186,13 @@
             this.cd_codnm.HeaderText = "코드명(원형)";
             this.cd_codnm.Name = "cd_codnm";
             this.cd_codnm.ReadOnly = true;
+            // 
+            // cd_code_eng
+            // 
+            this.cd_code_eng.DataPropertyName = "cd_code_eng";
+            this.cd_code_eng.HeaderText = "영문코드명";
+            this.cd_code_eng.Name = "cd_code_eng";
+            this.cd_code_eng.Width = 90;
             // 
             // cd_addinfo
             // 
@@ -243,6 +254,8 @@
             // 
             // panData
             // 
+            this.panData.Controls.Add(this.label13);
+            this.panData.Controls.Add(this.ct_cd_code_eng);
             this.panData.Controls.Add(this.label3);
             this.panData.Controls.Add(this.ct_cd_use);
             this.panData.Controls.Add(this.btn_bas_univ);
@@ -271,11 +284,29 @@
             this.panData.Size = new System.Drawing.Size(264, 662);
             this.panData.TabIndex = 10;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(28, 126);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 12);
+            this.label13.TabIndex = 91;
+            this.label13.Text = "영문코드명";
+            // 
+            // ct_cd_code_eng
+            // 
+            this.ct_cd_code_eng.Location = new System.Drawing.Point(99, 123);
+            this.ct_cd_code_eng.MaxLength = 50;
+            this.ct_cd_code_eng.Name = "ct_cd_code_eng";
+            this.ct_cd_code_eng.Size = new System.Drawing.Size(152, 21);
+            this.ct_cd_code_eng.TabIndex = 75;
+            this.ct_cd_code_eng.Tag = "cd_codnm";
+            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 174);
+            this.label3.Location = new System.Drawing.Point(40, 198);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 88;
@@ -288,10 +319,10 @@
             this.ct_cd_use.Items.AddRange(new object[] {
             "Y",
             "N"});
-            this.ct_cd_use.Location = new System.Drawing.Point(99, 171);
+            this.ct_cd_use.Location = new System.Drawing.Point(99, 195);
             this.ct_cd_use.Name = "ct_cd_use";
             this.ct_cd_use.Size = new System.Drawing.Size(152, 20);
-            this.ct_cd_use.TabIndex = 77;
+            this.ct_cd_use.TabIndex = 78;
             this.ct_cd_use.Tag = "cd_use";
             // 
             // btn_bas_univ
@@ -305,22 +336,22 @@
             // 
             // ct_cd_edate
             // 
-            this.ct_cd_edate.Location = new System.Drawing.Point(99, 218);
+            this.ct_cd_edate.Location = new System.Drawing.Point(99, 242);
             this.ct_cd_edate.Mask = "0000-00-00";
             this.ct_cd_edate.Name = "ct_cd_edate";
             this.ct_cd_edate.ReadOnly = true;
             this.ct_cd_edate.Size = new System.Drawing.Size(152, 21);
-            this.ct_cd_edate.TabIndex = 79;
+            this.ct_cd_edate.TabIndex = 80;
             this.ct_cd_edate.Tag = "cd_edate";
             this.ct_cd_edate.ValidatingType = typeof(System.DateTime);
             // 
             // ct_cd_sdate
             // 
-            this.ct_cd_sdate.Location = new System.Drawing.Point(99, 194);
+            this.ct_cd_sdate.Location = new System.Drawing.Point(99, 218);
             this.ct_cd_sdate.Mask = "0000-00-00";
             this.ct_cd_sdate.Name = "ct_cd_sdate";
             this.ct_cd_sdate.Size = new System.Drawing.Size(152, 21);
-            this.ct_cd_sdate.TabIndex = 78;
+            this.ct_cd_sdate.TabIndex = 79;
             this.ct_cd_sdate.Tag = "cd_sdate";
             this.ct_cd_sdate.ValidatingType = typeof(System.DateTime);
             // 
@@ -353,20 +384,20 @@
             // 
             // ct_cd_upper
             // 
-            this.ct_cd_upper.Location = new System.Drawing.Point(99, 147);
+            this.ct_cd_upper.Location = new System.Drawing.Point(99, 171);
             this.ct_cd_upper.MaxLength = 10;
             this.ct_cd_upper.Name = "ct_cd_upper";
             this.ct_cd_upper.Size = new System.Drawing.Size(152, 21);
-            this.ct_cd_upper.TabIndex = 76;
+            this.ct_cd_upper.TabIndex = 77;
             this.ct_cd_upper.Tag = "cd_upper";
             // 
             // ct_cd_addinfo
             // 
-            this.ct_cd_addinfo.Location = new System.Drawing.Point(99, 123);
+            this.ct_cd_addinfo.Location = new System.Drawing.Point(99, 147);
             this.ct_cd_addinfo.MaxLength = 10;
             this.ct_cd_addinfo.Name = "ct_cd_addinfo";
             this.ct_cd_addinfo.Size = new System.Drawing.Size(152, 21);
-            this.ct_cd_addinfo.TabIndex = 75;
+            this.ct_cd_addinfo.TabIndex = 76;
             this.ct_cd_addinfo.Tag = "cd_addinfo";
             // 
             // ct_cd_codnm
@@ -390,7 +421,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(40, 221);
+            this.label12.Location = new System.Drawing.Point(40, 245);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 12);
             this.label12.TabIndex = 78;
@@ -409,7 +440,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(40, 197);
+            this.label10.Location = new System.Drawing.Point(40, 221);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 79;
@@ -418,7 +449,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(40, 150);
+            this.label9.Location = new System.Drawing.Point(40, 174);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 80;
@@ -436,7 +467,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(40, 126);
+            this.label8.Location = new System.Drawing.Point(40, 150);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 77;
@@ -608,6 +639,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_seq;
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_codnms;
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_codnm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cd_code_eng;
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_addinfo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_upper;
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_use;
@@ -615,5 +647,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cd_edate;
         private System.Windows.Forms.DataGridViewTextBoxColumn key1;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.Label label13;
+        public System.Windows.Forms.TextBox ct_cd_code_eng;
     }
 }

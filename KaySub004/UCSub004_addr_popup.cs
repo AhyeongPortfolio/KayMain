@@ -67,12 +67,13 @@ namespace KaySub004
                         int rowidx = dataGridView1.Rows.Add();
                         dataGridView1.Rows[rowidx].Cells["roadAddr"].Value = rowss["roadAddr"].ToString();
                         dataGridView1.Rows[rowidx].Cells["zipNo"].Value = rowss["zipNo"].ToString();
+                        dataGridView1.Rows[rowidx].Cells["engAddr"].Value = rowss["engAddr"].ToString();
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -104,6 +105,7 @@ namespace KaySub004
             string addr = dataGridView1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
             userControl1.ct_bas_zip.Text = zip;
             userControl1.ct_bas_addr.Text = addr;
+            userControl1.ct_bas_eaddr.Text = dataGridView1.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
             userControl1.ct_bas_anaddr.Focus();
             this.Close();
         }

@@ -53,6 +53,7 @@ namespace KaySub002
             ct_cd_seq.TextChanged += InputData_TextChanged;
             ct_cd_upper.TextChanged += InputData_TextChanged;
             ct_cd_use.SelectedValueChanged += InputData_TextChanged;
+            ct_cd_code_eng.TextChanged += InputData_TextChanged;
             //*----Value Changed Event Handler(END)-----------------------------
             //*----Validated Event Handler(Start)-------------------------------
             ct_cd_grpcd.Validated += Input_Validation_Check;
@@ -111,6 +112,7 @@ namespace KaySub002
                     row.Cells["cd_seq"].Value = dr["cd_seq"].ToString();
                     row.Cells["cd_codnms"].Value = dr["cd_codnms"].ToString();
                     row.Cells["cd_codnm"].Value = dr["cd_codnm"].ToString();
+                    row.Cells["cd_code_eng"].Value = dr["cd_code_eng"].ToString();
                     row.Cells["cd_addinfo"].Value = dr["cd_addinfo"].ToString();
                     row.Cells["cd_upper"].Value = dr["cd_upper"].ToString();
                     row.Cells["cd_use"].Value = dr["cd_use"].ToString();
@@ -288,6 +290,7 @@ namespace KaySub002
                     cmd.Parameters.Add("cd_seq", OracleDbType.Varchar2).Value =   row.Cells["cd_seq"].Value;
                     cmd.Parameters.Add("cd_codnms", OracleDbType.Varchar2).Value =  row.Cells["cd_codnms"].Value;
                     cmd.Parameters.Add("cd_codnm", OracleDbType.Varchar2).Value =     row.Cells["cd_codnm"].Value;
+                    cmd.Parameters.Add("cd_code_eng", OracleDbType.Varchar2).Value = row.Cells["cd_code_eng"].Value;
                     cmd.Parameters.Add("cd_addinfo", OracleDbType.Varchar2).Value =    row.Cells["cd_addinfo"].Value;
                     cmd.Parameters.Add("cd_upper", OracleDbType.Varchar2).Value =   row.Cells["cd_upper"].Value;
                     cmd.Parameters.Add("cd_use", OracleDbType.Varchar2).Value =   row.Cells["cd_use"].Value;

@@ -36,6 +36,7 @@ namespace KaySub004
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.roadAddr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zipNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.engAddr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +82,8 @@ namespace KaySub004
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.roadAddr,
-            this.zipNo});
+            this.zipNo,
+            this.engAddr});
             this.dataGridView1.Location = new System.Drawing.Point(12, 36);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
@@ -102,6 +104,14 @@ namespace KaySub004
             this.zipNo.HeaderText = "우편번호";
             this.zipNo.Name = "zipNo";
             this.zipNo.Width = 78;
+            // 
+            // engAddr
+            // 
+            this.engAddr.DataPropertyName = "engAddr";
+            this.engAddr.HeaderText = "영문주소";
+            this.engAddr.Name = "engAddr";
+            this.engAddr.Visible = false;
+            this.engAddr.Width = 78;
             // 
             // UCSub004_addr_popup
             // 
@@ -130,5 +140,6 @@ namespace KaySub004
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn roadAddr;
         private System.Windows.Forms.DataGridViewTextBoxColumn zipNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn engAddr;
     }
 }

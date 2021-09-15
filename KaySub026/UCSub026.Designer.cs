@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.papp_dept_nm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.Notic = new System.Windows.Forms.Label();
+            this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.searchDept = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.Notic = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.pieChart1 = new LiveCharts.WinForms.PieChart();
-            this.papp_dept_nm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -67,6 +67,110 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(843, 595);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pieChart1, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 43);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 549F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(837, 549);
+            this.tableLayoutPanel3.TabIndex = 2;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.panel3, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(328, 543);
+            this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.papp_dept_nm,
+            this.papp_empno});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 43);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(322, 497);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // papp_dept_nm
+            // 
+            this.papp_dept_nm.DataPropertyName = "papp_dept_nm";
+            this.papp_dept_nm.HeaderText = "부서명";
+            this.papp_dept_nm.Name = "papp_dept_nm";
+            this.papp_dept_nm.ReadOnly = true;
+            // 
+            // papp_empno
+            // 
+            this.papp_empno.DataPropertyName = "count(papp_empno)";
+            this.papp_empno.HeaderText = "인원수";
+            this.papp_empno.Name = "papp_empno";
+            this.papp_empno.ReadOnly = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.Notic);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(322, 34);
+            this.panel3.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 33);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(322, 1);
+            this.panel4.TabIndex = 45;
+            // 
+            // Notic
+            // 
+            this.Notic.AutoSize = true;
+            this.Notic.Location = new System.Drawing.Point(2, 8);
+            this.Notic.Name = "Notic";
+            this.Notic.Size = new System.Drawing.Size(97, 12);
+            this.Notic.TabIndex = 2;
+            this.Notic.Text = "부서별 인원 현황";
+            this.Notic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pieChart1
+            // 
+            this.pieChart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pieChart1.Location = new System.Drawing.Point(337, 3);
+            this.pieChart1.Name = "pieChart1";
+            this.pieChart1.Size = new System.Drawing.Size(497, 543);
+            this.pieChart1.TabIndex = 3;
+            this.pieChart1.Text = "pieChart1";
             // 
             // panel2
             // 
@@ -107,6 +211,7 @@
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 40;
             this.label3.Text = "부서";
+            this.label3.Visible = false;
             // 
             // searchDept
             // 
@@ -115,6 +220,7 @@
             this.searchDept.Name = "searchDept";
             this.searchDept.Size = new System.Drawing.Size(100, 20);
             this.searchDept.TabIndex = 41;
+            this.searchDept.Visible = false;
             // 
             // label1
             // 
@@ -125,110 +231,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "조회날짜";
             // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.dataGridView1, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.panel3, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(328, 543);
-            this.tableLayoutPanel5.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.Notic);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(322, 34);
-            this.panel3.TabIndex = 2;
-            // 
-            // Notic
-            // 
-            this.Notic.AutoSize = true;
-            this.Notic.Location = new System.Drawing.Point(2, 8);
-            this.Notic.Name = "Notic";
-            this.Notic.Size = new System.Drawing.Size(97, 12);
-            this.Notic.TabIndex = 2;
-            this.Notic.Text = "부서별 인원 현황";
-            this.Notic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 33);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(322, 1);
-            this.panel4.TabIndex = 45;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.papp_dept_nm,
-            this.papp_empno});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 43);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(322, 497);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.pieChart1, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 43);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 627F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(837, 549);
-            this.tableLayoutPanel3.TabIndex = 2;
-            // 
-            // pieChart1
-            // 
-            this.pieChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pieChart1.Location = new System.Drawing.Point(337, 3);
-            this.pieChart1.Name = "pieChart1";
-            this.pieChart1.Size = new System.Drawing.Size(497, 543);
-            this.pieChart1.TabIndex = 3;
-            this.pieChart1.Text = "pieChart1";
-            // 
-            // papp_dept_nm
-            // 
-            this.papp_dept_nm.DataPropertyName = "papp_dept_nm";
-            this.papp_dept_nm.HeaderText = "부서명";
-            this.papp_dept_nm.Name = "papp_dept_nm";
-            this.papp_dept_nm.ReadOnly = true;
-            // 
-            // papp_empno
-            // 
-            this.papp_empno.DataPropertyName = "count(papp_empno)";
-            this.papp_empno.HeaderText = "인원수";
-            this.papp_empno.Name = "papp_empno";
-            this.papp_empno.ReadOnly = true;
-            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -238,13 +240,13 @@
             this.Size = new System.Drawing.Size(843, 595);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

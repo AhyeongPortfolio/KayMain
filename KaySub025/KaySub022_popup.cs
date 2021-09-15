@@ -62,23 +62,46 @@ namespace KaySub025
             // 레포트 파일 연결
             reportViewer1.ProcessingMode = ProcessingMode.Local;
 
-            // 증명서 종류 구분
-            if (Kind.Equals("경력"))
+            if (lang.Equals("국문"))
             {
-                reportViewer1.LocalReport.ReportEmbeddedResource = "KaySub025.Report.CareerReport.rdlc";              
+                // 증명서 종류 구분
+                if (Kind.Equals("경력"))
+                {
+                    reportViewer1.LocalReport.ReportEmbeddedResource = "KaySub025.Report.CareerReport.rdlc";              
                 
-                Career_Data_GetSet();
+                    Career_Data_GetSet();
+                }
+
+                if (Kind.Equals("재직"))
+                {
+                    reportViewer1.LocalReport.ReportEmbeddedResource = "KaySub025.Report.EmpolyeeReport.rdlc";
+                
+                    Empolyee_Data_GetSet();
+                }
             }
 
-            if (Kind.Equals("재직"))
+            else if (lang.Equals("영문"))
             {
-                reportViewer1.LocalReport.ReportEmbeddedResource = "KaySub025.Report.EmpolyeeReport.rdlc";
-                
-                Empolyee_Data_GetSet();
-            }
+                if (Kind.Equals("경력"))
+                {
+                    reportViewer1.LocalReport.ReportEmbeddedResource = "KaySub025.Report.CareerReport_ENG.rdlc";
 
+                    CareerENG_Data_GetSet();
+                }
+
+                if (Kind.Equals("재직"))
+                {
+                    reportViewer1.LocalReport.ReportEmbeddedResource = "KaySub025.Report.EmpolyeeReport_ENG.rdlc";
+
+                    EmployeeENG_Data_GetSet();
+                }
+
+            }
         }
 
+        //***************************************************************
+        //*----국문 재직 증명서
+        //***************************************************************
         private void Empolyee_Data_GetSet()
         {
             using (con = Utility.SetOracleConnection())
@@ -147,11 +170,14 @@ namespace KaySub025
 
         }
 
+        //***************************************************************
+        //*----국문 경력 증명서
+        //***************************************************************
         private void Career_Data_GetSet()
         {
             using (con = Utility.SetOracleConnection())
             {
-                OracleCommand cmd = new OracleCommand();
+                OracleCommand cmd = con.CreateCommand();
                 cmd.CommandText = SQLStatement.SelectSQL2;
                 cmd.BindByName = true;
                 cmd.Parameters.Add("bas_empno", OracleDbType.Varchar2).Value = Empno;
@@ -210,18 +236,152 @@ namespace KaySub025
             reportViewer1.RefreshReport(); // refresh report
         }
 
+        //***************************************************************
+        //*----영문 재직 증명서
+        //***************************************************************
+        private void EmployeeENG_Data_GetSet()
+        {
+            using (con = Utility.SetOracleConnection())
+            {
+                OracleCommand cmd = con.CreateCommand();
+                cmd.CommandText = SQLStatement.SelectSQL3;
+                cmd.BindByName = true;
+                cmd.Parameters.Add("bas_empno", OracleDbType.Varchar2).Value = Empno;
+                try
+                {
+                    OracleDataAdapter da = new OracleDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    DataTable dt = ds.Tables[0];
+
+                    employeeList = new List<ReportDataSet>();
+                    var byteArray = Encoding.UTF8.GetBytes(qt_resno.Text);
+                    string endDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        ReportDataSet VM = new ReportDataSet();
+                        VM.BAS_EMPNO = Empno;
+                        qt_resno.Text = Utility.AESDecrypt128(dt.Rows[i]["bas_resno"].ToString(), byteArray.ToString());
+                        VM.BAS_RESNO = qt_resno.Text;
+                        VM.BAS_NAME = dt.Rows[i]["bas_ename"].ToString();
+                        VM.BAS_ADDR = dt.Rows[i]["bas_eaddr"].ToString();
+                        VM.BAS_POS = dt.Rows[i]["pos"].ToString();
+                        VM.BAS_DEPT = dt.Rows[i]["dept"].ToString();
+                        VM.BAS_STS = dt.Rows[i]["sts"].ToString();
+                        qt_date.Text = dt.Rows[i]["bas_entdate"].ToString();
+                        VM.BAS_ENTDATE = qt_date.Text;
+                        if (string.IsNullOrEmpty(dt.Rows[i]["bas_levdate"].ToString()))
+                        {
+                            qt_date1.Text = endDate;
+                        }
+                        else
+                        {
+                            qt_date1.Text = dt.Rows[i]["bas_levdate"].ToString();
+                        }
+                        VM.BAS_RESDATE = qt_date1.Text;
+                        VM.BAS_CONT = dt.Rows[i]["bas_cont"].ToString();
+
+                        employeeList.Add(VM);
+                    }
+
+                    ReportDataSource rds = new ReportDataSource("DataSet3", employeeList);
+                    this.reportViewer1.LocalReport.DataSources.Add(rds);
+
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportNum", DocName));
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportMaker", UserNm));
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportDate", Date));
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportKind", Rkind));
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+            }
+            reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
+            reportViewer1.LocalReport.Refresh();
+            reportViewer1.RefreshReport(); // refresh report
+
+
+        }
+        //***************************************************************
+        //*----영문 경력 증명서
+        //***************************************************************
+        private void CareerENG_Data_GetSet()
+        {
+            using (con = Utility.SetOracleConnection())
+            {
+                OracleCommand cmd = con.CreateCommand();
+                cmd.CommandText = SQLStatement.SelectSQL4;
+                cmd.BindByName = true;
+                cmd.Parameters.Add("bas_empno", OracleDbType.Varchar2).Value = Empno;
+
+                try
+                {
+                    OracleDataAdapter da = new OracleDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    DataTable dt = ds.Tables[0];
+
+                    careerList = new List<ReportDataSet2>();
+                    var byteArray = Encoding.UTF8.GetBytes(qt_resno.Text);
+                    string endDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        ReportDataSet2 VM = new ReportDataSet2();
+                        VM.BAS_EMPNO = Empno;
+                        qt_resno.Text = Utility.AESDecrypt128(dt.Rows[i]["bas_resno"].ToString(), byteArray.ToString());
+                        VM.BAS_RESNO = qt_resno.Text;
+                        VM.BAS_NAME = dt.Rows[i]["bas_ename"].ToString();
+                        VM.BAS_ADDR = dt.Rows[i]["bas_eaddr"].ToString();
+                        VM.PAPP_POS = dt.Rows[i]["papp_pos_enm"].ToString();
+                        VM.PAPP_DUT = dt.Rows[i]["papp_dut_enm"].ToString();
+                        VM.PAPP_DEPT = dt.Rows[i]["papp_dept_enm"].ToString();
+                        qt_date.Text = dt.Rows[i]["papp_date"].ToString();
+                        VM.PAPP_ENTDATE = qt_date.Text;
+                        if (i < dt.Rows.Count && i > 1)
+                        {
+                            qt_date1.Text = dt.Rows[i + 1]["papp_date"].ToString();
+                            VM.PAPP_RESDATE = qt_date1.Text;
+                        }
+                        if (i == dt.Rows.Count || i + 1 == dt.Rows.Count) VM.PAPP_RESDATE = endDate;
+                        careerList.Add(VM);
+                    }
+
+                    ReportDataSource rds = new ReportDataSource("DataSet4", careerList);
+                    this.reportViewer1.LocalReport.DataSources.Add(rds);
+
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportNum", DocName));
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportDate", Date));
+                    reportViewer1.LocalReport.SetParameters(new ReportParameter("reportKind", Rkind));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+
+            }
+            reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
+            reportViewer1.LocalReport.Refresh();
+            reportViewer1.RefreshReport(); // refresh report
+        }
         #endregion
 
 
 
         #region Parameter Value Set
-        public void SetActiveValue(string _empno, string _kind, string _date, string _dname, string _rkind)
+        public void SetActiveValue(string _empno, string _kind, string _date, string _dname, string _rkind, string _lang)
         {
             Empno = _empno;
             Kind = _kind;
             Date = _date;
             DocName = _dname;
             Rkind = _rkind;
+            lang = _lang;
         }
 
 

@@ -32,6 +32,8 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.papp_pos_nm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.papp_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Notic = new System.Windows.Forms.Label();
@@ -42,8 +44,6 @@
             this.searchDept = new System.Windows.Forms.ComboBox();
             this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.papp_pos_nm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.papp_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -118,6 +118,18 @@
             this.dataGridView1.Size = new System.Drawing.Size(316, 450);
             this.dataGridView1.TabIndex = 1;
             // 
+            // papp_pos_nm
+            // 
+            this.papp_pos_nm.DataPropertyName = "papp_pos_nm";
+            this.papp_pos_nm.HeaderText = "직급명";
+            this.papp_pos_nm.Name = "papp_pos_nm";
+            // 
+            // papp_empno
+            // 
+            this.papp_empno.DataPropertyName = "count(papp_empno)";
+            this.papp_empno.HeaderText = "인원수";
+            this.papp_empno.Name = "papp_empno";
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel4);
@@ -187,6 +199,7 @@
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 40;
             this.label3.Text = "직급";
+            this.label3.Visible = false;
             // 
             // searchDept
             // 
@@ -195,6 +208,7 @@
             this.searchDept.Name = "searchDept";
             this.searchDept.Size = new System.Drawing.Size(100, 20);
             this.searchDept.TabIndex = 41;
+            this.searchDept.Visible = false;
             // 
             // dateSearch1
             // 
@@ -213,18 +227,6 @@
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "조회날짜";
-            // 
-            // papp_pos_nm
-            // 
-            this.papp_pos_nm.DataPropertyName = "papp_pos_nm";
-            this.papp_pos_nm.HeaderText = "직급명";
-            this.papp_pos_nm.Name = "papp_pos_nm";
-            // 
-            // papp_empno
-            // 
-            this.papp_empno.DataPropertyName = "count(papp_empno)";
-            this.papp_empno.HeaderText = "인원수";
-            this.papp_empno.Name = "papp_empno";
             // 
             // UserControl1
             // 

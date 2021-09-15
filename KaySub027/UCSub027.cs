@@ -66,7 +66,7 @@ namespace KaySub027
                     OracleCommand cmd = con.CreateCommand();
                     cmd.CommandText = SQLStatement.SelectSQL;
                     cmd.BindByName = true;
-                    cmd.Parameters.Add("dept_nm", OracleDbType.Varchar2).Value = "%" + searchDept.Text + "%";
+                    cmd.Parameters.Add("pos_cd", OracleDbType.Varchar2).Value = "%" + Utility.GetCode(searchDept.Text) + "%";
                     cmd.Parameters.Add("papp_date", OracleDbType.Varchar2).Value = Utility.FormatDateR(dateSearch1.Text);
                     OracleDataAdapter da = new OracleDataAdapter(cmd);
                     da.Fill(ds);
@@ -78,7 +78,7 @@ namespace KaySub027
                 {
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        slice.Add(row.Cells["papp_dept_nm"].Value.ToString(), double.Parse(row.Cells["papp_empno"].Value.ToString()));
+                        slice.Add(row.Cells["papp_pos_nm"].Value.ToString(), double.Parse(row.Cells["papp_empno"].Value.ToString()));
                     }
                 }
 
@@ -108,18 +108,21 @@ namespace KaySub027
 
                 // Chart
                 pieChart1.Series.Clear();
-                PieSeries series = new PieSeries();
-
+                //PieSeries series = new PieSeries();
+                Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+                
                 foreach (var n in slice)
                 {
                     pieChart1.Series.Add(new PieSeries
                     {
                         Title = n.Key,
-                        Values = new ChartValues<double> { n.Value }
+                        Values = new ChartValues<double> { n.Value },
+                        DataLabels = true,
+                        LabelPoint = labelPoint
                     });
                 }
 
-
+                pieChart1.LegendLocation = LegendLocation.Bottom;
                 Info_Message.Text = "자료가 정상적으로 조회 되었습니다.";
             }
         }
