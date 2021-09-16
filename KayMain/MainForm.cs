@@ -300,27 +300,27 @@ namespace KayMain
             //*-------------------------------------------------------------------------
             //* 버전변경 Check 및 자동 업그레이드
             //*-------------------------------------------------------------------------
-            //try
-            //{
-            //    FileVersionInfo myVersion = FileVersionInfo.GetVersionInfo(dir + subdir + tag_arr[0] + ".dll");
-            //    if (!myVersion.FileVersion.Equals(tag_arr[5]))
-            //    {
-            //        Utility.VersionAutoUpgrade(FTP, dir + subdir, tag_arr[0] + ".dll",
-            //                                   "해당 단위업무파일의 버전이 변경되었습니다. 다운로드를 진행합니다.");
-            //        return;
-            //    }
-            //}
-            //catch (FileNotFoundException)
-            //{
-            //    Utility.VersionAutoUpgrade(FTP, dir + subdir, tag_arr[0] + ".dll",
-            //                               "해당 단위업무 파일이 PC에 존재하지 않습니다. 서버에서 다운로드를 진행합니다.");
-            //    return;
-            //}
-            //catch (Exception exc)
-            //{
-            //    MessageBox.Show("Error 발생 : " + exc.ToString());
-            //    return;
-            //}
+            try
+            {
+                FileVersionInfo myVersion = FileVersionInfo.GetVersionInfo(dir + subdir + tag_arr[0] + ".dll");
+                if (!myVersion.FileVersion.Equals(tag_arr[5]))
+                {
+                    Utility.VersionAutoUpgrade(FTP, dir + subdir, tag_arr[0] + ".dll",
+                                               "해당 단위업무파일의 버전이 변경되었습니다. 다운로드를 진행합니다.");
+                    return;
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                Utility.VersionAutoUpgrade(FTP, dir + subdir, tag_arr[0] + ".dll",
+                                           "해당 단위업무 파일이 PC에 존재하지 않습니다. 서버에서 다운로드를 진행합니다.");
+                return;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Error 발생 : " + exc.ToString());
+                return;
+            }
             //*-------------------------------------------------------------------------
             //* 단위업무 DLL Check 및 프로그램 로드
             //*-------------------------------------------------------------------------
