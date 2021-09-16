@@ -65,7 +65,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(843, 595);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1000, 610);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -81,7 +81,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 549F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(837, 549);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(994, 564);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // tableLayoutPanel5
@@ -96,7 +96,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(328, 543);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(391, 558);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // dataGridView1
@@ -117,7 +117,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(322, 497);
+            this.dataGridView1.Size = new System.Drawing.Size(385, 512);
             this.dataGridView1.TabIndex = 1;
             // 
             // papp_dept_nm
@@ -141,7 +141,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(322, 34);
+            this.panel3.Size = new System.Drawing.Size(385, 34);
             this.panel3.TabIndex = 2;
             // 
             // panel4
@@ -150,7 +150,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 33);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(322, 1);
+            this.panel4.Size = new System.Drawing.Size(385, 1);
             this.panel4.TabIndex = 45;
             // 
             // Notic
@@ -166,9 +166,9 @@
             // pieChart1
             // 
             this.pieChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pieChart1.Location = new System.Drawing.Point(337, 3);
+            this.pieChart1.Location = new System.Drawing.Point(400, 3);
             this.pieChart1.Name = "pieChart1";
-            this.pieChart1.Size = new System.Drawing.Size(497, 543);
+            this.pieChart1.Size = new System.Drawing.Size(591, 558);
             this.pieChart1.TabIndex = 3;
             this.pieChart1.Text = "pieChart1";
             // 
@@ -182,7 +182,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(837, 34);
+            this.panel2.Size = new System.Drawing.Size(994, 34);
             this.panel2.TabIndex = 1;
             // 
             // dateSearch1
@@ -199,7 +199,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 33);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(837, 1);
+            this.panel5.Size = new System.Drawing.Size(994, 1);
             this.panel5.TabIndex = 45;
             // 
             // label3
@@ -237,7 +237,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(843, 595);
+            this.Size = new System.Drawing.Size(1000, 610);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);

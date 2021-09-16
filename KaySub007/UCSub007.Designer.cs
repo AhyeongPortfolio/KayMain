@@ -53,13 +53,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.empnoSearch = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.nameSearch = new System.Windows.Forms.TextBox();
             this.edu_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edu_loe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edu_entdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,10 +67,17 @@
             this.Key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Key2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Key3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bas_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bas_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.empnoSearch = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.nameSearch = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -102,7 +102,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(990, 617);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1000, 624);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -117,7 +117,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(984, 571);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(994, 578);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // tableLayoutPanel3
@@ -127,12 +127,12 @@
             this.tableLayoutPanel3.Controls.Add(this.panData, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.dataGridView2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(437, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(447, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 320F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(544, 565);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(544, 572);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panData
@@ -157,7 +157,7 @@
             this.panData.Controls.Add(this.label5);
             this.panData.Controls.Add(this.label4);
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panData.Location = new System.Drawing.Point(3, 248);
+            this.panData.Location = new System.Drawing.Point(3, 255);
             this.panData.Name = "panData";
             this.panData.Size = new System.Drawing.Size(538, 314);
             this.panData.TabIndex = 3;
@@ -370,85 +370,8 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(538, 239);
+            this.dataGridView2.Size = new System.Drawing.Size(538, 246);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.bas_empno,
-            this.bas_name,
-            this.dept,
-            this.pos});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(428, 565);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.empnoSearch);
-            this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.nameSearch);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(984, 34);
-            this.panel3.TabIndex = 2;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 33);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(984, 1);
-            this.panel5.TabIndex = 53;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 51;
-            this.label1.Text = "사원번호";
-            // 
-            // empnoSearch
-            // 
-            this.empnoSearch.Location = new System.Drawing.Point(62, 2);
-            this.empnoSearch.Name = "empnoSearch";
-            this.empnoSearch.Size = new System.Drawing.Size(100, 21);
-            this.empnoSearch.TabIndex = 52;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(168, 6);
-            this.label13.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(29, 12);
-            this.label13.TabIndex = 47;
-            this.label13.Text = "성명";
-            // 
-            // nameSearch
-            // 
-            this.nameSearch.Location = new System.Drawing.Point(203, 2);
-            this.nameSearch.Name = "nameSearch";
-            this.nameSearch.Size = new System.Drawing.Size(100, 21);
-            this.nameSearch.TabIndex = 50;
             // 
             // edu_empno
             // 
@@ -554,6 +477,27 @@
             this.Key3.Visible = false;
             this.Key3.Width = 58;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.bas_empno,
+            this.bas_name,
+            this.dept,
+            this.pos});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(438, 572);
+            this.dataGridView1.TabIndex = 1;
+            // 
             // bas_empno
             // 
             this.bas_empno.DataPropertyName = "bas_empno";
@@ -586,6 +530,62 @@
             this.pos.ReadOnly = true;
             this.pos.Width = 54;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.empnoSearch);
+            this.panel3.Controls.Add(this.label13);
+            this.panel3.Controls.Add(this.nameSearch);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(994, 34);
+            this.panel3.TabIndex = 2;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 33);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(994, 1);
+            this.panel5.TabIndex = 53;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 51;
+            this.label1.Text = "사원번호";
+            // 
+            // empnoSearch
+            // 
+            this.empnoSearch.Location = new System.Drawing.Point(62, 2);
+            this.empnoSearch.Name = "empnoSearch";
+            this.empnoSearch.Size = new System.Drawing.Size(100, 21);
+            this.empnoSearch.TabIndex = 52;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(168, 6);
+            this.label13.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(29, 12);
+            this.label13.TabIndex = 47;
+            this.label13.Text = "성명";
+            // 
+            // nameSearch
+            // 
+            this.nameSearch.Location = new System.Drawing.Point(203, 2);
+            this.nameSearch.Name = "nameSearch";
+            this.nameSearch.Size = new System.Drawing.Size(100, 21);
+            this.nameSearch.TabIndex = 50;
+            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -597,7 +597,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(990, 617);
+            this.Size = new System.Drawing.Size(1000, 624);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

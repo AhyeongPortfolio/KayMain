@@ -35,15 +35,15 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Notic = new System.Windows.Forms.Label();
+            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.radiMonth = new System.Windows.Forms.RadioButton();
+            this.radiYear = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.qt_cal_date2 = new System.Windows.Forms.DateTimePicker();
             this.panel5 = new System.Windows.Forms.Panel();
             this.qt_cal_date1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
-            this.radiMonth = new System.Windows.Forms.RadioButton();
-            this.radiYear = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -65,7 +65,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(978, 557);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1000, 610);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // tableLayoutPanel3
@@ -80,7 +80,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(972, 511);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(994, 564);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // tableLayoutPanel5
@@ -95,7 +95,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(285, 505);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(292, 558);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // dataGridView1
@@ -112,7 +112,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(279, 459);
+            this.dataGridView1.Size = new System.Drawing.Size(286, 512);
             this.dataGridView1.TabIndex = 1;
             // 
             // panel3
@@ -122,7 +122,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(279, 34);
+            this.panel3.Size = new System.Drawing.Size(286, 34);
             this.panel3.TabIndex = 2;
             // 
             // panel4
@@ -131,7 +131,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 33);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(279, 1);
+            this.panel4.Size = new System.Drawing.Size(286, 1);
             this.panel4.TabIndex = 45;
             // 
             // Notic
@@ -139,10 +139,19 @@
             this.Notic.AutoSize = true;
             this.Notic.Location = new System.Drawing.Point(2, 8);
             this.Notic.Name = "Notic";
-            this.Notic.Size = new System.Drawing.Size(97, 12);
+            this.Notic.Size = new System.Drawing.Size(121, 12);
             this.Notic.TabIndex = 2;
-            this.Notic.Text = "직급별 인원 현황";
+            this.Notic.Text = "기간별 입사인원 추이";
             this.Notic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cartesianChart1
+            // 
+            this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cartesianChart1.Location = new System.Drawing.Point(301, 3);
+            this.cartesianChart1.Name = "cartesianChart1";
+            this.cartesianChart1.Size = new System.Drawing.Size(690, 558);
+            this.cartesianChart1.TabIndex = 3;
+            this.cartesianChart1.Text = "cartesianChart1";
             // 
             // panel2
             // 
@@ -156,8 +165,32 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(972, 34);
+            this.panel2.Size = new System.Drawing.Size(994, 34);
             this.panel2.TabIndex = 1;
+            // 
+            // radiMonth
+            // 
+            this.radiMonth.AutoSize = true;
+            this.radiMonth.Checked = true;
+            this.radiMonth.Dock = System.Windows.Forms.DockStyle.Right;
+            this.radiMonth.Location = new System.Drawing.Point(888, 0);
+            this.radiMonth.Name = "radiMonth";
+            this.radiMonth.Size = new System.Drawing.Size(47, 33);
+            this.radiMonth.TabIndex = 51;
+            this.radiMonth.TabStop = true;
+            this.radiMonth.Text = "월별";
+            this.radiMonth.UseVisualStyleBackColor = true;
+            // 
+            // radiYear
+            // 
+            this.radiYear.AutoSize = true;
+            this.radiYear.Dock = System.Windows.Forms.DockStyle.Right;
+            this.radiYear.Location = new System.Drawing.Point(935, 0);
+            this.radiYear.Name = "radiYear";
+            this.radiYear.Size = new System.Drawing.Size(59, 33);
+            this.radiYear.TabIndex = 50;
+            this.radiYear.Text = "년도별";
+            this.radiYear.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -183,7 +216,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 33);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(972, 1);
+            this.panel5.Size = new System.Drawing.Size(994, 1);
             this.panel5.TabIndex = 45;
             // 
             // qt_cal_date1
@@ -204,46 +237,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "조회날짜";
             // 
-            // cartesianChart1
-            // 
-            this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cartesianChart1.Location = new System.Drawing.Point(294, 3);
-            this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(675, 505);
-            this.cartesianChart1.TabIndex = 3;
-            this.cartesianChart1.Text = "cartesianChart1";
-            // 
-            // radiMonth
-            // 
-            this.radiMonth.AutoSize = true;
-            this.radiMonth.Checked = true;
-            this.radiMonth.Dock = System.Windows.Forms.DockStyle.Right;
-            this.radiMonth.Location = new System.Drawing.Point(866, 0);
-            this.radiMonth.Name = "radiMonth";
-            this.radiMonth.Size = new System.Drawing.Size(47, 33);
-            this.radiMonth.TabIndex = 51;
-            this.radiMonth.TabStop = true;
-            this.radiMonth.Text = "월별";
-            this.radiMonth.UseVisualStyleBackColor = true;
-            // 
-            // radiYear
-            // 
-            this.radiYear.AutoSize = true;
-            this.radiYear.Dock = System.Windows.Forms.DockStyle.Right;
-            this.radiYear.Location = new System.Drawing.Point(913, 0);
-            this.radiYear.Name = "radiYear";
-            this.radiYear.Size = new System.Drawing.Size(59, 33);
-            this.radiYear.TabIndex = 50;
-            this.radiYear.Text = "년도별";
-            this.radiYear.UseVisualStyleBackColor = true;
-            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(978, 557);
+            this.Size = new System.Drawing.Size(1000, 610);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);

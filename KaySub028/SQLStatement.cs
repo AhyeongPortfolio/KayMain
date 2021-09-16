@@ -20,23 +20,18 @@ namespace KaySub028
         //**---전체 인원 수 / 월별
         //******************************************************************
         public static string
-            SelectSQL = @"SELECT CAL_DATE AS 날짜 ,SUM(NVL2(PAPP_EMPNO, 1, 0)) AS 인원수 FROM(
-                            SELECT DISTINCT SUBSTR(CAL_DATE, 0, 7) CAL_DATE, PAPP_EMPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
-                                WHERE(CAL_DATE, PAPP_EMPNO, PAPP_APPNO, TO_DATE(PAPP_DATE, 'YYYYMMDD')) IN ((
-                                    SELECT CAL_DATE, PAPP_EMPNO, MAX(PAPP_APPNO), MAX(CAL_DATE) PAPP_APPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
+            SelectSQL = @"SELECT SUBSTR(CAL_DATE,0,7) AS 날짜, COUNT(*) AS 인원수 FROM(
+                            SELECT DISTINCT CAL_DATE CAL_DATE, PAPP_EMPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
+                                WHERE(CAL_DATE, PAPP_EMPNO, PAPP_APPNO, TO_DATE(PAPP_DATE, 'YYYYMMDD')) IN (
+                                 (SELECT CAL_DATE, PAPP_EMPNO, MAX(PAPP_APPNO), MAX(TO_DATE(PAPP_DATE, 'YYYYMMDD')) PAPP_APPNO
+                                   FROM KAY_INSA_PAPP,(
+                                    SELECT MAX(CAL_DATE) CAL_DATE FROM PKH_INSA_CAL
                                         WHERE CAL_DATE BETWEEN :cal_date1 AND :cal_date2
-                                            AND PAPP_PAP = '01'
-                                            AND TO_DATE(PAPP_DATE, 'YYYYMMDD') = CAL_DATE
-                                        GROUP BY CAL_DATE, PAPP_EMPNO
-                                        )
-                            )
-                            UNION
-                            SELECT DISTINCT SUBSTR(CAL_DATE, 0, 7) CAL_DATE, PAPP_EMPNO FROM(
-                                SELECT CAL_DATE, PAPP_EMPNO, MAX(PAPP_APPNO), MAX(CAL_DATE) PAPP_APPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
-                                WHERE CAL_DATE BETWEEN :cal_date1 AND :cal_date2
-                                    AND PAPP_PAP IS NULL AND PAPP_DATE(+) = CAL_DATE
-                                GROUP BY CAL_DATE, PAPP_EMPNO
+                                        GROUP BY SUBSTR(CAL_DATE, 0, 7))
+                                   WHERE TO_DATE(PAPP_DATE, 'YYYYMMDD') <= CAL_DATE GROUP BY CAL_DATE, PAPP_EMPNO
+                                   )
                                 )
+                                AND PAPP_PAP NOT IN('55','53')
                             )
                         GROUP BY CAL_DATE
                         ORDER BY CAL_DATE";
@@ -45,23 +40,18 @@ namespace KaySub028
         //**---전체 인원 수 / 년도별
         //******************************************************************
         public static string
-            SelectSQL2 = @"SELECT CAL_DATE AS 날짜 ,SUM(NVL2(PAPP_EMPNO, 1, 0)) AS 인원수 FROM(
-                            SELECT DISTINCT SUBSTR(CAL_DATE, 0, 4) CAL_DATE, PAPP_EMPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
-                                WHERE(CAL_DATE, PAPP_EMPNO, PAPP_APPNO, TO_DATE(PAPP_DATE, 'YYYYMMDD')) IN ((
-                                    SELECT CAL_DATE, PAPP_EMPNO, MAX(PAPP_APPNO), MAX(CAL_DATE) PAPP_APPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
-                                        WHERE CAL_DATE BETWEEN :cal_date1 AND :cal_date2
-                                            AND PAPP_PAP = '01'
-                                            AND TO_DATE(PAPP_DATE, 'YYYYMMDD') = CAL_DATE
-                                        GROUP BY CAL_DATE, PAPP_EMPNO
-                                        )
-                            )
-                            UNION
-                            SELECT DISTINCT SUBSTR(CAL_DATE, 0, 4) CAL_DATE, PAPP_EMPNO FROM(
-                                SELECT CAL_DATE, PAPP_EMPNO, MAX(PAPP_APPNO), MAX(CAL_DATE) PAPP_APPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
-                                WHERE CAL_DATE BETWEEN :cal_date1 AND :cal_date2
-                                    AND PAPP_PAP IS NULL AND PAPP_DATE(+) = CAL_DATE
-                                GROUP BY CAL_DATE, PAPP_EMPNO
+            SelectSQL2 = @"SELECT SUBSTR(CAL_DATE,0,4) AS 날짜, COUNT(*) AS 인원수 FROM(
+                            SELECT DISTINCT CAL_DATE CAL_DATE, PAPP_EMPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
+                                WHERE(CAL_DATE, PAPP_EMPNO, PAPP_APPNO, TO_DATE(PAPP_DATE, 'YYYYMMDD')) IN (
+                                 (SELECT CAL_DATE, PAPP_EMPNO, MAX(PAPP_APPNO), MAX(TO_DATE(PAPP_DATE, 'YYYYMMDD')) PAPP_APPNO
+                                   FROM KAY_INSA_PAPP,(
+                                    SELECT MAX(CAL_DATE) CAL_DATE FROM PKH_INSA_CAL
+                                        WHERE CAL_DATE BETWEEN :cal_date1 AND :cal_date2 
+                                        GROUP BY SUBSTR(CAL_DATE, 0, 4))
+                                   WHERE TO_DATE(PAPP_DATE, 'YYYYMMDD') <= CAL_DATE GROUP BY CAL_DATE, PAPP_EMPNO
+                                   )
                                 )
+                                AND PAPP_PAP NOT IN('55','53')
                             )
                         GROUP BY CAL_DATE
                         ORDER BY CAL_DATE";
