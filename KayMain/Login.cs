@@ -83,14 +83,9 @@ namespace KayMain
                 cmd.CommandText = SQLStatement.SelectSQL;
                 cmd.BindByName = true;
                 cmd.Parameters.Add("user_id", OracleDbType.Varchar2).Value = txtID.Text;
+                cmd.Parameters.Add("user_pswd", OracleDbType.Varchar2).Value = Utility.SHA512(txtPwd.Text);
                 dr = cmd.ExecuteReader();
-                if (!dr.Read())  //사용자 ID 존재 하지 않으면
-                {
-                    MessageBox.Show("아이디 또는 비밀번호가 올바르지 않습니다.", "로그인확인", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    return;
-                }
-                //---비밀번호 Check-----------------------------------------------------------------------------------------------------/
-                if (txtPwd.Text != dr.GetString(1))
+                if (!dr.Read())  //사용자 ID, 패스워드가 존재 하지 않으면
                 {
                     MessageBox.Show("아이디 또는 비밀번호가 올바르지 않습니다.", "로그인확인", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     return;

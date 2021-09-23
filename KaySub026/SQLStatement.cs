@@ -16,12 +16,29 @@ namespace KaySub026
     /// </summary>
     class SQLStatement
     {
+
+        //**********************************************************************
+        //**현재시점 부서별 인원 수
+        //**********************************************************************
         public static string
-            SelectSQL = @"SELECT papp_dept_nm, count(papp_empno) FROM kay_insa_papp
-                            WHERE TO_DATE(papp_date, 'YYYYMMDD') <= :papp_date
-                            AND papp_pap = '01' OR papp_pap = '06' OR papp_pap = '31'
-                            AND papp_dept_nm LIKE :dept_nm
-                            GROUP BY papp_dept_nm";
+            SelectSQL = @"SELECT B.dept_name , nvl(A.남자, 0) as 남자, nvl(A.여자, 0) as 여자, nvl(A.합계, 0) as 총인원수
+                            FROM (                            
+                            SELECT A.bas_dept as 부서명
+                            ,sum(decode(bas_fix, '남', 1, 0)) as 남자 
+                            ,sum(decode(bas_fix, '여', 1, 0)) as 여자
+                            ,COUNT(A.bas_fix) 합계 
+                            from kay_insa_bas A
+                            where A.bas_wsta like :bas_wsta
+                            group by A.bas_dept, A.bas_wsta
+                            ) A, kay_insa_dept B
+                            where A.부서명(+) = B.dept_code
+                            order by B.dept_seq";
+
+        //**********************************************************************
+        //**특정시점 부서별 인원 수
+        //**********************************************************************
+
+
 
         //************************************************************************
         //** 부서검색박스 채우기

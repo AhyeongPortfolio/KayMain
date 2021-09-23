@@ -60,27 +60,24 @@ namespace KaySub026
             //--DB Handling(Start)-------------------------------------
             try
             {
+                string wsta = string.Empty;
+                if (radi1.Checked) wsta = "재직";
+                else wsta = "";
+
                 DataSet ds = new DataSet();
                 using (con = Utility.SetOracleConnection())
                 {
                     OracleCommand cmd = con.CreateCommand();
                     cmd.CommandText = SQLStatement.SelectSQL;
                     cmd.BindByName = true;
-                    cmd.Parameters.Add("dept_nm", OracleDbType.Varchar2).Value = "%" + searchDept.Text + "%";
-                    cmd.Parameters.Add("papp_date", OracleDbType.Varchar2).Value = Utility.FormatDateR(dateSearch1.Text);
+                    cmd.Parameters.Add("bas_wsta", OracleDbType.Varchar2).Value = "%" + wsta + "%";
+                    // cmd.Parameters.Add("dept_nm", OracleDbType.Varchar2).Value = "%" + searchDept.Text + "%";
+                    // cmd.Parameters.Add("papp_date", OracleDbType.Varchar2).Value = Utility.FormatDateR(dateSearch1.Text);
                     OracleDataAdapter da = new OracleDataAdapter(cmd);
                     da.Fill(ds);
                 }
                 DataTable dt = ds.Tables[0];
                 dataGridView1.DataSource = dt;
-
-                if (dt.Rows.Count > 0)
-                {
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    {
-                        slice.Add(row.Cells["papp_dept_nm"].Value.ToString(), double.Parse(row.Cells["papp_empno"].Value.ToString()));
-                    }
-                }
 
                 query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
 
@@ -107,21 +104,7 @@ namespace KaySub026
                 this.DataList_SelectionChanged(null, null);   //선택된 첫줄을 Control에 표시하기
 
                 // Chart
-                pieChart1.Series.Clear();
-                Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
-
-                foreach (var n in slice)
-                {
-                    pieChart1.Series.Add(new PieSeries
-                    {
-                        Title = n.Key,
-                        Values = new ChartValues<double> { n.Value },
-                        DataLabels = true,
-                        LabelPoint = labelPoint
-                    });
-                }
-
-                pieChart1.LegendLocation = LegendLocation.Bottom;
+                
                 Info_Message.Text = "자료가 정상적으로 조회 되었습니다.";
             }
         }
