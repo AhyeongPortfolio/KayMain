@@ -28,27 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Notic = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.searchDept = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.radi1 = new System.Windows.Forms.RadioButton();
-            this.radi2 = new System.Windows.Forms.RadioButton();
+            this.pieChart1 = new LiveCharts.WinForms.PieChart();
+            this.부서명 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.남자 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.남자비율 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.여자 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.여자비율 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.총인원수 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,15 +75,16 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pieChart1, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 43);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 564F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(994, 564);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
@@ -94,25 +100,8 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(988, 558);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(590, 558);
             this.tableLayoutPanel5.TabIndex = 2;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 43);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(385, 512);
-            this.dataGridView1.TabIndex = 1;
             // 
             // panel3
             // 
@@ -121,7 +110,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(982, 34);
+            this.panel3.Size = new System.Drawing.Size(584, 34);
             this.panel3.TabIndex = 2;
             // 
             // panel4
@@ -130,7 +119,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 33);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(982, 1);
+            this.panel4.Size = new System.Drawing.Size(584, 1);
             this.panel4.TabIndex = 45;
             // 
             // Notic
@@ -143,11 +132,41 @@
             this.Notic.Text = "부서별 인원 현황";
             this.Notic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.부서명,
+            this.남자,
+            this.남자비율,
+            this.여자,
+            this.여자비율,
+            this.총인원수});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 43);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(584, 512);
+            this.dataGridView1.TabIndex = 1;
+            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.radi2);
-            this.panel2.Controls.Add(this.radi1);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.dateSearch1);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.label3);
@@ -205,41 +224,62 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "조회날짜";
             // 
-            // label2
+            // pieChart1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(157, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 55;
-            this.label2.Text = "재직구분";
+            this.pieChart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pieChart1.Location = new System.Drawing.Point(599, 3);
+            this.pieChart1.Name = "pieChart1";
+            this.pieChart1.Size = new System.Drawing.Size(392, 558);
+            this.pieChart1.TabIndex = 3;
+            this.pieChart1.Text = "pieChart1";
             // 
-            // radi1
+            // 부서명
             // 
-            this.radi1.AutoSize = true;
-            this.radi1.Checked = true;
-            this.radi1.Location = new System.Drawing.Point(216, 3);
-            this.radi1.Name = "radi1";
-            this.radi1.Size = new System.Drawing.Size(71, 16);
-            this.radi1.TabIndex = 56;
-            this.radi1.TabStop = true;
-            this.radi1.Text = "재직자만";
-            this.radi1.UseVisualStyleBackColor = true;
+            this.부서명.DataPropertyName = "부서명";
+            this.부서명.HeaderText = "부서명";
+            this.부서명.Name = "부서명";
+            this.부서명.ReadOnly = true;
             // 
-            // radi2
+            // 남자
             // 
-            this.radi2.AutoSize = true;
-            this.radi2.Location = new System.Drawing.Point(293, 2);
-            this.radi2.Name = "radi2";
-            this.radi2.Size = new System.Drawing.Size(83, 16);
-            this.radi2.TabIndex = 57;
-            this.radi2.Text = "퇴직자포함";
-            this.radi2.UseVisualStyleBackColor = true;
+            this.남자.DataPropertyName = "남자";
+            this.남자.HeaderText = "남자";
+            this.남자.Name = "남자";
+            this.남자.ReadOnly = true;
+            // 
+            // 남자비율
+            // 
+            this.남자비율.DataPropertyName = "남자비율";
+            this.남자비율.HeaderText = "남자비율";
+            this.남자비율.Name = "남자비율";
+            this.남자비율.ReadOnly = true;
+            // 
+            // 여자
+            // 
+            this.여자.DataPropertyName = "여자";
+            this.여자.HeaderText = "여자";
+            this.여자.Name = "여자";
+            this.여자.ReadOnly = true;
+            // 
+            // 여자비율
+            // 
+            this.여자비율.DataPropertyName = "여자비율";
+            this.여자비율.HeaderText = "여자비율";
+            this.여자비율.Name = "여자비율";
+            this.여자비율.ReadOnly = true;
+            // 
+            // 총인원수
+            // 
+            this.총인원수.DataPropertyName = "총인원수";
+            this.총인원수.HeaderText = "총인원수";
+            this.총인원수.Name = "총인원수";
+            this.총인원수.ReadOnly = true;
             // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(1000, 610);
@@ -247,9 +287,9 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -271,8 +311,12 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label Notic;
-        private System.Windows.Forms.RadioButton radi2;
-        private System.Windows.Forms.RadioButton radi1;
-        private System.Windows.Forms.Label label2;
+        private LiveCharts.WinForms.PieChart pieChart1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 부서명;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 남자;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 남자비율;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 여자;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 여자비율;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 총인원수;
     }
 }

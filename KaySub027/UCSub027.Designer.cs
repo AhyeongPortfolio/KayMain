@@ -44,6 +44,7 @@
             this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.pieChart1 = new LiveCharts.WinForms.PieChart();
+            this.pieChart2 = new LiveCharts.WinForms.PieChart();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -74,6 +75,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pieChart2, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 43);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -183,7 +185,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(167, 6);
+            this.label3.Location = new System.Drawing.Point(856, 9);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
@@ -194,7 +196,7 @@
             // searchDept
             // 
             this.searchDept.FormattingEnabled = true;
-            this.searchDept.Location = new System.Drawing.Point(202, 2);
+            this.searchDept.Location = new System.Drawing.Point(891, 5);
             this.searchDept.Name = "searchDept";
             this.searchDept.Size = new System.Drawing.Size(100, 20);
             this.searchDept.TabIndex = 41;
@@ -226,6 +228,15 @@
             this.pieChart1.Size = new System.Drawing.Size(487, 496);
             this.pieChart1.TabIndex = 3;
             this.pieChart1.Text = "pieChart1";
+            // 
+            // pieChart2
+            // 
+            this.pieChart2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pieChart2.Location = new System.Drawing.Point(400, 3);
+            this.pieChart2.Name = "pieChart2";
+            this.pieChart2.Size = new System.Drawing.Size(591, 558);
+            this.pieChart2.TabIndex = 3;
+            this.pieChart2.Text = "pieChart2";
             // 
             // UserControl1
             // 
@@ -266,5 +277,6 @@
         private LiveCharts.WinForms.PieChart pieChart1;
         private System.Windows.Forms.DataGridViewTextBoxColumn papp_pos_nm;
         private System.Windows.Forms.DataGridViewTextBoxColumn papp_empno;
+        private LiveCharts.WinForms.PieChart pieChart2;
     }
 }

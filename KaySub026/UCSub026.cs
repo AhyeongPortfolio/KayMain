@@ -55,29 +55,41 @@ namespace KaySub026
         {
             Utility.BusyIndicator(true);
 
-            Dictionary<string, double> slice = new Dictionary<string, double>();
-
+            Dictionary<double, double> slice = new Dictionary<double, double>();
+            dataGridView1.Rows.Clear();
+            DataGridViewRow row;
+            int rowIdx = 0;
+            int manhap = 0, womanhap = 0, hap = 0;
             //--DB Handling(Start)-------------------------------------
             try
-            {
-                string wsta = string.Empty;
-                if (radi1.Checked) wsta = "재직";
-                else wsta = "";
-
+            {                
                 DataSet ds = new DataSet();
                 using (con = Utility.SetOracleConnection())
                 {
                     OracleCommand cmd = con.CreateCommand();
-                    cmd.CommandText = SQLStatement.SelectSQL;
+                    cmd.CommandText = SQLStatement.SelectSQL2;
                     cmd.BindByName = true;
-                    cmd.Parameters.Add("bas_wsta", OracleDbType.Varchar2).Value = "%" + wsta + "%";
-                    // cmd.Parameters.Add("dept_nm", OracleDbType.Varchar2).Value = "%" + searchDept.Text + "%";
-                    // cmd.Parameters.Add("papp_date", OracleDbType.Varchar2).Value = Utility.FormatDateR(dateSearch1.Text);
-                    OracleDataAdapter da = new OracleDataAdapter(cmd);
-                    da.Fill(ds);
+                    cmd.Parameters.Add("papp_date", OracleDbType.Varchar2).Value = Utility.FormatDateR(dateSearch1.Text);
+                    OracleDataReader dr = cmd.ExecuteReader();
+                    
+                    while (dr.Read())
+                    {
+                        rowIdx = dataGridView1.Rows.Add();
+                        row = dataGridView1.Rows[rowIdx];
+                        row.Cells["부서명"].Value = dr["부서명"].ToString();
+                        row.Cells["남자"].Value = dr["남자"].ToString();
+                        row.Cells["남자비율"].Value = ReturnPercent(double.Parse(dr["남자"].ToString()), double.Parse(dr["총인원수"].ToString()));
+                        row.Cells["여자"].Value = dr["여자"].ToString();
+                        row.Cells["여자비율"].Value = ReturnPercent(double.Parse(dr["여자"].ToString()), double.Parse(dr["총인원수"].ToString()));
+                        row.Cells["총인원수"].Value = dr["총인원수"].ToString();
+
+                        manhap += int.Parse(dr["남자"].ToString());
+                        womanhap += int.Parse(dr["여자"].ToString());
+                        hap += int.Parse(dr["총인원수"].ToString());
+                    }
+                    dataGridView1.Rows.Add("합계",manhap, ReturnPercent(manhap,hap),womanhap, ReturnPercent(womanhap,hap), hap);
                 }
-                DataTable dt = ds.Tables[0];
-                dataGridView1.DataSource = dt;
+                
 
                 query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
 
@@ -104,7 +116,30 @@ namespace KaySub026
                 this.DataList_SelectionChanged(null, null);   //선택된 첫줄을 Control에 표시하기
 
                 // Chart
-                
+                pieChart1.Series.Clear();
+                Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+
+                pieChart1.Series = new SeriesCollection
+                {
+                    new PieSeries
+                    {
+                        Title = "남자인원수",
+                        Values = new ChartValues<double> { manhap },
+                        DataLabels = true,
+                        LabelPoint = labelPoint
+                    },
+                     new PieSeries
+                    {
+                        Title = "여자인원수",
+                        Values = new ChartValues<double> { womanhap },
+                        DataLabels = true,
+                        LabelPoint = labelPoint
+                    }
+                };
+
+
+                pieChart1.LegendLocation = LegendLocation.Bottom;
+
                 Info_Message.Text = "자료가 정상적으로 조회 되었습니다.";
             }
         }
@@ -203,6 +238,19 @@ namespace KaySub026
 
         }
 
+        #endregion
+        #region 비율 구하기
+        private string ReturnPercent(double v1, double v2)
+        {
+            // v1 = 남자 혹은 여자 인원수 & v2 = 전체 인원수
+            double per = v1 * 100 / v2;
+
+            if (double.IsNaN(per))
+                return "0.00%";
+            else
+                return per.ToString("N2") + "%";
+            
+        }
         #endregion
 
     }

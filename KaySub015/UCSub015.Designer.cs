@@ -87,7 +87,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1073, 683);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1073, 637);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel1
@@ -166,7 +166,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1067, 637);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1067, 591);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dataGridView2
@@ -201,7 +201,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(635, 631);
+            this.dataGridView2.Size = new System.Drawing.Size(635, 585);
             this.dataGridView2.TabIndex = 4;
             // 
             // papp_empno
@@ -374,7 +374,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(420, 631);
+            this.dataGridView1.Size = new System.Drawing.Size(420, 585);
             this.dataGridView1.TabIndex = 0;
             // 
             // papr_appno
@@ -435,7 +435,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(1073, 683);
+            this.Size = new System.Drawing.Size(1073, 637);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
