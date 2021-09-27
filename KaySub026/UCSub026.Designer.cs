@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -36,13 +42,13 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.Notic = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.searchDept = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.부서명 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.남자 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.남자비율 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -165,6 +171,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(584, 512);
             this.dataGridView1.TabIndex = 1;
             // 
+            // pieChart1
+            // 
+            this.pieChart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pieChart1.Location = new System.Drawing.Point(599, 3);
+            this.pieChart1.Name = "pieChart1";
+            this.pieChart1.Size = new System.Drawing.Size(392, 558);
+            this.pieChart1.TabIndex = 3;
+            this.pieChart1.Text = "pieChart1";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dateSearch1);
@@ -224,18 +239,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "조회날짜";
             // 
-            // pieChart1
-            // 
-            this.pieChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pieChart1.Location = new System.Drawing.Point(599, 3);
-            this.pieChart1.Name = "pieChart1";
-            this.pieChart1.Size = new System.Drawing.Size(392, 558);
-            this.pieChart1.TabIndex = 3;
-            this.pieChart1.Text = "pieChart1";
-            // 
             // 부서명
             // 
             this.부서명.DataPropertyName = "부서명";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.부서명.DefaultCellStyle = dataGridViewCellStyle2;
             this.부서명.HeaderText = "부서명";
             this.부서명.Name = "부서명";
             this.부서명.ReadOnly = true;
@@ -243,6 +251,8 @@
             // 남자
             // 
             this.남자.DataPropertyName = "남자";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.남자.DefaultCellStyle = dataGridViewCellStyle3;
             this.남자.HeaderText = "남자";
             this.남자.Name = "남자";
             this.남자.ReadOnly = true;
@@ -250,6 +260,8 @@
             // 남자비율
             // 
             this.남자비율.DataPropertyName = "남자비율";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.남자비율.DefaultCellStyle = dataGridViewCellStyle4;
             this.남자비율.HeaderText = "남자비율";
             this.남자비율.Name = "남자비율";
             this.남자비율.ReadOnly = true;
@@ -257,6 +269,8 @@
             // 여자
             // 
             this.여자.DataPropertyName = "여자";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.여자.DefaultCellStyle = dataGridViewCellStyle5;
             this.여자.HeaderText = "여자";
             this.여자.Name = "여자";
             this.여자.ReadOnly = true;
@@ -264,6 +278,8 @@
             // 여자비율
             // 
             this.여자비율.DataPropertyName = "여자비율";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.여자비율.DefaultCellStyle = dataGridViewCellStyle6;
             this.여자비율.HeaderText = "여자비율";
             this.여자비율.Name = "여자비율";
             this.여자비율.ReadOnly = true;
@@ -271,6 +287,8 @@
             // 총인원수
             // 
             this.총인원수.DataPropertyName = "총인원수";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.총인원수.DefaultCellStyle = dataGridViewCellStyle7;
             this.총인원수.HeaderText = "총인원수";
             this.총인원수.Name = "총인원수";
             this.총인원수.ReadOnly = true;

@@ -44,12 +44,14 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.qt_cal_date1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.dateTimeChartRangeControlClient1 = new DevExpress.XtraEditors.DateTimeChartRangeControlClient();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -203,6 +205,7 @@
             // 
             // qt_cal_date2
             // 
+            this.qt_cal_date2.CustomFormat = "yyyy-MM";
             this.qt_cal_date2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.qt_cal_date2.Location = new System.Drawing.Point(184, 2);
             this.qt_cal_date2.Name = "qt_cal_date2";
@@ -221,6 +224,7 @@
             // 
             // qt_cal_date1
             // 
+            this.qt_cal_date1.CustomFormat = "yyyy-MM";
             this.qt_cal_date1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.qt_cal_date1.Location = new System.Drawing.Point(61, 2);
             this.qt_cal_date1.Name = "qt_cal_date1";
@@ -254,6 +258,7 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -276,5 +281,6 @@
         private LiveCharts.WinForms.CartesianChart cartesianChart1;
         private System.Windows.Forms.RadioButton radiMonth;
         private System.Windows.Forms.RadioButton radiYear;
+        private DevExpress.XtraEditors.DateTimeChartRangeControlClient dateTimeChartRangeControlClient1;
     }
 }

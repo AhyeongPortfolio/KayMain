@@ -55,7 +55,6 @@ namespace KaySub026
         {
             Utility.BusyIndicator(true);
 
-            Dictionary<double, double> slice = new Dictionary<double, double>();
             dataGridView1.Rows.Clear();
             DataGridViewRow row;
             int rowIdx = 0;
@@ -67,9 +66,18 @@ namespace KaySub026
                 using (con = Utility.SetOracleConnection())
                 {
                     OracleCommand cmd = con.CreateCommand();
-                    cmd.CommandText = SQLStatement.SelectSQL2;
-                    cmd.BindByName = true;
-                    cmd.Parameters.Add("papp_date", OracleDbType.Varchar2).Value = Utility.FormatDateR(dateSearch1.Text);
+                    if (dateSearch1.ToString().Equals(DateTime.Today.ToString()))
+                    {
+                        cmd.CommandText = SQLStatement.SelectSQL;
+                        cmd.BindByName = true;
+                    }
+                    else
+                    {
+                        cmd.CommandText = SQLStatement.SelectSQL2;
+                        cmd.BindByName = true;
+                        cmd.Parameters.Add("papp_date", OracleDbType.Varchar2).Value = Utility.FormatDateR(dateSearch1.Text);
+                    }
+                    
                     OracleDataReader dr = cmd.ExecuteReader();
                     
                     while (dr.Read())

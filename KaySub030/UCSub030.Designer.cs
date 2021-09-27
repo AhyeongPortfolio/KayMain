@@ -189,6 +189,7 @@
             // 
             // qt_cal_date2
             // 
+            this.qt_cal_date2.CustomFormat = "yyyy-MM";
             this.qt_cal_date2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.qt_cal_date2.Location = new System.Drawing.Point(184, 2);
             this.qt_cal_date2.Name = "qt_cal_date2";
@@ -207,6 +208,7 @@
             // 
             // qt_cal_date1
             // 
+            this.qt_cal_date1.CustomFormat = "yyyy-MM";
             this.qt_cal_date1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.qt_cal_date1.Location = new System.Drawing.Point(61, 2);
             this.qt_cal_date1.Name = "qt_cal_date1";

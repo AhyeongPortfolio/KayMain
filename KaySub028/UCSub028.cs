@@ -68,13 +68,15 @@ namespace KaySub028
                 DataSet ds = new DataSet();
                 using (con = Utility.SetOracleConnection())
                 {
+                    int lastday = DateTime.DaysInMonth(qt_cal_date2.Value.Year, qt_cal_date2.Value.Month);
+
                     OracleCommand cmd = con.CreateCommand();
                     if(radiMonth.Checked) cmd.CommandText = SQLStatement.SelectSQL;
                     else if(radiYear.Checked) cmd.CommandText = SQLStatement.SelectSQL2;
                     
                     cmd.BindByName = true;
-                    cmd.Parameters.Add("cal_date1", OracleDbType.Varchar2).Value = qt_cal_date1.Text;
-                    cmd.Parameters.Add("cal_date2", OracleDbType.Varchar2).Value = qt_cal_date2.Text;
+                    cmd.Parameters.Add("cal_date1", OracleDbType.Varchar2).Value = qt_cal_date1.Text + "-01";
+                    cmd.Parameters.Add("cal_date2", OracleDbType.Varchar2).Value = qt_cal_date2.Text + "-" + lastday.ToString();
                     OracleDataAdapter da = new OracleDataAdapter(cmd);
                     da.Fill(ds);
                 }
