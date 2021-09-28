@@ -45,6 +45,8 @@
             this.qt_cal_date1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimeChartRangeControlClient1 = new DevExpress.XtraEditors.DateTimeChartRangeControlClient();
+            this.CAL_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BAS_EMPNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -109,6 +111,9 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CAL_DATE,
+            this.BAS_EMPNO});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 43);
             this.dataGridView1.Name = "dataGridView1";
@@ -241,6 +246,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "조회날짜";
             // 
+            // CAL_DATE
+            // 
+            this.CAL_DATE.DataPropertyName = "CAL_DATE";
+            this.CAL_DATE.HeaderText = "날짜";
+            this.CAL_DATE.Name = "CAL_DATE";
+            // 
+            // BAS_EMPNO
+            // 
+            this.BAS_EMPNO.DataPropertyName = "BAS_EMPNO";
+            this.BAS_EMPNO.HeaderText = "인원수";
+            this.BAS_EMPNO.Name = "BAS_EMPNO";
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -282,5 +299,7 @@
         private System.Windows.Forms.RadioButton radiMonth;
         private System.Windows.Forms.RadioButton radiYear;
         private DevExpress.XtraEditors.DateTimeChartRangeControlClient dateTimeChartRangeControlClient1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CAL_DATE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BAS_EMPNO;
     }
 }

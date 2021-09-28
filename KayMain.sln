@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaySub029", "KaySub029\KayS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaySub030", "KaySub030\KaySub030.csproj", "{4440FC0A-D169-45EE-87A4-72BA1D4B5015}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaySub016", "KaySub016\KaySub016.csproj", "{14F21954-8975-4000-8722-C4C04ED40222}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,10 @@ Global
 		{4440FC0A-D169-45EE-87A4-72BA1D4B5015}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4440FC0A-D169-45EE-87A4-72BA1D4B5015}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4440FC0A-D169-45EE-87A4-72BA1D4B5015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14F21954-8975-4000-8722-C4C04ED40222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14F21954-8975-4000-8722-C4C04ED40222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14F21954-8975-4000-8722-C4C04ED40222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14F21954-8975-4000-8722-C4C04ED40222}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

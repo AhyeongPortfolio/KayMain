@@ -61,38 +61,43 @@ namespace KaySub028
             Utility.BusyIndicator(true);
 
             Dictionary<string, double> slice = new Dictionary<string, double>();
-
+            int rowIdx = 0;
+            int hap = 0;
+            DataGridViewRow row;
+            DataSet tenure = new DataSet();
+            DataSet join = new DataSet();
+            DataSet leave = new DataSet();
             //--DB Handling(Start)-------------------------------------
             try
             {
-                DataSet ds = new DataSet();
+                
                 using (con = Utility.SetOracleConnection())
                 {
                     int lastday = DateTime.DaysInMonth(qt_cal_date2.Value.Year, qt_cal_date2.Value.Month);
 
                     OracleCommand cmd = con.CreateCommand();
-                    if(radiMonth.Checked) cmd.CommandText = SQLStatement.SelectSQL;
-                    else if(radiYear.Checked) cmd.CommandText = SQLStatement.SelectSQL2;
-                    
-                    cmd.BindByName = true;
-                    cmd.Parameters.Add("cal_date1", OracleDbType.Varchar2).Value = qt_cal_date1.Text + "-01";
-                    cmd.Parameters.Add("cal_date2", OracleDbType.Varchar2).Value = qt_cal_date2.Text + "-" + lastday.ToString();
-                    OracleDataAdapter da = new OracleDataAdapter(cmd);
-                    da.Fill(ds);
-                }
-                DataTable dt = ds.Tables[0];
-                dataGridView1.DataSource = dt;
-
-                if (dt.Rows.Count > 0)
-                {
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    if (radiMonth.Checked)
                     {
-                        slice.Add(row.Cells["날짜"].Value.ToString(), double.Parse(row.Cells["인원수"].Value.ToString()));
+                        cmd.CommandText = SQLStatement.SelectSQL;
+                        cmd.BindByName = true;
+                        cmd.Parameters.Add("cal_date1", OracleDbType.Varchar2).Value = qt_cal_date1.Text + "-01";
+                        cmd.Parameters.Add("cal_date2", OracleDbType.Varchar2).Value = qt_cal_date2.Text + "-" + lastday.ToString();
                     }
+                    else if (radiYear.Checked)
+                    {
+                        cmd.CommandText = SQLStatement.SelectSQL2;
+                        cmd.BindByName = true;
+                        cmd.Parameters.Add("cal_date1", OracleDbType.Varchar2).Value = qt_cal_date1.Text + "-01-01";
+                        cmd.Parameters.Add("cal_date2", OracleDbType.Varchar2).Value = qt_cal_date2.Text + "-12-31";
+                    }
+
+                    OracleDataAdapter da = new OracleDataAdapter(cmd);
+                    da.Fill(tenure);
+
                 }
 
-                query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
 
+                    query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
             }
             catch (Exception ex)
             {
@@ -105,7 +110,7 @@ namespace KaySub028
                 Utility.BusyIndicator(false);
             }
             //--DB Handling(End)-------------------------------------
-            var recCnt = dataGridView1.RowCount;
+            var recCnt = 
             Info_Count.Text = recCnt.ToString();
             if (recCnt == 0)
             {

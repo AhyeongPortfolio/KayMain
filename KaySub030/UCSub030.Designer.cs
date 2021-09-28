@@ -43,6 +43,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.qt_cal_date1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.CAL_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BAS_EMPNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -93,6 +95,9 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CAL_date,
+            this.BAS_EMPNO});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 43);
             this.dataGridView1.Name = "dataGridView1";
@@ -225,6 +230,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "조회날짜";
             // 
+            // CAL_date
+            // 
+            this.CAL_date.DataPropertyName = "CAL_DATE";
+            this.CAL_date.HeaderText = "날짜";
+            this.CAL_date.Name = "CAL_date";
+            // 
+            // BAS_EMPNO
+            // 
+            this.BAS_EMPNO.DataPropertyName = "BAS_EMPNO";
+            this.BAS_EMPNO.HeaderText = "인원수";
+            this.BAS_EMPNO.Name = "BAS_EMPNO";
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -262,5 +279,7 @@
         private System.Windows.Forms.DateTimePicker qt_cal_date1;
         private System.Windows.Forms.Label label1;
         private LiveCharts.WinForms.CartesianChart cartesianChart1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CAL_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BAS_EMPNO;
     }
 }

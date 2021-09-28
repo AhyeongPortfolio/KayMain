@@ -20,55 +20,25 @@ namespace KaySub030
         //**---전체 인원 수 / 월별
         //******************************************************************
         public static string
-            SelectSQL = @"SELECT CAL_DATE as 날짜, SUM(NVL2(PAPP_EMPNO, 1, 0)) as 인원수 FROM(
-                            SELECT DISTINCT SUBSTR(CAL_DATE, 0, 7) CAL_DATE, PAPP_EMPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
-                                WHERE(CAL_DATE, PAPP_EMPNO, PAPP_APPNO, TO_DATE(PAPP_DATE, 'YYYYMMDD')) IN ((
-                                    SELECT CAL_DATE, PAPP_EMPNO, MAX(PAPP_APPNO), MAX(CAL_DATE) PAPP_APPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
-                                    WHERE CAL_DATE BETWEEN :cal_date1 AND :cal_date2
-                                    AND PAPP_PAP = '55'
-                                    AND TO_DATE(PAPP_DATE, 'YYYYMMDD') = CAL_DATE
-                                    GROUP BY CAL_DATE, PAPP_EMPNO
-                                    )
-                             )
-    
-                            UNION
-    
-                            SELECT DISTINCT SUBSTR(CAL_DATE, 0, 7) CAL_DATE, PAPP_EMPNO FROM(
-                                SELECT CAL_DATE, PAPP_EMPNO, MAX(PAPP_APPNO), MAX(CAL_DATE) PAPP_APPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
-                                WHERE CAL_DATE BETWEEN :cal_date1 AND :cal_date2
-                                AND PAPP_PAP IS NULL AND PAPP_DATE(+) = CAL_DATE
-                                GROUP BY CAL_DATE, PAPP_EMPNO
-                                )
-                            )
-                            GROUP BY CAL_DATE
-                            ORDER BY CAL_DATE";
+            SelectSQL = @"Select DISTINCT CAL_MONTH AS CAL_DATE
+                            ,COUNT(BAS_EMPNO) AS BAS_EMPNO
+                          from KAY_INSA_BAS, PKH_INSA_CAL
+                          where CAL_DATE between :cal_date1 and :cal_date2
+                          AND BAS_RESDATE(+) = CAL_DATE2
+                          GROUP BY CAL_MONTH 
+                          ORDER BY CAL_DATE";
 
         //******************************************************************
         //**---전체 인원 수 / 년도별
         //******************************************************************
         public static string
-            SelectSQL2 = @"SELECT CAL_DATE as 날짜, SUM(NVL2(PAPP_EMPNO, 1, 0)) as 인원수 FROM(
-                            SELECT DISTINCT SUBSTR(CAL_DATE, 0, 4) CAL_DATE, PAPP_EMPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
-                                WHERE(CAL_DATE, PAPP_EMPNO, PAPP_APPNO, TO_DATE(PAPP_DATE, 'YYYYMMDD')) IN ((
-                                    SELECT CAL_DATE, PAPP_EMPNO, MAX(PAPP_APPNO), MAX(CAL_DATE) PAPP_APPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
-                                    WHERE CAL_DATE BETWEEN :cal_date1 AND :cal_date2
-                                    AND PAPP_PAP = '55'
-                                    AND TO_DATE(PAPP_DATE, 'YYYYMMDD') = CAL_DATE
-                                    GROUP BY CAL_DATE, PAPP_EMPNO
-                                    )
-                             )
-    
-                            UNION
-    
-                            SELECT DISTINCT SUBSTR(CAL_DATE, 0, 4) CAL_DATE, PAPP_EMPNO FROM(
-                                SELECT CAL_DATE, PAPP_EMPNO, MAX(PAPP_APPNO), MAX(CAL_DATE) PAPP_APPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
-                                WHERE CAL_DATE BETWEEN :cal_date1 AND :cal_date2
-                                AND PAPP_PAP IS NULL AND PAPP_DATE(+) = CAL_DATE
-                                GROUP BY CAL_DATE, PAPP_EMPNO
-                                )
-                            )
-                            GROUP BY CAL_DATE
-                            ORDER BY CAL_DATE";
+            SelectSQL2 = @"Select DISTINCT CAL_YEAR AS CAL_DATE
+                            ,COUNT(BAS_EMPNO) AS BAS_EMPNO
+                           from KAY_INSA_BAS, PKH_INSA_CAL
+                           where CAL_DATE between :cal_date1 and :cal_date2
+                           AND BAS_RESDATE(+) = CAL_DATE2
+                           GROUP BY CAL_YEAR  
+                           ORDER BY CAL_DATE";
 
     }
 }

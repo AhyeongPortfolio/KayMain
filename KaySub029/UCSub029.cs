@@ -61,7 +61,9 @@ namespace KaySub029
             Utility.BusyIndicator(true);
 
             Dictionary<string, double> slice = new Dictionary<string, double>();
-
+            int rowIdx = 0;
+            int hap = 0;
+            DataGridViewRow row;
             //--DB Handling(Start)-------------------------------------
             try
             {
@@ -71,26 +73,41 @@ namespace KaySub029
                     int lastday = DateTime.DaysInMonth(qt_cal_date2.Value.Year, qt_cal_date2.Value.Month);
 
                     OracleCommand cmd = con.CreateCommand();
-                    if (radiMonth.Checked) cmd.CommandText = SQLStatement.SelectSQL;
-                    else if (radiYear.Checked) cmd.CommandText = SQLStatement.SelectSQL2;
-
-                    cmd.BindByName = true;
-                    cmd.Parameters.Add("cal_date1", OracleDbType.Varchar2).Value = qt_cal_date1.Text + "-01";
-                    cmd.Parameters.Add("cal_date2", OracleDbType.Varchar2).Value = qt_cal_date2.Text + "-" + lastday.ToString();
-                    OracleDataAdapter da = new OracleDataAdapter(cmd);
-                    da.Fill(ds);
-                }
-                DataTable dt = ds.Tables[0];
-                dataGridView1.DataSource = dt;
-
-                if (dt.Rows.Count > 0)
-                {
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    if (radiMonth.Checked)
                     {
-                        slice.Add(row.Cells["날짜"].Value.ToString(), double.Parse(row.Cells["인원수"].Value.ToString()));
+                        cmd.CommandText = SQLStatement.SelectSQL;
+                        cmd.BindByName = true;
+                        cmd.Parameters.Add("cal_date1", OracleDbType.Varchar2).Value = qt_cal_date1.Text + "-01";
+                        cmd.Parameters.Add("cal_date2", OracleDbType.Varchar2).Value = qt_cal_date2.Text + "-" + lastday.ToString();
                     }
-                }
+                    else if (radiYear.Checked) 
+                    { 
+                        cmd.CommandText = SQLStatement.SelectSQL2;
+                        cmd.BindByName = true;
+                        cmd.Parameters.Add("cal_date1", OracleDbType.Varchar2).Value = qt_cal_date1.Text + "-01-01";
+                        cmd.Parameters.Add("cal_date2", OracleDbType.Varchar2).Value = qt_cal_date2.Text + "-12-31";
+                    }
 
+                    
+                    
+                    OracleDataReader dr = cmd.ExecuteReader();
+                    dataGridView1.Rows.Clear();
+
+                    while (dr.Read())
+                    {
+                        rowIdx = dataGridView1.Rows.Add();
+                        row = dataGridView1.Rows[rowIdx];
+                        row.Cells["CAL_DATE"].Value = dr["CAL_DATE"].ToString();
+                        row.Cells["BAS_EMPNO"].Value = dr["BAS_EMPNO"].ToString();
+
+                        hap += int.Parse(dr["BAS_EMPNO"].ToString());
+
+                        slice.Add(row.Cells["CAL_DATE"].Value.ToString(), double.Parse(row.Cells["BAS_EMPNO"].Value.ToString()));
+                    }
+                    dataGridView1.Rows.Add("합계", hap);
+
+                }
+                
                 query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
 
             }

@@ -55,5 +55,45 @@ namespace KaySub028
                             )
                         GROUP BY CAL_DATE
                         ORDER BY CAL_DATE";
+
+        //******************************************************************
+        //**---사직인원 추이 / 월별, 년도별
+        //******************************************************************
+        public static string
+            SelectSQL3 = @"Select DISTINCT CAL_MONTH AS CAL_DATE
+                            ,'-'||COUNT(BAS_EMPNO) AS BAS_EMPNO
+                          from KAY_INSA_BAS, PKH_INSA_CAL
+                          where CAL_DATE between :cal_date1 and :cal_date2
+                          AND BAS_RESDATE(+) = CAL_DATE2
+                          GROUP BY CAL_MONTH 
+                          ORDER BY CAL_DATE";
+        public static string
+            SelectSQL4 = @"Select DISTINCT CAL_YEAR AS CAL_DATE
+                            ,'-'||COUNT(BAS_EMPNO) AS BAS_EMPNO
+                           from KAY_INSA_BAS, PKH_INSA_CAL
+                           where CAL_DATE between :cal_date1 and :cal_date2
+                           AND BAS_RESDATE(+) = CAL_DATE2
+                           GROUP BY CAL_YEAR  
+                           ORDER BY CAL_DATE";
+
+        //******************************************************************
+        //**---입사인원 추이 / 월별, 년도별
+        //******************************************************************
+        public static string
+            SelectSQL5 = @"Select DISTINCT CAL_MONTH AS CAL_DATE
+                            ,COUNT(BAS_EMPNO) AS BAS_EMPNO
+                          FROM KAY_INSA_BAS, PKH_INSA_CAL
+                          WHERE CAL_DATE between :cal_date1 and :cal_date2
+                          AND BAS_ENTDATE(+) = CAL_DATE2
+                          GROUP BY CAL_MONTH 
+                          ORDER BY CAL_DATE";
+        public static string
+            SelectSQL6 = @"Select DISTINCT CAL_YEAR AS CAL_DATE
+                            ,COUNT(BAS_EMPNO) AS BAS_EMPNO
+                           from KAY_INSA_BAS, PKH_INSA_CAL
+                           where CAL_DATE between :cal_date1 and :cal_date2
+                           AND BAS_ENTDATE(+) = CAL_DATE2
+                           GROUP BY CAL_YEAR  
+                           ORDER BY CAL_DATE";
     }
 }
