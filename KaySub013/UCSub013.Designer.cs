@@ -173,6 +173,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -224,7 +225,7 @@
             this.papr_num.HeaderText = "발령인원수";
             this.papr_num.MinimumWidth = 75;
             this.papr_num.Name = "papr_num";
-            this.papr_num.Width = 90;
+            this.papr_num.Width = 75;
             // 
             // status
             // 
