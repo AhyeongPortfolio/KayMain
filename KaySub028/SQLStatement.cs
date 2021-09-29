@@ -20,7 +20,7 @@ namespace KaySub028
         //**---전체 인원 수 / 월별
         //******************************************************************
         public static string
-            SelectSQL = @"SELECT SUBSTR(CAL_DATE,0,7) AS 날짜, COUNT(*) AS 인원수 FROM(
+            SelectSQL = @"SELECT SUBSTR(CAL_DATE,0,7) AS CAL_DATE, COUNT(*) AS bas_empno FROM(
                             SELECT DISTINCT CAL_DATE CAL_DATE, PAPP_EMPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
                                 WHERE(CAL_DATE, PAPP_EMPNO, PAPP_APPNO, TO_DATE(PAPP_DATE, 'YYYYMMDD')) IN (
                                  (SELECT CAL_DATE, PAPP_EMPNO, MAX(PAPP_APPNO), MAX(TO_DATE(PAPP_DATE, 'YYYYMMDD')) PAPP_APPNO
@@ -40,7 +40,7 @@ namespace KaySub028
         //**---전체 인원 수 / 년도별
         //******************************************************************
         public static string
-            SelectSQL2 = @"SELECT SUBSTR(CAL_DATE,0,4) AS 날짜, COUNT(*) AS 인원수 FROM(
+            SelectSQL2 = @"SELECT SUBSTR(CAL_DATE,0,4) AS CAL_DATE, COUNT(*) AS bas_empno FROM(
                             SELECT DISTINCT CAL_DATE CAL_DATE, PAPP_EMPNO FROM KAY_INSA_PAPP, PKH_INSA_CAL
                                 WHERE(CAL_DATE, PAPP_EMPNO, PAPP_APPNO, TO_DATE(PAPP_DATE, 'YYYYMMDD')) IN (
                                  (SELECT CAL_DATE, PAPP_EMPNO, MAX(PAPP_APPNO), MAX(TO_DATE(PAPP_DATE, 'YYYYMMDD')) PAPP_APPNO

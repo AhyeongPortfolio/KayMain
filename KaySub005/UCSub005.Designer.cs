@@ -68,12 +68,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.search_empno = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.search_name = new System.Windows.Forms.TextBox();
             this.bas_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bas_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bas_cont = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,6 +86,12 @@
             this.bas_dut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bas_dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.search_empno = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.search_name = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panData.SuspendLayout();
@@ -557,62 +557,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(789, 558);
             this.dataGridView1.TabIndex = 8;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.search_empno);
-            this.panel4.Controls.Add(this.label34);
-            this.panel4.Controls.Add(this.search_name);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(994, 34);
-            this.panel4.TabIndex = 2;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 33);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(994, 1);
-            this.panel5.TabIndex = 44;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 7);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "사원번호";
-            // 
-            // search_empno
-            // 
-            this.search_empno.Location = new System.Drawing.Point(62, 3);
-            this.search_empno.Name = "search_empno";
-            this.search_empno.Size = new System.Drawing.Size(100, 21);
-            this.search_empno.TabIndex = 43;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(168, 7);
-            this.label34.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(29, 12);
-            this.label34.TabIndex = 38;
-            this.label34.Text = "성명";
-            // 
-            // search_name
-            // 
-            this.search_name.Location = new System.Drawing.Point(203, 3);
-            this.search_name.Name = "search_name";
-            this.search_name.Size = new System.Drawing.Size(100, 21);
-            this.search_name.TabIndex = 41;
-            // 
             // bas_empno
             // 
             this.bas_empno.DataPropertyName = "bas_empno";
@@ -739,6 +683,62 @@
             this.status.Name = "status";
             this.status.Visible = false;
             this.status.Width = 54;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.search_empno);
+            this.panel4.Controls.Add(this.label34);
+            this.panel4.Controls.Add(this.search_name);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(994, 34);
+            this.panel4.TabIndex = 2;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 33);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(994, 1);
+            this.panel5.TabIndex = 44;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "사원번호";
+            // 
+            // search_empno
+            // 
+            this.search_empno.Location = new System.Drawing.Point(62, 3);
+            this.search_empno.Name = "search_empno";
+            this.search_empno.Size = new System.Drawing.Size(100, 21);
+            this.search_empno.TabIndex = 43;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(168, 7);
+            this.label34.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(29, 12);
+            this.label34.TabIndex = 38;
+            this.label34.Text = "성명";
+            // 
+            // search_name
+            // 
+            this.search_name.Location = new System.Drawing.Point(203, 3);
+            this.search_name.Name = "search_name";
+            this.search_name.Size = new System.Drawing.Size(100, 21);
+            this.search_name.TabIndex = 41;
             // 
             // UserControl1
             // 

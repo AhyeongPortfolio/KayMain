@@ -36,7 +36,7 @@ namespace KaySub028
             InitializeComponent();
 
             //dataGridView2.SelectionChanged += DataList_SelectionChanged;
-            dataGridView1.ReadOnly = true;
+            //dataGridView1.ReadOnly = true;
 
         }
 
@@ -49,7 +49,7 @@ namespace KaySub028
             qt_cal_date1.Value = System.DateTime.Now.AddYears(-1);
             qt_cal_date2.Value = System.DateTime.Now;
             last_button_status = Utility.SetFuncBtn(MainBtn, "0");
-            Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
+            //Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
         }
         #endregion
         #region 기능버튼(조회) Click
@@ -60,48 +60,29 @@ namespace KaySub028
         {
             Utility.BusyIndicator(true);
 
-            Dictionary<string, double> slice = new Dictionary<string, double>();
+            Dictionary<string, double> slice = new Dictionary<string, double>(); //재직인원
+            Dictionary<string, double> slice2 = new Dictionary<string, double>(); //입사인원
+            Dictionary<string, double> slice3 = new Dictionary<string, double>(); //퇴사인원
+
             int rowIdx = 0;
             int hap = 0;
-            DataGridViewRow row;
-            DataSet tenure = new DataSet();
-            DataSet join = new DataSet();
-            DataSet leave = new DataSet();
+
             //--DB Handling(Start)-------------------------------------
             try
-            {
-                
+            {                
                 using (con = Utility.SetOracleConnection())
                 {
-                    int lastday = DateTime.DaysInMonth(qt_cal_date2.Value.Year, qt_cal_date2.Value.Month);
-
-                    OracleCommand cmd = con.CreateCommand();
-                    if (radiMonth.Checked)
-                    {
-                        cmd.CommandText = SQLStatement.SelectSQL;
-                        cmd.BindByName = true;
-                        cmd.Parameters.Add("cal_date1", OracleDbType.Varchar2).Value = qt_cal_date1.Text + "-01";
-                        cmd.Parameters.Add("cal_date2", OracleDbType.Varchar2).Value = qt_cal_date2.Text + "-" + lastday.ToString();
-                    }
-                    else if (radiYear.Checked)
-                    {
-                        cmd.CommandText = SQLStatement.SelectSQL2;
-                        cmd.BindByName = true;
-                        cmd.Parameters.Add("cal_date1", OracleDbType.Varchar2).Value = qt_cal_date1.Text + "-01-01";
-                        cmd.Parameters.Add("cal_date2", OracleDbType.Varchar2).Value = qt_cal_date2.Text + "-12-31";
-                    }
-
-                    OracleDataAdapter da = new OracleDataAdapter(cmd);
-                    da.Fill(tenure);
-
+                    slice = AddDictionary(SQLStatement.SelectSQL, SQLStatement.SelectSQL2, con);
+                    slice2 = AddDictionary(SQLStatement.SelectSQL3, SQLStatement.SelectSQL4, con);
+                    slice3 = AddDictionary(SQLStatement.SelectSQL5, SQLStatement.SelectSQL6, con);
                 }
+                               
 
-
-                    query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
+                query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.ToString());
                 return;
             }
             finally
@@ -110,48 +91,57 @@ namespace KaySub028
                 Utility.BusyIndicator(false);
             }
             //--DB Handling(End)-------------------------------------
-            var recCnt = 
-            Info_Count.Text = recCnt.ToString();
-            if (recCnt == 0)
+            //var recCnt = null;
+            //Info_Count.Text = recCnt.ToString();
+            
+            //this.DataList_SelectionChanged(null, null);   //선택된 첫줄을 Control에 표시하기
+
+            // Chart
+            cartesianChart2.Series.Clear();
+            cartesianChart2.AxisX.Clear();
+            //PieSeries series = new PieSeries();
+            Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0} ({1})", chartPoint.Y, chartPoint.Participation);
+
+            cartesianChart2.Series = new SeriesCollection
             {
-                Info_Message.Text = "조건을 만족하는 자료가 없습니다.";
-            }
-            else
+                new LineSeries
+                {
+                    Title = "재직인원수",
+                    Values = new ChartValues<double>(slice.Values),
+                    DataLabels = true,
+                    LabelPoint = labelPoint
+                }    ,
+                new LineSeries
+                {
+                    Title = "사직인원수",
+                    Values = new ChartValues<double>(slice2.Values),
+                    DataLabels = true,
+                    LabelPoint = labelPoint
+                },
+                new LineSeries
+                {
+                    Title = "입사인원수",
+                    Values = new ChartValues<double>(slice3.Values),
+                    DataLabels = true,
+                    LabelPoint = labelPoint
+                }
+            };
+
+            cartesianChart2.AxisX.Add(new Axis
             {
-                this.DataList_SelectionChanged(null, null);   //선택된 첫줄을 Control에 표시하기
-
-                // Chart
-                cartesianChart2.Series.Clear();
-                cartesianChart2.AxisX.Clear();
-                //PieSeries series = new PieSeries();
-                Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0} ({1})", chartPoint.Y, chartPoint.Participation);
-
-                cartesianChart2.Series = new SeriesCollection
+                Title = "날짜",
+                Labels = slice.Keys.ToList(),
+                Separator = new Separator
                 {
-                    new LineSeries
-                    {
-                        Title = "인원수",
-                        Values = new ChartValues<double>(slice.Values),
-                        DataLabels = true,
-                        LabelPoint = labelPoint
-                    }
-                };
+                    Step = 1,
+                    IsEnabled = false
+                }
+            }) ;
+            
 
-                cartesianChart2.AxisX.Add(new Axis
-                {
-                    Title = "날짜",
-                    Labels = slice.Keys.ToList(),
-                    Separator = new Separator
-                    {
-                        Step = 1,
-                        IsEnabled = false
-                    }
-                }) ;
-                
-
-                cartesianChart2.LegendLocation = LegendLocation.Bottom;
-                Info_Message.Text = "자료가 정상적으로 조회 되었습니다.";
-            }
+            cartesianChart2.LegendLocation = LegendLocation.Bottom;
+            Info_Message.Text = "자료가 정상적으로 조회 되었습니다.";
+            
         }
         #endregion
         #region 기능버튼(입력) Click
@@ -239,6 +229,40 @@ namespace KaySub028
         }
 
 
-   #endregion
+        #endregion
+        #region Dictionary 값추가
+        private Dictionary<string, double> AddDictionary(string sql1, string sql2, OracleConnection con)
+        {
+            int lastday = DateTime.DaysInMonth(qt_cal_date2.Value.Year, qt_cal_date2.Value.Month);
+            Dictionary<string, double> valuePairs = new Dictionary<string, double>();
+            OracleCommand cmd;
+            using (cmd = con.CreateCommand())
+            {
+                if (radiMonth.Checked)
+                {
+                    cmd.CommandText = sql1;
+                    cmd.BindByName = true;
+                    cmd.Parameters.Add("cal_date1", OracleDbType.Varchar2).Value = qt_cal_date1.Text + "-01";
+                    cmd.Parameters.Add("cal_date2", OracleDbType.Varchar2).Value = qt_cal_date2.Text + "-" + lastday.ToString();
+                }
+                else if (radiYear.Checked)
+                {
+                    cmd.CommandText = sql2;
+                    cmd.BindByName = true;
+                    cmd.Parameters.Add("cal_date1", OracleDbType.Varchar2).Value = qt_cal_date1.Text + "-01-01";
+                    cmd.Parameters.Add("cal_date2", OracleDbType.Varchar2).Value = qt_cal_date2.Text + "-12-31";
+                }
+
+                OracleDataReader reader = cmd.ExecuteReader();
+                valuePairs.Clear();
+                while (reader.Read())
+                {
+                    valuePairs.Add(reader["CAL_DATE"].ToString(), double.Parse(reader["BAS_EMPNO"].ToString()));
+                }
+            }
+
+            return valuePairs;
+        }
+        #endregion
     }
 }
