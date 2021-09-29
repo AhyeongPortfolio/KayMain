@@ -62,7 +62,6 @@ namespace KaySub016
             ct_eval_edate.KeyPress += Number_Only_Protect;
             //*----Enter Number Only(END)---------------------------------------           
             dataGridView1.SelectionChanged += DataList_SelectionChanged;
-
         }
         private void UserControl1_Load(object sender, EventArgs e)
         {
