@@ -19,7 +19,7 @@ namespace KaySub016
         #region SELECT
 
         public static string
-            SelectSQL = "SELECT * FROM kay_insa_evalp WHERE eval_sdate = :eval_sdate AND eval_edate = :eval_date";
+            SelectSQL = "SELECT * FROM kay_insa_evalp WHERE eval_year = :eval_year";
         #endregion
 
         #region 추가&수정&삭제

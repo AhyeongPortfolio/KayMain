@@ -21,6 +21,7 @@ namespace KayMain
         public string LoadingPgmId;     // Loading 프로그램 Id
         public string LoadingPgmName;   // Loading 프로그램 이름
         public string UserId;           // 사용자 ID
+        public string UserNm;           // 사용자 Name
         public string Dir;              // DLL 폴더위치
         public string Version;          // 프로그램 버전정보
         public string FTP;              // FTP 서버 정보
@@ -118,6 +119,7 @@ namespace KayMain
 
             type.GetProperty("MainBtn")?.SetValue(uc, button);
             type.GetProperty("UserId")?.SetValue(uc, UserId);
+            type.GetProperty("UserNm")?.SetValue(uc, UserNm);
             type.GetProperty("Info_Count")?.SetValue(uc, info_count);
             type.GetProperty("Info_Message")?.SetValue(uc, info_message);
         }

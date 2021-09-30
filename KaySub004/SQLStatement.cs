@@ -51,19 +51,7 @@ namespace KaySub004
                             ,:BAS_ACC_BANK  ,:BAS_ACC_NAME   ,:BAS_ACC_NO  ,:BAS_CONT      ,:BAS_RMK
                             ,:DATASYS2      ,:DATASYS3      ,:DATASYS4     ,:BAS_EADDR)";
 
-        //*---로그인 관리-------------------------------------
-        public static string
-              LoginSQL = $@" INSERT INTO KAY_USER
-                              ( USER_ID                             ,USER_NAME                              ,USER_PSWD
-                               ,USER_TYPE                               ,USER_PSWD_DAT                               ,USER_EMAIL                               
-                               ,DATASYS2                               ,DATASYS3                                     ,DATASYS4
-                               ) VALUES
-                             ( 
-                                 '{System.DateTime.Now.ToString("yyyy")}'  + IPSA_SEQ_KAY.CURRVAL  ,:USER_NAME_KAY    ,:USER_PSWD
-                                ,'4'                          ,sysdate                                       ,:USER_EMAIL                                
-                                ,'A'                                   ,:DATASYS3                                     ,:DATASYS4
-                             )"; 
-                
+        //*---로그인은 트리거로 관리함----               
 
         //*---이미지 추가-------------------------------------
         public static string

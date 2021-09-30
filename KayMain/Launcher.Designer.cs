@@ -103,7 +103,7 @@ namespace KayMain
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 73F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
             this.tableLayoutPanel3.Controls.Add(this.info_count, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.info_pgmid, 5, 0);
             this.tableLayoutPanel3.Controls.Add(this.label5, 4, 0);
@@ -136,7 +136,7 @@ namespace KayMain
             this.info_pgmid.AutoSize = true;
             this.info_pgmid.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.info_pgmid.ForeColor = System.Drawing.Color.White;
-            this.info_pgmid.Location = new System.Drawing.Point(715, 6);
+            this.info_pgmid.Location = new System.Drawing.Point(714, 6);
             this.info_pgmid.Name = "info_pgmid";
             this.info_pgmid.Size = new System.Drawing.Size(57, 12);
             this.info_pgmid.TabIndex = 5;
@@ -148,7 +148,7 @@ namespace KayMain
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(630, 6);
+            this.label5.Location = new System.Drawing.Point(629, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 12);
             this.label5.TabIndex = 4;
@@ -200,6 +200,7 @@ namespace KayMain
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Launcher";
             this.Text = "Launcher";
+            this.Load += new System.EventHandler(this.Launcher_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);

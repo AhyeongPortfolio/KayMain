@@ -15,7 +15,7 @@ namespace KaySub016
     /// <summary>
     /// **********************************************************************
     /// --Project             : 인사관리시스템(ver2)
-    /// --Program name        : 업무평가항목 및 기준 관리
+    /// --Program name        : 업무평가진행 관리
     /// --최근작성 정보
     /// 1. 2021-09-29              권아영             신규생성
     /// **********************************************************************
@@ -40,7 +40,6 @@ namespace KaySub016
         public UserControl1()
         {
             InitializeComponent();
-
             //*----Value Changed Event Handler(Start)---------------------------
             ct_eval_year.TextChanged += InputData_TextChanged;
             ct_eval_no.TextChanged += InputData_TextChanged;
@@ -66,10 +65,7 @@ namespace KaySub016
         private void UserControl1_Load(object sender, EventArgs e)
         {
             //*---날짜 초기화----------------------------------------------------
-            DateTime MonthFirstDay = DateTime.Now.AddDays(1 - DateTime.Now.Day);
-            DateTime MonthLastDay = MonthFirstDay.Date.AddMonths(1).AddDays(-1);
-            qt_eval_edate.Value = MonthFirstDay.AddYears(-1);
-            qt_eval_sdate.Value = MonthLastDay;
+            
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "1");
             Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
@@ -94,8 +90,7 @@ namespace KaySub016
                 OracleCommand cmd = con.CreateCommand();
                 cmd.CommandText = SQLStatement.SelectSQL;
                 cmd.BindByName = true;
-                cmd.Parameters.Add("eval_sdate", OracleDbType.Varchar2).Value = Utility.FormatDateR(qt_eval_sdate.Text);
-                cmd.Parameters.Add("eval_date", OracleDbType.Varchar2).Value = Utility.FormatDateR(qt_eval_edate.Text);
+                cmd.Parameters.Add("eval_year", OracleDbType.Varchar2).Value = "%" + qt_eval_year.Text + "%";
                 OracleDataReader dr = cmd.ExecuteReader();
                 query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
                 while (dr.Read())

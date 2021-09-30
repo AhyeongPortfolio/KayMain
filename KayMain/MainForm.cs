@@ -65,8 +65,8 @@ namespace KayMain
             DialogResult result =  new Login(this).ShowDialog(); //this로 의존성 생성
             if(result != DialogResult.OK)
             {
-                this.Close();
-            }
+                Environment.Exit(0);
+            }            
             //폼 설정
             MainMenu_Creation();
             
@@ -284,6 +284,7 @@ namespace KayMain
 
             type.GetProperty("MainBtn")?.SetValue(uc, button);
             type.GetProperty("UserId")?.SetValue(uc, UserId);
+            type.GetProperty("UserNm")?.SetValue(uc, UserNm);
             type.GetProperty("Info_Count")?.SetValue(uc, info_count);
             type.GetProperty("Info_Message")?.SetValue(uc, info_message);
         }

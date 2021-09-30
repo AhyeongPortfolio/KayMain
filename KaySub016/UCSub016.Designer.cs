@@ -38,31 +38,29 @@ namespace KaySub016
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panData = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.qt_eval_sdate = new System.Windows.Forms.DateTimePicker();
-            this.qt_eval_edate = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.ct_eval_edate = new System.Windows.Forms.MaskedTextBox();
+            this.ct_eval_sdate = new System.Windows.Forms.MaskedTextBox();
+            this.ct_eval_period = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ct_eval_no = new System.Windows.Forms.TextBox();
+            this.ct_eval_year = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.ct_eval_year = new System.Windows.Forms.TextBox();
-            this.ct_eval_no = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.ct_eval_period = new System.Windows.Forms.MaskedTextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.eval_year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eval_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eval_period = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eval_sdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eval_edate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ct_eval_sdate = new System.Windows.Forms.MaskedTextBox();
-            this.ct_eval_edate = new System.Windows.Forms.MaskedTextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.qt_eval_year = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panData.SuspendLayout();
@@ -83,14 +81,14 @@ namespace KaySub016
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1073, 637);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1050, 637);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.Controls.Add(this.panData, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -98,7 +96,7 @@ namespace KaySub016
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1067, 591);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1044, 591);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panData
@@ -114,10 +112,95 @@ namespace KaySub016
             this.panData.Controls.Add(this.label4);
             this.panData.Controls.Add(this.label3);
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panData.Location = new System.Drawing.Point(643, 3);
+            this.panData.Location = new System.Drawing.Point(733, 3);
             this.panData.Name = "panData";
-            this.panData.Size = new System.Drawing.Size(421, 585);
+            this.panData.Size = new System.Drawing.Size(308, 585);
             this.panData.TabIndex = 0;
+            // 
+            // ct_eval_edate
+            // 
+            this.ct_eval_edate.Location = new System.Drawing.Point(203, 83);
+            this.ct_eval_edate.Mask = "0000-00-00";
+            this.ct_eval_edate.Name = "ct_eval_edate";
+            this.ct_eval_edate.Size = new System.Drawing.Size(90, 21);
+            this.ct_eval_edate.TabIndex = 5;
+            this.ct_eval_edate.ValidatingType = typeof(System.DateTime);
+            // 
+            // ct_eval_sdate
+            // 
+            this.ct_eval_sdate.Location = new System.Drawing.Point(87, 83);
+            this.ct_eval_sdate.Mask = "0000-00-00";
+            this.ct_eval_sdate.Name = "ct_eval_sdate";
+            this.ct_eval_sdate.Size = new System.Drawing.Size(90, 21);
+            this.ct_eval_sdate.TabIndex = 4;
+            this.ct_eval_sdate.ValidatingType = typeof(System.DateTime);
+            // 
+            // ct_eval_period
+            // 
+            this.ct_eval_period.Location = new System.Drawing.Point(87, 59);
+            this.ct_eval_period.Mask = "0000.00.00-0000.00.00";
+            this.ct_eval_period.Name = "ct_eval_period";
+            this.ct_eval_period.Size = new System.Drawing.Size(206, 21);
+            this.ct_eval_period.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(183, 87);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(14, 12);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "~";
+            // 
+            // ct_eval_no
+            // 
+            this.ct_eval_no.Location = new System.Drawing.Point(87, 35);
+            this.ct_eval_no.Name = "ct_eval_no";
+            this.ct_eval_no.Size = new System.Drawing.Size(206, 21);
+            this.ct_eval_no.TabIndex = 2;
+            // 
+            // ct_eval_year
+            // 
+            this.ct_eval_year.Location = new System.Drawing.Point(87, 11);
+            this.ct_eval_year.Name = "ct_eval_year";
+            this.ct_eval_year.Size = new System.Drawing.Size(206, 21);
+            this.ct_eval_year.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(4, 87);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 12);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "평가가능기간";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(4, 62);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 12);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "평가대상기간";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(28, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "평가차수";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(28, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "평가년도";
             // 
             // dataGridView1
             // 
@@ -148,137 +231,9 @@ namespace KaySub016
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(634, 585);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(724, 585);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.qt_eval_edate);
-            this.panel2.Controls.Add(this.qt_eval_sdate);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1067, 34);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 33);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1067, 1);
-            this.panel3.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "평가기간";
-            // 
-            // qt_eval_sdate
-            // 
-            this.qt_eval_sdate.CustomFormat = "yyyy-MM-dd";
-            this.qt_eval_sdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.qt_eval_sdate.Location = new System.Drawing.Point(61, 5);
-            this.qt_eval_sdate.Name = "qt_eval_sdate";
-            this.qt_eval_sdate.Size = new System.Drawing.Size(94, 21);
-            this.qt_eval_sdate.TabIndex = 2;
-            // 
-            // qt_eval_edate
-            // 
-            this.qt_eval_edate.CustomFormat = "yyyy-MM-dd";
-            this.qt_eval_edate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.qt_eval_edate.Location = new System.Drawing.Point(178, 5);
-            this.qt_eval_edate.Name = "qt_eval_edate";
-            this.qt_eval_edate.Size = new System.Drawing.Size(94, 21);
-            this.qt_eval_edate.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(161, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(11, 12);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "-";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "평가년도";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "평가차수";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 114);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 12);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "평가가능기간";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 81);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 12);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "평가대상기간";
-            // 
-            // ct_eval_year
-            // 
-            this.ct_eval_year.Location = new System.Drawing.Point(95, 11);
-            this.ct_eval_year.Name = "ct_eval_year";
-            this.ct_eval_year.Size = new System.Drawing.Size(218, 21);
-            this.ct_eval_year.TabIndex = 1;
-            // 
-            // ct_eval_no
-            // 
-            this.ct_eval_no.Location = new System.Drawing.Point(95, 44);
-            this.ct_eval_no.Name = "ct_eval_no";
-            this.ct_eval_no.Size = new System.Drawing.Size(218, 21);
-            this.ct_eval_no.TabIndex = 2;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(197, 114);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(14, 12);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "~";
-            // 
-            // ct_eval_period
-            // 
-            this.ct_eval_period.Location = new System.Drawing.Point(95, 78);
-            this.ct_eval_period.Mask = "0000.00.00-0000.00.00";
-            this.ct_eval_period.Name = "ct_eval_period";
-            this.ct_eval_period.Size = new System.Drawing.Size(218, 21);
-            this.ct_eval_period.TabIndex = 3;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // eval_year
             // 
@@ -331,23 +286,45 @@ namespace KaySub016
             this.status.Visible = false;
             this.status.Width = 54;
             // 
-            // ct_eval_sdate
+            // panel2
             // 
-            this.ct_eval_sdate.Location = new System.Drawing.Point(95, 110);
-            this.ct_eval_sdate.Mask = "0000-00-00";
-            this.ct_eval_sdate.Name = "ct_eval_sdate";
-            this.ct_eval_sdate.Size = new System.Drawing.Size(100, 21);
-            this.ct_eval_sdate.TabIndex = 4;
-            this.ct_eval_sdate.ValidatingType = typeof(System.DateTime);
+            this.panel2.Controls.Add(this.qt_eval_year);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1044, 34);
+            this.panel2.TabIndex = 1;
             // 
-            // ct_eval_edate
+            // label1
             // 
-            this.ct_eval_edate.Location = new System.Drawing.Point(213, 110);
-            this.ct_eval_edate.Mask = "0000-00-00";
-            this.ct_eval_edate.Name = "ct_eval_edate";
-            this.ct_eval_edate.Size = new System.Drawing.Size(100, 21);
-            this.ct_eval_edate.TabIndex = 5;
-            this.ct_eval_edate.ValidatingType = typeof(System.DateTime);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "평가년도";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 33);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1044, 1);
+            this.panel3.TabIndex = 0;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // qt_eval_year
+            // 
+            this.qt_eval_year.Location = new System.Drawing.Point(62, 5);
+            this.qt_eval_year.Name = "qt_eval_year";
+            this.qt_eval_year.Size = new System.Drawing.Size(100, 21);
+            this.qt_eval_year.TabIndex = 2;
             // 
             // UserControl1
             // 
@@ -356,7 +333,7 @@ namespace KaySub016
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(1073, 637);
+            this.Size = new System.Drawing.Size(1050, 637);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -382,9 +359,6 @@ namespace KaySub016
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker qt_eval_edate;
-        private System.Windows.Forms.DateTimePicker qt_eval_sdate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ct_eval_no;
@@ -400,5 +374,6 @@ namespace KaySub016
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.MaskedTextBox ct_eval_edate;
         private System.Windows.Forms.MaskedTextBox ct_eval_sdate;
+        private System.Windows.Forms.TextBox qt_eval_year;
     }
 }

@@ -6,6 +6,15 @@ using System.Windows.Forms;
 
 namespace KayMain
 {
+    /// <summary>
+    /// **********************************************************************
+    /// --Project             : 인사관리시스템(ver2)
+    /// --Program Name        : 로그인 폼
+    /// --최근작성 정보
+    /// 1. 2021-08-31              권아영             신규생성
+    /// 2. 2021-09-30              권아영             비밀번호 5회 오류 체크
+    /// **********************************************************************
+    /// </summary>
     public partial class Login : Form
     {
         MainForm mainFrm;
@@ -68,9 +77,9 @@ namespace KayMain
                 }
             }
             /*----로그인 인증 (추가 적용 포인트)------------------------------*/
-            /*    1. 비밀번호는 SHA-256 일방향암호화로 관리
-            /*    2. 계정잠김(사용중지) 관리                          
-            /*    3. 계정잠김(비밀번호 5회 오류) 관리                          
+            /*    1. 비밀번호는 SHA-256 일방향암호화로 관리 v
+            /*    2. 계정잠김(사용중지) 관리   v                       
+            /*    3. 계정잠김(비밀번호 5회 오류) 관리       v                   
             /*    4. 계정잠김(장기미접속 사용자) 관리                          
             /*    5. 동일한 아이디로 중복 로그인 불허용 관리                          
             /*    6. 비밀번호 주기적 변경 관리                          
@@ -85,14 +94,60 @@ namespace KayMain
                 cmd.Parameters.Add("user_id", OracleDbType.Varchar2).Value = txtID.Text;
                 cmd.Parameters.Add("user_pswd", OracleDbType.Varchar2).Value = Utility.SHA512(txtPwd.Text);
                 dr = cmd.ExecuteReader();
-                if (!dr.Read())  //사용자 ID, 패스워드가 존재 하지 않으면
+                cmd.Parameters.Clear();  //*----반드시 포함
+
+                if (!dr.Read())  //사용자 ID가 존재 하지 않으면
                 {
-                    MessageBox.Show("아이디 또는 비밀번호가 올바르지 않습니다.", "로그인확인", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MessageBox.Show("아이디가 올바르지 않습니다.", "로그인확인", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     return;
                 }
+
+                if (dr.GetString(3).Equals("Y")) //계정 사용 중지여부 확인
+                {
+                    MessageBox.Show("계정 사용이 중지되었습니다. 관리자에게 문의 부탁드립니다.", "로그인사용중지",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!dr.GetString(1).Equals(Utility.SHA512(txtPwd.Text))) //비밀번호 오류 발생 시
+                {
+                    int cnt = int.Parse(dr.GetString(4));
+                    MessageBox.Show($"비밀번호가 올바르지 않습니다. {cnt + 1}번 오류가 발생했습니다. 5회이상 발생시 계정 사용이 중지됩니다.",
+                        "로그인확인", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    if(cnt < 4)
+                    {
+                        cmd.CommandText = SQLStatement.UpdateSQL;
+                        cmd.BindByName = true;
+                        cmd.Parameters.Add("ip", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
+                        cmd.Parameters.Add("stop", OracleDbType.Varchar2).Value = "N";
+                        cmd.Parameters.Add("user_id", OracleDbType.Varchar2).Value = txtID.Text;
+                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.Clear();  //*----반드시 포함
+                    }
+                    else if(cnt >= 4)
+                    {
+                        cmd.CommandText = SQLStatement.UpdateSQL;
+                        cmd.BindByName = true;
+                        cmd.Parameters.Add("ip", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
+                        cmd.Parameters.Add("stop", OracleDbType.Varchar2).Value = "Y";
+                        cmd.Parameters.Add("user_id", OracleDbType.Varchar2).Value = txtID.Text;
+                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.Clear();  //*----반드시 포함
+                    }
+                    return;
+                }
+                
                 mainFrm.UserId = txtID.Text;
-                mainFrm.UserNm = dr.GetString(0);
+                mainFrm.UserNm = dr.GetString(0);                     
                 mainFrm.Master = dr.GetString(2);
+
+                cmd.CommandText = SQLStatement.UpdateSQL2;
+                cmd.BindByName = true;
+                cmd.Parameters.Add("ip", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
+                cmd.Parameters.Add("lastcon", OracleDbType.Date).Value = DateTime.Today;
+                cmd.Parameters.Add("user_id", OracleDbType.Varchar2).Value = txtID.Text;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();  //*----반드시 포함
             }
             catch (Exception ex)
             {
