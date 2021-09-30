@@ -26,16 +26,13 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 ### -Server
 - Oracle 
 
-
+### -기타
 - [Visual Studio](https://visualstudio.microsoft.com/ko/) -  마이크로소프트 통합 개발 환경(IDE)
 - [live chart](https://lvcharts.net/App/examples/v1/WinForms/start) - Open source data visualization for .Net
-
-제작한 내용은 github에 업로드 되어있음 : [public repository][dill] 
-
-## NUGET
-- Live Chart
 - [Report-viewer](https://docs.microsoft.com/ko-kr/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started?view=sql-server-ver15) - .Net Framework 4.6 이상의 모든 버전에서 사용가능
 
+## Ⅱ) 개발 일정
+2021.08.30 ~ 
 
 ## 개발
 ### 로그인 화면
