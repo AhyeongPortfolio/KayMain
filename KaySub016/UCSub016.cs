@@ -12,14 +12,6 @@ using System.Windows.Forms;
 
 namespace KaySub016
 {
-    /// <summary>
-    /// **********************************************************************
-    /// --Project             : 인사관리시스템(ver2)
-    /// --Program name        : 업무평가진행 관리
-    /// --최근작성 정보
-    /// 1. 2021-09-29              권아영             신규생성
-    /// **********************************************************************
-    /// </summary>
     public partial class UserControl1 : UserControl
     {
         #region 초기설정
@@ -41,31 +33,31 @@ namespace KaySub016
         {
             InitializeComponent();
             //*----Value Changed Event Handler(Start)---------------------------
-            ct_eval_year.TextChanged += InputData_TextChanged;
-            ct_eval_no.TextChanged += InputData_TextChanged;
-            ct_eval_period.TextChanged += InputData_TextChanged;
-            ct_eval_sdate.TextChanged += InputData_TextChanged;
-            ct_eval_edate.TextChanged += InputData_TextChanged;
+            ct_evali_type.TextChanged += InputData_TextChanged;
+            ct_evali_itemno.TextChanged += InputData_TextChanged;
+            ct_evali_item_l.TextChanged += InputData_TextChanged;
+            ct_evali_item_s.TextChanged += InputData_TextChanged;
+            ct_evali_points.TextChanged += InputData_TextChanged;
+            ct_evali_gap.TextChanged += InputData_TextChanged;
             //*----Value Changed Event Handler(END)-----------------------------
             //*----Validated Event Handler(Start)-------------------------------
-            ct_eval_year.Validated += Input_Validation_Check;
-            ct_eval_no.Validated += Input_Validation_Check;
-            ct_eval_period.Validated += Input_Validation_Check;
-            ct_eval_sdate.Validated += Input_Validation_Check;
-            ct_eval_edate.Validated += Input_Validation_Check;
+            ct_evali_type.Validated += Input_Validation_Check;
+            ct_evali_itemno.Validated += Input_Validation_Check;
+            ct_evali_item_l.Validated += Input_Validation_Check;
+            ct_evali_item_s.Validated += Input_Validation_Check;
+            ct_evali_points.Validated += Input_Validation_Check;
+            ct_evali_gap.Validated += Input_Validation_Check;
             //*----Validated Event Handler(END)---------------------------------
             //*----Enter Number Only(Start)-------------------------------------
-            ct_eval_year.KeyPress += Number_Only_Protect;
-            ct_eval_period.KeyPress += Number_Only_Protect;
-            ct_eval_sdate.KeyPress += Number_Only_Protect;
-            ct_eval_edate.KeyPress += Number_Only_Protect;
+            ct_evali_points.KeyPress += Number_Only_Protect;
+            ct_evali_gap.KeyPress += Number_Only_Protect;
             //*----Enter Number Only(END)---------------------------------------           
             dataGridView1.SelectionChanged += DataList_SelectionChanged;
         }
         private void UserControl1_Load(object sender, EventArgs e)
         {
             //*---날짜 초기화----------------------------------------------------
-            
+
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "1");
             Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
@@ -90,18 +82,22 @@ namespace KaySub016
                 OracleCommand cmd = con.CreateCommand();
                 cmd.CommandText = SQLStatement.SelectSQL;
                 cmd.BindByName = true;
-                cmd.Parameters.Add("eval_year", OracleDbType.Varchar2).Value = "%" + qt_eval_year.Text + "%";
+                cmd.Parameters.Add("evali_type", OracleDbType.Varchar2).Value = "%" + qt_evali_type.Text + "%";
                 OracleDataReader dr = cmd.ExecuteReader();
                 query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
                 while (dr.Read())
                 {
                     rowIdx = dataGridView1.Rows.Add();
                     row = dataGridView1.Rows[rowIdx];
-                    row.Cells["EVAL_YEAR"].Value = dr["EVAL_YEAR"].ToString();
-                    row.Cells["EVAL_NO"].Value = dr["EVAL_NO"].ToString();
-                    row.Cells["EVAL_PERIOD"].Value = dr["EVAL_PERIOD"].ToString();
-                    row.Cells["EVAL_SDATE"].Value = Utility.FormatDate(dr["EVAL_SDATE"].ToString());
-                    row.Cells["EVAL_EDATE"].Value = Utility.FormatDate(dr["EVAL_EDATE"].ToString());
+                    row.Cells["evali_type"].Value = dr["evali_type"].ToString();
+                    row.Cells["evali_itemno"].Value = dr["evali_itemno"].ToString();
+                    row.Cells["evali_item_l"].Value = dr["evali_item_l"].ToString();
+                    row.Cells["evali_item_s"].Value = dr["evali_item_s"].ToString();
+                    row.Cells["evali_points"].Value = dr["evali_points"].ToString();
+                    row.Cells["evali_gap"].Value = dr["evali_gap"].ToString();
+
+                    row.Cells["Key1"].Value = dr["evali_type"].ToString();
+                    row.Cells["Key2"].Value = dr["evali_itemno"].ToString();
 
                     row.Cells["status"].Value = "";
                 }
@@ -156,7 +152,7 @@ namespace KaySub016
             dataGridView1.Rows[rowIdx].Cells["status"].Value = "A";
             //---추가된 Row로 Focus 이동-------------------------------- 
             Utility.SetFocusingDataGridView(dataGridView1, rowIdx);
-            ct_eval_year.Focus();
+            ct_evali_type.Focus();
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "3");
 
@@ -206,8 +202,8 @@ namespace KaySub016
                     OracleCommand cmd = con.CreateCommand();
                     cmd.BindByName = true;
                     cmd.CommandText = SQLStatement.DeleteSQL;
-                    cmd.Parameters.Add("eval_year", OracleDbType.Varchar2).Value = row.Cells["eval_year"].Value;
-                    cmd.Parameters.Add("eval_no", OracleDbType.Varchar2).Value = row.Cells["eval_no"].Value;
+                    cmd.Parameters.Add("Key1", OracleDbType.Varchar2).Value = row.Cells["Key1"].Value;
+                    cmd.Parameters.Add("Key2", OracleDbType.Varchar2).Value = row.Cells["Key2"].Value;
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -256,11 +252,12 @@ namespace KaySub016
                     {
                         cmd.CommandText = SQLStatement.UpdateSQL;
                     }
-                    cmd.Parameters.Add("EVAL_YEAR", OracleDbType.Varchar2).Value = row.Cells["EVAL_YEAR"].Value;
-                    cmd.Parameters.Add("EVAL_NO", OracleDbType.Varchar2).Value = row.Cells["EVAL_NO"].Value;
-                    cmd.Parameters.Add("EVAL_PERIOD", OracleDbType.Varchar2).Value = row.Cells["EVAL_PERIOD"].Value;
-                    cmd.Parameters.Add("EVAL_SDATE", OracleDbType.Varchar2).Value = Utility.FormatDateR(row.Cells["EVAL_SDATE"].Value.ToString());
-                    cmd.Parameters.Add("EVAL_EDATE", OracleDbType.Varchar2).Value = Utility.FormatDateR(row.Cells["EVAL_EDATE"].Value.ToString());
+                    cmd.Parameters.Add("EVALI_TYPE", OracleDbType.Varchar2).Value = row.Cells["evali_type"].Value;
+                    cmd.Parameters.Add("EVALI_ITMENO", OracleDbType.Varchar2).Value = row.Cells["evali_itemno"].Value;
+                    cmd.Parameters.Add("EVALI_ITEM_L", OracleDbType.Varchar2).Value = row.Cells["evali_item_l"].Value;
+                    cmd.Parameters.Add("EVALI_ITEM_S", OracleDbType.Varchar2).Value = row.Cells["evali_item_s"].Value.ToString();
+                    cmd.Parameters.Add("EVALI_POINTS", OracleDbType.Int32).Value = int.Parse(row.Cells["evali_points"].Value.ToString());
+                    cmd.Parameters.Add("EVALI_GAP", OracleDbType.Int32).Value = int.Parse(row.Cells["evali_gap"].Value.ToString());
                     cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
                     cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
 
@@ -283,6 +280,8 @@ namespace KaySub016
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (row.Cells["status"].Value.Equals("")) continue;
+                row.Cells["Key1"].Value = row.Cells["evali_type"].Value;
+                row.Cells["Key2"].Value = row.Cells["evali_no"].Value;
                 row.Cells["status"].Value = "";
             }
             Info_Message.Text = "자료가 정상적으로 저장 되었습니다.";
@@ -370,53 +369,63 @@ namespace KaySub016
 
             dataGridView1.SelectedRows[0].ErrorText = "";
             //*---------------------------------------------------------------------------------------------------------
-            if (string.IsNullOrEmpty(ct_eval_year.Text))
+            if (string.IsNullOrEmpty(ct_evali_type.Text))
             {
-                SetError(ct_eval_year, "평가년도를 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+                SetError(ct_evali_type, "평가표유형을 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
             }
             else
             {
-                ResetError(ct_eval_year, errorProvider1);
+                ResetError(ct_evali_type, errorProvider1);
             }
 
             //*---------------------------------------------------------------------------------------------------------
-            if (string.IsNullOrEmpty(ct_eval_no.Text))
+            if (string.IsNullOrEmpty(ct_evali_itemno.Text))
             {
-                SetError(ct_eval_no, "평가차수를 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+                SetError(ct_evali_itemno, "항목번호를 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
             }
             else
             {
-                ResetError(ct_eval_no, errorProvider1);
+                ResetError(ct_evali_itemno, errorProvider1);
             }
 
             //*---------------------------------------------------------------------------------------------------------
-            if (string.IsNullOrEmpty(ct_eval_period.Text))
+            if (string.IsNullOrEmpty(ct_evali_item_l.Text))
             {
-                SetError(ct_eval_period, "평가대상기간을 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+                SetError(ct_evali_item_l, "대항목을 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
             }
             else
             {
-                ResetError(ct_eval_period, errorProvider1);
+                ResetError(ct_evali_item_l, errorProvider1);
             }
 
             //*---------------------------------------------------------------------------------------------------------
-            if (string.IsNullOrEmpty(ct_eval_sdate.Text))
+            if (string.IsNullOrEmpty(ct_evali_item_s.Text))
             {
-                SetError(ct_eval_sdate, "평가가능기간(시작일)을 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+                SetError(ct_evali_item_s, "소항목을 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
             }
             else
             {
-                ResetError(ct_eval_sdate, errorProvider1);
+                ResetError(ct_evali_item_s, errorProvider1);
             }
 
             //*---------------------------------------------------------------------------------------------------------
-            if (string.IsNullOrEmpty(ct_eval_edate.Text))
+            if (string.IsNullOrEmpty(ct_evali_points.Text))
             {
-                SetError(ct_eval_edate, "평가가능기간(종료일)을 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+                SetError(ct_evali_points, "배점을 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
             }
             else
             {
-                ResetError(ct_eval_edate, errorProvider1);
+                ResetError(ct_evali_points, errorProvider1);
+            }
+
+            //*---------------------------------------------------------------------------------------------------------
+            if (string.IsNullOrEmpty(ct_evali_gap.Text))
+            {
+                SetError(ct_evali_gap, "평점간격을 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+            }
+            else
+            {
+                ResetError(ct_evali_gap, errorProvider1);
             }
         }
         private void SetError(Control ctl, String errMsg, DataGridViewRow row, ErrorProvider errProvider)
@@ -443,6 +452,5 @@ namespace KaySub016
             }
         }
         #endregion
-
     }
 }

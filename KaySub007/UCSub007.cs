@@ -159,12 +159,17 @@ namespace KaySub007
                 dataGridView2.Rows.Insert(rowIdx);
             }
             dataGridView2.Rows[rowIdx].Cells["status"].Value = "A";
-            DataGridViewRow selectRow = dataGridView1.CurrentRow;
-            ct_edu_empno.Text = selectRow.Cells["bas_empno"].Value.ToString();                 
-
             //---추가된 Row로 Focus 이동-------------------------------- 
             Utility.SetFocusingDataGridView(dataGridView2, rowIdx);
             ct_edu_schnm.Focus();
+
+            //*--사원번호 리셋------------------------------------------
+            var rowIdx2 = dataGridView1.CurrentRow == null ? 0 : dataGridView1.CurrentRow.Index;
+            if (dataGridView1.Rows.Count == 0) ct_edu_empno.ReadOnly = false;
+            else ct_edu_empno.ReadOnly = true;
+
+            ct_edu_empno.Text = dataGridView1.Rows[rowIdx2].Cells["bas_empno"].Value.ToString();
+
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "3");
         }

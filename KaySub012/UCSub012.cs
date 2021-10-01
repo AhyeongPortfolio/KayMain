@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using KayLibrary;
+using System.IO;
 
 namespace KaySub012
 {
@@ -388,6 +389,21 @@ namespace KaySub012
                 }
 
                 dr.Close();
+                
+
+                cmd = con.CreateCommand();
+                cmd.BindByName = true;
+                cmd.CommandText = SQLStatement.SelectPic;
+                cmd.Parameters.Add("empno", OracleDbType.Varchar2).Value = ct_bas_empno.Text;
+                OracleDataReader dr2 = cmd.ExecuteReader();
+
+                if (dr2.Read())
+                {
+                    byte[] byteBLOBData = new byte[0];
+                    byteBLOBData = (byte[])dr2["uimg_img"];
+                    MemoryStream stmBLOBData = new MemoryStream(byteBLOBData);
+                    pictureBox1.Image = Image.FromStream(stmBLOBData);
+                }
             }
             catch (Exception ex)
             {

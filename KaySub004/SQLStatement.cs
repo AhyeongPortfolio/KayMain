@@ -31,6 +31,9 @@ namespace KaySub004
                             bas.bas_empno LIKE :bas_empno 
                             AND bas.bas_name LIKE :bas_name
                           ";
+        public static string
+            SelectSQLImg = @"SELECT uimg_img FROM kay_insa_uimg
+                           WHERE uimg_empno = :empno";
 
         #endregion
         #region 추가

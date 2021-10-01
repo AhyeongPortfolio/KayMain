@@ -112,6 +112,11 @@ namespace KaySub012
                           WHERE FORL_EMPNO = :bas_empno
                             ";
 
+
+        //*---사진 조회
+        public static string
+            SelectPic = @"SELECT uimg_img FROM kay_insa_uimg
+                           WHERE uimg_empno = :empno";
         #region SAMPLE
         public static string
             SelectSQL2 = @"

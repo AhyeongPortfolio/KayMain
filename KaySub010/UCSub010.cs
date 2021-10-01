@@ -145,8 +145,6 @@ namespace KaySub010
                 dataGridView2.Rows.Insert(rowIdx);
             }
             dataGridView2.Rows[rowIdx].Cells["status"].Value = "A";
-            DataGridViewRow selectRow = dataGridView1.CurrentRow;
-            ct_lic_empno.Text = selectRow.Cells["bas_empno"].Value.ToString();
 
             //---추가된 Row로 Focus 이동-------------------------------- 
             Utility.SetFocusingDataGridView(dataGridView2, rowIdx);
@@ -154,6 +152,14 @@ namespace KaySub010
 
             //---날짜 리셋----------------------------------------------
             //ct_lic_.Text = System.DateTime.Now.ToString("yyyyMMdd");
+
+            //*--사원번호 리셋------------------------------------------
+            var rowIdx2 = dataGridView1.CurrentRow == null ? 0 : dataGridView1.CurrentRow.Index;
+            if (dataGridView1.Rows.Count == 0) ct_lic_empno.ReadOnly = false;
+            else ct_lic_empno.ReadOnly = true;
+
+            ct_lic_empno.Text = dataGridView1.Rows[rowIdx2].Cells["bas_empno"].Value.ToString();
+
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "3");
         }

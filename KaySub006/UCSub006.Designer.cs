@@ -43,13 +43,20 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.ct_fam_rel = new System.Windows.Forms.ComboBox();
+            this.ct_rel = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.ct_fam_name = new System.Windows.Forms.TextBox();
             this.ct_fam_empno = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.empnoSearch = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.nameSearch = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fam_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fam_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,13 +66,6 @@
             this.Key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Key2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Key3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.empnoSearch = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.nameSearch = new System.Windows.Forms.TextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -183,7 +183,7 @@
             this.panData.Controls.Add(this.label8);
             this.panData.Controls.Add(this.panel2);
             this.panData.Controls.Add(this.label7);
-            this.panData.Controls.Add(this.ct_fam_rel);
+            this.panData.Controls.Add(this.ct_rel);
             this.panData.Controls.Add(this.label6);
             this.panData.Controls.Add(this.ct_fam_name);
             this.panData.Controls.Add(this.ct_fam_empno);
@@ -242,13 +242,13 @@
             this.label7.TabIndex = 24;
             this.label7.Text = "생년월일";
             // 
-            // ct_fam_rel
+            // ct_rel
             // 
-            this.ct_fam_rel.FormattingEnabled = true;
-            this.ct_fam_rel.Location = new System.Drawing.Point(228, 27);
-            this.ct_fam_rel.Name = "ct_fam_rel";
-            this.ct_fam_rel.Size = new System.Drawing.Size(100, 20);
-            this.ct_fam_rel.TabIndex = 3;
+            this.ct_rel.FormattingEnabled = true;
+            this.ct_rel.Location = new System.Drawing.Point(228, 27);
+            this.ct_rel.Name = "ct_rel";
+            this.ct_rel.Size = new System.Drawing.Size(100, 20);
+            this.ct_rel.TabIndex = 3;
             // 
             // label6
             // 
@@ -319,6 +319,66 @@
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(538, 266);
             this.dataGridView2.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.empnoSearch);
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.nameSearch);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(994, 34);
+            this.panel3.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 33);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(994, 1);
+            this.panel5.TabIndex = 53;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 51;
+            this.label1.Text = "사원번호";
+            // 
+            // empnoSearch
+            // 
+            this.empnoSearch.Location = new System.Drawing.Point(62, 2);
+            this.empnoSearch.Name = "empnoSearch";
+            this.empnoSearch.Size = new System.Drawing.Size(100, 21);
+            this.empnoSearch.TabIndex = 52;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(168, 6);
+            this.label9.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.TabIndex = 47;
+            this.label9.Text = "성명";
+            // 
+            // nameSearch
+            // 
+            this.nameSearch.Location = new System.Drawing.Point(203, 2);
+            this.nameSearch.Name = "nameSearch";
+            this.nameSearch.Size = new System.Drawing.Size(100, 21);
+            this.nameSearch.TabIndex = 50;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // fam_empno
             // 
@@ -392,66 +452,6 @@
             this.Key3.Visible = false;
             this.Key3.Width = 58;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.empnoSearch);
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.nameSearch);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(994, 34);
-            this.panel3.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 33);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(994, 1);
-            this.panel5.TabIndex = 53;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 51;
-            this.label1.Text = "사원번호";
-            // 
-            // empnoSearch
-            // 
-            this.empnoSearch.Location = new System.Drawing.Point(62, 2);
-            this.empnoSearch.Name = "empnoSearch";
-            this.empnoSearch.Size = new System.Drawing.Size(100, 21);
-            this.empnoSearch.TabIndex = 52;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(168, 6);
-            this.label9.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 12);
-            this.label9.TabIndex = 47;
-            this.label9.Text = "성명";
-            // 
-            // nameSearch
-            // 
-            this.nameSearch.Location = new System.Drawing.Point(203, 2);
-            this.nameSearch.Name = "nameSearch";
-            this.nameSearch.Size = new System.Drawing.Size(100, 21);
-            this.nameSearch.TabIndex = 50;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -496,7 +496,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox ct_fam_rel;
+        private System.Windows.Forms.ComboBox ct_rel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox ct_fam_name;
         private System.Windows.Forms.TextBox ct_fam_empno;
