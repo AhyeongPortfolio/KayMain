@@ -256,7 +256,7 @@ namespace KaySub016
                     cmd.Parameters.Add("EVALI_ITMENO", OracleDbType.Varchar2).Value = row.Cells["evali_itemno"].Value;
                     cmd.Parameters.Add("EVALI_ITEM_L", OracleDbType.Varchar2).Value = row.Cells["evali_item_l"].Value;
                     cmd.Parameters.Add("EVALI_ITEM_S", OracleDbType.Varchar2).Value = row.Cells["evali_item_s"].Value.ToString();
-                    cmd.Parameters.Add("EVALI_POINTS", OracleDbType.BinaryFloat).Value = int.Parse(row.Cells["evali_points"].Value.ToString());
+                    cmd.Parameters.Add("EVALI_POINTS", OracleDbType.Int16).Value = int.Parse(row.Cells["evali_points"].Value.ToString());
                     cmd.Parameters.Add("EVALI_GAP", OracleDbType.Int16).Value = int.Parse(row.Cells["evali_gap"].Value.ToString());
                     cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
                     cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
