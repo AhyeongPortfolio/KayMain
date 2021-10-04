@@ -35,10 +35,13 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 2021.08.30 ~ 
 
 ## Ⅲ) 주요기능 
-.dll 사용
+### C#
+>.dll 사용
+ 중복기능의 함수화 및 Library 생성
+ 그리드뷰와 컨트롤 바인딩
+ 
 
-
-##Ⅳ) UI/UX
+## Ⅳ) UI/UX
 ### 로그인 화면
 ![image](https://user-images.githubusercontent.com/50813232/135425669-5d6c39fb-8e2a-4fd2-9002-c6faa08d6a3a.png)
 ### 메인화면
@@ -72,19 +75,17 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 
 
 ## Ⅴ)  프로젝트 구현  기술
-> -- 주민번호: 양방향 암호화(AES128 사용)
+>  주민번호, 비밀번호 암호화
 
--- 실제 DB에 저장된 주민번호 모습
+ㅡ 주민번호 : 양방향 암호화(AES126)_실제 DB에 저장된 주민번호 모습
 ![image](https://user-images.githubusercontent.com/50813232/135437113-a8e82a6e-6261-4af0-a2ac-2e2cd31087bb.png)
-
-
-> -- 신규추가 할 때, 계정 생성하는 트리거 생성 
-
--- 비밀번호 : 일방향(SHA526)암호화
+ㅡ 비밀번호 : 일방향(SHA526)암호화
 ![image](https://user-images.githubusercontent.com/50813232/135438275-6551a4a8-b118-4f59-9720-272cfdc96d52.png)
 
 
-> -- 트리거 사용(예제 코드)
+> 신규추가 할 때, 계정 생성하는 트리거 생성 
+
+ㅡ트리거 사용(예제 코드)
 ```
 create or replace TRIGGER TRI_Name
 AFTER INSERT ON TableName1
