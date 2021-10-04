@@ -252,14 +252,14 @@ namespace KaySub016
                     {
                         cmd.CommandText = SQLStatement.UpdateSQL;
                     }
-                    cmd.Parameters.Add("EVALI_TYPE", OracleDbType.Varchar2).Value = row.Cells["evali_type"].Value;
-                    cmd.Parameters.Add("EVALI_ITMENO", OracleDbType.Varchar2).Value = row.Cells["evali_itemno"].Value;
-                    cmd.Parameters.Add("EVALI_ITEM_L", OracleDbType.Varchar2).Value = row.Cells["evali_item_l"].Value;
-                    cmd.Parameters.Add("EVALI_ITEM_S", OracleDbType.Varchar2).Value = row.Cells["evali_item_s"].Value.ToString();
-                    cmd.Parameters.Add("EVALI_POINTS", OracleDbType.Int16).Value = int.Parse(row.Cells["evali_points"].Value.ToString());
-                    cmd.Parameters.Add("EVALI_GAP", OracleDbType.Int16).Value = int.Parse(row.Cells["evali_gap"].Value.ToString());
-                    cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
-                    cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
+                    cmd.Parameters.Add("EVALI_TYPE", OracleDbType.Varchar2, 2).Value = row.Cells["evali_type"].Value;
+                    cmd.Parameters.Add("EVALI_ITEMNO", OracleDbType.Varchar2, 2).Value = row.Cells["evali_itemno"].Value;
+                    cmd.Parameters.Add("EVALI_ITEM_L", OracleDbType.Varchar2, 10).Value = row.Cells["evali_item_l"].Value;
+                    cmd.Parameters.Add("EVALI_ITEM_S", OracleDbType.Varchar2, 50).Value = row.Cells["evali_item_s"].Value.ToString();
+                    cmd.Parameters.Add("EVALI_POINTS", OracleDbType.Decimal,2).Value = Int16.Parse(row.Cells["evali_points"].Value.ToString());
+                    cmd.Parameters.Add("EVALI_GAP", OracleDbType.Decimal,2).Value = Int16.Parse(row.Cells["evali_gap"].Value.ToString());
+                    cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2, 20).Value = UserId + ":" + UserNm;
+                    cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2, 50).Value = Utility.MyIpAddress;
 
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();  //*----반드시 포함
@@ -281,7 +281,7 @@ namespace KaySub016
             {
                 if (row.Cells["status"].Value.Equals("")) continue;
                 row.Cells["Key1"].Value = row.Cells["evali_type"].Value;
-                row.Cells["Key2"].Value = row.Cells["evali_no"].Value;
+                row.Cells["Key2"].Value = row.Cells["evali_itemno"].Value;
                 row.Cells["status"].Value = "";
             }
             Info_Message.Text = "자료가 정상적으로 저장 되었습니다.";
@@ -451,6 +451,17 @@ namespace KaySub016
                 e.Handled = true;
             }
         }
+        #endregion
+        #region ComboBox DropDown Event 
+        private void qt_evali_type_DropDown(object sender, EventArgs e)
+        {
+            //*--콤보박스 채우기-----------------------------------------
+            Utility.SetComboWithCdnm(qt_evali_type, SQLStatement.SelectSQL2);
+
+            //*--콤보박스 미리 선택--------------------------------------
+            qt_evali_type.SelectedIndex = 1;
+        }
+
         #endregion
     }
 }

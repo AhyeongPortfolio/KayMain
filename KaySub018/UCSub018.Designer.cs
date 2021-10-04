@@ -39,6 +39,9 @@ namespace KaySub018
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panData = new System.Windows.Forms.Panel();
+            this.ct_evalm_period = new System.Windows.Forms.TextBox();
+            this.ct_evalm_year = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.ct_evalm_type = new System.Windows.Forms.TextBox();
@@ -67,9 +70,10 @@ namespace KaySub018
             this.evalm_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.evalm_period = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label10 = new System.Windows.Forms.Label();
-            this.ct_evalm_year = new System.Windows.Forms.TextBox();
-            this.ct_evalm_period = new System.Windows.Forms.TextBox();
+            this.Key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Key2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Key3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Key4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panData.SuspendLayout();
@@ -128,6 +132,29 @@ namespace KaySub018
             this.panData.Name = "panData";
             this.panData.Size = new System.Drawing.Size(308, 585);
             this.panData.TabIndex = 0;
+            // 
+            // ct_evalm_period
+            // 
+            this.ct_evalm_period.Location = new System.Drawing.Point(87, 161);
+            this.ct_evalm_period.Name = "ct_evalm_period";
+            this.ct_evalm_period.Size = new System.Drawing.Size(206, 21);
+            this.ct_evalm_period.TabIndex = 19;
+            // 
+            // ct_evalm_year
+            // 
+            this.ct_evalm_year.Location = new System.Drawing.Point(87, 11);
+            this.ct_evalm_year.Name = "ct_evalm_year";
+            this.ct_evalm_year.Size = new System.Drawing.Size(206, 21);
+            this.ct_evalm_year.TabIndex = 18;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 164);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(77, 12);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "평가대상기간";
             // 
             // label9
             // 
@@ -236,7 +263,11 @@ namespace KaySub018
             this.evalm_tor,
             this.evalm_type,
             this.evalm_period,
-            this.status});
+            this.status,
+            this.Key1,
+            this.Key2,
+            this.Key3,
+            this.Key4});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
@@ -395,28 +426,37 @@ namespace KaySub018
             this.status.Visible = false;
             this.status.Width = 54;
             // 
-            // label10
+            // Key1
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 164);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 12);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "평가대상기간";
+            this.Key1.DataPropertyName = "Key1";
+            this.Key1.HeaderText = "evalm_year";
+            this.Key1.Name = "Key1";
+            this.Key1.Visible = false;
+            this.Key1.Width = 95;
             // 
-            // ct_evalm_year
+            // Key2
             // 
-            this.ct_evalm_year.Location = new System.Drawing.Point(87, 11);
-            this.ct_evalm_year.Name = "ct_evalm_year";
-            this.ct_evalm_year.Size = new System.Drawing.Size(206, 21);
-            this.ct_evalm_year.TabIndex = 18;
+            this.Key2.DataPropertyName = "Key2";
+            this.Key2.HeaderText = "evalm_no";
+            this.Key2.Name = "Key2";
+            this.Key2.Visible = false;
+            this.Key2.Width = 84;
             // 
-            // ct_evalm_period
+            // Key3
             // 
-            this.ct_evalm_period.Location = new System.Drawing.Point(87, 161);
-            this.ct_evalm_period.Name = "ct_evalm_period";
-            this.ct_evalm_period.Size = new System.Drawing.Size(206, 21);
-            this.ct_evalm_period.TabIndex = 19;
+            this.Key3.DataPropertyName = "Key3";
+            this.Key3.HeaderText = "evalm_tee";
+            this.Key3.Name = "Key3";
+            this.Key3.Visible = false;
+            this.Key3.Width = 87;
+            // 
+            // Key4
+            // 
+            this.Key4.DataPropertyName = "Key4";
+            this.Key4.HeaderText = "evalm_stage";
+            this.Key4.Name = "Key4";
+            this.Key4.Visible = false;
+            this.Key4.Width = 101;
             // 
             // UserControl1
             // 
@@ -457,14 +497,6 @@ namespace KaySub018
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_year;
-        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_no;
-        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_tee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_stage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_tor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_period;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox qt_evali_item_s;
@@ -473,5 +505,17 @@ namespace KaySub018
         private System.Windows.Forms.TextBox qt_evali_item_l;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_year;
+        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_tee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_stage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_tor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn evalm_period;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Key1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Key2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Key3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Key4;
     }
 }

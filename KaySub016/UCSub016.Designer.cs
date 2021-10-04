@@ -30,11 +30,11 @@ namespace KaySub016
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panData = new System.Windows.Forms.Panel();
@@ -126,9 +126,10 @@ namespace KaySub016
             // ct_evali_type
             // 
             this.ct_evali_type.Location = new System.Drawing.Point(87, 11);
+            this.ct_evali_type.MaxLength = 2;
             this.ct_evali_type.Name = "ct_evali_type";
             this.ct_evali_type.Size = new System.Drawing.Size(206, 21);
-            this.ct_evali_type.TabIndex = 17;
+            this.ct_evali_type.TabIndex = 1;
             // 
             // label9
             // 
@@ -151,34 +152,39 @@ namespace KaySub016
             // ct_evali_gap
             // 
             this.ct_evali_gap.Location = new System.Drawing.Point(87, 135);
+            this.ct_evali_gap.MaxLength = 2;
             this.ct_evali_gap.Name = "ct_evali_gap";
             this.ct_evali_gap.Size = new System.Drawing.Size(206, 21);
-            this.ct_evali_gap.TabIndex = 14;
+            this.ct_evali_gap.TabIndex = 6;
             // 
             // ct_evali_points
             // 
             this.ct_evali_points.Location = new System.Drawing.Point(87, 110);
+            this.ct_evali_points.MaxLength = 2;
             this.ct_evali_points.Name = "ct_evali_points";
             this.ct_evali_points.Size = new System.Drawing.Size(206, 21);
-            this.ct_evali_points.TabIndex = 13;
+            this.ct_evali_points.TabIndex = 5;
             // 
             // ct_evali_item_s
             // 
             this.ct_evali_item_s.Location = new System.Drawing.Point(87, 85);
+            this.ct_evali_item_s.MaxLength = 20;
             this.ct_evali_item_s.Name = "ct_evali_item_s";
             this.ct_evali_item_s.Size = new System.Drawing.Size(206, 21);
-            this.ct_evali_item_s.TabIndex = 12;
+            this.ct_evali_item_s.TabIndex = 4;
             // 
             // ct_evali_item_l
             // 
             this.ct_evali_item_l.Location = new System.Drawing.Point(87, 60);
+            this.ct_evali_item_l.MaxLength = 10;
             this.ct_evali_item_l.Name = "ct_evali_item_l";
             this.ct_evali_item_l.Size = new System.Drawing.Size(206, 21);
-            this.ct_evali_item_l.TabIndex = 11;
+            this.ct_evali_item_l.TabIndex = 3;
             // 
             // ct_evali_itemno
             // 
             this.ct_evali_itemno.Location = new System.Drawing.Point(87, 35);
+            this.ct_evali_itemno.MaxLength = 2;
             this.ct_evali_itemno.Name = "ct_evali_itemno";
             this.ct_evali_itemno.Size = new System.Drawing.Size(206, 21);
             this.ct_evali_itemno.TabIndex = 2;
@@ -242,14 +248,14 @@ namespace KaySub016
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(724, 585);
@@ -258,8 +264,8 @@ namespace KaySub016
             // evali_type
             // 
             this.evali_type.DataPropertyName = "evali_type";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.evali_type.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.evali_type.DefaultCellStyle = dataGridViewCellStyle11;
             this.evali_type.HeaderText = "평가표 유형";
             this.evali_type.Name = "evali_type";
             this.evali_type.Width = 94;
@@ -274,8 +280,8 @@ namespace KaySub016
             // evali_item_l
             // 
             this.evali_item_l.DataPropertyName = "evali_item_l";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.evali_item_l.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.evali_item_l.DefaultCellStyle = dataGridViewCellStyle12;
             this.evali_item_l.HeaderText = "대항목";
             this.evali_item_l.Name = "evali_item_l";
             this.evali_item_l.Width = 66;
@@ -283,8 +289,8 @@ namespace KaySub016
             // evali_item_s
             // 
             this.evali_item_s.DataPropertyName = "evali_item_s";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.evali_item_s.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.evali_item_s.DefaultCellStyle = dataGridViewCellStyle13;
             this.evali_item_s.HeaderText = "소항목";
             this.evali_item_s.Name = "evali_item_s";
             this.evali_item_s.Width = 66;
@@ -292,8 +298,8 @@ namespace KaySub016
             // evali_points
             // 
             this.evali_points.DataPropertyName = "evali_points";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.evali_points.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.evali_points.DefaultCellStyle = dataGridViewCellStyle14;
             this.evali_points.HeaderText = "배점";
             this.evali_points.Name = "evali_points";
             this.evali_points.Width = 54;
@@ -347,6 +353,7 @@ namespace KaySub016
             this.qt_evali_type.Name = "qt_evali_type";
             this.qt_evali_type.Size = new System.Drawing.Size(100, 20);
             this.qt_evali_type.TabIndex = 3;
+            this.qt_evali_type.DropDown += new System.EventHandler(this.qt_evali_type_DropDown);
             // 
             // label1
             // 
