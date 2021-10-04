@@ -98,7 +98,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1000, 714);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1000, 658);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -114,7 +114,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 668F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(994, 668);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(994, 612);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // dataGridView1
@@ -146,7 +146,7 @@
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(718, 662);
+            this.dataGridView1.Size = new System.Drawing.Size(718, 606);
             this.dataGridView1.TabIndex = 0;
             // 
             // cd_grpcd
@@ -281,7 +281,7 @@
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panData.Location = new System.Drawing.Point(727, 3);
             this.panData.Name = "panData";
-            this.panData.Size = new System.Drawing.Size(264, 662);
+            this.panData.Size = new System.Drawing.Size(264, 606);
             this.panData.TabIndex = 10;
             // 
             // label13
@@ -504,7 +504,7 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 661);
+            this.panel3.Location = new System.Drawing.Point(0, 605);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(264, 1);
             this.panel3.TabIndex = 41;
@@ -584,7 +584,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(1000, 714);
+            this.Size = new System.Drawing.Size(1000, 658);
             this.Tag = "UCSub002";
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

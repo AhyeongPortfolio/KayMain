@@ -45,14 +45,14 @@ namespace KaySub006
             //*----Value Changed Event Handler(Start)---------------------------
             ct_fam_empno.TextChanged += InputData_TextChanged;
             ct_fam_name.TextChanged += InputData_TextChanged;
-            ct_fam_rel.TextChanged += InputData_TextChanged;
+            ct_rel.TextChanged += InputData_TextChanged;
             ct_fam_bth.TextChanged += InputData_TextChanged;
             ct_fam_ltg.TextChanged += InputData_TextChanged;
             //*----Value Changed Event Handler(END)-----------------------------
             //*----Validated Event Handler(Start)-------------------------------
             ct_fam_name.Validated += Input_Validation_Check;
             ct_fam_empno.Validated += Input_Validation_Check;
-            ct_fam_rel.Validated += Input_Validation_Check;
+            ct_rel.Validated += Input_Validation_Check;
             //*----Validated Event Handler(END)---------------------------------
             //*----Enter Number Only(Start)-------------------------------------
             ct_fam_bth.KeyPress += Number_Only_Protect;
@@ -66,7 +66,7 @@ namespace KaySub006
         {
             //*----ComboBox 채우기---------------------------------------------
             //*--콤보박스 채우기-----------------------------------------
-            Utility.SetComboWithCdnm(ct_fam_rel, SQLStatement.SelectSQL2);
+            Utility.SetComboWithCdnm(ct_rel, SQLStatement.SelectSQL2);
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "1");
             Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
@@ -141,6 +141,10 @@ namespace KaySub006
         //************************************************************
         public void BtnInsert_Click()
         {
+            var rowIdx2 = dataGridView1.CurrentRow == null ? 0 : dataGridView1.CurrentRow.Index;
+            if (dataGridView1.Rows.Count == 0) ct_fam_empno.ReadOnly = false;
+            else ct_fam_empno.ReadOnly = true;
+
             var rowIdx = dataGridView2.CurrentRow == null ? 0 : dataGridView2.CurrentRow.Index;
 
             if (dataGridView2.Rows.Count == 0)
@@ -158,6 +162,8 @@ namespace KaySub006
             ct_fam_name.Focus();
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "3");
+
+            ct_fam_empno.Text = dataGridView1.Rows[rowIdx2].Cells["bas_empno"].Value.ToString();
         }
         #endregion
         #region 기능버튼(수정) Click
@@ -267,10 +273,10 @@ namespace KaySub006
                     }
 
                     cmd.Parameters.Add("FAM_EMPNO", OracleDbType.Varchar2).Value = row.Cells["fam_empno"].Value;
-                    cmd.Parameters.Add("fam_rel", OracleDbType.Varchar2).Value = Utility.GetCode(row.Cells["fam_rel"].Value.ToString());
+                    cmd.Parameters.Add("fam_rel", OracleDbType.Varchar2).Value = Utility.GetCode(row.Cells["rel"].Value.ToString());
                     cmd.Parameters.Add("fam_name", OracleDbType.Varchar2).Value = row.Cells["fam_name"].Value;
                     cmd.Parameters.Add("fam_ltg", OracleDbType.Varchar2).Value = row.Cells["fam_ltg"].Value;
-                    cmd.Parameters.Add("fam_bth", OracleDbType.Varchar2).Value = Utility.FormatDateR(row.Cells["fam_upp"].Value.ToString());
+                    cmd.Parameters.Add("fam_bth", OracleDbType.Varchar2).Value = Utility.FormatDateR(row.Cells["fam_bth"].Value.ToString());
                     cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
                     cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
 
@@ -399,7 +405,7 @@ namespace KaySub006
                 {
                     rowIdx = dataGridView2.Rows.Add();
                     row = dataGridView2.Rows[rowIdx];
-                    row.Cells["fam_empno"].Value = dr["FAM_EMPNO"].ToString();
+                    row.Cells["fam_empno"].Value = dr["fam_empno"].ToString();
                     row.Cells["rel"].Value = dr["rel"].ToString();
                     row.Cells["fam_name"].Value = dr["fam_name"].ToString();
                     row.Cells["fam_ltg"].Value = dr["fam_ltg"].ToString();
@@ -470,13 +476,13 @@ namespace KaySub006
                 ResetError(ct_fam_name, errorProvider1);
             }
             //*---------------------------------------------------------------------------------------------------------
-            if (string.IsNullOrEmpty(ct_fam_rel.Text))
+            if (string.IsNullOrEmpty(ct_rel.Text))
             {
-                SetError(ct_fam_rel, "가족관계를 반드시 선택하세요", dataGridView2.SelectedRows[0], errorProvider1);
+                SetError(ct_rel, "가족관계를 반드시 선택하세요", dataGridView2.SelectedRows[0], errorProvider1);
             }
             else
             {
-                ResetError(ct_fam_rel, errorProvider1);
+                ResetError(ct_rel, errorProvider1);
             }
 
         }

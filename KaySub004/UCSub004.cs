@@ -3,6 +3,7 @@ using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -95,8 +96,8 @@ namespace KaySub004
             //*----Enter Number Only(END)---------------------------------------
 
             dataGridView1.SelectionChanged += DataList_SelectionChanged;
-
-        }
+            dataGridView1.CellMouseDoubleClick += DataList_CellMouseDoubleClick;
+        }  
         private void UserControl1_Load(object sender, EventArgs e)
         {
             //*--콤보박스 채우기-----------------------------------------
@@ -435,6 +436,13 @@ namespace KaySub004
 
             select_sw = false; //*--Control의 TextChanged 이벤트와의 충돌을 피하기 위해 (Off)
         }
+        private void DataList_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow row;
+            row = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
+            string empno = row.Cells["BAS_EMPNO"].Value.ToString();
+            Image_Find(empno);
+        }
         #endregion
         #region Input Data Validation Check (Validated Event)
         //************************************************************
@@ -589,8 +597,37 @@ namespace KaySub004
             {
                 if (con != null) con.Close();
             }
+        }
 
+        private void Image_Find(string empno)
+        {
+            pictureBox1.Image = null;
+            image_check = 0;
+            try
+            {
+                using(con = Utility.SetOracleConnection())
+                {
+                    OracleCommand cmd = con.CreateCommand();
+                    cmd.BindByName = true;
+                    cmd.CommandText = SQLStatement.SelectSQLImg;
+                    cmd.Parameters.Add("empno", OracleDbType.Varchar2).Value = empno;
+                    OracleDataReader dr = cmd.ExecuteReader();
 
+                    if (dr.Read())
+                    {
+                        byte[] byteBLOBData = new byte[0];
+                        byteBLOBData = (byte[])dr["uimg_img"];
+                        MemoryStream stmBLOBData = new MemoryStream(byteBLOBData);
+                        pictureBox1.Image = Image.FromStream(stmBLOBData);
+                        image_check = 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
         }
 
         #endregion

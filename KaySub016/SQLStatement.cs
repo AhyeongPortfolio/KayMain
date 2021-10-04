@@ -6,58 +6,64 @@ using System.Threading.Tasks;
 
 namespace KaySub016
 {
-    /// <summary>
-    /// **********************************************************************
-    /// --Project             : 인사관리시스템(ver2)
-    /// --Program name        : 업무평가항목 및 기준 관리
-    /// --최근작성 정보
-    /// 1. 2021-09-29              권아영             신규생성
-    /// **********************************************************************
-    /// </summary>
     class SQLStatement
     {
-        #region SELECT
-
+        #region 검색
+        //*---DataGridView1 채우는 용도---------
         public static string
-            SelectSQL = "SELECT * FROM kay_insa_evalp WHERE eval_year = :eval_year";
+            SelectSQL = @"SELECT * FROM kay_insa_evali
+                          WHERE evali_type LIKE :evali_type ";
+
+        //*---콤보박스 채우는 용도-------------
+        public static string
+            SelectSQL2 = @"SELECT DISTINCT evali_type FROM kay_insa_evali";
         #endregion
 
-        #region 추가&수정&삭제
+        #region 추가
         public static string
-            InsertSQL = @"INSERT INTO kay_insa_evalp(EVAL_YEAR
-                                                     ,EVAL_NO
-                                                     ,EVAL_PERIOD
-                                                     ,EVAL_SDATE
-                                                     ,EVAL_EDATE
-                                                     ,DATASYS2
-                                                     ,DATASYS3
-                                                     ,DATASYS4) 
-                                             VALUES (:EVAL_YEAR
-                                                    ,:EVAL_NO
-                                                    ,:EVAL_PERIOD
-                                                    ,:EVAL_SDATE
-                                                    ,:EVAL_EDATE
+            InsertSQL = @"INSERT INTO kay_insa_evalp(EVALI_TYPE
+                                                    ,EVALI_ITMENO
+                                                    ,EVALI_ITEM_L
+                                                    ,EVALI_ITEM_S
+                                                    ,EVALI_POINTS
+                                                    ,EVALI_GAP
+                                                    ,DATASYS2
+                                                    ,DATASYS3
+                                                    ,DATASYS4
+                                                    ) VALUES
+                                                    (:EVALI_TYPE
+                                                    ,:EVALI_ITMENO
+                                                    ,:EVALI_ITEM_L
+                                                    ,:EVALI_ITEM_S
+                                                    ,:EVALI_POINTS
+                                                    ,:EVALI_GAP
                                                     ,'A'
                                                     ,:DATASYS3
                                                     ,:DATASYS4)";
 
+        #endregion
+        #region 수정
+
         public static string
             UpdateSQL = @"UPDATE kay_insa_evalp SET
-                          EVAL_YEAR     = :EVAL_YEAR
-                          ,EVAL_NO      = :EVAL_NO
-                          ,EVAL_PERIOD  = :EVAL_PERIOD
-                          ,EVAL_SDATE   = :EVAL_SDATE
-                          ,EVAL_EDATE   = :EVAL_EDATE
-                          ,DATASYS2     = 'U'
-                          ,DATASYS3     = :DATASYS3
-                          ,DATASYS4    = :DATASYS4";
+                          EVALI_TYPE = :EVALI_TYPE
+                          ,EVALI_ITMENO = :EVALI_ITMENO
+                          ,EVALI_ITEM_L = :EVALI_ITEM_L
+                          ,EVALI_ITEM_S = :EVALI_ITEM_S
+                          ,EVALI_POINTS = :EVALI_POINTS
+                          ,DATASYS2 = 'A'
+                          ,DATASYS3 = :DATASYS3
+                          ,DATASYS4 = :DATASYS4
+                          WHERE EVALI_TYPE = :Key1
+                          AND EVALI_ITMENO = :Key2";
 
-
-        public static string
-            DeleteSQL = @"DELETE FROM kay_insa_evalp
-                          WHERE eval_year = :eval_year
-                          AND eval_no = :eval_no";
         #endregion
+        #region 삭제
+        public static string
+            DeleteSQL = @"DELETE FROM kay_insa_evali 
+                          WHERE evali_type = :Key1 
+                          AND evali_itemno = :Key2";
 
+        #endregion
     }
 }

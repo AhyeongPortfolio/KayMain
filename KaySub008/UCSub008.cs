@@ -160,9 +160,7 @@ namespace KaySub008
                 dataGridView2.Rows.Insert(rowIdx);
             }
             dataGridView2.Rows[rowIdx].Cells["status"].Value = "A";
-            DataGridViewRow selectRow = dataGridView1.CurrentRow;
-            ct_award_empno.Text = selectRow.Cells["bas_empno"].Value.ToString();
-
+            
             //---추가된 Row로 Focus 이동-------------------------------- 
             Utility.SetFocusingDataGridView(dataGridView2, rowIdx);
             ct_award_date.Focus();
@@ -171,6 +169,13 @@ namespace KaySub008
             ct_award_date.Text = System.DateTime.Now.ToString("yyyyMMdd");
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "3");
+
+            //---empno 리셋---------------------------------------------
+            var rowIdx2 = dataGridView1.CurrentRow == null ? 0 : dataGridView1.CurrentRow.Index;
+            if (dataGridView1.Rows.Count == 0) ct_award_empno.ReadOnly = false;
+            else ct_award_empno.ReadOnly = true;
+
+            ct_award_empno.Text = dataGridView1.Rows[rowIdx2].Cells["bas_empno"].Value.ToString();
         }
         #endregion
         #region 기능버튼(수정) Click
