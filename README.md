@@ -34,7 +34,11 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 ## Ⅱ) 개발 일정
 2021.08.30 ~ 
 
-## 개발
+## Ⅲ) 주요기능 
+.dll 사용
+
+
+##Ⅳ) UI/UX
 ### 로그인 화면
 ![image](https://user-images.githubusercontent.com/50813232/135425669-5d6c39fb-8e2a-4fd2-9002-c6faa08d6a3a.png)
 ### 메인화면
@@ -56,21 +60,7 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 (대부분 비슷한 패턴을 가지고 있음)
 - 인사기본정보사항
 ![image](https://user-images.githubusercontent.com/50813232/135439315-e8849d86-ed3a-44ba-8f11-b12af6e00ac1.png)
-- 주민번호: 양방향 암호화(AES128 사용)
--- 실제 DB에 저장된 주민번호 모습
-![image](https://user-images.githubusercontent.com/50813232/135437113-a8e82a6e-6261-4af0-a2ac-2e2cd31087bb.png)
-- 신규추가 할 때, 계정 생성하는 트리거 생성 
--- 비밀번호 : 일방향(SHA526)암호화
-![image](https://user-images.githubusercontent.com/50813232/135438275-6551a4a8-b118-4f59-9720-272cfdc96d52.png)
-```
-create or replace TRIGGER TRI_Name
-AFTER INSERT ON TableName1
-FOR EACH ROW
-BEGIN
-   INSERT INTO TableName2(USER_ID,USER_NAME,USER_PSWD,USER_TYPE,USER_PSWD_DAT,USER_EMAIL) VALUES (:new.TableName1_id,:new.tablename1_name,:new.tablename1_bth,'4',sysdate,:new.tablename1_email);
-   commit;
-END;
-```
+
 
 - 학력사항(가족사항 및 수상경력, 경력사항, 자격면허, 외국어 프로그램과 동일한 패턴으로 제작되어 대표로 하나만 업로드함)
 -- 왼쪽의 그리드에 사원 정보를 띄우고 더블클릭으로 선택 시, 오른쪽 그리드에 표현
@@ -81,6 +71,29 @@ END;
 ![image](https://user-images.githubusercontent.com/50813232/135440007-d193b30e-16ea-49ab-8278-93bc3b44a25d.png)
 
 
+## Ⅴ)  프로젝트 구현  기술
+> -- 주민번호: 양방향 암호화(AES128 사용)
+
+-- 실제 DB에 저장된 주민번호 모습
+![image](https://user-images.githubusercontent.com/50813232/135437113-a8e82a6e-6261-4af0-a2ac-2e2cd31087bb.png)
+
+
+> -- 신규추가 할 때, 계정 생성하는 트리거 생성 
+
+-- 비밀번호 : 일방향(SHA526)암호화
+![image](https://user-images.githubusercontent.com/50813232/135438275-6551a4a8-b118-4f59-9720-272cfdc96d52.png)
+
+
+> -- 트리거 사용(예제 코드)
+```
+create or replace TRIGGER TRI_Name
+AFTER INSERT ON TableName1
+FOR EACH ROW
+BEGIN
+   INSERT INTO TableName2(USER_ID,USER_NAME,USER_PSWD,USER_TYPE,USER_PSWD_DAT,USER_EMAIL) VALUES (:new.TableName1_id,:new.tablename1_name,:new.tablename1_bth,'4',sysdate,:new.tablename1_email);
+   commit;
+END;
+```
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
