@@ -21,13 +21,8 @@ namespace KaySub016
 
         #region 추가
         public static string
-<<<<<<< HEAD
-            InsertSQL = @"INSERT INTO kay_insa_evali(EVALI_TYPE
-                                                    ,EVALI_ITEMNO
-=======
             InsertSQL = @"INSERT INTO kay_insa_evalp(EVALI_TYPE
                                                     ,EVALI_ITMENO
->>>>>>> test
                                                     ,EVALI_ITEM_L
                                                     ,EVALI_ITEM_S
                                                     ,EVALI_POINTS
@@ -37,11 +32,8 @@ namespace KaySub016
                                                     ,DATASYS4
                                                     ) VALUES
                                                     (:EVALI_TYPE
-<<<<<<< HEAD
                                                     ,:EVALI_ITEMNO
-=======
                                                     ,:EVALI_ITMENO
->>>>>>> test
                                                     ,:EVALI_ITEM_L
                                                     ,:EVALI_ITEM_S
                                                     ,:EVALI_POINTS
@@ -52,8 +44,6 @@ namespace KaySub016
 
         #endregion
         #region 수정
-<<<<<<< HEAD
-
         public static string
             UpdateSQL = @"UPDATE kay_insa_evali SET
                           EVALI_TYPE = :EVALI_TYPE
@@ -67,23 +57,6 @@ namespace KaySub016
                           ,DATASYS4 = :DATASYS4
                           WHERE EVALI_TYPE = :Key1
                           AND EVALI_ITMENO = :Key2";
-
-=======
-
-        public static string
-            UpdateSQL = @"UPDATE kay_insa_evalp SET
-                          EVALI_TYPE = :EVALI_TYPE
-                          ,EVALI_ITMENO = :EVALI_ITMENO
-                          ,EVALI_ITEM_L = :EVALI_ITEM_L
-                          ,EVALI_ITEM_S = :EVALI_ITEM_S
-                          ,EVALI_POINTS = :EVALI_POINTS
-                          ,DATASYS2 = 'A'
-                          ,DATASYS3 = :DATASYS3
-                          ,DATASYS4 = :DATASYS4
-                          WHERE EVALI_TYPE = :Key1
-                          AND EVALI_ITMENO = :Key2";
-
->>>>>>> test
         #endregion
         #region 삭제
         public static string

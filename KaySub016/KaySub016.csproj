@@ -33,11 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="KayLibrary">
-<<<<<<< HEAD
-      <HintPath>..\Run\KayLibrary.dll</HintPath>
-=======
       <HintPath>..\KayLib\KayLibrary.dll</HintPath>
->>>>>>> test
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
