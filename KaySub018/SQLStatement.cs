@@ -19,8 +19,26 @@ namespace KaySub018
         #region 검색
         //*---DataGridView1 채우는 용도---------
         public static string
-            SelectSQL = @"SELECT * FROM kay_insa_evalm
-                          WHERE evalm_tor LIKE :evalm_tor";
+            SelectSQL = @"SELECT a.evalm_year ,a.evalm_no ,a.evalm_tee ,a.evalm_stage ,a.evalm_tor
+                                ,a.evalm_type ,a.evalm_period ,b.bas_name as tee_name ,c.bas_name as tor_name
+                         FROM kay_insa_evalm a,
+                              (SELECT bas_name, bas_empno FROM kay_insa_bas) b,
+                              (SELECT bas_name, bas_empno FROM kay_insa_bas) c
+                         WHERE a.evalm_tee = b.bas_empno(+)
+                         AND a.evalm_tor = c.bas_empno(+)
+                         AND a.evalm_year LIKE :evalm_year
+                         AND a.evalm_no LIKE :evalm_no
+                         AND a.evalm_tee LIKE :evalm_tee
+                         AND a.evalm_tor LIKE :evalm_tor
+                         AND a.evalm_type = :evalm_type";
+
+        //*--사원 번호 검색---------------------------------------------------------------------
+        public static string
+            SelectSQL2 = @"SELECT bas_empno FROM kay_insa_bas WHERE bas_name = :bas_name";
+
+        //*--평가 유형 검색----------------------------------------------------------------------
+        public static string
+            SelectSQL3 = @"SELECT DISTINCT evali_type FROM kay_insa_evali";
 
         #endregion
 

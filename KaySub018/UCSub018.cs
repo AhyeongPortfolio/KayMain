@@ -36,7 +36,9 @@ namespace KaySub018
             ct_evalm_year.TextChanged += InputData_TextChanged;
             ct_evalm_no.TextChanged += InputData_TextChanged;
             ct_evalm_tee.TextChanged += InputData_TextChanged;
+            ct_tee_name.TextChanged += InputData_TextChanged;
             ct_evalm_tor.TextChanged += InputData_TextChanged;
+            ct_tor_name.TextChanged += InputData_TextChanged;
             ct_evalm_type.TextChanged += InputData_TextChanged;
             ct_evalm_period.TextChanged += InputData_TextChanged;
             //*----Value Changed Event Handler(END)-----------------------------
@@ -44,8 +46,8 @@ namespace KaySub018
             ct_evalm_year.Validated += Input_Validation_Check;
             ct_evalm_no.Validated += Input_Validation_Check;
             ct_evalm_period.Validated += Input_Validation_Check;
-            ct_evalm_tee.Validated += Input_Validation_Check;
-            ct_evalm_tor.Validated += Input_Validation_Check;
+            ct_tee_name.Validated += Input_Validation_Check;
+            ct_tor_name.Validated += Input_Validation_Check;
             ct_evalm_type.Validated += Input_Validation_Check;
             //*----Validated Event Handler(END)---------------------------------
             //*----Enter Number Only(Start)-------------------------------------
@@ -53,11 +55,24 @@ namespace KaySub018
             ct_evalm_period.KeyPress += Number_Only_Protect;
             //*----Enter Number Only(END)---------------------------------------           
             dataGridView1.SelectionChanged += DataList_SelectionChanged;
+
+            ct_tee_name.Leave += CT_Name_to_Empno;
+            ct_tor_name.Leave += CT_Name_to_Empno;
+            qt_tee_name.Leave += QT_Name_to_Empno;
+            qt_tor_name.Leave += QT_Name_to_Empno;
         }
+
+        
         private void UserControl1_Load(object sender, EventArgs e)
         {
             //*---날짜 초기화----------------------------------------------------
 
+            //*--콤보박스 채우기-----------------------------------------
+            Utility.SetComboWithCdnm(qt_evalm_type, SQLStatement.SelectSQL3);
+            Utility.SetComboWithCdnm(ct_evalm_type, SQLStatement.SelectSQL3);
+            //*--콤보박스 미리 선택--------------------------------------
+            qt_evalm_type.SelectedIndex = 1;
+            ct_evalm_type.SelectedIndex = 1;
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "1");
             Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
@@ -83,6 +98,10 @@ namespace KaySub018
                 cmd.CommandText = SQLStatement.SelectSQL;
                 cmd.BindByName = true;
                 cmd.Parameters.Add("evalm_tor", OracleDbType.Varchar2).Value = "%" + qt_evalm_tor.Text + "%";
+                cmd.Parameters.Add("evalm_tee", OracleDbType.Varchar2).Value = "%" + qt_evalm_tee.Text + "%";
+                cmd.Parameters.Add("evalm_type", OracleDbType.Varchar2).Value = qt_evalm_type.Text;
+                cmd.Parameters.Add("evalm_no", OracleDbType.Varchar2).Value = "%" + qt_evalm_no.Text + "%";
+                cmd.Parameters.Add("evalm_year", OracleDbType.Varchar2).Value = "%" + qt_evalm_year.Text + "%";
                 OracleDataReader dr = cmd.ExecuteReader();
                 query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
                 while (dr.Read())
@@ -96,7 +115,8 @@ namespace KaySub018
                     row.Cells["EVALM_TOR"].Value = dr["EVALM_TOR"].ToString();
                     row.Cells["EVALM_TYPE"].Value = dr["EVALM_TYPE"].ToString();
                     row.Cells["EVALM_PERIOD"].Value = dr["EVALM_PERIOD"].ToString();
-                   
+                    row.Cells["tee_name"].Value = dr["TEE_NAME"].ToString();
+                    row.Cells["tor_name"].Value = dr["TOR_NAME"].ToString();
 
                     row.Cells["Key1"].Value = dr["EVALM_YEAR"].ToString();
                     row.Cells["Key2"].Value = dr["EVALM_NO"].ToString();
@@ -210,7 +230,17 @@ namespace KaySub018
                     cmd.Parameters.Add("Key2", OracleDbType.Varchar2).Value = row.Cells["Key2"].Value;
                     cmd.Parameters.Add("Key3", OracleDbType.Varchar2).Value = row.Cells["Key3"].Value;
                     cmd.Parameters.Add("Key4", OracleDbType.Varchar2).Value = row.Cells["Key4"].Value;
-                    cmd.ExecuteNonQuery();
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        dataGridView1.Rows.RemoveAt(row.Index);
+                        Info_Count.Text = dataGridView1.RowCount.ToString();
+                        Info_Message.Text = "자료가 정상적으로 삭제 되었습니다.";
+                    }
+                    else
+                    {
+                        Info_Message.Text = "자료삭제에 문제가 있습니다. 시스템 담당자에게 문의하세요.";
+                        return;
+                    }
                 }
             }
             catch (Exception ex)
@@ -412,13 +442,13 @@ namespace KaySub018
             }
 
             //*---------------------------------------------------------------------------------------------------------
-            if (string.IsNullOrEmpty(ct_evalm_tee.Text))
+            if (string.IsNullOrEmpty(ct_tee_name.Text))
             {
-                SetError(ct_evalm_tee, "피평가자를 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
+                SetError(ct_tee_name, "피평가자를 반드시 입력하세요", dataGridView1.SelectedRows[0], errorProvider1);
             }
             else
             {
-                ResetError(ct_evalm_tee, errorProvider1);
+                ResetError(ct_tee_name, errorProvider1);
             }
 
             //*---------------------------------------------------------------------------------------------------------
@@ -475,6 +505,79 @@ namespace KaySub018
                 e.Handled = true;
             }
         }
+        #endregion
+        #region 이름 입력받아 사원번호 찾아오기
+        private void CT_Name_to_Empno(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty((sender as TextBox).Text))
+            {
+                return;
+            }
+
+            Control ctl = SetControlByName(panData, (sender as TextBox));
+
+            //*--DB Handling(Start)------------------------------------
+            try
+            {
+                using (con = Utility.SetOracleConnection())
+                {
+                    OracleCommand cmd = con.CreateCommand();
+                    cmd.CommandText = SQLStatement.SelectSQL2;
+                    cmd.BindByName = true;
+                    cmd.Parameters.Add("bas_name", OracleDbType.Varchar2).Value = (sender as TextBox).Text;
+
+                    string name = (string)cmd?.ExecuteScalar() ?? string.Empty;
+                    ctl.Text = name;                                       
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void QT_Name_to_Empno(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty((sender as TextBox).Text))
+            {
+                return;
+            }
+
+            Control ctl = SetControlByName(panData2, (sender as TextBox));
+
+            //*--DB Handling(Start)------------------------------------
+            try
+            {
+                using (con = Utility.SetOracleConnection())
+                {
+                    OracleCommand cmd = con.CreateCommand();
+                    cmd.CommandText = SQLStatement.SelectSQL2;
+                    cmd.BindByName = true;
+                    cmd.Parameters.Add("bas_name", OracleDbType.Varchar2).Value = (sender as TextBox).Text;
+
+                    string name = (string)cmd?.ExecuteScalar() ?? string.Empty;
+                    ctl.Text = name;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private Control SetControlByName(Control control, TextBox text)
+        {
+            string[] ctl_name = text.Name.Split('_');
+            string name = ctl_name[0] + "_evalm_" + ctl_name[1];
+
+            Control[] ctl = control.Controls.Find(name, true);
+            return ctl.Length == 0 ? null : ctl[0];
+        }
+
         #endregion
     }
 }

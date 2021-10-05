@@ -211,7 +211,18 @@ namespace KaySub017
                     cmd.CommandText = SQLStatement.DeleteSQL;
                     cmd.Parameters.Add("eval_year", OracleDbType.Varchar2).Value = row.Cells["Key1"].Value;
                     cmd.Parameters.Add("eval_no", OracleDbType.Varchar2).Value = row.Cells["Key2"].Value;
-                    cmd.ExecuteNonQuery();
+                    
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        dataGridView1.Rows.RemoveAt(row.Index);
+                        Info_Count.Text = dataGridView1.RowCount.ToString();
+                        Info_Message.Text = "자료가 정상적으로 삭제 되었습니다.";
+                    }
+                    else
+                    {
+                        Info_Message.Text = "자료삭제에 문제가 있습니다. 시스템 담당자에게 문의하세요.";
+                        return;
+                    }
                 }
             }
             catch (Exception ex)
