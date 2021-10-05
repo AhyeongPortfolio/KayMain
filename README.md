@@ -19,27 +19,28 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 
  ### - 사용언어
  - C#
- - Oracle PL/SQL
+ - Oracle PL/SQL    
+     
 ### - Framework
-- [.NET](https://www.microsoft.com/ko-kr/download/details.aspx?id=30653) - 윈도우 프로그램 개발 및 실행 환경(4.7.2)
-
+- [.NET](https://www.microsoft.com/ko-kr/download/details.aspx?id=30653) - 윈도우 프로그램 개발 및 실행 환경(4.7.2)    
+   
 ### -Server
-- Oracle 
-
-### -기타
+- Oracle    
+   
+### -기타   
 - [Visual Studio](https://visualstudio.microsoft.com/ko/) -  마이크로소프트 통합 개발 환경(IDE)
 - [live chart](https://lvcharts.net/App/examples/v1/WinForms/start) - Open source data visualization for .Net
 - [Report-viewer](https://docs.microsoft.com/ko-kr/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started?view=sql-server-ver15) - .Net Framework 4.6 이상의 모든 버전에서 사용가능
-
+========================================================   
 ## Ⅱ) 개발 일정
 2021.08.30 ~ 
-
+========================================================    
 ## Ⅲ) 주요기능 
 ### C#
 >.dll 사용
  중복기능의 함수화 및 Library 생성
  그리드뷰와 컨트롤 바인딩
- 
+=========================================================
 
 ## Ⅳ) UI/UX
 ### 로그인 화면
@@ -73,20 +74,20 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 -- Adapter 사용
 ![image](https://user-images.githubusercontent.com/50813232/135440007-d193b30e-16ea-49ab-8278-93bc3b44a25d.png)
 
-
+======================================================================
 ## Ⅴ)  프로젝트 구현  기술
 >  주민번호, 비밀번호 암호화
 
-ㅡ 주민번호 : 양방향 암호화(AES126)_실제 DB에 저장된 주민번호 모습
-![image](https://user-images.githubusercontent.com/50813232/135437113-a8e82a6e-6261-4af0-a2ac-2e2cd31087bb.png)
-ㅡ 비밀번호 : 일방향(SHA526)암호화
-![image](https://user-images.githubusercontent.com/50813232/135438275-6551a4a8-b118-4f59-9720-272cfdc96d52.png)
+ㅡ 주민번호 : 양방향 암호화(AES126)_실제 DB에 저장된 주민번호 모습  
+![image](https://user-images.githubusercontent.com/50813232/135437113-a8e82a6e-6261-4af0-a2ac-2e2cd31087bb.png)  
+ㅡ 비밀번호 : 일방향(SHA526)암호화  
+![image](https://user-images.githubusercontent.com/50813232/135438275-6551a4a8-b118-4f59-9720-272cfdc96d52.png)  
 
 
 > 신규추가 할 때, 계정 생성하는 트리거 생성 
 
 ㅡ트리거 사용(예제 코드)
-```
+```sql
 create or replace TRIGGER TRI_Name
 AFTER INSERT ON TableName1
 FOR EACH ROW
