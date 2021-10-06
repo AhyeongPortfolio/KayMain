@@ -86,10 +86,11 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 ## Ⅳ) UI/UX
 
 ### 로그인 화면
-> 로그인을 5회 이상 실패를 할 경우 계정이 잠기는 기능 구현하였음
-> 아이디 저장 시, config 파일에 입력한 아이디가 저장됨
-> [암호화](#--주민번호,비밀번호-암호화)
 
+> 로그인을 5회 이상 실패를 할 경우 계정이 잠기는 기능 구현하였음
+ 아이디 저장 시, config 파일에 입력한 아이디가 저장됨
+ [암호화 기능 구현](#주민번호-비밀번호-암호화)
+ 
 ![image](https://user-images.githubusercontent.com/50813232/135425669-5d6c39fb-8e2a-4fd2-9002-c6faa08d6a3a.png)
 
 ### 메인화면
@@ -99,20 +100,17 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 ### 코드 관리 화면
 
 > 모든 코드가 동일한 형식을 취할 때 코드를 그룹화
+ 일반적인 코드는 코드 그룹화를 시켜줌
+ 분석 & 통계에 활용(조인할 때 편리함)
+ 부가적으로 옵션이 붙는 코드는 개별적으로 관리(ex. 부서코드)
 
-> 일반적인 코드는 코드 그룹화를 시켜줌
-
-> 분석 & 통계에 활용(조인할 때 편리함)
-
-> 부가적으로 옵션이 붙는 코드는 개별적으로 관리(ex. 부서코드)
-
-  
-
-- 그룹코드 관리
+* 코드 관리
 
 ![image](https://user-images.githubusercontent.com/50813232/135438922-35346311-592d-4f2a-9f51-c65de72e4efd.png)
 
 - 일반코드 관리
+> 검색조건의 그룹코드 콤보박스는 그룹코드 데이터 바인딩을 하여 표현.
+> 그룹코드는 새 창(윈도우)를 띄워 검색하여 사용.
 
 ![image](https://user-images.githubusercontent.com/50813232/135439138-228b4a6d-3a66-4b2b-8c3f-1e2f55aa76b3.png)
 
@@ -122,34 +120,32 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 
   
 
-### 인사기본사항 화면(트리거 및 일방향&양방향 암호화 활용)
-
-(대부분 비슷한 패턴을 가지고 있음)
+### 인사기본사항 화면
 
 - 인사기본정보사항
+
+> [주민번호 암호화 기능](#주민번호-비밀번호-암호화)
+[인사 정보 생성 시, 계정 생성](#트리거-생성)
 
 ![image](https://user-images.githubusercontent.com/50813232/135439315-e8849d86-ed3a-44ba-8f11-b12af6e00ac1.png)
 
   
   
 
-- 학력사항(가족사항 및 수상경력, 경력사항, 자격면허, 외국어 프로그램과 동일한 패턴으로 제작되어 대표로 하나만 업로드함)
+- 학력사항
 
--- 왼쪽의 그리드에 사원 정보를 띄우고 더블클릭으로 선택 시, 오른쪽 그리드에 표현
+> 가족사항 및 수상경력, 경력사항, 자격면허, 외국어 프로그램과 동일한 패턴으로 제작되어 대표로 하나만 업로드함.
+왼쪽의 그리드에 사원 정보를 띄우고 더블클릭으로 선택 시, 오른쪽 그리드에 표현.
 
 ![image](https://user-images.githubusercontent.com/50813232/135439703-a9a4e087-6f3d-4c24-ba4b-7bed0f68d0b4.png)
 
 - 인사기록 통합조회(Read Only)
-
--- 그리드를 더블클릭 시, 각 컨트롤에 데이터 배치
-
--- Adapter 사용
+> 그리드를 더블클릭 시, 각 컨트롤에 데이터 배치.
+Adapter 사용으로 Select 속도 높임.
 
 ![image](https://user-images.githubusercontent.com/50813232/135440007-d193b30e-16ea-49ab-8278-93bc3b44a25d.png)
 
   
-
-======================================================================
 
 ## Ⅴ) 프로젝트 구현 기술
 
@@ -162,26 +158,19 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 
 ![image](https://user-images.githubusercontent.com/50813232/135438275-6551a4a8-b118-4f59-9720-272cfdc96d52.png)
 
-#### 신규추가 할 때, 계정 생성하는 트리거 생성
+#### 트리거 생성
 
-ㅡ트리거 사용(예제 코드)
+* 신규추가 할 때, 계정 생성하는 트리거 (예제 코드)
 
 ```sql
-
 create  or  replace TRIGGER TRI_Name
-
 AFTER  INSERT  ON TableName1
-
 FOR EACH ROW
-
 BEGIN
-
-INSERT  INTO TableName2(USER_ID,USER_NAME,USER_PSWD,USER_TYPE,USER_PSWD_DAT,USER_EMAIL) VALUES (:new.TableName1_id,:new.tablename1_name,:new.tablename1_bth,'4',sysdate,:new.tablename1_email);
-
+	INSERT  INTO TableName2(USER_ID,USER_NAME,USER_PSWD,USER_TYPE,USER_PSWD_DAT,USER_EMAIL) 
+	VALUES (:new.TableName1_id,:new.tablename1_name,:new.tablename1_bth,'4',sysdate,:new.tablename1_email);
 commit;
-
 END;
-
 ```
 
   
