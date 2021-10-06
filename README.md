@@ -4,16 +4,17 @@
 Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=mailto:snugyun01@gmail.com)](mailto:dkdud081@gmail.com)
 
 ## 개요
+```
+ver.2에서는 중복되는 기능들을 .lib로 제작하고 프로그램 단위별 .dll을 제작 한 후 서버에 배포하는 작업을 진행함 
 
-ver.2에서는 중복되는 기능들을 .lib로 제작하고   
-프로그램 단위별 .dll을 제작 한 후 서버에 배포하는 작업을 진행함   
 프로젝트 기간 : 2021.08.30 ~ 2021.10.21   
+```
 
 ## 목차
 
 [Ⅰ) 기술 스택 및 개발 환경](#ⅰ기술-스택-및-개발-환경)
 
-[Ⅱ) 개발 일정](#ⅱ-개발-일정)
+[Ⅱ) 개발 진행률](#ⅱ-개발-진행률)
 
 [Ⅲ) 주요기능](#ⅲ-주요기능)
 
@@ -47,7 +48,7 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 
 * Oracle
 
-### -기타
+### 기타
 
 -  [Visual Studio](https://visualstudio.microsoft.com/ko/) - 마이크로소프트 통합 개발 환경(IDE)
 
@@ -55,11 +56,39 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 
 -  [Report-viewer](https://docs.microsoft.com/ko-kr/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started?view=sql-server-ver15) - .Net Framework 4.6 이상의 모든 버전에서 사용가능
 
-## Ⅱ) 개발 일정
+## Ⅱ) 개발 진행률
 
-> 2021.08.30 ~ 2021.10.21 
+- [x] 그룹코드 관리
+- [x] 세부코드 관리
+- [x] 부서코드 관리
+- [x] 인사기본사항
+- [x] 인사변동사항
+- [x] 가족사항
+- [x] 학력사항
+- [x] 수상경력
+- [x] 경력사항
+- [x] 자격면허
+- [x] 외국어
+- [x] 인사기록 조회(통합)
+- [x] 인사발령대장 관리
+- [x] 인사발령 등록
+- [x] 인사발령 조회 
+- [x] 업무평가항목 및 기준 관리
+- [x] 업무평가진행 관리
+- [ ] 업무평가대상자 관리
+- [x] 업무평가 등록(온라인)
+- [ ] 업무평가 진행현황
+- [ ] 업무평가 결과 조회
+- [x] 재직, 경력증명서
+- [x] 재발급
+- [x] 영문증명서
+- [x] 제증명서 발급대장 조회
+- [x] 부서별 인원현황(현재/시점)
+- [x] 직급별 인원현황(현재/시점)
+- [x] 기간별 재직인원 추이
+- [x] 년도별 입사인원 추이
+- [x] 년도별 사직인원 추이
 
-(개발일정말고 다른것으로 수정 예정)  
 
 ## Ⅲ) 주요기능
 
