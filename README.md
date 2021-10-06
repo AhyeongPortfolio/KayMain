@@ -87,15 +87,24 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 
 ### 로그인 화면
 
-> 로그인을 5회 이상 실패를 할 경우 계정이 잠기는 기능 구현하였음
- 아이디 저장 시, config 파일에 입력한 아이디가 저장됨
- [암호화 기능 구현](#주민번호-비밀번호-암호화)
- 
 ![image](https://user-images.githubusercontent.com/50813232/135425669-5d6c39fb-8e2a-4fd2-9002-c6faa08d6a3a.png)
+ ##### [암호화 기능 구현](#주민번호-비밀번호-암호화)
+```
+- 시스템 실행 하기 전 해당 프로그램 사용이 적합한지와 사원 정보를 얻기 위해 제작
+- 로그인 5회 이상 실패를 할 경우 계정이 잠기는 기능 구현하였음
+- 아이디 저장 시, config 파일에 입력한 아이디가 저장됨
+```
 
+ 
 ### 메인화면
 
 ![image](https://user-images.githubusercontent.com/50813232/135425969-0deaf54d-79d5-41c3-b579-8a80fa466845.png)
+```
+- 다양한 폼(기능)을 메인을 통해 보여줌
+- 공용버튼 : 같은 기능을 시행하는 버튼을 하나로 묶음
+- 메뉴(트리뷰) : 기능을 대분류와 소분류로 나누어 트리뷰로 분류
+```
+##### [공용버튼 기능](#공용-버튼)
 ***
 ### 코드 관리 화면
 
@@ -104,17 +113,17 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
  분석 & 통계에 활용(조인할 때 편리함)
  부가적으로 옵션이 붙는 코드는 개별적으로 관리(ex. 부서코드)
 
-* 코드 관리
+#### - 코드 관리
 
 ![image](https://user-images.githubusercontent.com/50813232/135438922-35346311-592d-4f2a-9f51-c65de72e4efd.png)
 
-- 일반코드 관리
+#### - 일반코드 관리
 > 검색조건의 그룹코드 콤보박스는 그룹코드 데이터 바인딩을 하여 표현.
 > 그룹코드는 새 창(윈도우)를 띄워 검색하여 사용.
 
 ![image](https://user-images.githubusercontent.com/50813232/135439138-228b4a6d-3a66-4b2b-8c3f-1e2f55aa76b3.png)
 
-- 부서코드 관리
+#### - 부서코드 관리
 
 ![image](https://user-images.githubusercontent.com/50813232/135439205-cb79aba3-143a-4e7c-8c49-d7c0f5c91234.png)
 
@@ -122,7 +131,7 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 
 ### 인사기본사항 화면
 
-- 인사기본정보사항
+#### - 인사기본정보사항
 
 > [주민번호 암호화 기능](#주민번호-비밀번호-암호화)
 [인사 정보 생성 시, 계정 생성](#트리거-생성)
@@ -132,14 +141,14 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
   
   
 
-- 학력사항
+#### - 학력사항
 
 > 가족사항 및 수상경력, 경력사항, 자격면허, 외국어 프로그램과 동일한 패턴으로 제작되어 대표로 하나만 업로드함.
 왼쪽의 그리드에 사원 정보를 띄우고 더블클릭으로 선택 시, 오른쪽 그리드에 표현.
 
 ![image](https://user-images.githubusercontent.com/50813232/135439703-a9a4e087-6f3d-4c24-ba4b-7bed0f68d0b4.png)
 
-- 인사기록 통합조회(Read Only)
+#### - 인사기록 통합조회(Read Only)
 > 그리드를 더블클릭 시, 각 컨트롤에 데이터 배치.
 Adapter 사용으로 Select 속도 높임.
 
@@ -157,6 +166,46 @@ Adapter 사용으로 Select 속도 높임.
 * 비밀번호 : 일방향(SHA526)암호화
 
 ![image](https://user-images.githubusercontent.com/50813232/135438275-6551a4a8-b118-4f59-9720-272cfdc96d52.png)
+
+#### 공용 버튼
+* 각 폼 별로 사용한 버튼이 다른데, 이를 1과 9의 배열을 통해 간편하게 버튼 활성화 컨트롤을 할 수 있음.
+	1.  자주 사용되는 버튼을 위주로 명명하였음.
+	2.  직접 배열을 지정하여 설정 할 수 있는 함수 설정.
+```C#
+last_button_status = Utility.SetFuncBtn(MainBtn, "1"); 
+
+static public string SetFuncBtn(Button[] btn, string func)
+        {
+            if (btn.Length == 0) return "";
+            string wk_func = "0000000";
+
+            if (func.Equals("0")) wk_func = "1000000";   ---조회 Only 버튼 상태                      
+            if (func.Equals("E")) wk_func = "0000000";   ---Only 종료 버튼 상태
+            if (func.Equals("P")) wk_func = "1000001";   ---조회 후 인쇄/엑셀 가능 상태
+            if (func.Equals("1")) wk_func = "1100000";   ---기본 상태
+            if (func.Equals("2")) wk_func = "1101001";   ---조회 후
+            if (func.Equals("3")) wk_func = "0101110";   ---수정 및 추가 후
+            if (func.Equals("4")) wk_func = "1000110";   ---조회 후 수정 발생(추가는 없음)
+            if (func.Equals("EX1")) wk_func = "0000000";   ---엑셀 Import 前
+
+            SetFuncBtn2(btn, wk_func);
+            return wk_func;
+        }
+static public string SetFuncBtn2(Button[] btn, string func)
+        {
+            if (btn.Length == 0) return "";
+            if (string.IsNullOrEmpty(func)) return "";
+            if (func.Length != 7) return "";
+            
+            byte[] bytes = System.Text.Encoding.ASCII.GetBytes(func);
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                btn[i].Enabled = bytes[i] == '1' ? true : false;
+            }
+            return func;
+        }
+```
+
 
 #### 트리거 생성
 
