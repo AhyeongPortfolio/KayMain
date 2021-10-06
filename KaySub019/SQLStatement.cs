@@ -18,7 +18,7 @@ namespace KaySub019
     {
         #region 검색
         //*---DataGridView1 채우는 용도---------
-        //*---진행여부 : 미진행
+        //*---진행여부 
         public static string
             SelectSQL = @"SELECT a.* ,b.bas_name as tee_name ,c.bas_name as tor_name
                          FROM kay_insa_evalm a,
@@ -26,43 +26,9 @@ namespace KaySub019
                               (SELECT bas_name, bas_empno FROM kay_insa_bas) c
                          WHERE a.evalm_tee = b.bas_empno(+)
                          AND a.evalm_tor = c.bas_empno(+)
-                         AND a.evalm_year LIKE :evalm_year
-                         AND a.evalm_no LIKE :evalm_no
-                         AND a.evalm_tee LIKE :evalm_tee
-                         AND a.evalm_tor LIKE :evalm_tor
-                         AND a.evalm_type = :evalm_type
-                         AND a.evalm_findate is null";
+                         AND a.evalm_tor = :evalm_tor";
 
-        //*---진행여부 : 진행
-        public static string
-            SelectSQL2 = @"SELECT a.*,b.bas_name as tee_name ,c.bas_name as tor_name
-                         FROM kay_insa_evalm a,
-                              (SELECT bas_name, bas_empno FROM kay_insa_bas) b,
-                              (SELECT bas_name, bas_empno FROM kay_insa_bas) c
-                         WHERE a.evalm_tee = b.bas_empno(+)
-                         AND a.evalm_tor = c.bas_empno(+)
-                         AND a.evalm_year LIKE :evalm_year
-                         AND a.evalm_no LIKE :evalm_no
-                         AND a.evalm_tee LIKE :evalm_tee
-                         AND a.evalm_tor LIKE :evalm_tor
-                         AND a.evalm_type = :evalm_type
-                         AND a.evalm_findate is not null";
-
-        //*---진행여부 : 전체
-        public static string
-            SelectSQL3 = @"SELECT a.*,b.bas_name as tee_name ,c.bas_name as tor_name
-                         FROM kay_insa_evalm a,
-                              (SELECT bas_name, bas_empno FROM kay_insa_bas) b,
-                              (SELECT bas_name, bas_empno FROM kay_insa_bas) c
-                         WHERE a.evalm_tee = b.bas_empno(+)
-                         AND a.evalm_tor = c.bas_empno(+)
-                         AND a.evalm_year LIKE :evalm_year
-                         AND a.evalm_no LIKE :evalm_no
-                         AND a.evalm_tee LIKE :evalm_tee
-                         AND a.evalm_tor LIKE :evalm_tor
-                         AND a.evalm_type = :evalm_type";
-
-
+        
 
         //*--사원 번호 검색---------------------------------------------------------------------
         public static string

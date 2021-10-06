@@ -32,8 +32,6 @@ namespace KaySub019
         public UserControl1()
         {
             InitializeComponent();            
-            qt_tee_name.Leave += QT_Name_to_Empno;
-            qt_tor_name.Leave += QT_Name_to_Empno;
 
             dataGridView1.CellDoubleClick += List_CellDoubleClick;
         }
@@ -41,16 +39,10 @@ namespace KaySub019
 
         private void UserControl1_Load(object sender, EventArgs e)
         {
-            //*--콤보박스 채우기-----------------------------------------
-            Utility.SetComboWithCdnm(qt_evalm_type, SQLStatement.SelectSQL5);
-            //*--콤보박스 미리 선택--------------------------------------
-            qt_evalm_type.SelectedIndex = 1;
-
             last_button_status = Utility.SetFuncBtn(MainBtn, "0");
             Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
             this.AutoValidate = AutoValidate.EnableAllowFocusChange;
 
-            qt_findate_no.Checked = true;
         }
         #endregion
         #region 기능버튼(조회) Click
@@ -70,21 +62,10 @@ namespace KaySub019
                 con = Utility.SetOracleConnection();
                 OracleCommand cmd = con.CreateCommand();
 
-                if (qt_findate_no.Checked)
-                    cmd.CommandText = SQLStatement.SelectSQL;
-
-                else if (qt_findate_ok.Checked)
-                    cmd.CommandText = SQLStatement.SelectSQL2;
-
-                else if (qt_findate_all.Checked)
-                    cmd.CommandText = SQLStatement.SelectSQL3;
-
+                cmd.CommandText = SQLStatement.SelectSQL;
+                cmd.Parameters.Add("evalm_tor", OracleDbType.Varchar2).Value = UserId;
                 cmd.BindByName = true;
-                cmd.Parameters.Add("evalm_tor", OracleDbType.Varchar2).Value = "%" + qt_evalm_tor.Text + "%";
-                cmd.Parameters.Add("evalm_tee", OracleDbType.Varchar2).Value = "%" + qt_evalm_tee.Text + "%";
-                cmd.Parameters.Add("evalm_type", OracleDbType.Varchar2).Value = qt_evalm_type.Text;
-                cmd.Parameters.Add("evalm_no", OracleDbType.Varchar2).Value = "%" + qt_evalm_no.Text + "%";
-                cmd.Parameters.Add("evalm_year", OracleDbType.Varchar2).Value = "%" + qt_evalm_year.Text + "%";
+                
                 OracleDataReader dr = cmd.ExecuteReader();
                 query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
                 while (dr.Read())
@@ -208,48 +189,5 @@ namespace KaySub019
         }
         #endregion
 
-        #region 이름 입력받아 사원번호 찾아오기
-
-        private void QT_Name_to_Empno(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty((sender as TextBox).Text))
-            {
-                return;
-            }
-
-            Control ctl = SetControlByName(panData2, (sender as TextBox));
-
-            //*--DB Handling(Start)------------------------------------
-            try
-            {
-                using (con = Utility.SetOracleConnection())
-                {
-                    OracleCommand cmd = con.CreateCommand();
-                    cmd.CommandText = SQLStatement.SelectSQL2;
-                    cmd.BindByName = true;
-                    cmd.Parameters.Add("bas_name", OracleDbType.Varchar2).Value = (sender as TextBox).Text;
-
-                    string name = (string)cmd?.ExecuteScalar() ?? string.Empty;
-                    ctl.Text = name;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-        }
-
-        private Control SetControlByName(Control control, TextBox text)
-        {
-            string[] ctl_name = text.Name.Split('_');
-            string name = ctl_name[0] + "_evalm_" + ctl_name[1];
-
-            Control[] ctl = control.Controls.Find(name, true);
-            return ctl.Length == 0 ? null : ctl[0];
-        }
-
-        #endregion
     }
 }

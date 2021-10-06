@@ -46,8 +46,6 @@ namespace KaySub018
             ct_evalm_year.Validated += Input_Validation_Check;
             ct_evalm_no.Validated += Input_Validation_Check;
             ct_evalm_period.Validated += Input_Validation_Check;
-            ct_tee_name.Validated += Input_Validation_Check;
-            ct_tor_name.Validated += Input_Validation_Check;
             ct_evalm_type.Validated += Input_Validation_Check;
             //*----Validated Event Handler(END)---------------------------------
             //*----Enter Number Only(Start)-------------------------------------
@@ -60,6 +58,7 @@ namespace KaySub018
             ct_tor_name.Leave += CT_Name_to_Empno;
             qt_tee_name.Leave += QT_Name_to_Empno;
             qt_tor_name.Leave += QT_Name_to_Empno;
+
         }
 
         
@@ -77,6 +76,7 @@ namespace KaySub018
             last_button_status = Utility.SetFuncBtn(MainBtn, "1");
             Utility.DataGridView_Scrolling_SpeedUp(dataGridView1);
             this.AutoValidate = AutoValidate.EnableAllowFocusChange;
+
         }
         #endregion
         #region 기능버튼(조회) Click
@@ -577,6 +577,19 @@ namespace KaySub018
             Control[] ctl = control.Controls.Find(name, true);
             return ctl.Length == 0 ? null : ctl[0];
         }
+
+        #endregion
+
+        #region 평가자랑 피평가자 선택 폼 오픈
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //*--업무평가대상자 관리 신규 추가 폼 오픈------------------------------
+            Popup018_1 popup = new Popup018_1();
+            popup.ShowDialog();
+            
+        }
+
+
 
         #endregion
     }

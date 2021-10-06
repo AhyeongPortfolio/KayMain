@@ -59,13 +59,14 @@ namespace KaySub019
                         string item_lStr = "";
                         int total = 0, result = 0, rowcnt = 0, rowidx = 0, i;
 
+                        //*--평가표 만들기--------------------------------------
                         do
                         {
                             if(item_lStr != dr["evali_item_l"].ToString())
                             {
                                 rowcnt = 1;
                                 item_lStr = dr["evali_item_l"].ToString();
-                                item_l = new Label()
+                                item_l = new Label() //대항목
                                 {
                                     Text = dr["evali_item_l"].ToString(),
                                     Dock = DockStyle.Fill,
@@ -74,7 +75,7 @@ namespace KaySub019
                                 tableLayoutPanel2.Controls.Add(item_l, 0, rowidx);
                             }
                             tableLayoutPanel2.SetRowSpan(item_l, rowcnt++); //대항목끼리 묶음
-                            item_s = new Label
+                            item_s = new Label //소항목
                             {
                                 Text = dr["evali_item_s"].ToString(),
                                 Dock = DockStyle.Fill,
@@ -225,21 +226,21 @@ namespace KaySub019
                         cmd.ExecuteNonQuery();
                         cmd.Parameters.Clear();
 
-                       //MessageBox.Show(status);
-                        //if(status == "A")
-                        //{
-                        //    cmd.CommandText = SQLStatement.InsertSQL;
-                        //}
-                        //else if(status == "U")
-                        //{
-                        //    cmd.CommandText = SQLStatement.UpdateSQL2;
-                        //}
-                        //else
-                        //{                            
-                        //    MessageBox.Show("저장할 수 없는 상태입니다.");
-                        //    return;
-                        //}
-                        cmd.CommandText = SQLStatement.InsertSQL;
+                        //MessageBox.Show(status);
+                        if (status == "A")
+                        {
+                            cmd.CommandText = SQLStatement.InsertSQL;
+                        }
+                        else if (status == "U")
+                        {
+                            cmd.CommandText = SQLStatement.UpdateSQL2;
+                        }
+                        else
+                        {
+                            MessageBox.Show("저장할 수 없는 상태입니다.");
+                            return;
+                        }
+                       
                         foreach (Control ctl in tableLayoutPanel2.Controls) 
                         {
                             if (!(ctl is TextBox)) continue;

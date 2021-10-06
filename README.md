@@ -1,15 +1,13 @@
 
 # ERP_인사관리 프로그램 ver.2.0.0.1
 
-Kwon Ahyeong(2021.09.30_update) [![Gmail Badge](https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=mailto:snugyun01@gmail.com)](mailto:dkdud081@gmail.com)
+Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=mailto:snugyun01@gmail.com)](mailto:dkdud081@gmail.com)
 
 ## 개요
 
-ver.2에서는 중복되는 기능들을 .lib로 제작하고
-
-프로그램 단위별 .dll을 제작 한 후 서버에 배포하는 작업을 진행함
-
-  
+ver.2에서는 중복되는 기능들을 .lib로 제작하고   
+프로그램 단위별 .dll을 제작 한 후 서버에 배포하는 작업을 진행함   
+프로젝트 기간 : 2021.08.30 ~ 2021.10.21   
 
 ## 목차
 
@@ -61,12 +59,7 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 
 > 2021.08.30 ~ 2021.10.21 
 
- 개발 내용 / 일정(주차)| 1 | 2 | 3 | 4 | 5 | 7 | 8 
----|---|---|---|---|---|---|---|---
- 화면 설계 | 0 | 0 | 0 |  |  |  |  
- 기능 설계 |  |  | 0 | 0 |  |  | 
- 기능 구현 |  |  | 0 | 0 | 0 |  | 
- 테스트/구현 |  |  |  |  |  | 0 | 
+(개발일정말고 다른것으로 수정 예정)  
 
 ## Ⅲ) 주요기능
 
@@ -99,12 +92,13 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 ### 메인화면
 
 ![image](https://user-images.githubusercontent.com/50813232/135425969-0deaf54d-79d5-41c3-b579-8a80fa466845.png)
+##### [공용버튼 기능](#공용-버튼)
 ```
 - 다양한 폼(기능)을 메인을 통해 보여줌
 - 공용버튼 : 같은 기능을 시행하는 버튼을 하나로 묶음
 - 메뉴(트리뷰) : 기능을 대분류와 소분류로 나누어 트리뷰로 분류
 ```
-##### [공용버튼 기능](#공용-버튼)
+
 ***
 ### 코드 관리 화면
 
@@ -118,22 +112,21 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 ![image](https://user-images.githubusercontent.com/50813232/135438922-35346311-592d-4f2a-9f51-c65de72e4efd.png)
 
 #### - 일반코드 관리
-> 검색조건의 그룹코드 콤보박스는 그룹코드 데이터 바인딩을 하여 표현.
-> 그룹코드는 새 창(윈도우)를 띄워 검색하여 사용.
+> 검색조건의 그룹코드 콤보박스는 그룹코드 데이터 바인딩을 하여 표현.   
+그룹코드는 새 창(윈도우)를 띄워 검색하여 사용.   
 
 ![image](https://user-images.githubusercontent.com/50813232/135439138-228b4a6d-3a66-4b2b-8c3f-1e2f55aa76b3.png)
 
 #### - 부서코드 관리
 
 ![image](https://user-images.githubusercontent.com/50813232/135439205-cb79aba3-143a-4e7c-8c49-d7c0f5c91234.png)
-
   
-
+***
 ### 인사기본사항 화면
 
 #### - 인사기본정보사항
 
-> [주민번호 암호화 기능](#주민번호-비밀번호-암호화)
+> [주민번호 암호화 기능](#주민번호-비밀번호-암호화)   
 [인사 정보 생성 시, 계정 생성](#트리거-생성)
 
 ![image](https://user-images.githubusercontent.com/50813232/135439315-e8849d86-ed3a-44ba-8f11-b12af6e00ac1.png)
@@ -143,13 +136,13 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고
 
 #### - 학력사항
 
-> 가족사항 및 수상경력, 경력사항, 자격면허, 외국어 프로그램과 동일한 패턴으로 제작되어 대표로 하나만 업로드함.
-왼쪽의 그리드에 사원 정보를 띄우고 더블클릭으로 선택 시, 오른쪽 그리드에 표현.
+> 가족사항 및 수상경력, 경력사항, 자격면허, 외국어 프로그램과 동일한 패턴으로 제작되어 대표로 하나만 업로드함.   
+왼쪽의 그리드에 사원 정보를 띄우고 더블클릭으로 선택 시, 오른쪽 그리드에 표현.   
 
 ![image](https://user-images.githubusercontent.com/50813232/135439703-a9a4e087-6f3d-4c24-ba4b-7bed0f68d0b4.png)
 
 #### - 인사기록 통합조회(Read Only)
-> 그리드를 더블클릭 시, 각 컨트롤에 데이터 배치.
+> 그리드를 더블클릭 시, 각 컨트롤에 데이터 배치.   
 Adapter 사용으로 Select 속도 높임.
 
 ![image](https://user-images.githubusercontent.com/50813232/135440007-d193b30e-16ea-49ab-8278-93bc3b44a25d.png)
