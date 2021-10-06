@@ -395,8 +395,9 @@ FodyWeavers.xsd
 
 # C# Run
 Run/
-.dll
-
+*.dll
+Utility.cs
+UCSub004_addr_popup.cs
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
