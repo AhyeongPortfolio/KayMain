@@ -57,6 +57,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaySub018", "KaySub018\KayS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaySub019", "KaySub019\KaySub019.csproj", "{62B0ED27-66AC-405A-899D-58DDC39F3CC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaySub020", "KaySub020\KaySub020.csproj", "{DBB37DB8-4B7D-4277-9514-ACE5AE15DFCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaySub021", "KaySub021\KaySub021.csproj", "{71FAA356-92C7-402A-BE74-F748B740D753}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -171,6 +175,14 @@ Global
 		{62B0ED27-66AC-405A-899D-58DDC39F3CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62B0ED27-66AC-405A-899D-58DDC39F3CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62B0ED27-66AC-405A-899D-58DDC39F3CC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBB37DB8-4B7D-4277-9514-ACE5AE15DFCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBB37DB8-4B7D-4277-9514-ACE5AE15DFCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBB37DB8-4B7D-4277-9514-ACE5AE15DFCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBB37DB8-4B7D-4277-9514-ACE5AE15DFCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71FAA356-92C7-402A-BE74-F748B740D753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71FAA356-92C7-402A-BE74-F748B740D753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71FAA356-92C7-402A-BE74-F748B740D753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71FAA356-92C7-402A-BE74-F748B740D753}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

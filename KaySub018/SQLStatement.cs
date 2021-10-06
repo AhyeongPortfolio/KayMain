@@ -54,7 +54,7 @@ namespace KaySub018
 
         //*--피평가자 검색(직급이 없음)----------------------------------------------------------
         public static string
-            SelectSQL_tee = @"SELECT bas.bas_empno, bas.bas_name, bas.bas_pos, bas.bas_dut, bas.bas_dept
+            SelectSQL_tee = @"SELECT bas.bas_empno, bas.bas_name, bas.bas_pos, bas.bas_dept
                               ,FN_GETCODENM_KAY('POS', bas.bas_pos) as pos_name
                               ,FN_GETDEPTNM_KAY(bas.bas_dept) as dept_name
                               FROM kay_insa_bas bas";

@@ -3,18 +3,24 @@
 
 Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=mailto:snugyun01@gmail.com)](mailto:dkdud081@gmail.com)
 
+
+
 ## 개요
 ```
-ver.2에서는 중복되는 기능들을 .lib로 제작하고 프로그램 단위별 .dll을 제작 한 후 서버에 배포하는 작업을 진행함 
+중복되는 기능들을 .lib로 제작하고 프로그램 단위별 .dll을 제작 한 후 서버에 배포하는 작업을 진행함  
 
-프로젝트 기간 : 2021.08.30 ~ 2021.10.21   
+시스템 설계 및 업무분석 : 김태영 교수님
+화면 설계 및 구현 : 권아영
 ```
+#### 프로젝트 기간 : 2021.08.30 ~ 2021.10.21  
+
+</br>
 
 ## 목차
 
 [Ⅰ) 기술 스택 및 개발 환경](#ⅰ기술-스택-및-개발-환경)
 
-[Ⅱ) 개발 진행률](#ⅱ-개발-진행률)
+[Ⅱ) 개발 진행](#ⅱ-개발-진행)
 
 [Ⅲ) 주요기능](#ⅲ-주요기능)
 
@@ -22,9 +28,8 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고 프로그램 단�
 
 [Ⅴ) 프로젝트 구현 기술](#ⅴ--프로젝트-구현--기술)
 
-Ⅵ)
 
-  
+
 
 ## Ⅰ)기술 스택 및 개발 환경
 
@@ -56,7 +61,7 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고 프로그램 단�
 
 -  [Report-viewer](https://docs.microsoft.com/ko-kr/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started?view=sql-server-ver15) - .Net Framework 4.6 이상의 모든 버전에서 사용가능
 
-## Ⅱ) 개발 진행률
+## Ⅱ) 개발 진행
 
 - [x] 코드 관리
 - [x] 인사기록관리
@@ -73,13 +78,14 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고 프로그램 단�
 >* .dll 사용 
 >* 중복기능의 함수화 및 Library 생성
 >* 그리드뷰와 컨트롤 바인딩
->* 
+>* 비밀번호, 주민번호 암호화
 
 #### Oracle (PL/SQL)
 >* 트리거 사용
 >* 저장 프로시저 사용
 >* 코드 호출 함수 제작 및 활용
 >* 
+[프로젝트 기능 자세히 보기](#ⅴ--프로젝트-구현--기술)
 
 ## Ⅳ) UI/UX
 
@@ -117,10 +123,12 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고 프로그램 단�
 ![image](https://user-images.githubusercontent.com/50813232/135438922-35346311-592d-4f2a-9f51-c65de72e4efd.png)
 
 #### - 일반코드 관리
-> 검색조건의 그룹코드 콤보박스는 그룹코드 데이터 바인딩을 하여 표현.   
-그룹코드는 새 창(윈도우)를 띄워 검색하여 사용.   
 
 ![image](https://user-images.githubusercontent.com/50813232/135439138-228b4a6d-3a66-4b2b-8c3f-1e2f55aa76b3.png)
+```
+검색조건의 그룹코드 콤보박스는 그룹코드 데이터 바인딩을 하여 표현.   
+그룹코드는 새 창(윈도우)를 띄워 검색하여 사용.   
+```
 
 #### - 부서코드 관리
 
@@ -129,30 +137,34 @@ ver.2에서는 중복되는 기능들을 .lib로 제작하고 프로그램 단�
 ***
 ### 인사기본사항 화면
 
-#### - 인사기본정보사항
+</br>
 
-> [주민번호 암호화 기능](#주민번호-비밀번호-암호화)   
-[인사 정보 생성 시, 계정 생성](#트리거-생성)
+#### - 인사기본정보사항  
 
 ![image](https://user-images.githubusercontent.com/50813232/135439315-e8849d86-ed3a-44ba-8f11-b12af6e00ac1.png)
 
-  
-  
+[주민번호 암호화 기능](#주민번호-비밀번호-암호화)   
+[인사 정보 생성 시, 계정 생성](#트리거-생성)
 
-#### - 학력사항
-
-> 가족사항 및 수상경력, 경력사항, 자격면허, 외국어 프로그램과 동일한 패턴으로 제작되어 대표로 하나만 업로드함.   
-왼쪽의 그리드에 사원 정보를 띄우고 더블클릭으로 선택 시, 오른쪽 그리드에 표현.   
+#### - 학력사항 
 
 ![image](https://user-images.githubusercontent.com/50813232/135439703-a9a4e087-6f3d-4c24-ba4b-7bed0f68d0b4.png)
 
+```
+가족사항 및 수상경력, 경력사항, 자격면허, 외국어 프로그램과 동일한 패턴으로 제작되어 대표로 하나만 업로드함.   
+왼쪽의 그리드에 사원 정보를 띄우고 더블클릭으로 선택 시, 오른쪽 그리드에 표현.  
+```
+
 #### - 인사기록 통합조회(Read Only)
-> 그리드를 더블클릭 시, 각 컨트롤에 데이터 배치.   
-Adapter 사용으로 Select 속도 높임.
 
 ![image](https://user-images.githubusercontent.com/50813232/135440007-d193b30e-16ea-49ab-8278-93bc3b44a25d.png)
+```
+그리드를 더블클릭 시, 각 컨트롤에 데이터 배치.   
+Adapter 사용으로 Select 속도 높임.
+```
 
-  
+
+
 
 ## Ⅴ) 프로젝트 구현 기술
 
@@ -164,6 +176,11 @@ Adapter 사용으로 Select 속도 높임.
 * 비밀번호 : 일방향(SHA526)암호화
 
 ![image](https://user-images.githubusercontent.com/50813232/135438275-6551a4a8-b118-4f59-9720-272cfdc96d52.png)
+
+</br>
+
+*** 
+</br>
 
 #### 공용 버튼
 * 각 폼 별로 사용한 버튼이 다른데, 이를 1과 9의 배열을 통해 간편하게 버튼 활성화 컨트롤을 할 수 있음.
@@ -203,7 +220,10 @@ static public string SetFuncBtn2(Button[] btn, string func)
             return func;
         }
 ```
+</br>
 
+*** 
+</br>
 
 #### 트리거 생성
 

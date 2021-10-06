@@ -16,15 +16,12 @@ namespace KaySub018
     {
         #region 초기정보
 
-        OracleConnection con = null;
-        private bool select_sw = false;
-        private bool query_sw = false;
-
-        
+        OracleConnection con = null;        
         
         public Popup018_1()
         {
             InitializeComponent();
+
             qt_bas_dept.TextChanged += depttxt_TextChanged;
             qt_bas_dept_tor.TextChanged += depttxt_TextChanged;
             qt_bas_dut.TextChanged += depttxt_TextChanged;
@@ -35,15 +32,13 @@ namespace KaySub018
             Filter_DataView();
         }
         #endregion
-
-
         #region 참조 그리드 조회 + 필터링
         //*********************************************************
         //---그리드 필터링 추가하여 데이터 출력----------------------
         //*********************************************************
         DataTable tordt = new DataTable();
         DataTable teedt = new DataTable();
-        string filterField = null;
+       
 
         private void Filter_DataView()
         {
@@ -73,16 +68,52 @@ namespace KaySub018
 
         private void depttxt_TextChanged(object sender, EventArgs e)
         {
-            if((sender as TextBox).Name == "qt_bas_dut" || (sender as TextBox).Name == "qt_bas_dept_tor")
+            if((sender as TextBox).Name == "qt_bas_dut")
             {
-                tordt.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", filterField, (sender as TextBox).Text);
+                tordt.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "dut_name", (sender as TextBox).Text);
             }
-            else if((sender as TextBox).Name == "qt_bas_dept_tee")
+
+            else if ((sender as TextBox).Name == "qt_bas_dept_tor")
             {
-                teedt.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", filterField, (sender as TextBox).Text);
+                tordt.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "dept_name", (sender as TextBox).Text);
+            }
+
+            else if((sender as TextBox).Name == "qt_bas_dept")
+            {
+                teedt.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "dept_name", (sender as TextBox).Text);
             }
         }
 
         #endregion
+
+        #region Submit Button 이벤트_데이터 메인으로 옮김
+        //*********************************************************
+        //*--확인 버튼 event
+        //*********************************************************
+        private void Submit_btn_Click(object sender, EventArgs e)
+        {
+            dataGridView2.EndEdit();
+            dataGridView1.EndEdit();
+
+            for(int i = 0; i < dataGridView2.Rows.Count; i++)
+            {
+                bool isChecked = Convert.ToBoolean(dataGridView2.Rows[i].Cells[0].Value);
+                if (isChecked)
+                {
+                    
+                }
+            }
+
+        }
+        //*********************************************************
+        //*--취소 버튼 event
+        //*********************************************************
+        private void Cancle_btn_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            this.Close();
+        }
+        #endregion
+
     }
 }
