@@ -31,7 +31,7 @@ namespace KayLibrary
         {
             try
             {
-                string connectString = "Data Source = 222.237.134.74:1522/ora7;User Id=edu;Password=edu1234";
+                string connectString = " ";
                 OracleConnection con = new OracleConnection(connectString);
                 con.Open();
                 return con;
