@@ -33,7 +33,7 @@ namespace KaySub021
         {
             InitializeComponent();
 
-            // dataGridView1.CellDoubleClick += List_CellDoubleClick;
+            dataGridView1.CellDoubleClick += List_CellDoubleClick;
         }
 
 
@@ -245,6 +245,71 @@ namespace KaySub021
             return ctl.Length == 0 ? null : ctl[0];
         }
 
+        #endregion
+        #region CellDoubleClick 이벤트
+
+        private void List_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dataGridView1.CurrentRow;
+
+            if (string.IsNullOrEmpty(row.Cells["evalm_type"].Value.ToString()))
+            {
+                MessageBox.Show("해당되는 평가표 유형이 없습니다.");
+                return;
+            }
+
+            //*---DB Handling(Start)------------------------------------------------
+            try
+            {
+                using (con = Utility.SetOracleConnection())
+                {
+                    using (OracleCommand cmd = con.CreateCommand())
+                    {
+                        cmd.CommandText = SQLStatement.SelectSQL6;
+                        cmd.BindByName = true;
+                        cmd.Parameters.Add("evali_type", OracleDbType.Varchar2).Value = row.Cells["evalm_type"].Value.ToString();
+                        var cnt = cmd.ExecuteScalar();
+                        if (int.Parse(cnt.ToString()) == 0)
+                        {
+                            MessageBox.Show("평가표 유형이 유효하지 않습니다.");
+                            return;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            //*--DB Handling(End)-------------------------------------------------
+
+            //*--평가 창 Open------------------------------------------------------
+            EvalsWindow evals = new EvalsWindow();
+
+            evals.evalm_dept_tee.Text = row.Cells["evalm_dept_tee"].Value.ToString();
+            evals.evalm_pos_tee.Text = row.Cells["evalm_pos_tee"].Value.ToString();
+            evals.name_tee.Text = row.Cells["tee_name"]?.Value.ToString() ?? "";
+            evals.evalm_period.Text = row.Cells["evalm_period"]?.Value.ToString() ?? "";
+            evals.evalm_dut_tor.Text = row.Cells["evalm_dut_tor"]?.Value.ToString() ?? "";
+            evals.name_tor.Text = row.Cells["tor_name"].Value.ToString();
+            evals.Type = row.Cells["evalm_type"].Value.ToString();
+            evals.Year = row.Cells["evalm_year"].Value.ToString();
+            evals.No = row.Cells["evalm_no"]?.Value.ToString() ?? "";
+            evals.Stage = row.Cells["evalm_stage"]?.Value.ToString() ?? "";
+            evals.Tee = row.Cells["evalm_tee"]?.Value.ToString() ?? "";
+            evals.evalm_sum.Text = row.Cells["evalm_total"].Value?.ToString() ?? "";
+            evals.evalm_merit.Text = row.Cells["evalm_merit"].Value?.ToString() ?? "";
+            evals.evalm_weak.Text = row.Cells["evalm_weak"]?.Value.ToString() ?? "";
+            evals.UserId = UserId;
+            evals.UserNm = UserNm;
+            evals.status = row.Cells["evalm_findate"].Value.ToString() == "N" ? "A" : "U";
+
+            evals.ShowDialog();
+
+            BtnSearch_Click();
+
+        }
         #endregion
     }
 }
