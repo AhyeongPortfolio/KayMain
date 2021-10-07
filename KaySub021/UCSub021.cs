@@ -44,6 +44,135 @@ namespace KaySub021
             this.AutoValidate = AutoValidate.EnableAllowFocusChange;
         }
         #endregion
+        #region 기능버튼(조회) Click
+        //************************************************************
+        //** 조회 버튼 Click
+        //************************************************************
+        public void BtnSearch_Click()
+        {
+            Utility.BusyIndicator(true);
+
+            dataGridView1.Rows.Clear();
+            int rowIdx = 0;
+            DataGridViewRow row;
+            //--DB Handling(Start)-------------------------------------
+            try
+            {
+                using(con = Utility.SetOracleConnection())
+                {
+                    using(OracleCommand cmd = con.CreateCommand())
+                    {
+                        cmd.CommandText = SQLStatement.SelectSQL;
+                        cmd.Parameters.Add("evalm_year", OracleDbType.Varchar2).Value = "%" + qt_evalm_year.Text + "%";
+                        cmd.Parameters.Add("evalm_no", OracleDbType.Varchar2).Value = "%" + qt_evalm_no.Text + "%";
+                        cmd.Parameters.Add("evalm_tor", OracleDbType.Varchar2).Value = "%" + qt_evalm_tor.Text + "%";
+                        cmd.Parameters.Add("evalm_type", OracleDbType.Varchar2).Value = "%" + qt_evalm_type.Text + "%";
+                        cmd.BindByName = true;
+                        
+                        OracleDataAdapter ad = new OracleDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        ad.Fill(dt);
+
+                        dataGridView1.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            finally
+            {
+                query_sw = false; //*---SelectionChanged Event 발생을 회피하기 위해 (Off)
+                Utility.BusyIndicator(false);
+                if (con != null) con.Close();
+            }
+            //--DB Handling(End)-------------------------------------
+            var recCnt = dataGridView1.RowCount;
+            Info_Count.Text = recCnt.ToString();
+            if (recCnt == 0)
+            {
+                Info_Message.Text = "조건을 만족하는 자료가 없습니다.";
+                last_button_status = Utility.SetFuncBtn(MainBtn, "0");
+            }
+            else
+            {
+                Utility.SetFocusingDataGridView(dataGridView1, 0); //Focus를 맨 첫줄로 보내기
+              // this.DataList_SelectionChanged(null, null);   //선택된 첫줄을 Control에 표시하기
+
+                last_button_status = Utility.SetFuncBtn(MainBtn, "0");
+                Info_Message.Text = "자료가 정상적으로 조회 되었습니다.";
+            }
+        }
+        #endregion
+        #region 기능버튼(입력) Click
+        //************************************************************
+        //** 입력 버튼 Click 
+        //************************************************************
+        public void BtnInsert_Click()
+        {
+            return;
+        }
+        #endregion
+        #region 기능버튼(수정) Click
+        //************************************************************
+        //** 수정 버튼 Click 
+        //************************************************************
+        public void BtnUpdate_Click()
+        {
+            MessageBox.Show(this.Name + " 수정버튼 사용하지 않음");
+            return;
+        }
+        #endregion
+        #region 기능버튼(삭제) Click 
+        //************************************************************
+        //** 삭제 버튼 Click 
+        //************************************************************
+        public void BtnDelete_Click()
+        {
+            return;
+        }
+        #endregion
+        #region 기능버튼(저장) Click
+        //************************************************************
+        //** 저장 버튼 Click (여러 건의 DATA 추가입력/수정 후 저장)
+        //************************************************************
+        public void BtnSave_Click()
+        {
+            return;
+        }
+        #endregion
+        #region 기능버튼(취소) Click
+        //************************************************************
+        //** 취소 버튼 Click
+        //************************************************************
+        public void BtnCancel_Click()
+        {
+            DialogResult result = MessageBox.Show(" 입력 및 수정중인 자료를 취소합니다.", "취소메세지", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No) return;
+
+            BtnSearch_Click();
+        }
+        #endregion
+        #region 기능버튼(인쇄) Click
+        //************************************************************
+        //**  인쇄 버튼 Click
+        //************************************************************
+        public void BtnPrint_Click()
+        {
+            MessageBox.Show(this.Name + " 인쇄버튼 클릭");
+        }
+        #endregion
+        #region 기능버튼(종료) Click
+        //************************************************************
+        //** 종료 버튼 Click
+        //************************************************************
+        public void BtnClose_Click()
+        {
+            if (con != null) con.Close();
+        }
+        #endregion
         #region 이름 입력받아 사원번호 찾아오기
         private void CT_Name_to_Empno(object sender, EventArgs e)
         {

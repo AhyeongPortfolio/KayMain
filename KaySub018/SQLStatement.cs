@@ -29,7 +29,7 @@ namespace KaySub018
                          AND a.evalm_no LIKE :evalm_no
                          AND a.evalm_tee LIKE :evalm_tee
                          AND a.evalm_tor LIKE :evalm_tor
-                         AND a.evalm_type = :evalm_type";
+                         AND a.evalm_type LIKE :evalm_type";
 
         //*--사원 번호 검색---------------------------------------------------------------------
         public static string
