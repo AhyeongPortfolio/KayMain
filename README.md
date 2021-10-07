@@ -79,12 +79,13 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 >* 중복기능의 함수화 및 Library 생성
 >* 그리드뷰와 컨트롤 바인딩
 >* 비밀번호, 주민번호 암호화
+>* Delegate 
 
 #### Oracle (PL/SQL)
 >* 트리거 사용
 >* 저장 프로시저 사용
 >* 코드 호출 함수 제작 및 활용
->* 
+
 [프로젝트 기능 자세히 보기](#ⅴ--프로젝트-구현--기술)
 
 ## Ⅳ) UI/UX
@@ -194,14 +195,14 @@ static public string SetFuncBtn(Button[] btn, string func)
             if (btn.Length == 0) return "";
             string wk_func = "0000000";
 
-            if (func.Equals("0")) wk_func = "1000000";   ---조회 Only 버튼 상태                      
-            if (func.Equals("E")) wk_func = "0000000";   ---Only 종료 버튼 상태
-            if (func.Equals("P")) wk_func = "1000001";   ---조회 후 인쇄/엑셀 가능 상태
-            if (func.Equals("1")) wk_func = "1100000";   ---기본 상태
-            if (func.Equals("2")) wk_func = "1101001";   ---조회 후
-            if (func.Equals("3")) wk_func = "0101110";   ---수정 및 추가 후
-            if (func.Equals("4")) wk_func = "1000110";   ---조회 후 수정 발생(추가는 없음)
-            if (func.Equals("EX1")) wk_func = "0000000";   ---엑셀 Import 前
+            if (func.Equals("0")) wk_func = "1000000";   //---조회 Only 버튼 상태                      
+            if (func.Equals("E")) wk_func = "0000000";   //---Only 종료 버튼 상태
+            if (func.Equals("P")) wk_func = "1000001";   //---조회 후 인쇄/엑셀 가능 상태
+            if (func.Equals("1")) wk_func = "1100000";   //---기본 상태
+            if (func.Equals("2")) wk_func = "1101001";   //---조회 후
+            if (func.Equals("3")) wk_func = "0101110";   //---수정 및 추가 후
+            if (func.Equals("4")) wk_func = "1000110";   //---조회 후 수정 발생(추가는 없음)
+            if (func.Equals("EX1")) wk_func = "0000000"; //---엑셀 Import 前
 
             SetFuncBtn2(btn, wk_func);
             return wk_func;
