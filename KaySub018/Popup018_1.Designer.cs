@@ -29,6 +29,7 @@ namespace KaySub018
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -67,14 +68,15 @@ namespace KaySub018
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bas_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_empno_tor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_name_tor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_dept_tor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dept_name_tor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_pos_tor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pos_name_tor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_dut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_dut_tor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dut_name_tor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -86,6 +88,7 @@ namespace KaySub018
             this.panel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -131,13 +134,13 @@ namespace KaySub018
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.check,
-            this.bas_empno,
-            this.bas_name,
-            this.bas_dept,
+            this.bas_empno_tor,
+            this.bas_name_tor,
+            this.bas_dept_tor,
             this.dept_name_tor,
-            this.bas_pos,
+            this.bas_pos_tor,
             this.pos_name_tor,
-            this.bas_dut,
+            this.bas_dut_tor,
             this.dut_name_tor});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 33);
@@ -164,6 +167,7 @@ namespace KaySub018
             // 
             // qt_bas_dut
             // 
+            this.qt_bas_dut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.qt_bas_dut.Location = new System.Drawing.Point(148, 4);
             this.qt_bas_dut.Name = "qt_bas_dut";
             this.qt_bas_dut.Size = new System.Drawing.Size(87, 21);
@@ -181,6 +185,7 @@ namespace KaySub018
             // 
             // qt_bas_dept_tor
             // 
+            this.qt_bas_dept_tor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.qt_bas_dept_tor.Location = new System.Drawing.Point(273, 4);
             this.qt_bas_dept_tor.Name = "qt_bas_dept_tor";
             this.qt_bas_dept_tor.Size = new System.Drawing.Size(121, 21);
@@ -505,36 +510,41 @@ namespace KaySub018
             this.label8.TabIndex = 81;
             this.label8.Text = "평가년도";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // check
             // 
             this.check.FalseValue = "0";
             this.check.FillWeight = 50F;
             this.check.HeaderText = "";
+            this.check.IndeterminateValue = "0";
             this.check.Name = "check";
             this.check.TrueValue = "1";
             this.check.Width = 5;
             // 
-            // bas_empno
+            // bas_empno_tor
             // 
-            this.bas_empno.DataPropertyName = "bas_empno";
-            this.bas_empno.HeaderText = "사원번호";
-            this.bas_empno.Name = "bas_empno";
-            this.bas_empno.Width = 78;
+            this.bas_empno_tor.DataPropertyName = "bas_empno";
+            this.bas_empno_tor.HeaderText = "사원번호";
+            this.bas_empno_tor.Name = "bas_empno_tor";
+            this.bas_empno_tor.Width = 78;
             // 
-            // bas_name
+            // bas_name_tor
             // 
-            this.bas_name.DataPropertyName = "bas_name";
-            this.bas_name.HeaderText = "이름";
-            this.bas_name.Name = "bas_name";
-            this.bas_name.Width = 54;
+            this.bas_name_tor.DataPropertyName = "bas_name";
+            this.bas_name_tor.HeaderText = "이름";
+            this.bas_name_tor.Name = "bas_name_tor";
+            this.bas_name_tor.Width = 54;
             // 
-            // bas_dept
+            // bas_dept_tor
             // 
-            this.bas_dept.DataPropertyName = "bas_dept";
-            this.bas_dept.HeaderText = "부서(코드)";
-            this.bas_dept.Name = "bas_dept";
-            this.bas_dept.Visible = false;
-            this.bas_dept.Width = 88;
+            this.bas_dept_tor.DataPropertyName = "bas_dept";
+            this.bas_dept_tor.HeaderText = "부서(코드)";
+            this.bas_dept_tor.Name = "bas_dept_tor";
+            this.bas_dept_tor.Visible = false;
+            this.bas_dept_tor.Width = 88;
             // 
             // dept_name_tor
             // 
@@ -543,13 +553,13 @@ namespace KaySub018
             this.dept_name_tor.Name = "dept_name_tor";
             this.dept_name_tor.Width = 54;
             // 
-            // bas_pos
+            // bas_pos_tor
             // 
-            this.bas_pos.DataPropertyName = "bas_pos";
-            this.bas_pos.HeaderText = "직급(코드)";
-            this.bas_pos.Name = "bas_pos";
-            this.bas_pos.Visible = false;
-            this.bas_pos.Width = 88;
+            this.bas_pos_tor.DataPropertyName = "bas_pos";
+            this.bas_pos_tor.HeaderText = "직급(코드)";
+            this.bas_pos_tor.Name = "bas_pos_tor";
+            this.bas_pos_tor.Visible = false;
+            this.bas_pos_tor.Width = 88;
             // 
             // pos_name_tor
             // 
@@ -558,13 +568,13 @@ namespace KaySub018
             this.pos_name_tor.Name = "pos_name_tor";
             this.pos_name_tor.Width = 54;
             // 
-            // bas_dut
+            // bas_dut_tor
             // 
-            this.bas_dut.DataPropertyName = "bas_dut";
-            this.bas_dut.HeaderText = "직책(코드)";
-            this.bas_dut.Name = "bas_dut";
-            this.bas_dut.Visible = false;
-            this.bas_dut.Width = 88;
+            this.bas_dut_tor.DataPropertyName = "bas_dut";
+            this.bas_dut_tor.HeaderText = "직책(코드)";
+            this.bas_dut_tor.Name = "bas_dut_tor";
+            this.bas_dut_tor.Visible = false;
+            this.bas_dut_tor.Width = 88;
             // 
             // dut_name_tor
             // 
@@ -597,6 +607,7 @@ namespace KaySub018
             this.tableLayoutPanel4.PerformLayout();
             this.panData.ResumeLayout(false);
             this.panData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -641,14 +652,15 @@ namespace KaySub018
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn check;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bas_empno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bas_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bas_dept;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bas_empno_tor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bas_name_tor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bas_dept_tor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dept_name_tor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bas_pos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bas_pos_tor;
         private System.Windows.Forms.DataGridViewTextBoxColumn pos_name_tor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bas_dut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bas_dut_tor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dut_name_tor;
     }
 }

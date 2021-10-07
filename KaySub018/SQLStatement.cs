@@ -19,8 +19,7 @@ namespace KaySub018
         #region 검색
         //*---DataGridView1 채우는 용도---------
         public static string
-            SelectSQL = @"SELECT a.evalm_year ,a.evalm_no ,a.evalm_tee ,a.evalm_stage ,a.evalm_tor
-                                ,a.evalm_type ,a.evalm_period ,b.bas_name as tee_name ,c.bas_name as tor_name
+            SelectSQL = @"SELECT a.*,b.bas_name as tee_name ,c.bas_name as tor_name
                          FROM kay_insa_evalm a,
                               (SELECT bas_name, bas_empno FROM kay_insa_bas) b,
                               (SELECT bas_name, bas_empno FROM kay_insa_bas) c
@@ -50,7 +49,7 @@ namespace KaySub018
                               ,FN_GETCODENM_KAY('POS', bas.bas_pos) as pos_name
                               ,FN_GETCODENM_KAY('DUT', bas.bas_dut) as dut_name
                               ,FN_GETDEPTNM_KAY(bas.bas_dept) as dept_name
-                              FROM kay_insa_bas bas";
+                              FROM kay_insa_bas bas WHERE bas.bas_dut LIKE '%'";
 
         //*--피평가자 검색(직급이 없음)----------------------------------------------------------
         public static string
@@ -69,6 +68,11 @@ namespace KaySub018
                                                     ,EVALM_TOR
                                                     ,EVALM_TYPE
                                                     ,EVALM_PERIOD
+                                                    ,evalm_dept_tee
+                                                    ,evalm_pos_tee
+                                                    ,evalm_dept_tor
+                                                    ,evalm_pos_tor
+                                                    ,evalm_dut_tor
                                                     , DATASYS2
                                                     , DATASYS3
                                                     , DATASYS4
@@ -80,6 +84,11 @@ namespace KaySub018
                                                     ,:EVALM_TOR
                                                     ,:EVALM_TYPE
                                                     ,:EVALM_PERIOD
+                                                    ,:evalm_dept_tee
+                                                    ,:evalm_pos_tee
+                                                    ,:evalm_dept_tor
+                                                    ,:evalm_pos_tor
+                                                    ,:evalm_dut_tor
                                                     ,'A'
                                                     ,:DATASYS3
                                                     ,:DATASYS4)";
@@ -98,6 +107,11 @@ namespace KaySub018
                           ,DATASYS2 = 'A'
                           ,DATASYS3 = :DATASYS3
                           ,DATASYS4 = :DATASYS4
+                          ,evalm_dept_tee = :evalm_dept_tee
+                          ,evalm_pos_tee = :evalm_pos_tee
+                          ,evalm_dept_tor = :evalm_dept_tor
+                          ,evalm_pos_tor = :evalm_pos_tor
+                          ,evalm_dut_tor = :evalm_dut_tor
                           WHERE EVALM_YEAR = :Key1
                           AND EVALM_NO = :Key2
                           AND EVALM_TEE = :Key3

@@ -118,6 +118,12 @@ namespace KaySub018
                     row.Cells["tee_name"].Value = dr["TEE_NAME"].ToString();
                     row.Cells["tor_name"].Value = dr["TOR_NAME"].ToString();
 
+                    row.Cells["evalm_dept_tee"].Value = dr["evalm_dept_tee"].ToString();
+                    row.Cells["evalm_pos_tee"].Value = dr["evalm_pos_tee"].ToString();
+                    row.Cells["evalm_dept_tor"].Value = dr["evalm_dept_tor"].ToString();
+                    row.Cells["evalm_pos_tor"].Value = dr["evalm_pos_tor"].ToString();
+                    row.Cells["evalm_dut_tor"].Value = dr["evalm_dut_tor"].ToString();
+
                     row.Cells["Key1"].Value = dr["EVALM_YEAR"].ToString();
                     row.Cells["Key2"].Value = dr["EVALM_NO"].ToString();
                     row.Cells["Key3"].Value = dr["EVALM_TEE"].ToString();
@@ -299,6 +305,12 @@ namespace KaySub018
                     cmd.Parameters.Add("EVALM_TOR", OracleDbType.Varchar2).Value = row.Cells["EVALM_TOR"].Value;
                     cmd.Parameters.Add("EVALM_TYPE", OracleDbType.Varchar2).Value = row.Cells["EVALM_TYPE"].Value;
                     cmd.Parameters.Add("EVALM_PERIOD", OracleDbType.Varchar2).Value = row.Cells["EVALM_PERIOD"].Value;
+                    cmd.Parameters.Add("evalm_dept_tee" , OracleDbType.Varchar2).Value = row.Cells["evalm_dept_tee"].Value;
+                    cmd.Parameters.Add("evalm_pos_tee" , OracleDbType.Varchar2).Value = row.Cells["evalm_pos_tee"].Value;
+                    cmd.Parameters.Add("evalm_dept_tor" , OracleDbType.Varchar2).Value = row.Cells["evalm_dept_tor"].Value;
+                    cmd.Parameters.Add("evalm_pos_tor" , OracleDbType.Varchar2).Value = row.Cells["evalm_pos_tor"].Value;
+                    cmd.Parameters.Add("evalm_dut_tor", OracleDbType.Varchar2).Value = row.Cells["evalm_dut_tor"].Value;
+
                     cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
                     cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
 
@@ -579,14 +591,64 @@ namespace KaySub018
         }
 
         #endregion
-
         #region 평가자랑 피평가자 선택 폼 오픈
         private void button1_Click(object sender, EventArgs e)
         {
             //*--업무평가대상자 관리 신규 추가 폼 오픈------------------------------
             Popup018_1 popup = new Popup018_1();
-            popup.ShowDialog();
-            
+            List<Evals> evalsList;
+            if(popup.ShowDialog() == DialogResult.OK)
+            {
+                evalsList = popup.GetResult;
+                popup.Dispose();
+            }
+            else
+            {
+                evalsList = null;
+                popup.Dispose();
+                return;
+            }
+
+            var rowIdx = dataGridView1.CurrentRow == null ? 0 : dataGridView1.CurrentRow.Index;
+            for(int i = 0; i < evalsList.Count; i++)
+            {
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    rowIdx = dataGridView1.Rows.Add();
+                }
+                else
+                {
+                    rowIdx++;
+                    dataGridView1.Rows.Insert(rowIdx);
+                }
+                dataGridView1.Rows[rowIdx].Cells["status"].Value = "A";
+
+                DataGridViewRow row = dataGridView1.Rows[rowIdx];
+                row.Cells["evalm_year"].Value = evalsList[i].evalm_year;
+                row.Cells["evalm_no"].Value = evalsList[i].evalm_no;
+                row.Cells["evalm_stage"].Value = evalsList[i].evalm_stage;
+                row.Cells["evalm_type"].Value = evalsList[i].evalm_type;
+                row.Cells["evalm_period"].Value = evalsList[i].evalm_period;
+                
+                row.Cells["evalm_tee"].Value = evalsList[i].evalm_tee;
+                row.Cells["tee_name"].Value = evalsList[i].evalm_tee_name;
+                row.Cells["evalm_dept_tee"].Value = evalsList[i].evalm_dept_tee;
+                row.Cells["evalm_pos_tee"].Value = evalsList[i].evalm_pos_tee;
+
+                row.Cells["evalm_tor"].Value = evalsList[i].evalm_tor;
+                row.Cells["tor_name"].Value = evalsList[i].evalm_tor_name;
+                row.Cells["evalm_dept_tor"].Value = evalsList[i].evalm_dept_tor;
+                row.Cells["evalm_pos_tor"].Value = evalsList[i].evalm_pos_tor;
+                row.Cells["evalm_dut_tor"].Value = evalsList[i].evalm_dut_tor;
+            }
+            //---추가된 Row로 Focus 이동-------------------------------- 
+            Utility.SetFocusingDataGridView(dataGridView1, rowIdx);
+            ct_evalm_year.Focus();
+
+            last_button_status = Utility.SetFuncBtn(MainBtn, "3");
+
+            var recCnt = dataGridView1.RowCount;
+            Info_Count.Text = recCnt.ToString();
         }
 
 
