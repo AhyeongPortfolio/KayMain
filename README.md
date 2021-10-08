@@ -92,7 +92,8 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 
 ### 로그인 화면
 
-![image](https://user-images.githubusercontent.com/50813232/135425669-5d6c39fb-8e2a-4fd2-9002-c6faa08d6a3a.png)
+![image](https://user-images.githubusercontent.com/50813232/136518350-ef7fcce4-5129-424f-9a41-c196ecbc429f.png)
+![image](https://user-images.githubusercontent.com/50813232/136518252-700f2788-5efe-4aa9-8a43-d4c337e33b5d.png)
  ##### [암호화 기능 구현](#주민번호-비밀번호-암호화)
 ```
 - 시스템 실행 하기 전 해당 프로그램 사용이 적합한지와 사원 정보를 얻기 위해 제작
@@ -103,7 +104,7 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
  
 ### 메인화면
 
-![image](https://user-images.githubusercontent.com/50813232/135425969-0deaf54d-79d5-41c3-b579-8a80fa466845.png)
+![image](https://user-images.githubusercontent.com/50813232/136518424-008431ca-ed8e-44d5-994d-49a94f6c32dd.png)
 ##### [공용버튼 기능](#공용-버튼)
 ```
 - 다양한 폼(기능)을 메인을 통해 보여줌
@@ -127,8 +128,8 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 
 ![image](https://user-images.githubusercontent.com/50813232/135439138-228b4a6d-3a66-4b2b-8c3f-1e2f55aa76b3.png)
 ```
-검색조건의 그룹코드 콤보박스는 그룹코드 데이터 바인딩을 하여 표현.   
-그룹코드는 새 창(윈도우)를 띄워 검색하여 사용.   
+- 검색조건의 그룹코드 콤보박스는 그룹코드 데이터 바인딩을 하여 표현.   
+= 그룹코드는 새 창(윈도우)를 띄워 검색하여 사용.   
 ```
 
 #### - 부서코드 관리
@@ -147,21 +148,22 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 [주민번호 암호화 기능](#주민번호-비밀번호-암호화)   
 [인사 정보 생성 시, 계정 생성](#트리거-생성)
 
+
 #### - 학력사항 
 
 ![image](https://user-images.githubusercontent.com/50813232/135439703-a9a4e087-6f3d-4c24-ba4b-7bed0f68d0b4.png)
 
 ```
-가족사항 및 수상경력, 경력사항, 자격면허, 외국어 프로그램과 동일한 패턴으로 제작되어 대표로 하나만 업로드함.   
-왼쪽의 그리드에 사원 정보를 띄우고 더블클릭으로 선택 시, 오른쪽 그리드에 표현.  
+- 가족사항 및 수상경력, 경력사항, 자격면허, 외국어 프로그램과 동일한 패턴으로 제작되어 대표로 하나만 업로드함.   
+- 왼쪽의 그리드에 사원 정보를 띄우고 더블클릭으로 선택 시, 오른쪽 그리드에 표현.  
 ```
 
 #### - 인사기록 통합조회(Read Only)
 
 ![image](https://user-images.githubusercontent.com/50813232/135440007-d193b30e-16ea-49ab-8278-93bc3b44a25d.png)
 ```
-그리드를 더블클릭 시, 각 컨트롤에 데이터 배치.   
-Adapter 사용으로 Select 속도 높임.
+- 그리드를 더블클릭 시, 각 컨트롤에 데이터 배치.   
+- Adapter 사용으로 Select 속도 높임.
 ```
 
 
@@ -241,8 +243,53 @@ commit;
 END;
 ```
 
+***
+</br>
+
+#### 프로시저 및 시퀀스 사용
+* 채번을 하기위한 시퀀스 생성 
+* 시퀀스 리턴을 위한 프로시저 사용(예제코드)
+```sql
+create or replace PROCEDURE SP_UCSUB025 
+
+(
+  P_EMPNO IN VARCHAR2 
+, P_KIND IN VARCHAR2 
+, P_DATE IN VARCHAR2 
+, P_LANG IN VARCHAR2 
+, P_CNT IN VARCHAR2 
+, P_SAU IN VARCHAR2 
+, O_CERI_NUM OUT VARCHAR2 
+)
+IS
+      vn_cnt VARCHAR2(20);
+      vn_cur_datec date := sysdate;
+BEGIN 
+
+    vn_cnt := TO_CHAR(SYSDATE, 'YYYYMM')||'-'||SUBSTR(SEQ_NAME.NEXTVAL + 1000 , -3) ;
+    
+    -- INSERT 쿼리문 실행
+    INSERT INTO kay_insa_cerl(  CERI_EMPNO
+                                ,CERI_KIND
+                                ,CERI_DATE
+                                ,CERI_LANG
+                                ,CERI_NUM
+                                ,CERI_CNT
+                                ,CERI_SAU ) 
+                       VALUES( P_CERI_EMPNO
+                              ,P_CERI_KIND
+                              ,P_CERI_DATE
+                              ,P_CERI_LANG
+                              ,vn_cnt
+                              ,P_CERI_CNT
+                              ,P_CERI_SAU);
+   
+   -- OUT PARAMETER 설정
+    O_CERI_NUM := vn_cnt;
+   commit;
   
-  
+END SP_UCSUB025;
+```
 
 [//]: #  (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
