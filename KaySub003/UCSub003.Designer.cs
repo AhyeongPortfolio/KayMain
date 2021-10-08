@@ -28,11 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dept_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept_names = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept_name_eng = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept_seq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept_upp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept_sdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept_edate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panData = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.ct_dept_name_eng = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ct_dept_use = new System.Windows.Forms.ComboBox();
             this.ct_dept_edate = new System.Windows.Forms.MaskedTextBox();
@@ -58,20 +70,7 @@
             this.qt_dept_use = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.qt_dept_name = new System.Windows.Forms.TextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label8 = new System.Windows.Forms.Label();
-            this.ct_dept_name_eng = new System.Windows.Forms.TextBox();
-            this.dept_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dept_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dept_names = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dept_name_eng = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dept_seq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dept_upp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dept_sdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dept_edate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dept_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -93,7 +92,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1000, 714);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1098, 637);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -108,7 +107,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(994, 668);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1092, 591);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // dataGridView1
@@ -135,8 +134,95 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(718, 662);
+            this.dataGridView1.Size = new System.Drawing.Size(816, 585);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // dept_code
+            // 
+            this.dept_code.DataPropertyName = "dept_code";
+            this.dept_code.HeaderText = "부서코드";
+            this.dept_code.Name = "dept_code";
+            this.dept_code.ReadOnly = true;
+            this.dept_code.Width = 78;
+            // 
+            // dept_name
+            // 
+            this.dept_name.DataPropertyName = "dept_name";
+            this.dept_name.HeaderText = "부서명칭(원형)";
+            this.dept_name.Name = "dept_name";
+            this.dept_name.ReadOnly = true;
+            this.dept_name.Width = 112;
+            // 
+            // dept_names
+            // 
+            this.dept_names.DataPropertyName = "dept_names";
+            this.dept_names.HeaderText = "부서명칭(축약)";
+            this.dept_names.Name = "dept_names";
+            this.dept_names.ReadOnly = true;
+            this.dept_names.Width = 112;
+            // 
+            // dept_name_eng
+            // 
+            this.dept_name_eng.DataPropertyName = "dept_name_eng";
+            this.dept_name_eng.HeaderText = "영문부서명";
+            this.dept_name_eng.Name = "dept_name_eng";
+            this.dept_name_eng.Width = 90;
+            // 
+            // dept_seq
+            // 
+            this.dept_seq.DataPropertyName = "dept_seq";
+            this.dept_seq.HeaderText = "부서seq";
+            this.dept_seq.Name = "dept_seq";
+            this.dept_seq.ReadOnly = true;
+            this.dept_seq.Width = 75;
+            // 
+            // dept_upp
+            // 
+            this.dept_upp.DataPropertyName = "dept_upp";
+            this.dept_upp.HeaderText = "상위부서코드";
+            this.dept_upp.Name = "dept_upp";
+            this.dept_upp.ReadOnly = true;
+            this.dept_upp.Width = 102;
+            // 
+            // dept_sdate
+            // 
+            this.dept_sdate.DataPropertyName = "dept_sdate";
+            this.dept_sdate.HeaderText = "생성일자";
+            this.dept_sdate.Name = "dept_sdate";
+            this.dept_sdate.ReadOnly = true;
+            this.dept_sdate.Width = 78;
+            // 
+            // dept_edate
+            // 
+            this.dept_edate.DataPropertyName = "dept_edate";
+            this.dept_edate.HeaderText = "폐기일자";
+            this.dept_edate.Name = "dept_edate";
+            this.dept_edate.ReadOnly = true;
+            this.dept_edate.Width = 78;
+            // 
+            // dept_use
+            // 
+            this.dept_use.DataPropertyName = "dept_use";
+            this.dept_use.HeaderText = "사용여부";
+            this.dept_use.Name = "dept_use";
+            this.dept_use.ReadOnly = true;
+            this.dept_use.Width = 78;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "상태";
+            this.status.Name = "status";
+            this.status.Visible = false;
+            this.status.Width = 54;
+            // 
+            // key1
+            // 
+            this.key1.DataPropertyName = "key1";
+            this.key1.HeaderText = "key1";
+            this.key1.Name = "key1";
+            this.key1.Visible = false;
+            this.key1.Width = 56;
             // 
             // panData
             // 
@@ -160,10 +246,28 @@
             this.panData.Controls.Add(this.ct_dept_upp);
             this.panData.Controls.Add(this.ct_dept_seq);
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panData.Location = new System.Drawing.Point(727, 3);
+            this.panData.Location = new System.Drawing.Point(825, 3);
             this.panData.Name = "panData";
-            this.panData.Size = new System.Drawing.Size(264, 662);
+            this.panData.Size = new System.Drawing.Size(264, 585);
             this.panData.TabIndex = 12;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 78);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 12);
+            this.label8.TabIndex = 92;
+            this.label8.Text = "영문부서명칭";
+            // 
+            // ct_dept_name_eng
+            // 
+            this.ct_dept_name_eng.Location = new System.Drawing.Point(99, 75);
+            this.ct_dept_name_eng.MaxLength = 30;
+            this.ct_dept_name_eng.Name = "ct_dept_name_eng";
+            this.ct_dept_name_eng.Size = new System.Drawing.Size(152, 21);
+            this.ct_dept_name_eng.TabIndex = 91;
+            this.ct_dept_name_eng.Tag = "dept_names";
             // 
             // label3
             // 
@@ -203,7 +307,7 @@
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 661);
+            this.panel4.Location = new System.Drawing.Point(0, 584);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(264, 1);
             this.panel4.TabIndex = 44;
@@ -340,7 +444,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(994, 34);
+            this.panel3.Size = new System.Drawing.Size(1092, 34);
             this.panel3.TabIndex = 1;
             // 
             // panel5
@@ -349,7 +453,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 33);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(994, 1);
+            this.panel5.Size = new System.Drawing.Size(1092, 1);
             this.panel5.TabIndex = 61;
             // 
             // label1
@@ -411,118 +515,13 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 78);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 12);
-            this.label8.TabIndex = 92;
-            this.label8.Text = "영문부서명칭";
-            // 
-            // ct_dept_name_eng
-            // 
-            this.ct_dept_name_eng.Location = new System.Drawing.Point(99, 75);
-            this.ct_dept_name_eng.MaxLength = 30;
-            this.ct_dept_name_eng.Name = "ct_dept_name_eng";
-            this.ct_dept_name_eng.Size = new System.Drawing.Size(152, 21);
-            this.ct_dept_name_eng.TabIndex = 91;
-            this.ct_dept_name_eng.Tag = "dept_names";
-            // 
-            // dept_code
-            // 
-            this.dept_code.DataPropertyName = "dept_code";
-            this.dept_code.HeaderText = "부서코드";
-            this.dept_code.Name = "dept_code";
-            this.dept_code.ReadOnly = true;
-            this.dept_code.Width = 78;
-            // 
-            // dept_name
-            // 
-            this.dept_name.DataPropertyName = "dept_name";
-            this.dept_name.HeaderText = "부서명칭(원형)";
-            this.dept_name.Name = "dept_name";
-            this.dept_name.ReadOnly = true;
-            this.dept_name.Width = 112;
-            // 
-            // dept_names
-            // 
-            this.dept_names.DataPropertyName = "dept_names";
-            this.dept_names.HeaderText = "부서명칭(축약)";
-            this.dept_names.Name = "dept_names";
-            this.dept_names.ReadOnly = true;
-            this.dept_names.Width = 112;
-            // 
-            // dept_name_eng
-            // 
-            this.dept_name_eng.DataPropertyName = "dept_name_eng";
-            this.dept_name_eng.HeaderText = "영문부서명";
-            this.dept_name_eng.Name = "dept_name_eng";
-            this.dept_name_eng.Width = 90;
-            // 
-            // dept_seq
-            // 
-            this.dept_seq.DataPropertyName = "dept_seq";
-            this.dept_seq.HeaderText = "부서seq";
-            this.dept_seq.Name = "dept_seq";
-            this.dept_seq.ReadOnly = true;
-            this.dept_seq.Width = 75;
-            // 
-            // dept_upp
-            // 
-            this.dept_upp.DataPropertyName = "dept_upp";
-            this.dept_upp.HeaderText = "상위부서코드";
-            this.dept_upp.Name = "dept_upp";
-            this.dept_upp.ReadOnly = true;
-            this.dept_upp.Width = 102;
-            // 
-            // dept_sdate
-            // 
-            this.dept_sdate.DataPropertyName = "dept_sdate";
-            this.dept_sdate.HeaderText = "생성일자";
-            this.dept_sdate.Name = "dept_sdate";
-            this.dept_sdate.ReadOnly = true;
-            this.dept_sdate.Width = 78;
-            // 
-            // dept_edate
-            // 
-            this.dept_edate.DataPropertyName = "dept_edate";
-            this.dept_edate.HeaderText = "폐기일자";
-            this.dept_edate.Name = "dept_edate";
-            this.dept_edate.ReadOnly = true;
-            this.dept_edate.Width = 78;
-            // 
-            // dept_use
-            // 
-            this.dept_use.DataPropertyName = "dept_use";
-            this.dept_use.HeaderText = "사용여부";
-            this.dept_use.Name = "dept_use";
-            this.dept_use.ReadOnly = true;
-            this.dept_use.Width = 78;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "상태";
-            this.status.Name = "status";
-            this.status.Visible = false;
-            this.status.Width = 54;
-            // 
-            // key1
-            // 
-            this.key1.DataPropertyName = "key1";
-            this.key1.HeaderText = "key1";
-            this.key1.Name = "key1";
-            this.key1.Visible = false;
-            this.key1.Width = 56;
-            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(1000, 714);
+            this.Size = new System.Drawing.Size(1098, 637);
             this.Tag = "UCSub003";
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

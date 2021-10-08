@@ -52,7 +52,7 @@ namespace KaySub012
                             ,BAS_POSDATE
                             ,BAS_WSTA
                             ,FN_GETCODENM_KAY('STS', BAS_STS) as bas_sts
-                            ,BAS_DUT
+                            ,FN_GETCODENM_KAY('DUT',BAS_DUT) as bas_dut
                             ,BAS_RMK
                             ,FN_GETCODENM_KAY('POS', bas_pos) as bas_pos
                             ,FN_GETDEPTNM_KAY(bas_dept) as bas_dept

@@ -38,6 +38,7 @@
             this.pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panData = new System.Windows.Forms.Panel();
+            this.ct_lic_name = new System.Windows.Forms.ComboBox();
             this.ct_lic_acqdate = new System.Windows.Forms.MaskedTextBox();
             this.ct_lic_organ = new System.Windows.Forms.TextBox();
             this.ct_lic_grade = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.nameSearch = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ct_lic_name = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -89,7 +89,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1060, 648);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1098, 637);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -104,7 +104,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1054, 602);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1092, 591);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // dataGridView1
@@ -125,7 +125,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(498, 596);
+            this.dataGridView1.Size = new System.Drawing.Size(536, 585);
             this.dataGridView1.TabIndex = 2;
             // 
             // bas_empno
@@ -167,12 +167,12 @@
             this.tableLayoutPanel3.Controls.Add(this.panData, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.dataGridView2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(507, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(545, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(544, 596);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(544, 585);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panData
@@ -189,10 +189,18 @@
             this.panData.Controls.Add(this.label5);
             this.panData.Controls.Add(this.label4);
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panData.Location = new System.Drawing.Point(3, 299);
+            this.panData.Location = new System.Drawing.Point(3, 288);
             this.panData.Name = "panData";
             this.panData.Size = new System.Drawing.Size(538, 294);
             this.panData.TabIndex = 3;
+            // 
+            // ct_lic_name
+            // 
+            this.ct_lic_name.FormattingEnabled = true;
+            this.ct_lic_name.Location = new System.Drawing.Point(63, 31);
+            this.ct_lic_name.Name = "ct_lic_name";
+            this.ct_lic_name.Size = new System.Drawing.Size(120, 20);
+            this.ct_lic_name.TabIndex = 1;
             // 
             // ct_lic_acqdate
             // 
@@ -305,7 +313,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(538, 290);
+            this.dataGridView2.Size = new System.Drawing.Size(538, 279);
             this.dataGridView2.TabIndex = 0;
             // 
             // lic_empno
@@ -382,7 +390,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1054, 34);
+            this.panel3.Size = new System.Drawing.Size(1092, 34);
             this.panel3.TabIndex = 1;
             // 
             // panel5
@@ -391,7 +399,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 33);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1054, 1);
+            this.panel5.Size = new System.Drawing.Size(1092, 1);
             this.panel5.TabIndex = 53;
             // 
             // label1
@@ -432,21 +440,13 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // ct_lic_name
-            // 
-            this.ct_lic_name.FormattingEnabled = true;
-            this.ct_lic_name.Location = new System.Drawing.Point(63, 31);
-            this.ct_lic_name.Name = "ct_lic_name";
-            this.ct_lic_name.Size = new System.Drawing.Size(120, 20);
-            this.ct_lic_name.TabIndex = 1;
-            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(1060, 648);
+            this.Size = new System.Drawing.Size(1098, 637);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

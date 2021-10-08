@@ -389,7 +389,8 @@ namespace KaySub012
                 }
 
                 dr.Close();
-                
+
+                pictureBox1.Image = null;
 
                 cmd = con.CreateCommand();
                 cmd.BindByName = true;
@@ -491,10 +492,9 @@ namespace KaySub012
             //    Utility.BusyIndicator(false);
             //}
         }
-        
+
 
 
         #endregion
-
     }
 }

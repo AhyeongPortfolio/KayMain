@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -77,7 +76,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.qt_cd_use = new System.Windows.Forms.ComboBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -98,7 +97,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1000, 658);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1098, 637);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -113,8 +112,8 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 668F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(994, 612);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 612F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1092, 591);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // dataGridView1
@@ -146,7 +145,7 @@
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(718, 606);
+            this.dataGridView1.Size = new System.Drawing.Size(816, 585);
             this.dataGridView1.TabIndex = 0;
             // 
             // cd_grpcd
@@ -279,9 +278,9 @@
             this.panData.Controls.Add(this.label4);
             this.panData.Controls.Add(this.panel3);
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panData.Location = new System.Drawing.Point(727, 3);
+            this.panData.Location = new System.Drawing.Point(825, 3);
             this.panData.Name = "panData";
-            this.panData.Size = new System.Drawing.Size(264, 606);
+            this.panData.Size = new System.Drawing.Size(264, 585);
             this.panData.TabIndex = 10;
             // 
             // label13
@@ -504,7 +503,7 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 605);
+            this.panel3.Location = new System.Drawing.Point(0, 584);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(264, 1);
             this.panel3.TabIndex = 41;
@@ -519,7 +518,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(994, 34);
+            this.panel4.Size = new System.Drawing.Size(1092, 34);
             this.panel4.TabIndex = 1;
             // 
             // qt_cd_grpcd
@@ -537,7 +536,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 33);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(994, 1);
+            this.panel5.Size = new System.Drawing.Size(1092, 1);
             this.panel5.TabIndex = 61;
             // 
             // label1
@@ -584,7 +583,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(1000, 658);
+            this.Size = new System.Drawing.Size(1098, 637);
             this.Tag = "UCSub002";
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

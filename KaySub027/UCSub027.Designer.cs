@@ -39,6 +39,12 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.직급명 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.남자 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.남자비율 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.여자 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.여자비율 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.총인원수 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Notic = new System.Windows.Forms.Label();
@@ -50,12 +56,6 @@
             this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.pieChart1 = new LiveCharts.WinForms.PieChart();
-            this.직급명 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.남자 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.남자비율 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.여자 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.여자비율 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.총인원수 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -77,7 +77,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1000, 610);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1098, 637);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel3
@@ -92,7 +92,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(994, 564);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1092, 591);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // tableLayoutPanel5
@@ -107,7 +107,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(590, 558);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(649, 585);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // dataGridView1
@@ -139,115 +139,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(584, 512);
+            this.dataGridView1.Size = new System.Drawing.Size(643, 539);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.Notic);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(584, 34);
-            this.panel3.TabIndex = 2;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 33);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(584, 1);
-            this.panel4.TabIndex = 45;
-            // 
-            // Notic
-            // 
-            this.Notic.AutoSize = true;
-            this.Notic.Location = new System.Drawing.Point(2, 8);
-            this.Notic.Name = "Notic";
-            this.Notic.Size = new System.Drawing.Size(97, 12);
-            this.Notic.TabIndex = 2;
-            this.Notic.Text = "직급별 인원 현황";
-            this.Notic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pieChart2
-            // 
-            this.pieChart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pieChart2.Location = new System.Drawing.Point(599, 3);
-            this.pieChart2.Name = "pieChart2";
-            this.pieChart2.Size = new System.Drawing.Size(392, 558);
-            this.pieChart2.TabIndex = 3;
-            this.pieChart2.Text = "pieChart2";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.searchDept);
-            this.panel2.Controls.Add(this.dateSearch1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(994, 34);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 33);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(994, 1);
-            this.panel5.TabIndex = 45;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(856, 9);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "직급";
-            this.label3.Visible = false;
-            // 
-            // searchDept
-            // 
-            this.searchDept.FormattingEnabled = true;
-            this.searchDept.Location = new System.Drawing.Point(891, 5);
-            this.searchDept.Name = "searchDept";
-            this.searchDept.Size = new System.Drawing.Size(100, 20);
-            this.searchDept.TabIndex = 41;
-            this.searchDept.Visible = false;
-            // 
-            // dateSearch1
-            // 
-            this.dateSearch1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateSearch1.Location = new System.Drawing.Point(61, 2);
-            this.dateSearch1.Name = "dateSearch1";
-            this.dateSearch1.Size = new System.Drawing.Size(100, 21);
-            this.dateSearch1.TabIndex = 1;
-            this.dateSearch1.Value = new System.DateTime(2021, 8, 31, 0, 0, 0, 0);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "조회날짜";
-            // 
-            // pieChart1
-            // 
-            this.pieChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pieChart1.Location = new System.Drawing.Point(331, 3);
-            this.pieChart1.Name = "pieChart1";
-            this.pieChart1.Size = new System.Drawing.Size(487, 496);
-            this.pieChart1.TabIndex = 3;
-            this.pieChart1.Text = "pieChart1";
             // 
             // 직급명
             // 
@@ -297,6 +190,113 @@
             this.총인원수.HeaderText = "총인원수";
             this.총인원수.Name = "총인원수";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.Notic);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(643, 34);
+            this.panel3.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 33);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(643, 1);
+            this.panel4.TabIndex = 45;
+            // 
+            // Notic
+            // 
+            this.Notic.AutoSize = true;
+            this.Notic.Location = new System.Drawing.Point(2, 8);
+            this.Notic.Name = "Notic";
+            this.Notic.Size = new System.Drawing.Size(97, 12);
+            this.Notic.TabIndex = 2;
+            this.Notic.Text = "직급별 인원 현황";
+            this.Notic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pieChart2
+            // 
+            this.pieChart2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pieChart2.Location = new System.Drawing.Point(658, 3);
+            this.pieChart2.Name = "pieChart2";
+            this.pieChart2.Size = new System.Drawing.Size(431, 585);
+            this.pieChart2.TabIndex = 3;
+            this.pieChart2.Text = "pieChart2";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.searchDept);
+            this.panel2.Controls.Add(this.dateSearch1);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1092, 34);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 33);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1092, 1);
+            this.panel5.TabIndex = 45;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(856, 9);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "직급";
+            this.label3.Visible = false;
+            // 
+            // searchDept
+            // 
+            this.searchDept.FormattingEnabled = true;
+            this.searchDept.Location = new System.Drawing.Point(891, 5);
+            this.searchDept.Name = "searchDept";
+            this.searchDept.Size = new System.Drawing.Size(100, 20);
+            this.searchDept.TabIndex = 41;
+            this.searchDept.Visible = false;
+            // 
+            // dateSearch1
+            // 
+            this.dateSearch1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateSearch1.Location = new System.Drawing.Point(61, 2);
+            this.dateSearch1.Name = "dateSearch1";
+            this.dateSearch1.Size = new System.Drawing.Size(100, 21);
+            this.dateSearch1.TabIndex = 1;
+            this.dateSearch1.Value = new System.DateTime(2021, 8, 31, 0, 0, 0, 0);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "조회날짜";
+            // 
+            // pieChart1
+            // 
+            this.pieChart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pieChart1.Location = new System.Drawing.Point(331, 3);
+            this.pieChart1.Name = "pieChart1";
+            this.pieChart1.Size = new System.Drawing.Size(487, 496);
+            this.pieChart1.TabIndex = 3;
+            this.pieChart1.Text = "pieChart1";
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -304,7 +304,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(1000, 610);
+            this.Size = new System.Drawing.Size(1098, 637);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);

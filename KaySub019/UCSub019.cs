@@ -110,14 +110,12 @@ namespace KaySub019
             if (recCnt == 0)
             {
                 Info_Message.Text = "조건을 만족하는 자료가 없습니다.";
-                last_button_status = Utility.SetFuncBtn(MainBtn, "0");
             }
             else
             {
-                Utility.SetFocusingDataGridView(dataGridView1, 0); //Focus를 맨 첫줄로 보내기
+                //Utility.SetFocusingDataGridView(dataGridView1, 0); //Focus를 맨 첫줄로 보내기
                 //this.DataList_SelectionChanged(null, null);   //선택된 첫줄을 Control에 표시하기
 
-                last_button_status = Utility.SetFuncBtn(MainBtn, "0");
                 Info_Message.Text = "자료가 정상적으로 조회 되었습니다.";
             }
         }
@@ -180,7 +178,7 @@ namespace KaySub019
             evals.evalm_weak.Text = row.Cells["evalm_weak"]?.Value.ToString() ?? "";
             evals.UserId = UserId;
             evals.UserNm = UserNm;
-            evals.status = row.Cells["evalm_findate"].Value.ToString() == "N" ? "A" : "U";
+            evals.status = row.Cells["evalm_findate"].Value.ToString() == "" ? "A" : "U";
 
             evals.ShowDialog();
 

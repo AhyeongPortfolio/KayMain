@@ -113,7 +113,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1000, 610);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1098, 637);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -128,7 +128,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(994, 564);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1092, 591);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // panData
@@ -170,9 +170,9 @@
             this.panData.Controls.Add(this.label28);
             this.panData.Controls.Add(this.label31);
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panData.Location = new System.Drawing.Point(798, 3);
+            this.panData.Location = new System.Drawing.Point(876, 3);
             this.panData.Name = "panData";
-            this.panData.Size = new System.Drawing.Size(193, 558);
+            this.panData.Size = new System.Drawing.Size(213, 585);
             this.panData.TabIndex = 2;
             // 
             // label6
@@ -187,7 +187,7 @@
             // ct_bas_dptdate
             // 
             this.ct_bas_dptdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_dptdate.Location = new System.Drawing.Point(79, 229);
+            this.ct_bas_dptdate.Location = new System.Drawing.Point(99, 229);
             this.ct_bas_dptdate.Name = "ct_bas_dptdate";
             this.ct_bas_dptdate.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_dptdate.TabIndex = 45;
@@ -196,7 +196,7 @@
             // ct_bas_dept
             // 
             this.ct_bas_dept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_dept.Location = new System.Drawing.Point(79, 397);
+            this.ct_bas_dept.Location = new System.Drawing.Point(99, 397);
             this.ct_bas_dept.Name = "ct_bas_dept";
             this.ct_bas_dept.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_dept.TabIndex = 45;
@@ -206,7 +206,7 @@
             // 
             this.ct_bas_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ct_bas_name.ImeMode = System.Windows.Forms.ImeMode.Hangul;
-            this.ct_bas_name.Location = new System.Drawing.Point(79, 37);
+            this.ct_bas_name.Location = new System.Drawing.Point(99, 37);
             this.ct_bas_name.MaxLength = 6;
             this.ct_bas_name.Name = "ct_bas_name";
             this.ct_bas_name.ReadOnly = true;
@@ -217,7 +217,7 @@
             // ct_bas_reidate
             // 
             this.ct_bas_reidate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_reidate.Location = new System.Drawing.Point(79, 205);
+            this.ct_bas_reidate.Location = new System.Drawing.Point(99, 205);
             this.ct_bas_reidate.Name = "ct_bas_reidate";
             this.ct_bas_reidate.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_reidate.TabIndex = 44;
@@ -226,7 +226,7 @@
             // ct_bas_posdate
             // 
             this.ct_bas_posdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_posdate.Location = new System.Drawing.Point(79, 253);
+            this.ct_bas_posdate.Location = new System.Drawing.Point(99, 253);
             this.ct_bas_posdate.Name = "ct_bas_posdate";
             this.ct_bas_posdate.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_posdate.TabIndex = 45;
@@ -235,7 +235,7 @@
             // ct_bas_dut
             // 
             this.ct_bas_dut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_dut.Location = new System.Drawing.Point(79, 373);
+            this.ct_bas_dut.Location = new System.Drawing.Point(99, 373);
             this.ct_bas_dut.Name = "ct_bas_dut";
             this.ct_bas_dut.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_dut.TabIndex = 45;
@@ -244,7 +244,7 @@
             // ct_bas_resdate
             // 
             this.ct_bas_resdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_resdate.Location = new System.Drawing.Point(79, 157);
+            this.ct_bas_resdate.Location = new System.Drawing.Point(99, 157);
             this.ct_bas_resdate.Name = "ct_bas_resdate";
             this.ct_bas_resdate.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_resdate.TabIndex = 44;
@@ -254,16 +254,16 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 557);
+            this.panel3.Location = new System.Drawing.Point(0, 584);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(193, 1);
+            this.panel3.Size = new System.Drawing.Size(213, 1);
             this.panel3.TabIndex = 7;
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 232);
+            this.label7.Location = new System.Drawing.Point(28, 232);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 12);
             this.label7.TabIndex = 40;
@@ -272,7 +272,7 @@
             // ct_bas_emp_edate
             // 
             this.ct_bas_emp_edate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_emp_edate.Location = new System.Drawing.Point(79, 109);
+            this.ct_bas_emp_edate.Location = new System.Drawing.Point(99, 109);
             this.ct_bas_emp_edate.Name = "ct_bas_emp_edate";
             this.ct_bas_emp_edate.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_emp_edate.TabIndex = 44;
@@ -282,7 +282,7 @@
             // 
             this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(32, 401);
+            this.label30.Location = new System.Drawing.Point(52, 401);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(41, 12);
             this.label30.TabIndex = 40;
@@ -291,7 +291,7 @@
             // ct_bas_levdate
             // 
             this.ct_bas_levdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_levdate.Location = new System.Drawing.Point(79, 181);
+            this.ct_bas_levdate.Location = new System.Drawing.Point(99, 181);
             this.ct_bas_levdate.Name = "ct_bas_levdate";
             this.ct_bas_levdate.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_levdate.TabIndex = 44;
@@ -301,7 +301,7 @@
             // 
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(20, 209);
+            this.label25.Location = new System.Drawing.Point(40, 209);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(53, 12);
             this.label25.TabIndex = 34;
@@ -310,7 +310,7 @@
             // ct_bas_sts
             // 
             this.ct_bas_sts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_sts.Location = new System.Drawing.Point(79, 325);
+            this.ct_bas_sts.Location = new System.Drawing.Point(99, 325);
             this.ct_bas_sts.Name = "ct_bas_sts";
             this.ct_bas_sts.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_sts.TabIndex = 45;
@@ -320,7 +320,7 @@
             // 
             this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(20, 161);
+            this.label23.Location = new System.Drawing.Point(40, 161);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(53, 12);
             this.label23.TabIndex = 30;
@@ -329,7 +329,7 @@
             // ct_bas_entdate
             // 
             this.ct_bas_entdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_entdate.Location = new System.Drawing.Point(79, 133);
+            this.ct_bas_entdate.Location = new System.Drawing.Point(99, 133);
             this.ct_bas_entdate.Name = "ct_bas_entdate";
             this.ct_bas_entdate.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_entdate.TabIndex = 44;
@@ -339,7 +339,7 @@
             // 
             this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(8, 113);
+            this.label22.Location = new System.Drawing.Point(28, 113);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(65, 12);
             this.label22.TabIndex = 26;
@@ -348,7 +348,7 @@
             // ct_bas_jkdate
             // 
             this.ct_bas_jkdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_jkdate.Location = new System.Drawing.Point(79, 277);
+            this.ct_bas_jkdate.Location = new System.Drawing.Point(99, 277);
             this.ct_bas_jkdate.Name = "ct_bas_jkdate";
             this.ct_bas_jkdate.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_jkdate.TabIndex = 45;
@@ -357,7 +357,7 @@
             // ct_bas_pos
             // 
             this.ct_bas_pos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_pos.Location = new System.Drawing.Point(79, 349);
+            this.ct_bas_pos.Location = new System.Drawing.Point(99, 349);
             this.ct_bas_pos.Name = "ct_bas_pos";
             this.ct_bas_pos.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_pos.TabIndex = 45;
@@ -366,7 +366,7 @@
             // ct_bas_wsta
             // 
             this.ct_bas_wsta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_wsta.Location = new System.Drawing.Point(79, 301);
+            this.ct_bas_wsta.Location = new System.Drawing.Point(99, 301);
             this.ct_bas_wsta.Name = "ct_bas_wsta";
             this.ct_bas_wsta.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_wsta.TabIndex = 45;
@@ -376,7 +376,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 256);
+            this.label8.Location = new System.Drawing.Point(28, 256);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 12);
             this.label8.TabIndex = 38;
@@ -385,7 +385,7 @@
             // ct_bas_emp_sdate
             // 
             this.ct_bas_emp_sdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_emp_sdate.Location = new System.Drawing.Point(79, 85);
+            this.ct_bas_emp_sdate.Location = new System.Drawing.Point(99, 85);
             this.ct_bas_emp_sdate.Name = "ct_bas_emp_sdate";
             this.ct_bas_emp_sdate.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_emp_sdate.TabIndex = 44;
@@ -395,7 +395,7 @@
             // 
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(32, 377);
+            this.label29.Location = new System.Drawing.Point(52, 377);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(41, 12);
             this.label29.TabIndex = 38;
@@ -404,7 +404,7 @@
             // ct_bas_cont
             // 
             this.ct_bas_cont.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_cont.Location = new System.Drawing.Point(79, 61);
+            this.ct_bas_cont.Location = new System.Drawing.Point(99, 61);
             this.ct_bas_cont.Name = "ct_bas_cont";
             this.ct_bas_cont.Size = new System.Drawing.Size(100, 21);
             this.ct_bas_cont.TabIndex = 45;
@@ -414,7 +414,7 @@
             // 
             this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(20, 185);
+            this.label26.Location = new System.Drawing.Point(40, 185);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(53, 12);
             this.label26.TabIndex = 32;
@@ -423,7 +423,7 @@
             // ct_bas_empno
             // 
             this.ct_bas_empno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ct_bas_empno.Location = new System.Drawing.Point(79, 13);
+            this.ct_bas_empno.Location = new System.Drawing.Point(99, 13);
             this.ct_bas_empno.MaxLength = 9;
             this.ct_bas_empno.Name = "ct_bas_empno";
             this.ct_bas_empno.ReadOnly = true;
@@ -435,7 +435,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(44, 40);
+            this.label5.Location = new System.Drawing.Point(64, 40);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 1;
@@ -445,7 +445,7 @@
             // 
             this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(20, 137);
+            this.label24.Location = new System.Drawing.Point(40, 137);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(53, 12);
             this.label24.TabIndex = 28;
@@ -455,7 +455,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 16);
+            this.label4.Location = new System.Drawing.Point(40, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 0;
@@ -465,7 +465,7 @@
             // 
             this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(20, 65);
+            this.label20.Location = new System.Drawing.Point(40, 65);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(53, 12);
             this.label20.TabIndex = 0;
@@ -475,7 +475,7 @@
             // 
             this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(8, 89);
+            this.label21.Location = new System.Drawing.Point(28, 89);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(65, 12);
             this.label21.TabIndex = 24;
@@ -485,7 +485,7 @@
             // 
             this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(20, 329);
+            this.label36.Location = new System.Drawing.Point(40, 329);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(53, 12);
             this.label36.TabIndex = 42;
@@ -495,7 +495,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 280);
+            this.label9.Location = new System.Drawing.Point(28, 280);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 12);
             this.label9.TabIndex = 42;
@@ -505,7 +505,7 @@
             // 
             this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(20, 305);
+            this.label28.Location = new System.Drawing.Point(40, 305);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(53, 12);
             this.label28.TabIndex = 36;
@@ -515,7 +515,7 @@
             // 
             this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(32, 353);
+            this.label31.Location = new System.Drawing.Point(52, 353);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(41, 12);
             this.label31.TabIndex = 42;
@@ -554,7 +554,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(789, 558);
+            this.dataGridView1.Size = new System.Drawing.Size(867, 585);
             this.dataGridView1.TabIndex = 8;
             // 
             // bas_empno
@@ -694,7 +694,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(994, 34);
+            this.panel4.Size = new System.Drawing.Size(1092, 34);
             this.panel4.TabIndex = 2;
             // 
             // panel5
@@ -703,7 +703,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 33);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(994, 1);
+            this.panel5.Size = new System.Drawing.Size(1092, 1);
             this.panel5.TabIndex = 44;
             // 
             // label1
@@ -746,7 +746,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(1000, 610);
+            this.Size = new System.Drawing.Size(1098, 637);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

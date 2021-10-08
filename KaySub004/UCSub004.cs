@@ -270,84 +270,59 @@ namespace KaySub004
             try
             {
                 con = Utility.SetOracleConnection();
-                tran = con.BeginTransaction(IsolationLevel.ReadCommitted);
                 OracleCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.BindByName = true;
-                cmd.Transaction = tran;
+                cmd.CommandText = "SP_KAY_UCSUB004_S";
                 var byteArray = Encoding.UTF8.GetBytes(ct_bas_resno.Text); // 복호화 키
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     if (row.Cells["status"].Value.Equals("")) continue;
+
                     if (row.Cells["status"].Value.Equals("A"))
                     {
-                        cmd.CommandText = SQLStatement.InsertSQL;
-                        cmd.Parameters.Add("DATASYS2", OracleDbType.Varchar2).Value = "A";
+                        cmd.Parameters.Add("p_work_type", OracleDbType.Varchar2).Value = "A";
+                        cmd.Parameters.Add("P_BAS_EMPNO", OracleDbType.Varchar2).Value = "";
                     }
                     if (row.Cells["status"].Value.Equals("U"))
                     {
-                        cmd.CommandText = SQLStatement.UpdateSQL;
-                        cmd.Parameters.Add("key1", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;
-                        cmd.Parameters.Add("DATASYS2", OracleDbType.Varchar2).Value = "U";
-                        cmd.Parameters.Add("BAS_EMPNO", OracleDbType.Varchar2).Value = row.Cells["bas_empno"].Value;
+                        cmd.Parameters.Add("p_work_type", OracleDbType.Varchar2).Value = "B";
+                        cmd.Parameters.Add("p_key1", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;
+                        cmd.Parameters.Add("P_BAS_EMPNO", OracleDbType.Varchar2).Value = row.Cells["bas_empno"].Value;
                     }
-                    cmd.Parameters.Add("BAS_RESNO", OracleDbType.Varchar2).Value = Utility.AESEncrypt128(row.Cells["bas_resno"].Value.ToString(), byteArray.ToString());
-                    cmd.Parameters.Add("BAS_NAME", OracleDbType.Varchar2).Value = row.Cells["bas_name"].Value;
-                    cmd.Parameters.Add("BAS_CNAME", OracleDbType.Varchar2).Value = row.Cells["bas_cname"].Value;
-                    cmd.Parameters.Add("BAS_ENAME", OracleDbType.Varchar2).Value = row.Cells["bas_ename"].Value;
-                    cmd.Parameters.Add("BAS_FIX", OracleDbType.Varchar2).Value = row.Cells["bas_fix"].Value;
-                    cmd.Parameters.Add("BAS_ZIP", OracleDbType.Varchar2).Value = row.Cells["bas_zip"].Value;
-                    cmd.Parameters.Add("BAS_ADDR", OracleDbType.Varchar2).Value = row.Cells["bas_addr"].Value;
-                    cmd.Parameters.Add("BAS_ANADDR", OracleDbType.Varchar2).Value = row.Cells["bas_anaddr"].Value;
-                    cmd.Parameters.Add("BAS_HDPNO", OracleDbType.Varchar2).Value = row.Cells["bas_hdpno"].Value;
-                    cmd.Parameters.Add("BAS_TELNO", OracleDbType.Varchar2).Value = row.Cells["bas_telno"].Value;
-                    cmd.Parameters.Add("BAS_EMAIL", OracleDbType.Varchar2).Value = row.Cells["bas_email"].Value;
-                    cmd.Parameters.Add("BAS_MIL_STA", OracleDbType.Varchar2).Value = row.Cells["bas_mil_sta"].Value;
-                    cmd.Parameters.Add("BAS_MIL_MIL", OracleDbType.Varchar2).Value = row.Cells["bas_mil_mil"].Value;
-                    cmd.Parameters.Add("BAS_MIL_RNK", OracleDbType.Varchar2).Value = row.Cells["bas_mil_rnk"].Value;
-                    cmd.Parameters.Add("BAS_MAR", OracleDbType.Varchar2).Value = row.Cells["bas_mar"].Value;
-                    cmd.Parameters.Add("BAS_ACC_BANK", OracleDbType.Varchar2).Value = row.Cells["bas_acc_bank"].Value;
-                    cmd.Parameters.Add("BAS_ACC_NAME", OracleDbType.Varchar2).Value = row.Cells["bas_acc_name"].Value;
-                    cmd.Parameters.Add("BAS_ACC_NO", OracleDbType.Varchar2).Value = row.Cells["bas_acc_no"].Value;
-                    cmd.Parameters.Add("BAS_CONT", OracleDbType.Varchar2).Value = row.Cells["bas_cont"].Value;
-                    cmd.Parameters.Add("BAS_EMP_SDATE", OracleDbType.Varchar2).Value = row.Cells["bas_emp_sdate"].Value;
-                    cmd.Parameters.Add("BAS_EMP_EDATE", OracleDbType.Varchar2).Value = row.Cells["bas_emp_edate"].Value;
-                    cmd.Parameters.Add("BAS_ENTDATE", OracleDbType.Varchar2).Value = row.Cells["bas_entdate"].Value;
-                    cmd.Parameters.Add("BAS_RESDATE", OracleDbType.Varchar2).Value = row.Cells["bas_resdate"].Value;
-                    cmd.Parameters.Add("BAS_LEVDATE", OracleDbType.Varchar2).Value = row.Cells["bas_levdate"].Value;
-                    cmd.Parameters.Add("BAS_REIDATE", OracleDbType.Varchar2).Value = row.Cells["bas_reidate"].Value;
-                    cmd.Parameters.Add("BAS_DPTDATE", OracleDbType.Varchar2).Value = row.Cells["bas_dptdate"].Value;
-                    cmd.Parameters.Add("BAS_JKDATE", OracleDbType.Varchar2).Value = row.Cells["bas_jkdate"].Value;
-                    cmd.Parameters.Add("BAS_POSDATE", OracleDbType.Varchar2).Value = row.Cells["bas_posdate"].Value;
-                    cmd.Parameters.Add("BAS_WSTA", OracleDbType.Varchar2).Value = row.Cells["bas_wsta"].Value;
-                    cmd.Parameters.Add("BAS_STS", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["sts"].Value);
-                    cmd.Parameters.Add("BAS_POS", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["pos"].Value);
-                    cmd.Parameters.Add("BAS_DUT", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["dut"].Value);
-                    cmd.Parameters.Add("BAS_DEPT", OracleDbType.Varchar2).Value = Utility.GetCode((String)row.Cells["dept"].Value);
-                    cmd.Parameters.Add("BAS_RMK", OracleDbType.Varchar2).Value = row.Cells["bas_rmk"].Value;
-                    cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
-                    cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
-                    cmd.Parameters.Add("BAS_EADDR", OracleDbType.Varchar2).Value = row.Cells["bas_eaddr"].Value;
+                    cmd.Parameters.Add("P_BAS_RESNO", OracleDbType.Varchar2).Value = Utility.AESEncrypt128(row.Cells["bas_resno"].Value.ToString(), byteArray.ToString());
+                    cmd.Parameters.Add("P_BAS_NAME", OracleDbType.Varchar2).Value = row.Cells["bas_name"].Value;
+                    cmd.Parameters.Add("P_BAS_CNAME", OracleDbType.Varchar2).Value = row.Cells["bas_cname"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_ENAME", OracleDbType.Varchar2).Value = row.Cells["bas_ename"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_FIX", OracleDbType.Varchar2).Value = row.Cells["bas_fix"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_ZIP", OracleDbType.Varchar2).Value = row.Cells["bas_zip"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_ADDR", OracleDbType.Varchar2).Value = row.Cells["bas_addr"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_ANADDR", OracleDbType.Varchar2).Value = row.Cells["bas_anaddr"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_HDPNO", OracleDbType.Varchar2).Value = row.Cells["bas_hdpno"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_TELNO", OracleDbType.Varchar2).Value = row.Cells["bas_telno"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_EMAIL", OracleDbType.Varchar2).Value = row.Cells["bas_email"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_MIL_STA", OracleDbType.Varchar2).Value = row.Cells["bas_mil_sta"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_MIL_MIL", OracleDbType.Varchar2).Value = row.Cells["bas_mil_mil"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_MIL_RNK", OracleDbType.Varchar2).Value = row.Cells["bas_mil_rnk"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_MAR", OracleDbType.Varchar2).Value = row.Cells["bas_mar"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_ACC_BANK", OracleDbType.Varchar2).Value = row.Cells["bas_acc_bank"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_ACC_NAME", OracleDbType.Varchar2).Value = row.Cells["bas_acc_name"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_ACC_NO", OracleDbType.Varchar2).Value = row.Cells["bas_acc_no"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_CONT", OracleDbType.Varchar2).Value = row.Cells["bas_cont"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_BAS_RMK", OracleDbType.Varchar2).Value = row.Cells["bas_rmk"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
+                    cmd.Parameters.Add("P_DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
+                    cmd.Parameters.Add("P_BAS_EADDR", OracleDbType.Varchar2).Value = row.Cells["bas_eaddr"]?.Value ?? string.Empty;
 
+                    cmd.Parameters.Add("O_BAS_NO", OracleDbType.Varchar2, 9).Direction = ParameterDirection.Output;
                     cmd.ExecuteNonQuery();
-                    cmd.Parameters.Clear();  //*----반드시 포함
-                    //if (row.Cells["status"].Value.Equals("A"))
-                    //{
-                    //    cmd.CommandText = SQLStatement.LoginSQL;
-                    //    cmd.Parameters.Add("USER_NAME_KAY", OracleDbType.Varchar2).Value = row.Cells["bas_name"].Value;
-                    //    cmd.Parameters.Add("USER_PSWD", OracleDbType.Varchar2).Value = Utility.SHA512("1111"); //초기비밀번호 : 1111
-                    //    cmd.Parameters.Add("USER_EMAIL", OracleDbType.Varchar2).Value = row.Cells["bas_email"].Value;
-                    //    cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
-                    //    cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
-
-                    //    cmd.ExecuteNonQuery();
-                    //    cmd.Parameters.Clear();  //*----반드시 포함
-                    //}
+                    if(row.Cells["status"].Value.ToString() == "A") 
+                        row.Cells["bas_empno"].Value = cmd.Parameters["O_BAS_NO"].Value.ToString();
                 }
-                tran.Commit();
+                    cmd.Parameters.Clear();  //*----반드시 포함
             }
             catch (Exception ex)
             {
-                tran.Rollback();
                 MessageBox.Show(ex.Message);
                 return;
             }
@@ -536,9 +511,9 @@ namespace KaySub004
                 ImageConverter converter = new ImageConverter();
 
                 b1 = (byte[])converter.ConvertTo(img2, typeof(byte[])); //실제 사용 할 이미지
-                if (b1.Length >= Math.Pow(2, 10) * 20)
+                if (b1.Length >= Math.Pow(2, 11) * 20)
                 {
-                    MessageBox.Show("사진크기가 큽니다. 25kb이하의 이미지로 선택해주세요.");
+                    MessageBox.Show("사진크기가 큽니다. 50kb이하의 이미지로 선택해주세요.");
                     return;
                 }
                 pictureBox1.Image = Bitmap.FromFile(image_file2);
@@ -574,15 +549,15 @@ namespace KaySub004
                     if (!string.IsNullOrEmpty(ct_bas_empno.Text))
                     {
                         cmd.CommandText = SQLStatement.ImageSQL;
-                        cmd.Parameters.Add("BAS_EMPNO", OracleDbType.Varchar2).Value = ct_bas_empno.Text;
-                    }
-                    cmd.Parameters.Add("BAS_EMPNO", OracleDbType.Varchar2).Value = System.DateTime.Now.ToString("yyyy") + "-"; //올해년도+_+시퀀스
+                        cmd.Parameters.Add("empno", OracleDbType.Varchar2).Value = ct_bas_empno.Text;
+                    }                   
                 }
                 else if (image_check == 1)
                 {
                     cmd.CommandText = SQLStatement.ImageSQL2;
-                    cmd.Parameters.Add("BAS_EMPNO", OracleDbType.Varchar2).Value = ct_bas_empno.Text;
+                    cmd.Parameters.Add("empno", OracleDbType.Varchar2).Value = ct_bas_empno.Text;
                 }
+                cmd.Parameters.Add("img", OracleDbType.Blob, b1.Length, b1, ParameterDirection.Input);
                 cmd.ExecuteNonQuery();
                 cmd.Parameters.Clear();  //*----반드시 포함
 

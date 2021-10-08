@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -63,13 +62,6 @@
             this.ct_award_empno = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bas_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bas_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.award_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.award_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.award_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,6 +75,13 @@
             this.Key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Key2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Key3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bas_empno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bas_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -108,7 +107,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(937, 593);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1098, 637);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel1
@@ -125,7 +124,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(931, 34);
+            this.panel1.Size = new System.Drawing.Size(1092, 34);
             this.panel1.TabIndex = 0;
             // 
             // panel5
@@ -134,7 +133,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 33);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(931, 1);
+            this.panel5.Size = new System.Drawing.Size(1092, 1);
             this.panel5.TabIndex = 53;
             // 
             // label1
@@ -224,7 +223,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(931, 547);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1092, 591);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -235,7 +234,7 @@
             this.tableLayoutPanel3.Controls.Add(this.panData, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.dataGridView2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(384, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(545, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -245,7 +244,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(544, 541);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(544, 585);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // panData
@@ -270,7 +269,7 @@
             this.panData.Controls.Add(this.ct_award_empno);
             this.panData.Controls.Add(this.label4);
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panData.Location = new System.Drawing.Point(3, 224);
+            this.panData.Location = new System.Drawing.Point(3, 268);
             this.panData.Name = "panData";
             this.panData.Size = new System.Drawing.Size(538, 314);
             this.panData.TabIndex = 3;
@@ -471,74 +470,8 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(538, 215);
+            this.dataGridView2.Size = new System.Drawing.Size(538, 259);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.dataGridView1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(375, 541);
-            this.panel6.TabIndex = 3;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.bas_empno,
-            this.bas_name,
-            this.dept,
-            this.pos});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(375, 541);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // bas_empno
-            // 
-            this.bas_empno.DataPropertyName = "bas_empno";
-            this.bas_empno.HeaderText = "사원번호";
-            this.bas_empno.Name = "bas_empno";
-            this.bas_empno.ReadOnly = true;
-            this.bas_empno.Width = 78;
-            // 
-            // bas_name
-            // 
-            this.bas_name.DataPropertyName = "bas_name";
-            this.bas_name.HeaderText = "성명";
-            this.bas_name.Name = "bas_name";
-            this.bas_name.ReadOnly = true;
-            this.bas_name.Width = 54;
-            // 
-            // dept
-            // 
-            this.dept.DataPropertyName = "dept";
-            this.dept.HeaderText = "부서";
-            this.dept.Name = "dept";
-            this.dept.ReadOnly = true;
-            this.dept.Width = 54;
-            // 
-            // pos
-            // 
-            this.pos.DataPropertyName = "pos";
-            this.pos.HeaderText = "직급";
-            this.pos.Name = "pos";
-            this.pos.ReadOnly = true;
-            this.pos.Width = 54;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // award_empno
             // 
@@ -648,13 +581,79 @@
             this.Key3.Visible = false;
             this.Key3.Width = 58;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.dataGridView1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(536, 585);
+            this.panel6.TabIndex = 3;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.bas_empno,
+            this.bas_name,
+            this.dept,
+            this.pos});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(536, 585);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // bas_empno
+            // 
+            this.bas_empno.DataPropertyName = "bas_empno";
+            this.bas_empno.HeaderText = "사원번호";
+            this.bas_empno.Name = "bas_empno";
+            this.bas_empno.ReadOnly = true;
+            this.bas_empno.Width = 78;
+            // 
+            // bas_name
+            // 
+            this.bas_name.DataPropertyName = "bas_name";
+            this.bas_name.HeaderText = "성명";
+            this.bas_name.Name = "bas_name";
+            this.bas_name.ReadOnly = true;
+            this.bas_name.Width = 54;
+            // 
+            // dept
+            // 
+            this.dept.DataPropertyName = "dept";
+            this.dept.HeaderText = "부서";
+            this.dept.Name = "dept";
+            this.dept.ReadOnly = true;
+            this.dept.Width = 54;
+            // 
+            // pos
+            // 
+            this.pos.DataPropertyName = "pos";
+            this.pos.HeaderText = "직급";
+            this.pos.Name = "pos";
+            this.pos.ReadOnly = true;
+            this.pos.Width = 54;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(937, 593);
+            this.Size = new System.Drawing.Size(1098, 637);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

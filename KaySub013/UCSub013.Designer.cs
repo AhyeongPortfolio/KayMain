@@ -76,7 +76,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(992, 604);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1098, 637);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // panel1
@@ -91,13 +91,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(986, 34);
+            this.panel1.Size = new System.Drawing.Size(1092, 34);
             this.panel1.TabIndex = 0;
             // 
             // dateSearch2
             // 
             this.dateSearch2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateSearch2.Location = new System.Drawing.Point(362, 0);
+            this.dateSearch2.Location = new System.Drawing.Point(362, 5);
             this.dateSearch2.Name = "dateSearch2";
             this.dateSearch2.Size = new System.Drawing.Size(88, 21);
             this.dateSearch2.TabIndex = 46;
@@ -105,7 +105,7 @@
             // dateSearch1
             // 
             this.dateSearch1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateSearch1.Location = new System.Drawing.Point(251, 0);
+            this.dateSearch1.Location = new System.Drawing.Point(251, 5);
             this.dateSearch1.Name = "dateSearch1";
             this.dateSearch1.Size = new System.Drawing.Size(88, 21);
             this.dateSearch1.TabIndex = 46;
@@ -116,13 +116,13 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 33);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(986, 1);
+            this.panel5.Size = new System.Drawing.Size(1092, 1);
             this.panel5.TabIndex = 45;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(345, 3);
+            this.label7.Location = new System.Drawing.Point(345, 8);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(11, 12);
             this.label7.TabIndex = 4;
@@ -131,7 +131,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(192, 3);
+            this.label6.Location = new System.Drawing.Point(192, 8);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 0;
@@ -139,7 +139,7 @@
             // 
             // papr_appnoSearch
             // 
-            this.papr_appnoSearch.Location = new System.Drawing.Point(86, 0);
+            this.papr_appnoSearch.Location = new System.Drawing.Point(86, 5);
             this.papr_appnoSearch.Name = "papr_appnoSearch";
             this.papr_appnoSearch.Size = new System.Drawing.Size(100, 21);
             this.papr_appnoSearch.TabIndex = 1;
@@ -147,7 +147,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 3);
+            this.label5.Location = new System.Drawing.Point(3, 8);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 0;
@@ -166,7 +166,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(986, 558);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1092, 591);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // dataGridView1
@@ -187,7 +187,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(680, 552);
+            this.dataGridView1.Size = new System.Drawing.Size(786, 585);
             this.dataGridView1.TabIndex = 3;
             // 
             // papr_appno
@@ -249,16 +249,16 @@
             this.panData.Controls.Add(this.label2);
             this.panData.Controls.Add(this.label1);
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panData.Location = new System.Drawing.Point(689, 3);
+            this.panData.Location = new System.Drawing.Point(795, 3);
             this.panData.Name = "panData";
-            this.panData.Size = new System.Drawing.Size(294, 552);
+            this.panData.Size = new System.Drawing.Size(294, 585);
             this.panData.TabIndex = 4;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 551);
+            this.panel4.Location = new System.Drawing.Point(0, 584);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(294, 1);
             this.panel4.TabIndex = 42;
@@ -344,7 +344,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(992, 604);
+            this.Size = new System.Drawing.Size(1098, 637);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

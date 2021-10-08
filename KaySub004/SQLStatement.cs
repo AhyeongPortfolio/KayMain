@@ -58,7 +58,8 @@ namespace KaySub004
 
         //*---이미지 추가-------------------------------------
         public static string
-            ImageSQL = "INSERT INTO kay_insa_uimg VALUES :empno + IPSA_SEQ_KAY.CURRVAL, :img";
+            ImageSQL = "INSERT INTO kay_insa_uimg(uimg_empno, uimg_img) VALUES (:empno, :img)";
+       
 
         #endregion
         #region 수정

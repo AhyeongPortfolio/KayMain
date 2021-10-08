@@ -52,7 +52,7 @@ namespace KaySub021
         {
             Utility.BusyIndicator(true);
 
-            dataGridView1.Rows.Clear();
+            //dataGridView1.Rows.Clear();
             int rowIdx = 0;
             DataGridViewRow row;
             //--DB Handling(Start)-------------------------------------
@@ -265,7 +265,7 @@ namespace KaySub021
                 {
                     using (OracleCommand cmd = con.CreateCommand())
                     {
-                        cmd.CommandText = SQLStatement.SelectSQL6;
+                        cmd.CommandText = SQLStatement.SelectSQL4;
                         cmd.BindByName = true;
                         cmd.Parameters.Add("evali_type", OracleDbType.Varchar2).Value = row.Cells["evalm_type"].Value.ToString();
                         var cnt = cmd.ExecuteScalar();
@@ -303,11 +303,9 @@ namespace KaySub021
             evals.evalm_weak.Text = row.Cells["evalm_weak"]?.Value.ToString() ?? "";
             evals.UserId = UserId;
             evals.UserNm = UserNm;
-            evals.status = row.Cells["evalm_findate"].Value.ToString() == "N" ? "A" : "U";
-
+            evals.status = row.Cells["evalm_findate"].Value.ToString() == "N" ? "A" : "U"; //여기 수정해야함
+                         
             evals.ShowDialog();
-
-            BtnSearch_Click();
 
         }
         #endregion

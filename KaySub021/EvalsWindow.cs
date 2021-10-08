@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KaySub019
+namespace KaySub021
 {
     public partial class EvalsWindow : Form
     {
@@ -31,7 +31,10 @@ namespace KaySub019
         public EvalsWindow()
         {
             InitializeComponent();
-            SubmitBtn.Click += SubmitBtn_Click;
+
+            Utility.SetReadOnly(tableLayoutPanel1, true);
+            Utility.SetReadOnly(tableLayoutPanel2, true);
+            SubmitBtn.Enabled = true;
         }
 
         private void EvalsWindow_Load(object sender, EventArgs e)
@@ -127,7 +130,7 @@ namespace KaySub019
                                     TextAlign = ContentAlignment.MiddleCenter,
                                     Cursor = Cursors.Hand
                                 };
-                                item_s.Click += Score_Click;
+                               // item_s.Click += Score_Click;
                                 tableLayoutPanel2.Controls.Add(item_s, 4 + i, rowidx);
                             }
 
@@ -164,6 +167,7 @@ namespace KaySub019
                 MessageBox.Show(ex.Message);
                 return;
             }
+            
         }
 
         #endregion
@@ -196,94 +200,10 @@ namespace KaySub019
             evalm_sum.Text = result.ToString();
         }
         #endregion
-        #region 기능버튼(저장) click
+
         private void SubmitBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("입력 및 수정중인 자료를 저장합니다.", "저장확인", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No) return;
-
-            OracleTransaction tran = null;
-            try
-            {
-                using (con = Utility.SetOracleConnection())
-                {
-                    tran = con.BeginTransaction(IsolationLevel.ReadCommitted);
-                    using (OracleCommand cmd = con.CreateCommand())
-                    {
-                        cmd.BindByName = true;
-                        cmd.Transaction = tran;
-                        cmd.CommandText = SQLStatement.UpdateSQL;
-                        cmd.Parameters.Add("key1", OracleDbType.Varchar2).Value = Year;
-                        cmd.Parameters.Add("key2", OracleDbType.Varchar2).Value = No;
-                        cmd.Parameters.Add("key3", OracleDbType.Varchar2).Value = Tee;
-                        cmd.Parameters.Add("key4", OracleDbType.Varchar2).Value = Stage;
-                        cmd.Parameters.Add("evalm_total", OracleDbType.Varchar2).Value = evalm_sum.Text;
-                        cmd.Parameters.Add("evalm_merit", OracleDbType.Varchar2).Value = evalm_merit.Text;
-                        cmd.Parameters.Add("evalm_weak", OracleDbType.Varchar2).Value = evalm_weak.Text;
-                        cmd.Parameters.Add("datasys3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
-                        cmd.Parameters.Add("datasys4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
-
-                        cmd.ExecuteNonQuery();
-                        cmd.Parameters.Clear();
-
-                        //MessageBox.Show(status);
-                        if (status == "A")
-                        {
-                            cmd.CommandText = SQLStatement.InsertSQL;
-                        }
-                        else if (status == "U")
-                        {
-                            cmd.CommandText = SQLStatement.UpdateSQL2;
-                        }
-                        else
-                        {
-                            MessageBox.Show("저장할 수 없는 상태입니다.");
-                            return;
-                        }
-                        foreach (Control ctl in tableLayoutPanel2.Controls) 
-                        {
-                            if (!(ctl is TextBox)) continue;
-                            TextBox txt = ctl as TextBox;
-
-                            cmd.Parameters.Add("evals_year", OracleDbType.Varchar2).Value = Year;
-                            cmd.Parameters.Add("evals_no", OracleDbType.Varchar2).Value = No;
-                            cmd.Parameters.Add("evals_tee", OracleDbType.Varchar2).Value = Tee;
-                            cmd.Parameters.Add("evals_stage", OracleDbType.Varchar2).Value = Stage;
-                            cmd.Parameters.Add("evals_itemno", OracleDbType.Varchar2).Value = txt.Name;
-                            cmd.Parameters.Add("evals_grade", OracleDbType.Varchar2).Value = txt.Tag.ToString();
-                            cmd.Parameters.Add("evals_score", OracleDbType.Varchar2).Value = txt.Text;
-                            cmd.Parameters.Add("evals_sum", OracleDbType.Varchar2).Value = evalm_sum.Text;
-                            cmd.Parameters.Add("ipaddr", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
-                            if (Master == "Y")
-                            {
-                                cmd.Parameters.Add("datasys2", OracleDbType.Varchar2).Value = "A";
-                            }
-                            else
-                            {
-                                cmd.Parameters.Add("datasys2", OracleDbType.Varchar2).Value = "U";
-                            }
-                            cmd.Parameters.Add("datasys3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
-
-                            cmd.ExecuteNonQuery();
-                            cmd.Parameters.Clear(); //*----반드시 포함
-
-                        }
-                    }
-                   tran.Commit();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                tran.Rollback();
-                return;
-            }
-            //*--정상 저장 후 초기화----------------------------------------------------------------------------------
-            MessageBox.Show("자료가 정상적으로 저장되었습니다.");
             this.Close();
         }
-
-
-        #endregion
     }
 }

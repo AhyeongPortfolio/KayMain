@@ -26,7 +26,8 @@ namespace KaySub019
                               (SELECT bas_name, bas_empno FROM kay_insa_bas) c
                          WHERE a.evalm_tee = b.bas_empno(+)
                          AND a.evalm_tor = c.bas_empno(+)
-                         AND a.evalm_tor = :evalm_tor";
+                         AND a.evalm_tor = :evalm_tor
+                         AND a.evalm_tee = :evalm_tee";
 
         
 

@@ -111,7 +111,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(941, 627);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1098, 637);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // panel1
@@ -128,7 +128,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(935, 34);
+            this.panel1.Size = new System.Drawing.Size(1092, 34);
             this.panel1.TabIndex = 0;
             // 
             // dateSearch2
@@ -145,7 +145,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 33);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(935, 1);
+            this.panel5.Size = new System.Drawing.Size(1092, 1);
             this.panel5.TabIndex = 45;
             // 
             // dateSearch1
@@ -218,7 +218,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(935, 581);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1092, 591);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // dataGridView1
@@ -251,7 +251,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(629, 575);
+            this.dataGridView1.Size = new System.Drawing.Size(786, 585);
             this.dataGridView1.TabIndex = 3;
             // 
             // papp_empno
@@ -417,9 +417,9 @@
             this.panData.Controls.Add(this.label2);
             this.panData.Controls.Add(this.label1);
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panData.Location = new System.Drawing.Point(638, 3);
+            this.panData.Location = new System.Drawing.Point(795, 3);
             this.panData.Name = "panData";
-            this.panData.Size = new System.Drawing.Size(294, 575);
+            this.panData.Size = new System.Drawing.Size(294, 585);
             this.panData.TabIndex = 4;
             // 
             // btn_bas_univ
@@ -435,7 +435,7 @@
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 574);
+            this.panel4.Location = new System.Drawing.Point(0, 584);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(294, 1);
             this.panel4.TabIndex = 42;
@@ -682,7 +682,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(941, 627);
+            this.Size = new System.Drawing.Size(1098, 637);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
