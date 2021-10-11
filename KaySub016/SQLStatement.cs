@@ -21,8 +21,8 @@ namespace KaySub016
 
         #region 추가
         public static string
-            InsertSQL = @"INSERT INTO kay_insa_evalp(EVALI_TYPE
-                                                    ,EVALI_ITMENO
+            InsertSQL = @"INSERT INTO kay_insa_evali(EVALI_TYPE
+                                                    ,EVALI_ITEMNO
                                                     ,EVALI_ITEM_L
                                                     ,EVALI_ITEM_S
                                                     ,EVALI_POINTS
@@ -33,7 +33,6 @@ namespace KaySub016
                                                     ) VALUES
                                                     (:EVALI_TYPE
                                                     ,:EVALI_ITEMNO
-                                                    ,:EVALI_ITMENO
                                                     ,:EVALI_ITEM_L
                                                     ,:EVALI_ITEM_S
                                                     ,:EVALI_POINTS

@@ -83,7 +83,7 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 
 #### Oracle (PL/SQL)
 >* 트리거 사용
->* 저장 프로시저 사용
+>* 저장 프로시저 및 시퀀스 사용
 >* 코드 호출 함수 제작 및 활용
 
 [프로젝트 기능 자세히 보기](#ⅴ--프로젝트-구현--기술)
@@ -147,7 +147,7 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 
 [주민번호 암호화 기능](#주민번호-비밀번호-암호화)   
 [인사 정보 생성 시, 계정 생성](#트리거-생성)
-
+[사원번호 채번을 위한 시퀀스 생성](#프로시저-및-시퀀스-사용)
 
 #### - 학력사항 
 
@@ -290,6 +290,21 @@ BEGIN
   
 END SP_UCSUB025;
 ```
+
+</br>
+
+***
+
+</br>
+
+#### 코드 호출 함수 제작 및 활용
+
+* 코드로 저장 된 데이터들의 이름 호출을 위한 함수(예)
+
+
+
+
+
 
 [//]: #  (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 

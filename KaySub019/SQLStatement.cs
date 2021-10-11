@@ -20,14 +20,16 @@ namespace KaySub019
         //*---DataGridView1 채우는 용도---------
         //*---진행여부 
         public static string
-            SelectSQL = @"SELECT a.* ,b.bas_name as tee_name ,c.bas_name as tor_name
+            SelectSQL = @"SELECT a.* ,b.bas_name as tee_name ,c.bas_name as tor_name, d.eval_edate
                          FROM kay_insa_evalm a,
                               (SELECT bas_name, bas_empno FROM kay_insa_bas) b,
-                              (SELECT bas_name, bas_empno FROM kay_insa_bas) c
+                              (SELECT bas_name, bas_empno FROM kay_insa_bas) c,
+                              kay_insa_evalp d
                          WHERE a.evalm_tee = b.bas_empno(+)
                          AND a.evalm_tor = c.bas_empno(+)
-                         AND a.evalm_tor = :evalm_tor
-                         AND a.evalm_tee = :evalm_tee";
+                         AND a.evalm_year = d.eval_year
+                         AND a.evalm_no = d.eval_no
+                         AND a.evalm_tor = :evalm_tor";
 
         
 

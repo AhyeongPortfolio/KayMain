@@ -34,6 +34,10 @@ namespace KaySub019
             InitializeComponent();            
 
             dataGridView1.CellDoubleClick += List_CellDoubleClick;
+            //*--콤보박스 채우기-------------------------------------------------
+            Utility.SetComboWithCdnm(qt_evalm_type, SQLStatement.SelectSQL5);
+            //*--콤보박스 미리 선택----------------------------------------------
+            qt_evalm_type.SelectedIndex = 1;
         }
 
 
@@ -81,7 +85,7 @@ namespace KaySub019
                     row.Cells["EVALM_PERIOD"].Value = dr["EVALM_PERIOD"].ToString();
                     row.Cells["tee_name"].Value = dr["TEE_NAME"].ToString();
                     row.Cells["tor_name"].Value = dr["TOR_NAME"].ToString();
-                    row.Cells["EVALM_FINDATE"].Value = dr["EVALM_FINDATE"].ToString();
+                    row.Cells["EVALM_FINDATE"].Value = Utility.FormatDate(dr["EVALM_FINDATE"].ToString());
                     row.Cells["EVALM_DEPT_TEE"].Value = dr["EVALM_DEPT_TEE"].ToString();
                     row.Cells["EVALM_POS_TEE"].Value = dr["EVALM_POS_TEE"].ToString();
                     row.Cells["EVALM_DEPT_TOR"].Value = dr["EVALM_DEPT_TOR"].ToString();
@@ -90,6 +94,21 @@ namespace KaySub019
                     row.Cells["EVALM_TOTAL"].Value = dr["EVALM_TOTAL"].ToString();
                     row.Cells["EVALM_MERIT"].Value = dr["EVALM_MERIT"].ToString();
                     row.Cells["EVALM_WEAK"].Value = dr["EVALM_WEAK"].ToString();
+                    row.Cells["eval_edate"].Value = Utility.FormatDate(dr["eval_edate"].ToString());
+
+                    string Edate = string.Empty;
+                    if (string.IsNullOrEmpty(dr["EVALM_FINDATE"].ToString()))
+                    {
+                        Edate = DateTime.Now.ToString("yyyyMMdd");
+                    }
+                    else Edate = dr["EVALM_FINDATE"].ToString();
+
+                    if (int.Parse(dr["eval_edate"].ToString()) <= int.Parse(Edate))
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Red;
+                        row.DefaultCellStyle.ForeColor = Color.White;                        
+                    }
+                    
                 }
                 dr.Close();
             }
@@ -130,6 +149,12 @@ namespace KaySub019
             if (string.IsNullOrEmpty(row.Cells["evalm_type"].Value.ToString()))
             {
                 MessageBox.Show("해당되는 평가표 유형이 없습니다.");
+                return;
+            }
+            //*---날짜 지난거 체크---------------------------------------------------
+            if (int.Parse(DateTime.Now.ToString("yyyyMMdd")) > int.Parse(Utility.FormatDateR(row.Cells["eval_edate"].Value.ToString())))
+            {
+                MessageBox.Show("평가 기간이 지났습니다.");
                 return;
             }
 

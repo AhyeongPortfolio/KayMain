@@ -34,6 +34,11 @@ namespace KaySub021
             InitializeComponent();
 
             dataGridView1.CellDoubleClick += List_CellDoubleClick;
+
+            //*--콤보박스 채우기-------------------------------------------------
+            Utility.SetComboWithCdnm(qt_evalm_type, SQLStatement.SelectSQL3);
+            //*--콤보박스 미리 선택----------------------------------------------
+            qt_evalm_type.SelectedIndex = 1;
         }
 
 

@@ -34,7 +34,11 @@ namespace KaySub020
             InitializeComponent();
 
             qt_tor_name.Leave += QT_Name_to_Empno;
-           // dataGridView1.CellDoubleClick += List_CellDoubleClick;
+            // dataGridView1.CellDoubleClick += List_CellDoubleClick;
+            //*--콤보박스 채우기-------------------------------------------------
+            Utility.SetComboWithCdnm(qt_evalm_type, SQLStatement.SelectSQL2);
+            //*--콤보박스 미리 선택----------------------------------------------
+            qt_evalm_type.SelectedIndex = 1;
         }
 
 
@@ -91,11 +95,21 @@ namespace KaySub020
                             row.Cells["tee_fincount"].Value = dr["tee_fincount"].ToString();
                             row.Cells["evalm_findate"].Value = Utility.FormatDate(dr["evalm_findate"].ToString());
                             row.Cells["eval_edate"].Value = Utility.FormatDate(dr["eval_edate"].ToString());
-                            row.Cells["tee_yecount"].Value = int.Parse(dr["tee_count"].ToString()) - int.Parse(dr["tee_fincount"].ToString());
+                            int result = int.Parse(dr["tee_count"].ToString()) - int.Parse(dr["tee_fincount"].ToString());
+                            row.Cells["tee_yecount"].Value = result;
+                            if(result != 0)
+                            {
+                                if(int.Parse(DateTime.Now.ToString("yyyyMMdd")) >= int.Parse(dr["eval_edate"].ToString()))
+                                {
+                                    row.DefaultCellStyle.BackColor = Color.Red;
+                                    row.DefaultCellStyle.ForeColor = Color.White;
+
+                                }
+                            }
                         }
                         dr.Close();
 
-
+                        
                     }
                 }
             }
