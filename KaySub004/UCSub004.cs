@@ -286,7 +286,7 @@ namespace KaySub004
                     }
                     if (row.Cells["status"].Value.Equals("U"))
                     {
-                        cmd.Parameters.Add("p_work_type", OracleDbType.Varchar2).Value = "B";
+                        cmd.Parameters.Add("p_work_type", OracleDbType.Varchar2).Value = "U";
                         cmd.Parameters.Add("p_key1", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;
                         cmd.Parameters.Add("P_BAS_EMPNO", OracleDbType.Varchar2).Value = row.Cells["bas_empno"].Value;
                     }

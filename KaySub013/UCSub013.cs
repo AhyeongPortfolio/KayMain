@@ -103,6 +103,8 @@ namespace KaySub013
                     row.Cells["papr_num"].Value = dr["papr_num"].ToString();
                     
                     row.Cells["status"].Value = "";
+                    row.Cells["key1"].Value = dr["papr_appno"].ToString();
+                    row.Cells["key2"].Value = dr["papr_date"].ToString();
                 }
                 dr.Close();
             }
@@ -159,12 +161,6 @@ namespace KaySub013
             ct_papr_date.Focus();
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "3");
-
-            //*--날짜 리셋----------------------------------------------
-           
-            //*--사용여부 초기값-----------------------------------------
-            
-
         }
         #endregion
         #region 기능버튼(수정) Click
@@ -214,8 +210,8 @@ namespace KaySub013
                     if (Convert.ToInt32(check) == 0)
                     {
                         cmd.CommandText = SQLStatement.DeleteSQL;
-                        cmd.Parameters.Add("papr_appno", OracleDbType.Varchar2).Value = row.Cells["papr_appno"].Value;
-                        cmd.Parameters.Add("papr_date", OracleDbType.Varchar2).Value = Utility.FormatDateR(row.Cells["papr_date"].Value.ToString());
+                        cmd.Parameters.Add("papr_appno", OracleDbType.Varchar2).Value = row.Cells["key1"].Value;
+                        cmd.Parameters.Add("papr_date", OracleDbType.Varchar2).Value = row.Cells["key2"].Value.ToString();
                         if (cmd.ExecuteNonQuery() > 0)
                         {
                             dataGridView1.Rows.RemoveAt(row.Index);
@@ -261,40 +257,45 @@ namespace KaySub013
             //*--입력값에 오류가 있는지 여부 확인
             if (!Utility.InputErrorCheck(dataGridView1)) return;
 
-            OracleTransaction tran = null;
             try
             {
                 con = Utility.SetOracleConnection();
-                tran = con.BeginTransaction(IsolationLevel.ReadCommitted);
                 OracleCommand cmd = con.CreateCommand();
                 cmd.BindByName = true;
-                cmd.Transaction = tran;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_KAY_UCSUB013_S";
+
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     if (row.Cells["status"].Value.Equals("")) continue;
                     if (row.Cells["status"].Value.Equals("A"))
                     {
-                        cmd.CommandText = SQLStatement.InsertSQL;
+                        cmd.Parameters.Add("p_work_type", OracleDbType.Varchar2).Value = "A";
                     }
                     if (row.Cells["status"].Value.Equals("U"))
                     {
-                        cmd.CommandText = SQLStatement.UpdateSQL;                        
+                        cmd.Parameters.Add("p_work_type", OracleDbType.Varchar2).Value = "U";
+                        cmd.Parameters.Add("P_KEY1", OracleDbType.Varchar2).Value = row.Cells["key1"]?.Value ?? string.Empty;
+                        cmd.Parameters.Add("P_KEY2", OracleDbType.Varchar2).Value = row.Cells["key2"]?.Value ?? string.Empty;
                     }
-                    cmd.Parameters.Add("papr_appno", OracleDbType.Varchar2).Value = row.Cells["papr_appno"].Value;
-                    cmd.Parameters.Add("papr_date", OracleDbType.Varchar2).Value = Utility.FormatDateR( row.Cells["papr_date"].Value.ToString());
-                    cmd.Parameters.Add("papr_content", OracleDbType.Varchar2).Value = row.Cells["papr_content"].Value;
-                    cmd.Parameters.Add("papr_num", OracleDbType.Varchar2).Value = row.Cells["papr_num"].Value;
-                    cmd.Parameters.Add("DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
-                    cmd.Parameters.Add("DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
+                    
+                    cmd.Parameters.Add("P_PAPR_DATE", OracleDbType.Varchar2).Value = Utility.FormatDateR( row.Cells["papr_date"].Value.ToString());
+                    cmd.Parameters.Add("P_PAPR_CONTENT", OracleDbType.Varchar2).Value = row.Cells["papr_content"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_PAPR_NUM", OracleDbType.Varchar2).Value = row.Cells["papr_num"]?.Value ?? string.Empty;
+                    cmd.Parameters.Add("P_DATASYS3", OracleDbType.Varchar2).Value = UserId + ":" + UserNm;
+                    cmd.Parameters.Add("P_DATASYS4", OracleDbType.Varchar2).Value = Utility.MyIpAddress;
 
+                    cmd.Parameters.Add("O_PAPR_APPNO", OracleDbType.Varchar2, 20).Direction = ParameterDirection.Output;
                     cmd.ExecuteNonQuery();
+                    if(row.Cells["status"].Value.ToString() == "A")
+                    {
+                        row.Cells["papr_appno"].Value = cmd.Parameters["O_PAPR_APPNO"].Value.ToString();
+                    }
                     cmd.Parameters.Clear();  //*----반드시 포함
                 }
-                tran.Commit();
             }
             catch (Exception ex)
             {
-                tran.Rollback();
                 MessageBox.Show(ex.Message);
                 return;
             }
@@ -307,6 +308,8 @@ namespace KaySub013
             {
                 if (row.Cells["status"].Value.Equals("")) continue;
                 row.Cells["status"].Value = "";
+                row.Cells["key1"].Value = row.Cells["papr_appno"].Value;
+                row.Cells["key2"].Value = Utility.FormatDateR(row.Cells["papr_date"].Value.ToString());
             }
             Info_Message.Text = "자료가 정상적으로 저장 되었습니다.";
             last_button_status = Utility.SetFuncBtn(MainBtn, "2");
