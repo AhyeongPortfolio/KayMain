@@ -26,7 +26,7 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 
 [Ⅳ) UI/UX](#ⅳ-uiux)
 
-[Ⅴ) 프로젝트 구현 기술](#ⅴ--프로젝트-구현--기술)
+[Ⅴ) 프로젝트 구현 기술](#ⅴ-프로젝트-구현-기술)
 
 
 
@@ -51,11 +51,11 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 
 ### Server
 
-* Oracle
+* Oracle 11G
 
 ### 기타
 
--  [Visual Studio](https://visualstudio.microsoft.com/ko/) - 마이크로소프트 통합 개발 환경(IDE)
+-  [Visual Studio 2019](https://visualstudio.microsoft.com/ko/) - 마이크로소프트 통합 개발 환경(IDE)
 
 -  [live chart](https://lvcharts.net/App/examples/v1/WinForms/start) - Open source data visualization for .Net
 
@@ -86,7 +86,7 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 >* 저장 프로시저 및 시퀀스 사용
 >* 코드 호출 함수 제작 및 활용
 
-[프로젝트 기능 자세히 보기](#ⅴ--프로젝트-구현--기술)
+[프로젝트 기능 자세히 보기](#ⅴ-프로젝트-구현-기술)
 
 ## Ⅳ) UI/UX
 
