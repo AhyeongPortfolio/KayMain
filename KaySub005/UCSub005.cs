@@ -20,6 +20,7 @@ namespace KaySub005
     /// --최근작성 정보
     /// 1. 2021-08-31          권아영                  신규생성
     /// 2. 2021-09-06          권아영                  코드작성
+    /// 3. 2021-10-13          권아영                  버튼 변경
     /// **********************************************************************
     /// </summary>
     public partial class UserControl1: UserControl
@@ -153,14 +154,14 @@ namespace KaySub005
             if (recCnt == 0)
             {
                 Info_Message.Text = "조건을 만족하는 자료가 없습니다.";
-                last_button_status = Utility.SetFuncBtn(MainBtn, "1");
+                last_button_status = Utility.SetFuncBtn(MainBtn, "0");
             }
             else
             {
                 Utility.SetFocusingDataGridView(dataGridView1, 0); //Focus를 맨 첫줄로 보내기
                 this.DataList_SelectionChanged(null, null);   //선택된 첫줄을 Control에 표시하기
 
-                last_button_status = Utility.SetFuncBtn(MainBtn, "1");
+                last_button_status = Utility.SetFuncBtn(MainBtn, "4");
                 Info_Message.Text = "자료가 정상적으로 조회 되었습니다.";
             }
         }

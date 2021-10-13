@@ -47,8 +47,8 @@ namespace KaySub006
         public static string
             InsertSQL = @"INSERT INTO kay_insa_fam
                            (FAM_EMPNO       ,FAM_REL           ,FAM_NAME
-                            ,FAM_BTH        ,FAM_LTG           ,DATASYS3
-                            ,DATASYS2       ,DATASYS4)
+                            ,FAM_BTH        ,FAM_LTG           ,DATASYS2
+                            ,DATASYS3       ,DATASYS4)
                             VALUES  
                            (:FAM_EMPNO      ,:FAM_REL          ,:FAM_NAME
                             ,:FAM_BTH       ,:FAM_LTG          ,'A'
