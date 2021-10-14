@@ -57,6 +57,11 @@ namespace KaySub018
                               ,FN_GETCODENM_KAY('POS', bas.bas_pos) as pos_name
                               ,FN_GETDEPTNM_KAY(bas.bas_dept) as dept_name
                               FROM kay_insa_bas bas";
+
+        //*--업무평가 진행----------------------------------------------------------------------
+        public static string
+            SelectSQL_evalp = @"SELECT eval_year, eval_no, eval_period, eval_sdate, eval_edate
+                                FROM kay_insa_evalp";
         #endregion
 
         #region 추가

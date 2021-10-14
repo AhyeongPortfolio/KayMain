@@ -129,7 +129,7 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 ![image](https://user-images.githubusercontent.com/50813232/135439138-228b4a6d-3a66-4b2b-8c3f-1e2f55aa76b3.png)
 ```
 - 검색조건의 그룹코드 콤보박스는 그룹코드 데이터 바인딩을 하여 표현.   
-= 그룹코드는 새 창(윈도우)를 띄워 검색하여 사용.   
+- 그룹코드는 새 창(윈도우)를 띄워 검색하여 사용.   
 ```
 
 #### - 부서코드 관리
@@ -145,9 +145,13 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 
 ![image](https://user-images.githubusercontent.com/50813232/135439315-e8849d86-ed3a-44ba-8f11-b12af6e00ac1.png)
 
-[주민번호 암호화 기능](#주민번호-비밀번호-암호화)   
+우편번호 API활용 </br>
+[주민번호 암호화 기능](#주민번호-비밀번호-암호화)  
 [인사 정보 생성 시, 계정 생성](#트리거-생성)
+</br>
 [사원번호 채번을 위한 시퀀스 생성](#프로시저-및-시퀀스-사용)
+</br>
+</br>
 
 #### - 학력사항 
 
