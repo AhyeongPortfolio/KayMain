@@ -145,7 +145,12 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 
 ![image](https://user-images.githubusercontent.com/50813232/135439315-e8849d86-ed3a-44ba-8f11-b12af6e00ac1.png)
 
-우편번호 API활용 </br>
+```
+- 사원의 개인정보를 입력, 수정 할 수 있음
+- 우편번호API 활용하여 주소 및 우편번호 검색
+
+
+```
 [주민번호 암호화 기능](#주민번호-비밀번호-암호화)  
 [인사 정보 생성 시, 계정 생성](#트리거-생성)
 </br>
@@ -192,7 +197,8 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 #### 공용 버튼
 * 각 폼 별로 사용한 버튼이 다른데, 이를 1과 9의 배열을 통해 간편하게 버튼 활성화 컨트롤을 할 수 있음.
 	1.  자주 사용되는 버튼을 위주로 명명하였음.
-	2.  직접 배열을 지정하여 설정 할 수 있는 함수 설정.
+	2.  직접 배열을 지정하여 설정 할 수 있는 함수 설정.   
+
 ```C#
 last_button_status = Utility.SetFuncBtn(MainBtn, "1"); 
 
@@ -306,7 +312,35 @@ END SP_UCSUB025;
 * 코드로 저장 된 데이터들의 이름 호출을 위한 함수(예)
 
 
+#### Delegate 활용
 
+* 증명서 발급 종류에 따른 증명서 폼을 띄울 때, 파라미터들을 넘기기 위해 사용.    
+* 부모폼의 파라미터들을 자식폼으로 DataSendEvent를 통해 넘겨줌.
+
+```C#
+public delegate void DataPushEventHandler(string _value, string _value2, string _value3);
+
+public partial class Main : Form
+{ 
+    public DataPushEventHandler DataSendEvent;
+    private string value { get; set; } //---value 값 
+    private string value2 { get; set; } //---value2 값
+    private string value3 { get; set; } //---value3 값 
+    //...
+
+    //--- 증명서에 데이터 넘기는 함수
+    void func_sendData()
+    {
+        //--- 자식 폼 띄우는 명령어
+        Form2 frm2 = new Form2();
+        this.DataSendEvent += new DataPushEventHandler(frm2.SetActiveValue);
+        DataSendEvent(value, value2, value3);
+        frm2.ShowDialog();
+    }
+
+    //...
+}
+```
 
 
 
