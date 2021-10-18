@@ -305,9 +305,9 @@ namespace KaySub012
                         row = grd_kay_insa_fam.Rows[rowIdx];
                         row.Cells["fam_empno"].Value = dr["col1"].ToString();
                         row.Cells["fam_name"].Value = dr["col2"].ToString();
-                        row.Cells["fam_rel"].Value = dr["col3"].ToString();
-                        row.Cells["fam_bth"].Value = Utility.FormatDate(dr["col4"].ToString());
-                        row.Cells["fam_ltg"].Value = dr["col5"].ToString();
+                        row.Cells["fam_rel"].Value = dr["col5"].ToString();
+                        row.Cells["fam_bth"].Value = Utility.FormatDate(dr["col3"].ToString());
+                        row.Cells["fam_ltg"].Value = dr["col4"].ToString();
                     }
                     else
                     {

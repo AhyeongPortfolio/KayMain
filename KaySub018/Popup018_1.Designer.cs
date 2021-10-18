@@ -33,6 +33,12 @@ namespace KaySub018
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.check_eval = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.eval_year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eval_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eval_period = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eval_sdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eval_edate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.qt_eval_year = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -80,12 +86,6 @@ namespace KaySub018
             this.ct_evalm_stage = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.check_eval = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.eval_year = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eval_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eval_period = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eval_sdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eval_edate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -118,7 +118,7 @@ namespace KaySub018
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1189, 454);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1168, 454);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -133,7 +133,7 @@ namespace KaySub018
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(389, 446);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(382, 446);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // dataGridView3
@@ -156,8 +156,53 @@ namespace KaySub018
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.RowTemplate.Height = 23;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(383, 410);
+            this.dataGridView3.Size = new System.Drawing.Size(376, 410);
             this.dataGridView3.TabIndex = 9;
+            // 
+            // check_eval
+            // 
+            this.check_eval.FalseValue = "0";
+            this.check_eval.FillWeight = 50F;
+            this.check_eval.HeaderText = "";
+            this.check_eval.IndeterminateValue = "0";
+            this.check_eval.Name = "check_eval";
+            this.check_eval.TrueValue = "1";
+            this.check_eval.Width = 5;
+            // 
+            // eval_year
+            // 
+            this.eval_year.DataPropertyName = "eval_year";
+            this.eval_year.HeaderText = "사원번호";
+            this.eval_year.Name = "eval_year";
+            this.eval_year.Width = 61;
+            // 
+            // eval_no
+            // 
+            this.eval_no.DataPropertyName = "eval_no";
+            this.eval_no.HeaderText = "평가차수";
+            this.eval_no.Name = "eval_no";
+            this.eval_no.Width = 61;
+            // 
+            // eval_period
+            // 
+            this.eval_period.DataPropertyName = "eval_period";
+            this.eval_period.HeaderText = "평가대상기간";
+            this.eval_period.Name = "eval_period";
+            this.eval_period.Width = 72;
+            // 
+            // eval_sdate
+            // 
+            this.eval_sdate.DataPropertyName = "eval_sdate";
+            this.eval_sdate.HeaderText = "평가가능기간(시작일)";
+            this.eval_sdate.Name = "eval_sdate";
+            this.eval_sdate.Width = 98;
+            // 
+            // eval_edate
+            // 
+            this.eval_edate.DataPropertyName = "eval_edate";
+            this.eval_edate.HeaderText = "평가가능기간(종료일)";
+            this.eval_edate.Name = "eval_edate";
+            this.eval_edate.Width = 98;
             // 
             // panel4
             // 
@@ -170,13 +215,13 @@ namespace KaySub018
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(389, 30);
+            this.panel4.Size = new System.Drawing.Size(382, 30);
             this.panel4.TabIndex = 8;
             // 
             // qt_eval_year
             // 
             this.qt_eval_year.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.qt_eval_year.Location = new System.Drawing.Point(153, 4);
+            this.qt_eval_year.Location = new System.Drawing.Point(146, 4);
             this.qt_eval_year.Name = "qt_eval_year";
             this.qt_eval_year.Size = new System.Drawing.Size(87, 21);
             this.qt_eval_year.TabIndex = 5;
@@ -185,7 +230,7 @@ namespace KaySub018
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(99, 8);
+            this.label10.Location = new System.Drawing.Point(92, 8);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 4;
@@ -194,7 +239,7 @@ namespace KaySub018
             // qt_eval_no
             // 
             this.qt_eval_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.qt_eval_no.Location = new System.Drawing.Point(300, 4);
+            this.qt_eval_no.Location = new System.Drawing.Point(293, 4);
             this.qt_eval_no.Name = "qt_eval_no";
             this.qt_eval_no.Size = new System.Drawing.Size(87, 21);
             this.qt_eval_no.TabIndex = 3;
@@ -212,7 +257,7 @@ namespace KaySub018
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(246, 8);
+            this.label12.Location = new System.Drawing.Point(239, 8);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 12);
             this.label12.TabIndex = 0;
@@ -225,12 +270,12 @@ namespace KaySub018
             this.tableLayoutPanel3.Controls.Add(this.dataGridView1, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(796, 4);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(782, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(389, 446);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(382, 446);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // dataGridView1
@@ -255,7 +300,7 @@ namespace KaySub018
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(383, 410);
+            this.dataGridView1.Size = new System.Drawing.Size(376, 410);
             this.dataGridView1.TabIndex = 8;
             // 
             // dataGridViewCheckBoxColumn1
@@ -320,13 +365,13 @@ namespace KaySub018
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(389, 30);
+            this.panel2.Size = new System.Drawing.Size(382, 30);
             this.panel2.TabIndex = 7;
             // 
             // qt_bas_dept
             // 
             this.qt_bas_dept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.qt_bas_dept.Location = new System.Drawing.Point(262, 4);
+            this.qt_bas_dept.Location = new System.Drawing.Point(255, 4);
             this.qt_bas_dept.Name = "qt_bas_dept";
             this.qt_bas_dept.Size = new System.Drawing.Size(121, 21);
             this.qt_bas_dept.TabIndex = 3;
@@ -344,7 +389,7 @@ namespace KaySub018
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(230, 9);
+            this.label13.Location = new System.Drawing.Point(223, 9);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(29, 12);
             this.label13.TabIndex = 0;
@@ -357,12 +402,12 @@ namespace KaySub018
             this.tableLayoutPanel2.Controls.Add(this.dataGridView2, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(400, 4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(393, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(389, 446);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(382, 446);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // dataGridView2
@@ -389,7 +434,7 @@ namespace KaySub018
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(383, 410);
+            this.dataGridView2.Size = new System.Drawing.Size(376, 410);
             this.dataGridView2.TabIndex = 9;
             // 
             // check
@@ -472,13 +517,13 @@ namespace KaySub018
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(389, 30);
+            this.panel1.Size = new System.Drawing.Size(382, 30);
             this.panel1.TabIndex = 8;
             // 
             // qt_bas_dut
             // 
             this.qt_bas_dut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.qt_bas_dut.Location = new System.Drawing.Point(142, 4);
+            this.qt_bas_dut.Location = new System.Drawing.Point(135, 4);
             this.qt_bas_dut.Name = "qt_bas_dut";
             this.qt_bas_dut.Size = new System.Drawing.Size(87, 21);
             this.qt_bas_dut.TabIndex = 5;
@@ -487,7 +532,7 @@ namespace KaySub018
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(108, 8);
+            this.label3.Location = new System.Drawing.Point(101, 8);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 4;
@@ -496,7 +541,7 @@ namespace KaySub018
             // qt_bas_dept_tor
             // 
             this.qt_bas_dept_tor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.qt_bas_dept_tor.Location = new System.Drawing.Point(266, 4);
+            this.qt_bas_dept_tor.Location = new System.Drawing.Point(259, 4);
             this.qt_bas_dept_tor.Name = "qt_bas_dept_tor";
             this.qt_bas_dept_tor.Size = new System.Drawing.Size(121, 21);
             this.qt_bas_dept_tor.TabIndex = 3;
@@ -514,7 +559,7 @@ namespace KaySub018
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(234, 8);
+            this.label2.Location = new System.Drawing.Point(227, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 0;
@@ -523,7 +568,7 @@ namespace KaySub018
             // Submit_btn
             // 
             this.Submit_btn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Submit_btn.Location = new System.Drawing.Point(1039, 0);
+            this.Submit_btn.Location = new System.Drawing.Point(1018, 0);
             this.Submit_btn.Name = "Submit_btn";
             this.Submit_btn.Size = new System.Drawing.Size(75, 30);
             this.Submit_btn.TabIndex = 2;
@@ -539,13 +584,13 @@ namespace KaySub018
             this.panel3.Location = new System.Drawing.Point(1, 528);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1189, 30);
+            this.panel3.Size = new System.Drawing.Size(1168, 30);
             this.panel3.TabIndex = 3;
             // 
             // Cancle_btn
             // 
             this.Cancle_btn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Cancle_btn.Location = new System.Drawing.Point(1114, 0);
+            this.Cancle_btn.Location = new System.Drawing.Point(1093, 0);
             this.Cancle_btn.Name = "Cancle_btn";
             this.Cancle_btn.Size = new System.Drawing.Size(75, 30);
             this.Cancle_btn.TabIndex = 3;
@@ -570,7 +615,7 @@ namespace KaySub018
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1191, 559);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1170, 559);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
             // label4
@@ -581,7 +626,7 @@ namespace KaySub018
             this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(3);
-            this.label4.Size = new System.Drawing.Size(1183, 24);
+            this.label4.Size = new System.Drawing.Size(1162, 24);
             this.label4.TabIndex = 4;
             this.label4.Text = "업무평가대상자 신규 추가";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -595,7 +640,7 @@ namespace KaySub018
             this.panData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panData.Location = new System.Drawing.Point(4, 490);
             this.panData.Name = "panData";
-            this.panData.Size = new System.Drawing.Size(1183, 34);
+            this.panData.Size = new System.Drawing.Size(1162, 34);
             this.panData.TabIndex = 5;
             // 
             // ct_evalm_type
@@ -636,57 +681,12 @@ namespace KaySub018
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // check_eval
-            // 
-            this.check_eval.FalseValue = "0";
-            this.check_eval.FillWeight = 50F;
-            this.check_eval.HeaderText = "";
-            this.check_eval.IndeterminateValue = "0";
-            this.check_eval.Name = "check_eval";
-            this.check_eval.TrueValue = "1";
-            this.check_eval.Width = 5;
-            // 
-            // eval_year
-            // 
-            this.eval_year.DataPropertyName = "eval_year";
-            this.eval_year.HeaderText = "사원번호";
-            this.eval_year.Name = "eval_year";
-            this.eval_year.Width = 78;
-            // 
-            // eval_no
-            // 
-            this.eval_no.DataPropertyName = "eval_no";
-            this.eval_no.HeaderText = "평가차수";
-            this.eval_no.Name = "eval_no";
-            this.eval_no.Width = 78;
-            // 
-            // eval_period
-            // 
-            this.eval_period.DataPropertyName = "eval_period";
-            this.eval_period.HeaderText = "평가대상기간";
-            this.eval_period.Name = "eval_period";
-            this.eval_period.Width = 72;
-            // 
-            // eval_sdate
-            // 
-            this.eval_sdate.DataPropertyName = "eval_sdate";
-            this.eval_sdate.HeaderText = "평가가능기간(시작일)";
-            this.eval_sdate.Name = "eval_sdate";
-            this.eval_sdate.Width = 98;
-            // 
-            // eval_edate
-            // 
-            this.eval_edate.DataPropertyName = "eval_edate";
-            this.eval_edate.HeaderText = "평가가능기간(종료일)";
-            this.eval_edate.Name = "eval_edate";
-            this.eval_edate.Width = 98;
-            // 
             // Popup018_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1191, 559);
+            this.ClientSize = new System.Drawing.Size(1170, 559);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Name = "Popup018_1";
             this.Text = "평가자 선택";

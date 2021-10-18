@@ -175,7 +175,24 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 - Adapter 사용으로 Select 속도 높임.
 ```
 
+</br>
 
+***
+
+### 인사 발령 화면
+
+#### 인사발령 대장 관리
+![image](https://user-images.githubusercontent.com/50813232/137685622-e865c307-5b39-411e-b497-525f5cf41067.png)
+```
+- 인사 발령 할 때 사용 될 ‘인사발령번호’ 부여 (인사발령번호는 시퀀스를 활용하여 자동 부여)
+- 같은 일자나 같은 내용의 발령 내용을 그룹화
+- 인사 발령과 발령 대장의 테이블(DB)를 FK로 묶어서 이상 현상을 막음
+```
+[인사발령번호 시퀀스 생성](#프로시저-및-시퀀스-사용)
+
+</br>
+
+#### 인사발령 관리
 
 
 ## Ⅴ) 프로젝트 구현 기술
@@ -341,6 +358,10 @@ public partial class Main : Form
     //...
 }
 ```
+
+</br>
+
+***
 
 
 

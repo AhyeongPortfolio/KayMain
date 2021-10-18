@@ -91,6 +91,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -409,6 +410,7 @@
             this.panData.Controls.Add(this.label8);
             this.panData.Controls.Add(this.ct_papp_auth);
             this.panData.Controls.Add(this.ct_papp_date);
+            this.panData.Controls.Add(this.textBox1);
             this.panData.Controls.Add(this.ct_papp_empno);
             this.panData.Controls.Add(this.label3);
             this.panData.Controls.Add(this.ct_papp_appno);
@@ -611,10 +613,10 @@
             // 
             // ct_papp_empno
             // 
-            this.ct_papp_empno.Location = new System.Drawing.Point(104, 3);
+            this.ct_papp_empno.Location = new System.Drawing.Point(193, 3);
             this.ct_papp_empno.MaxLength = 9;
             this.ct_papp_empno.Name = "ct_papp_empno";
-            this.ct_papp_empno.Size = new System.Drawing.Size(164, 21);
+            this.ct_papp_empno.Size = new System.Drawing.Size(75, 21);
             this.ct_papp_empno.TabIndex = 1;
             // 
             // label3
@@ -674,6 +676,14 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(104, 3);
+            this.textBox1.MaxLength = 9;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(83, 21);
+            this.textBox1.TabIndex = 1;
             // 
             // UserControl1
             // 
@@ -759,5 +769,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Key2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Key3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Key4;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
