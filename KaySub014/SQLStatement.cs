@@ -24,21 +24,23 @@ namespace KaySub014
 
         public static string
             SelectSQL = @"SELECT 
-                            PAPP_EMPNO
-                            ,PAPP_APPNO
-                            ,PAPP_DATE
+                             a.PAPP_EMPNO
+                            ,b.bas_name
+                            ,a.PAPP_APPNO
+                            ,a.PAPP_DATE
                             ,FN_GETCODE_KAY('PAP', papp_pap) as PAPP_PAP
-                            ,PAPP_CONTENT
-                            ,PAPP_AUTH
-                            ,PAPP_BASIS
-                            ,PAPP_RMK
-                            ,PAPP_CONT
+                            ,a.PAPP_CONTENT
+                            ,a.PAPP_AUTH
+                            ,a.PAPP_BASIS
+                            ,a.PAPP_RMK
+                            ,a.PAPP_CONT
                             ,PAPP_POS_CD||':'||PAPP_POS_NM as PAPP_POS
                             ,PAPP_DUT_CD||':'||PAPP_DUT_NM as PAPP_DUT
                             ,PAPP_DEPT_CD||':'||PAPP_DEPT_NM as PAPP_DEPT
                             ,FN_GETCODE_KAY('STS', papp_sts) as PAPP_STS
-                            FROM kay_insa_papp 
-                            WHERE papp_appno LIKE :papp_appno
+                            FROM kay_insa_papp a, kay_insa_bas b
+                            WHERE a.papp_empno = b.bas_empno 
+                            AND papp_appno LIKE :papp_appno
                             AND papp_date BETWEEN :papp_date1 AND :papp_date2
                             AND papp_empno LIKE :papp_empno
                             ";
@@ -48,6 +50,12 @@ namespace KaySub014
         public static string
             SelectSQL1 = @"SELECT papr_appno, papr_date, papr_content FROM kay_insa_papr 
                             WHERE papr_content LIKE :condition ";
+
+
+
+        //*--사원 번호 검색---------------------------------------------------------------------
+        public static string
+            SelectSQL_basname = @"SELECT bas_empno FROM kay_insa_bas WHERE bas_name = :bas_name";
 
         #endregion
         #region 추가(입력)

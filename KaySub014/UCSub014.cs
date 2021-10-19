@@ -59,6 +59,8 @@ namespace KaySub014
             ct_papp_dut.TextChanged += InputData_TextChanged;
             ct_papp_dept.TextChanged += InputData_TextChanged;
             ct_papp_sts.SelectedValueChanged += InputData_TextChanged;
+
+            ct_bas_name.TextChanged += InputData_TextChanged;
             //*----Value Changed Event Handler(END)-----------------------------
             //*----Validated Event Handler(Start)-------------------------------
             ct_papp_empno.Validated += Input_Validation_Check;
@@ -69,7 +71,7 @@ namespace KaySub014
             //*----Enter Number Only(Start)-------------------------------------
             //ct_papp_sdate.KeyPress += Number_Only_Protect;
             //*----Enter Number Only(END)---------------------------------------
-            
+            ct_bas_name.Leave += QT_Name_to_Empno;
         }
 
         private void UserControl1_Load(object sender, EventArgs e)
@@ -125,6 +127,7 @@ namespace KaySub014
                     rowIdx = dataGridView1.Rows.Add();
                     row = dataGridView1.Rows[rowIdx];
                     row.Cells["papp_empno"].Value = dr["papp_empno"].ToString();
+                    row.Cells["bas_name"].Value = dr["bas_name"].ToString();
                     row.Cells["papp_appno"].Value = dr["papp_appno"].ToString();
                     row.Cells["papp_date"].Value = Utility.FormatDate(dr["papp_date"].ToString());
                     row.Cells["papp_pap"].Value = dr["papp_pap"].ToString();
@@ -198,8 +201,8 @@ namespace KaySub014
             dataGridView1.Rows[rowIdx].Cells["status"].Value = "A";
             //---추가된 Row로 Focus 이동-------------------------------- 
             Utility.SetFocusingDataGridView(dataGridView1, rowIdx);
-            ct_papp_empno.ReadOnly = false;
-            ct_papp_empno.Focus();
+            //ct_papp_empno.ReadOnly = false;
+            ct_bas_name.Focus();
 
             last_button_status = Utility.SetFuncBtn(MainBtn, "3");
 
@@ -523,6 +526,49 @@ namespace KaySub014
                 ct_papp_content.Text = (String) result[2];
             }
         }
+        #endregion
+        #region 이름 입력받아 사원번호 찾아오기
+
+        private void QT_Name_to_Empno(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty((sender as TextBox).Text))
+            {
+                return;
+            }
+
+            Control ctl = SetControlByName(panData, (sender as TextBox));
+
+            //*--DB Handling(Start)------------------------------------
+            try
+            {
+                using (con = Utility.SetOracleConnection())
+                {
+                    OracleCommand cmd = con.CreateCommand();
+                    cmd.CommandText = SQLStatement.SelectSQL_basname;
+                    cmd.BindByName = true;
+                    cmd.Parameters.Add("bas_name", OracleDbType.Varchar2).Value = (sender as TextBox).Text;
+
+                    string name = (string)cmd?.ExecuteScalar() ?? string.Empty;
+                    ctl.Text = name;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private Control SetControlByName(Control control, TextBox text)
+        {
+            string[] ctl_name = text.Name.Split('_');
+            string name = ctl_name[0] + "_papp_empno";
+
+            Control[] ctl = control.Controls.Find(name, true);
+            return ctl.Length == 0 ? null : ctl[0];
+        }
+
         #endregion
     }
 }

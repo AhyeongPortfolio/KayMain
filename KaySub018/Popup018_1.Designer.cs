@@ -33,12 +33,6 @@ namespace KaySub018
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.check_eval = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.eval_year = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eval_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eval_period = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eval_sdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eval_edate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.qt_eval_year = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -86,6 +80,12 @@ namespace KaySub018
             this.ct_evalm_stage = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.check_eval = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.eval_year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eval_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eval_period = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eval_sdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eval_edate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -158,51 +158,6 @@ namespace KaySub018
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView3.Size = new System.Drawing.Size(376, 410);
             this.dataGridView3.TabIndex = 9;
-            // 
-            // check_eval
-            // 
-            this.check_eval.FalseValue = "0";
-            this.check_eval.FillWeight = 50F;
-            this.check_eval.HeaderText = "";
-            this.check_eval.IndeterminateValue = "0";
-            this.check_eval.Name = "check_eval";
-            this.check_eval.TrueValue = "1";
-            this.check_eval.Width = 5;
-            // 
-            // eval_year
-            // 
-            this.eval_year.DataPropertyName = "eval_year";
-            this.eval_year.HeaderText = "사원번호";
-            this.eval_year.Name = "eval_year";
-            this.eval_year.Width = 61;
-            // 
-            // eval_no
-            // 
-            this.eval_no.DataPropertyName = "eval_no";
-            this.eval_no.HeaderText = "평가차수";
-            this.eval_no.Name = "eval_no";
-            this.eval_no.Width = 61;
-            // 
-            // eval_period
-            // 
-            this.eval_period.DataPropertyName = "eval_period";
-            this.eval_period.HeaderText = "평가대상기간";
-            this.eval_period.Name = "eval_period";
-            this.eval_period.Width = 72;
-            // 
-            // eval_sdate
-            // 
-            this.eval_sdate.DataPropertyName = "eval_sdate";
-            this.eval_sdate.HeaderText = "평가가능기간(시작일)";
-            this.eval_sdate.Name = "eval_sdate";
-            this.eval_sdate.Width = 98;
-            // 
-            // eval_edate
-            // 
-            this.eval_edate.DataPropertyName = "eval_edate";
-            this.eval_edate.HeaderText = "평가가능기간(종료일)";
-            this.eval_edate.Name = "eval_edate";
-            this.eval_edate.Width = 98;
             // 
             // panel4
             // 
@@ -680,6 +635,51 @@ namespace KaySub018
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // check_eval
+            // 
+            this.check_eval.FalseValue = "0";
+            this.check_eval.FillWeight = 50F;
+            this.check_eval.HeaderText = "";
+            this.check_eval.IndeterminateValue = "0";
+            this.check_eval.Name = "check_eval";
+            this.check_eval.TrueValue = "1";
+            this.check_eval.Width = 5;
+            // 
+            // eval_year
+            // 
+            this.eval_year.DataPropertyName = "eval_year";
+            this.eval_year.HeaderText = "평가년도";
+            this.eval_year.Name = "eval_year";
+            this.eval_year.Width = 78;
+            // 
+            // eval_no
+            // 
+            this.eval_no.DataPropertyName = "eval_no";
+            this.eval_no.HeaderText = "평가차수";
+            this.eval_no.Name = "eval_no";
+            this.eval_no.Width = 78;
+            // 
+            // eval_period
+            // 
+            this.eval_period.DataPropertyName = "eval_period";
+            this.eval_period.HeaderText = "평가대상기간";
+            this.eval_period.Name = "eval_period";
+            this.eval_period.Width = 72;
+            // 
+            // eval_sdate
+            // 
+            this.eval_sdate.DataPropertyName = "eval_sdate";
+            this.eval_sdate.HeaderText = "평가가능기간(시작일)";
+            this.eval_sdate.Name = "eval_sdate";
+            this.eval_sdate.Width = 98;
+            // 
+            // eval_edate
+            // 
+            this.eval_edate.DataPropertyName = "eval_edate";
+            this.eval_edate.HeaderText = "평가가능기간(종료일)";
+            this.eval_edate.Name = "eval_edate";
+            this.eval_edate.Width = 98;
             // 
             // Popup018_1
             // 

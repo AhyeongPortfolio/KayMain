@@ -29,7 +29,10 @@ namespace KaySub019
                          AND a.evalm_tor = c.bas_empno(+)
                          AND a.evalm_year = d.eval_year
                          AND a.evalm_no = d.eval_no
-                         AND a.evalm_tor = :evalm_tor";
+                         AND a.evalm_tor = :evalm_tor
+                         AND a.evalm_year LIKE :evalm_year
+                         AND a.evalm_no LIKE :evalm_no
+                         AND a.evalm_type LIKE :evalm_type";
 
         
 

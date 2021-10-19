@@ -68,7 +68,11 @@ namespace KaySub019
 
                 cmd.CommandText = SQLStatement.SelectSQL;
                 cmd.Parameters.Add("evalm_tor", OracleDbType.Varchar2).Value = UserId;
+                cmd.Parameters.Add("evalm_year", OracleDbType.Varchar2).Value = "%" + qt_evalm_year + "%";
+                cmd.Parameters.Add("evalm_no", OracleDbType.Varchar2).Value = "%" + qt_evalm_no + "%";
+                cmd.Parameters.Add("evalm_type", OracleDbType.Varchar2).Value = "%" + qt_evalm_type + "%";
                 cmd.BindByName = true;
+                
                 
                 OracleDataReader dr = cmd.ExecuteReader();
                 query_sw = true; //*---SelectionChanged Event 발생을 회피하기 위해 (On)
