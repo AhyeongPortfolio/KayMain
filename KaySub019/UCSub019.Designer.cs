@@ -306,6 +306,7 @@ namespace KaySub019
             this.qt_tor_name.Name = "qt_tor_name";
             this.qt_tor_name.Size = new System.Drawing.Size(56, 21);
             this.qt_tor_name.TabIndex = 5;
+            this.qt_tor_name.Visible = false;
             // 
             // qt_evalm_type
             // 
@@ -340,6 +341,7 @@ namespace KaySub019
             this.label10.Size = new System.Drawing.Size(41, 12);
             this.label10.TabIndex = 1;
             this.label10.Text = "평가자";
+            this.label10.Visible = false;
             // 
             // qt_evalm_no
             // 
@@ -365,6 +367,7 @@ namespace KaySub019
             this.qt_evalm_tor.ReadOnly = true;
             this.qt_evalm_tor.Size = new System.Drawing.Size(46, 21);
             this.qt_evalm_tor.TabIndex = 2;
+            this.qt_evalm_tor.Visible = false;
             // 
             // label1
             // 

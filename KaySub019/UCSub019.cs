@@ -68,9 +68,9 @@ namespace KaySub019
 
                 cmd.CommandText = SQLStatement.SelectSQL;
                 cmd.Parameters.Add("evalm_tor", OracleDbType.Varchar2).Value = UserId;
-                cmd.Parameters.Add("evalm_year", OracleDbType.Varchar2).Value = "%" + qt_evalm_year + "%";
-                cmd.Parameters.Add("evalm_no", OracleDbType.Varchar2).Value = "%" + qt_evalm_no + "%";
-                cmd.Parameters.Add("evalm_type", OracleDbType.Varchar2).Value = "%" + qt_evalm_type + "%";
+                cmd.Parameters.Add("evalm_year", OracleDbType.Varchar2).Value = "%" + qt_evalm_year.Text + "%";
+                cmd.Parameters.Add("evalm_no", OracleDbType.Varchar2).Value = "%" + qt_evalm_no.Text + "%";
+                cmd.Parameters.Add("evalm_type", OracleDbType.Varchar2).Value = "%" + qt_evalm_type.Text + "%";
                 cmd.BindByName = true;
                 
                 

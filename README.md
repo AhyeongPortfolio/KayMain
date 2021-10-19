@@ -148,8 +148,8 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 ```
 - 사원의 개인정보를 입력, 수정 할 수 있음
 - 우편번호API 활용하여 주소 및 우편번호 검색
-
-
+- 인사 정보 신규 생성 시, 로그인 계정 생성 
+- 사원 번호 채번을 위한 시퀀스 생성(년도 + 000 + 시퀀스) 
 ```
 [주민번호 암호화 기능](#주민번호-비밀번호-암호화)  
 [인사 정보 생성 시, 계정 생성](#트리거-생성)
@@ -182,7 +182,7 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 ### 인사 발령 화면
 
 #### 인사발령 대장 관리
-![image](https://user-images.githubusercontent.com/50813232/137685622-e865c307-5b39-411e-b497-525f5cf41067.png)
+![image](https://user-images.githubusercontent.com/50813232/137824925-2b76c263-b891-46cd-add0-7d885bd514ba.png)
 ```
 - 인사 발령 할 때 사용 될 ‘인사발령번호’ 부여 (인사발령번호는 시퀀스를 활용하여 자동 부여)
 - 같은 일자나 같은 내용의 발령 내용을 그룹화
@@ -193,7 +193,132 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 </br>
 
 #### 인사발령 관리
+![image](https://user-images.githubusercontent.com/50813232/137824878-d7b1b72f-24c6-476d-b130-e8ba54129228.png)
+```
+- 보직에 변화가 있는 직원의 인사 이동 내용을 기재
+- 발령 이후 인사 기본 정보의 계약사항 정보도 변경
+- 로그인 한 사람의 정보로 발령권자의 이름을 자동으로 기입
+```
 
+</br>
+
+#### 인사발령 조회
+![image](https://user-images.githubusercontent.com/50813232/137825325-bda61585-6227-423e-a83b-9ab40083737e.png)
+
+```
+- 인사 발령 정보를 한 눈에 파악할 수 있음
+- 사원 번호와 발령 번호 뿐만 아니라 지정 된 날짜 사이에 일어난 발령 내역을 알기 위해 조건에 시행 일자를 추가
+- 특정 사원 번호로 검색 할 시, 오른쪽의 표에 사원의 발령 내역이 나타남
+```
+
+</br>
+
+#### 업무평가항목 및 기준 관리
+![image](https://user-images.githubusercontent.com/50813232/137827515-3e07babf-8be0-4f08-941d-7401c232d4e1.png)
+```
+- 업무평가를 위한 문항과 각 문항별 점수 관리를 위한 프로그램
+- 평가표 유형별로 검색을 할 수 있음(신규 추가 시 콤보박스에 추가됨)
+```
+
+</br>
+
+#### 업무평가진행 관리
+![image](https://user-images.githubusercontent.com/50813232/137828674-1916ae46-aecc-4a18-ad02-e53ac39f4a05.png)
+
+```
+- 업무평가 진행 기간을 따로 관리 해 주는 프로그램
+- 추후 업무평가 진행 시, 진행 관리의 데이터 기준으로 진행 할 예정
+```
+
+</br>
+
+#### 업무평가진행 관리
+![image](https://user-images.githubusercontent.com/50813232/137830692-d8a7091b-aa52-4385-a47f-4e8092ec1e1e.png)
+![image](https://user-images.githubusercontent.com/50813232/137830696-99c891c2-c299-407d-9528-4f7172357987.png)
+
+```
+
+- 평가기준 선택과 평가자와 피평가자를 선택하여 업무평가 대상자를 생성
+- 여러 명을 선택 할 수 있게 체크박스를 추가함
+- 평가 단계와 평가표 유형은 직접 입력 할 수 있게 하였음
+```
+
+</br>
+
+#### 업무 평가
+![image](https://user-images.githubusercontent.com/50813232/137844439-c20c8bd6-7bb1-45a1-bccc-174951d4e1c5.png)
+![image](https://user-images.githubusercontent.com/50813232/137846528-ecde14eb-26e3-46fc-bf0b-8998fa780ed3.png)
+```
+- 업무평가 실시 프로그램
+- 현재 로그인 되어있는 정보를 통해 해당 사원의 평가를 진행해야 할 정보를 보여줌
+- 평가 마감일이 임박했거나 지났는데 평가를 하지 않은 내용은 빨간색으로 강조 하였음
+- 앞서 그리드에서 평가를 해야할 컬럼(사원)을 더블 클릭하면 평가표가 나타남
+- 업무평가 항목 및 기준 관리에 추가하였던 내용 중 평가 유형에 따라 표현
+- 평가 항목을 반복문으로 row를 만들어 내고, 라벨을 추가하여 표를 만듦.
+- 평점에 해당하는 라벨을 클릭 시, 점수와 점수 합계 표현
+```
+
+</br>
+
+#### 업무평가 진행현황
+![image](https://user-images.githubusercontent.com/50813232/137859534-4532eb2d-c12b-450d-a9c3-7bffc3ec4691.png)
+
+```
+- 진행 중인 업무평가자들의 진행 현황을 볼 수 있음
+- 평가가 종료 되었지만 평가를 다 진행 하지 못한 데이터는 빨간색으로 강조를 하였음
+- 마지막으로 시행 한 평가 일자를 함께 띄워주어 언제 마지막으로 끝냈는지 알 수 있음
+```
+
+</br>
+
+#### 업무평가 진행 현황
+![image](https://user-images.githubusercontent.com/50813232/137859966-72b8e627-fa48-4536-9c53-5024308e3a2d.png)
+
+```
+- 진행 중인 업무평가자들의 진행 현황을 볼 수 있음
+- 평가가 종료 되었지만 평가를 다 진행 하지 못한 데이터는 빨간색으로 강조를 하였음
+- 마지막으로 시행 한 평가 일자를 함께 띄워주어 언제 마지막으로 끝냈는지 알 수 있음
+```
+
+</br>
+
+#### 업무평가 결과 조회
+![image](https://user-images.githubusercontent.com/50813232/137861486-b10825f7-c7af-4533-9ded-51f11b8473e8.png)
+![image](https://user-images.githubusercontent.com/50813232/137861506-a4421024-dba8-4f4c-8baa-edf084f63395.png)
+
+```
+- 관리자 계정으로 접속하면 모든 정보가 다 뜨는 반면, 다른 계정으로 접속 시, 로그인 된 계정 정보로 평가 결과를 조회할 수 있음
+- 자세한 사항은 더블클릭을 하여 확인 할 수 있음
+```
+
+
+***
+</br>
+
+#### 제 증명서 대장
+![image](https://user-images.githubusercontent.com/50813232/137850786-babf015a-2402-4f0f-ae84-fd64cc7f277a.png)
+```
+- 증명서 발급은 오른쪽의 입력란에 입력 후 공용 버튼 중 프린터 버튼을 클릭 시 번호 - 발급과 증명서 미리보기 창이 뜸
+- 재발급은 발급 내역을 선택하여 재발급 버튼 클릭으로 할 수 있음
+- 재발급 시, 발급일 기준 24시간 이내에 가능하며 이후에는 발급 실패 메시지 창이 뜸
+- Report-Viewer 을 사용하여 증명서를 제작하였음
+```
+</br>
+
+국문 증명서(경력 / 재직) </br>
+
+![image](https://user-images.githubusercontent.com/50813232/137850871-38236d70-28e4-4e20-a6cf-5642bacccdf6.png) 
+![image](https://user-images.githubusercontent.com/50813232/137850878-f1e830d9-9c44-4083-b7b5-4666c88a7a02.png)  
+
+영문 증명서(재직 / 경력) </br>
+
+![image](https://user-images.githubusercontent.com/50813232/137850892-94b96292-bfe9-48cf-938f-855aeb5072ba.png)
+![image](https://user-images.githubusercontent.com/50813232/137850902-ad75c745-25c5-4fcc-9909-bc35c8718429.png)
+
+   
+[Report-viewer](https://docs.microsoft.com/ko-kr/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started?view=sql-server-ver15) 활용
+
+</br>
 
 ## Ⅴ) 프로젝트 구현 기술
 
