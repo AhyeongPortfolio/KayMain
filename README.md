@@ -295,7 +295,8 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 ***
 </br>
 
-#### 제 증명서 대장
+### 증명서 발급
+
 ![image](https://user-images.githubusercontent.com/50813232/137850786-babf015a-2402-4f0f-ae84-fd64cc7f277a.png)
 ```
 - 증명서 발급은 오른쪽의 입력란에 입력 후 공용 버튼 중 프린터 버튼을 클릭 시 번호 - 발급과 증명서 미리보기 창이 뜸
@@ -317,6 +318,92 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 
    
 [Report-viewer](https://docs.microsoft.com/ko-kr/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started?view=sql-server-ver15) 활용
+
+</br>
+
+***
+
+</br>
+
+### 인원 현황 및 추이
+
+#### 부서, 직급별 인원 현황
+![image](https://user-images.githubusercontent.com/50813232/137864959-0a6c5c89-f916-41e0-b8fd-8b63b6299567.png)
+![image](https://user-images.githubusercontent.com/50813232/137865758-86156fb0-6452-4a96-ad68-3922cd8923bd.png)
+
+```
+* 2021.10.19 기준 부서, 직급별 인원 현황
+
+- 조회 날짜를 기준으로 재직 중인 사원들의 부서 혹은 직급별 인원수를 나타냄
+- 정확한 숫자를 보기 위한 그리드와 한 눈에 보기 위한 그래프 두 가지로 표현
+- 남자 비율과 여자 비율 그리고 총 합계를 마지막 row에 추가함
+- 같은 방식으로 제작하였음
+```
+
+</br>
+
+#### 재직 인원 추이
+![image](https://user-images.githubusercontent.com/50813232/137866655-e4902217-e078-44d0-ac57-1f7315d6fc52.png)
+
+```
+* 2020.01 부터 2021.10 까지 월별 추이
+
+- 조회 기간을 정하여 그 기간 동안의 재직 인원 추이를 나타냄
+- 입 · 퇴사 인원을 추가로 나타내어 그래프를 풍성하게 만듦
+```
+
+</br>
+
+#### 입사 · 사직 인원 추이
+![image](https://user-images.githubusercontent.com/50813232/138003674-a8000a62-4963-45d2-9b50-74e062e99eec.png)
+![image](https://user-images.githubusercontent.com/50813232/138003680-060a327a-fcb4-496b-b149-f7a574d2f620.png)
+
+```
+- 조회 기간을 정하여 그 기간 동안의 입사 인원 추이를 나타냄
+- 우측의 라디오버튼의 체크 된 특성에 따라 특정 기간 동안의 월별 인원수 혹은 년도 별 인원수로 나타냄
+- Null 값으로 나타나는 값을 0 으로 표현
+```
+
+</br>
+
+***
+ 
+ </br>
+
+### 코드 관리
+
+#### 그룹, 일반코드 관리
+![image](https://user-images.githubusercontent.com/50813232/138004088-120f0639-ad26-427e-9f45-e832442bc21e.png)
+   
+![image](https://user-images.githubusercontent.com/50813232/138004133-20a776b7-9d21-44c4-a387-b94854fc497b.png)
+
+```
+- 모든 코드가 동일한 형식을 취할 때 코드를 그룹화
+- 일반적인 코드는 코드 그룹화를 시킴
+- 분석 & 통계에 활용(조인할 때 편리함)
+```
+
+#### 부서코드 관리
+![image](https://user-images.githubusercontent.com/50813232/138004224-0c3934ae-2240-4c74-8527-d1da7e173583.png)
+
+```
+- 부가적으로 이것저것 붙는 코드인 부서 코드는 개별적으로 관리
+- 개별 코드로 만들 시 조인과 함수화가 단순해짐
+```
+
+### 공용 코드 검색 폼
+![image](https://user-images.githubusercontent.com/50813232/138004284-72011455-69d3-4b84-a926-9b19b13a91ee.png)
+![image](https://user-images.githubusercontent.com/50813232/138004293-6d78c9c9-2fa0-4d4b-84b0-1c6df90ad312.png)
+
+```
+- 공통적으로 검색되는 코드들을 따로 뽑아 form 을 제작함
+- 한 개의 데이터만 가져오는 창과 여러 개의 데이터를 가져올 수 있는 창을 각각 제작함
+- 따로 폼을 만들지 않아도 되는 이점이 있음
+```
+
+</br>
+
+***
 
 </br>
 
