@@ -410,11 +410,11 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 ## Ⅴ) 프로젝트 구현 기술
 
 #### 주민번호, 비밀번호 암호화
-* 주민번호 : 양방향 암호화(AES126)_실제 DB에 저장된 주민번호 모습
+* 주민번호 : 양방향 암호화(AES128)_실제 DB에 저장된 주민번호 모습
 
 ![image](https://user-images.githubusercontent.com/50813232/135437113-a8e82a6e-6261-4af0-a2ac-2e2cd31087bb.png)
 
-* 비밀번호 : 일방향(SHA526)암호화
+* 비밀번호 : 일방향(SHA512)암호화
 
 ![image](https://user-images.githubusercontent.com/50813232/135438275-6551a4a8-b118-4f59-9720-272cfdc96d52.png)
 
@@ -532,21 +532,18 @@ END SP_UCSUB025;
 
 </br>
 
-***
-
-</br>
-
-#### 코드 호출 함수 제작 및 활용
-
-* 코드로 저장 된 데이터들의 이름 호출을 위한 함수(예)
-
+*** 
 
 #### Delegate 활용
 
 * 증명서 발급 종류에 따른 증명서 폼을 띄울 때, 파라미터들을 넘기기 위해 사용.    
-* 부모폼의 파라미터들을 자식폼으로 DataSendEvent를 통해 넘겨줌.
+* 부모폼의 파라미터들을 자식폼으로 DataSendEvent를 통해 넘겨줌.   
+* 증명서 발급 대장에서 넘긴 파라미터들을 받아옴.    
+* DataSendEvent에서 호출 한 SetActiveValue함수로 파라미터를 받음.   
+
 
 ```C#
+//*-- 부모폼
 public delegate void DataPushEventHandler(string _value, string _value2, string _value3);
 
 public partial class Main : Form
@@ -571,9 +568,52 @@ public partial class Main : Form
 }
 ```
 
+``` C#
+//*-- 자식폼
+
+//******************************
+// 파라미터 받아오는 함수
+//******************************
+public void SetActiveValue(string _value, string _value2, string value3)
+{
+    Value1 = _value;
+    Value2 = _value2;
+    Value3 = _value3;
+}
+
+//...
+
+private string Value{ get; set; }  
+private string Value2 { get; set; }
+private string Value3 { get; set; }
+
+```
+
 </br>
 
+#### 우편번호 API
+</br>
+
+- 따로 우편번호, 주소 DB를 만들면 DB 용량을 많이 차지하고, 업데이트가 늦어 이를 보완하기위해 행정안전부 API를 사용 </br>
+- 사용할 정보인 도로명주소와 우편번호 데이터만 뽑아내어 사용 </br>
+
+![image](https://user-images.githubusercontent.com/50813232/138029973-d9a4175d-75f2-4380-90b6-5fbed13d1f7c.png)
+
 ***
+
+</br>
+
+#### Report-Viewer 
+
+- 증명서제작을 하기 위해 사용한 라이브러리 </br>
+- 데이터 세트는 ViewModle(get,set) 에서 받아옴 </br>
+- 파라미터를 받아와 우측의 리포트에 입력 </br>
+- 입력하는 값만큼 행이 늘어나는 테이블을 사용 </br>
+
+![image](https://user-images.githubusercontent.com/50813232/138043306-676c0989-16ef-4112-b10e-08e1125ce4d9.png)
+
+
+
 
 
 
