@@ -75,11 +75,12 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 
 #### C#
 
->* .dll 사용 
->* 중복기능의 함수화 및 Library 생성
->* 그리드뷰와 컨트롤 바인딩
 >* 비밀번호, 주민번호 암호화
+>* 공용 버튼
 >* Delegate 
+>* 우편번호 API 연동
+>* Report-Viewer 활용
+>* 중복기능의 함수화 및 Library 생성
 
 #### Oracle (PL/SQL)
 >* 트리거 사용
@@ -409,6 +410,8 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 
 ## Ⅴ) 프로젝트 구현 기술
 
+### 1. C#
+
 #### 주민번호, 비밀번호 암호화
 * 주민번호 : 양방향 암호화(AES128)_실제 DB에 저장된 주민번호 모습
 
@@ -465,7 +468,106 @@ static public string SetFuncBtn2(Button[] btn, string func)
 </br>
 
 *** 
+
+#### Delegate 활용
+
+* 증명서 발급 종류에 따른 증명서 폼을 띄울 때, 파라미터들을 넘기기 위해 사용.    
+* 부모폼의 파라미터들을 자식폼으로 DataSendEvent를 통해 넘겨줌.   
+* 증명서 발급 대장에서 넘긴 파라미터들을 받아옴.    
+* DataSendEvent에서 호출 한 SetActiveValue함수로 파라미터를 받음.   
+
+
+```C#
+//*-- 부모폼
+public delegate void DataPushEventHandler(string _value, string _value2, string _value3);
+
+public partial class Main : Form
+{ 
+    public DataPushEventHandler DataSendEvent;
+    private string value { get; set; } //---value 값 
+    private string value2 { get; set; } //---value2 값
+    private string value3 { get; set; } //---value3 값 
+    //...
+
+    //--- 증명서에 데이터 넘기는 함수
+    void func_sendData()
+    {
+        //--- 자식 폼 띄우는 명령어
+        Form2 frm2 = new Form2();
+        this.DataSendEvent += new DataPushEventHandler(frm2.SetActiveValue);
+        DataSendEvent(value, value2, value3);
+        frm2.ShowDialog();
+    }
+
+    //...
+}
+```
+
+``` C#
+//*-- 자식폼
+
+//******************************
+// 파라미터 받아오는 함수
+//******************************
+public void SetActiveValue(string _value, string _value2, string value3)
+{
+    Value1 = _value;
+    Value2 = _value2;
+    Value3 = _value3;
+}
+
+//...
+
+private string Value{ get; set; }  
+private string Value2 { get; set; }
+private string Value3 { get; set; }
+
+```
+***
+
 </br>
+
+#### 우편번호 API
+</br>
+
+- 따로 우편번호, 주소 DB를 만들면 DB 용량을 많이 차지하고, 업데이트가 늦어 이를 보완하기위해 행정안전부 API를 사용 </br>
+- 사용할 정보인 도로명주소와 우편번호 데이터만 뽑아내어 사용 </br>
+
+![image](https://user-images.githubusercontent.com/50813232/138029973-d9a4175d-75f2-4380-90b6-5fbed13d1f7c.png)
+
+***
+
+</br>
+
+#### Report-Viewer 
+
+- 증명서제작을 하기 위해 사용한 라이브러리 </br>
+- 데이터 세트는 ViewModle(get,set) 에서 받아옴 </br>
+- 파라미터를 받아와 우측의 리포트에 입력 </br>
+- 입력하는 값만큼 행이 늘어나는 테이블을 사용 </br>
+
+![image](https://user-images.githubusercontent.com/50813232/138043306-676c0989-16ef-4112-b10e-08e1125ce4d9.png)
+
+</br>
+
+***
+</br>
+
+#### 중복기능의 함수화 및 Library 생성
+
+- 중복되는 기능들을 함수화 시켜 각 폼 별로 똑같은 기능을 반복적으로 사용하지 않아도 됨.</br>
+- Library.dll을 참조하여 각 프로그램 별로 함수를 사용할 수 있음. </br>
+
+![image](https://user-images.githubusercontent.com/50813232/138049244-484163ae-be6c-474b-a904-8ba0a719dbf3.png)
+
+
+</br>
+
+***
+
+</br>
+
+### 2. Oracle(PL/SQL)   
 
 #### 트리거 생성
 
@@ -534,88 +636,32 @@ END SP_UCSUB025;
 
 *** 
 
-#### Delegate 활용
+#### 코드호출 함수 제작 및 활용 
 
-* 증명서 발급 종류에 따른 증명서 폼을 띄울 때, 파라미터들을 넘기기 위해 사용.    
-* 부모폼의 파라미터들을 자식폼으로 DataSendEvent를 통해 넘겨줌.   
-* 증명서 발급 대장에서 넘긴 파라미터들을 받아옴.    
-* DataSendEvent에서 호출 한 SetActiveValue함수로 파라미터를 받음.   
+- Select 문에서 조인을 통하여 불러낼 수 있음.   
+- Select 문을 짧게 줄이고자 함수 활용.   
+- 코드와 코드명을 자주 호출하여 함수를 제작하게 되었음.
 
+```sql
+CREATE OR REPLACE FUNCTION FN_GETCODE_1
+(
+    group_code VARCHAR2
+   ,code_num   VARCHAR2
+)
+RETURN VARCHAR2
+IS
+    code VARCHAR2(100);
+BEGIN
+    SELECT cd||':'||codnm
+    INTO code
+    FROM CD_TableName
+    WHERE grpcd = group_code
+    AND cd = code_num;
 
-```C#
-//*-- 부모폼
-public delegate void DataPushEventHandler(string _value, string _value2, string _value3);
-
-public partial class Main : Form
-{ 
-    public DataPushEventHandler DataSendEvent;
-    private string value { get; set; } //---value 값 
-    private string value2 { get; set; } //---value2 값
-    private string value3 { get; set; } //---value3 값 
-    //...
-
-    //--- 증명서에 데이터 넘기는 함수
-    void func_sendData()
-    {
-        //--- 자식 폼 띄우는 명령어
-        Form2 frm2 = new Form2();
-        this.DataSendEvent += new DataPushEventHandler(frm2.SetActiveValue);
-        DataSendEvent(value, value2, value3);
-        frm2.ShowDialog();
-    }
-
-    //...
-}
+    return code;
+END;
 ```
-
-``` C#
-//*-- 자식폼
-
-//******************************
-// 파라미터 받아오는 함수
-//******************************
-public void SetActiveValue(string _value, string _value2, string value3)
-{
-    Value1 = _value;
-    Value2 = _value2;
-    Value3 = _value3;
-}
-
-//...
-
-private string Value{ get; set; }  
-private string Value2 { get; set; }
-private string Value3 { get; set; }
-
-```
-
-</br>
-
-#### 우편번호 API
-</br>
-
-- 따로 우편번호, 주소 DB를 만들면 DB 용량을 많이 차지하고, 업데이트가 늦어 이를 보완하기위해 행정안전부 API를 사용 </br>
-- 사용할 정보인 도로명주소와 우편번호 데이터만 뽑아내어 사용 </br>
-
-![image](https://user-images.githubusercontent.com/50813232/138029973-d9a4175d-75f2-4380-90b6-5fbed13d1f7c.png)
-
-***
-
-</br>
-
-#### Report-Viewer 
-
-- 증명서제작을 하기 위해 사용한 라이브러리 </br>
-- 데이터 세트는 ViewModle(get,set) 에서 받아옴 </br>
-- 파라미터를 받아와 우측의 리포트에 입력 </br>
-- 입력하는 값만큼 행이 늘어나는 테이블을 사용 </br>
-
-![image](https://user-images.githubusercontent.com/50813232/138043306-676c0989-16ef-4112-b10e-08e1125ce4d9.png)
-
-
-
-
-
+결과(예시) : 001:인사부
 
 [//]: #  (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
