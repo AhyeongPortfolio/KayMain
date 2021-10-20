@@ -251,7 +251,6 @@ namespace KaySub018
             this.ct_evalm_tee.ReadOnly = true;
             this.ct_evalm_tee.Size = new System.Drawing.Size(98, 21);
             this.ct_evalm_tee.TabIndex = 78;
-            this.ct_evalm_tee.Visible = false;
             // 
             // ct_tee_name
             // 
@@ -260,7 +259,6 @@ namespace KaySub018
             this.ct_tee_name.Name = "ct_tee_name";
             this.ct_tee_name.Size = new System.Drawing.Size(102, 21);
             this.ct_tee_name.TabIndex = 6;
-            this.ct_tee_name.Visible = false;
             // 
             // ct_evalm_no
             // 
@@ -287,7 +285,6 @@ namespace KaySub018
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 2;
             this.label6.Text = "피평가자";
-            this.label6.Visible = false;
             // 
             // label4
             // 
