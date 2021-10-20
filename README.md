@@ -66,7 +66,7 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 - [x] 코드 관리
 - [x] 인사기록관리
 - [x] 인사변동관리
-- [ ] 업무평가(개발중)
+- [x] 업무평가
 - [x] 증명서 발급
 - [x] 현황 및 통계
 
