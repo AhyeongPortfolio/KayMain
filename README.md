@@ -306,17 +306,6 @@ Kwon Ahyeong(2021.10.06_update) [![Gmail Badge](https://img.shields.io/badge/Gma
 - Report-Viewer 을 사용하여 증명서를 제작하였음
 ```
 </br>
-
-국문 증명서(경력 / 재직) </br>
-
-![image](https://user-images.githubusercontent.com/50813232/137850871-38236d70-28e4-4e20-a6cf-5642bacccdf6.png) 
-![image](https://user-images.githubusercontent.com/50813232/137850878-f1e830d9-9c44-4083-b7b5-4666c88a7a02.png)  
-
-영문 증명서(재직 / 경력) </br>
-
-![image](https://user-images.githubusercontent.com/50813232/137850892-94b96292-bfe9-48cf-938f-855aeb5072ba.png)
-![image](https://user-images.githubusercontent.com/50813232/137850902-ad75c745-25c5-4fcc-9909-bc35c8718429.png)
-
    
 [Report-viewer](https://docs.microsoft.com/ko-kr/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started?view=sql-server-ver15) 활용
 
